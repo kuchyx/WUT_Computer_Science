@@ -1,0 +1,30 @@
+Z tablicy: https://studia.elka.pw.edu.pl
+If you want to discuss, come within 15 minutes
+classes to make some meetings to consult projects to discuss them
+3 projects to be completed, time table available on studio elka
+first project November 12 deadline, report should be submitted to the report module on the studia elka, tasks have already been distributed, check report on studia elka, you will get the task on PDF file. today quarter past four. then you will be given task to project assignment B and C, Statham is responsible for first two projects, Marusak last project
+first two assignment 15 points each
+last one 12 points
+assessed by the content, by report and possibly by the interview, up to the guys the handle projects, entire group has been split into 3 dates. If you want to come to the different group just let the guy know
+check two files from studia elka how to obtain Matlab, second one contains installation code. No need for full installation only basic module will do.
+Tutorial - Matlab Primer
+1. Start Matlab
+2. Study material from Tatjewski book
+3. Get acquainted with Matlab
+4. Learn how to debug (Step by fashion)
+
+Project A
+4 Tasks to be completed
+1. Calculate the machine epsilon (Deliver a lot of background, theoretical findings necessary to deliver solution to the given task, The Definition of machine epsilon, Practical applications, Theoretical grounds on which you are going to design your algorithm which calculates the epsilon, the value of the epsilon should be verified (Best verification is to calculate manually, use some formula, take the value of machine epsilon from mathematical formula, maybe from some documentation maybe there is some standard, maybe Matlab has formula for it))
+
+2.System of linear equations: First method is Gaussian elimination with partial pivoting, second with full. Discuss Gaussian elimination, do we need pivoting, can we apply it without pivoting, if so under what conditions, trade off between partial and full pivoting, maybe there is a gain, maybe there is a cost in accuracy, what kind of trade off we deal with, solution error of system of linear equation, discuss solution error. What is interesting is analysis of solution. This course is about analysis (Not implementing!). Take errors from graph and discuss them, for some it will be acceptable for other it will not be, (10^-8 vs 10^-2) what causes the big error, MOSTLY ASSESSED ANALYSIS NOT THE NUMBERS. Is it guessing or based on theory.
+
+3. Solving system of linear equations using iterative method. You don't have the guarantee how many iterations will reach the solutions. Issue of convergence, method may converge or not , based on what conditions give the condition, there is a sufficient condition there is necessary and sufficient conditions (which is slower). What happens if the sufficient condition is not fulfilled? Answer that. If the necessary condition is fulfilled what's going to happen. If the sufficient condition is fulfilled we know everything. If just necessary we don't know everything. Stop tests, when you are going to stop the process, well design, clarify in report
+
+4. Exercise is about calculating Eigen value (wartości własne). With shifts and without shifts. 2 algorithms to be implemented from book. You need to compare those algorithms performance ana accuracy generation and there is command eg and you can use this to produce them and then compare your solution with Matlab
+
+MOSTLY ABOUT ANALYSIS NOT CODING, scientifically grounded, if something goes wrong explain it.
+
+Bring preliminary reports before the deadline. (not obligatory but strong encouragement)
+
+Penalty for delivering after deadline: Lose 1 point per each late day.

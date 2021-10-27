@@ -1,0 +1,131 @@
+\documentclass{report}
+
+\usepackage{siunitx}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{bigfoot}
+\usepackage[numbered, framed]{matlab-prettifier}
+\usepackage{filecontents}
+\hypersetup{
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black
+linkto=all,
+}
+
+\newenvironment{simplechar}{%
+   \catcode`\^=12
+}{}
+
+\title{Numerical Methods, project A, Number 31}
+\author{Krzysztof Rudnicki\\ Student number: 307585 \\ Advisor: dr Adam Krzemieniowski}
+\date{\today}
+
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+
+\begin{document}
+
+
+\maketitle
+\tableofcontents
+
+\chapter{Introduction}
+
+\chapter{Problem 1 - Finding machine epsilion}
+
+\section{Problem}
+Write a program finding macheps in the MATLAB environment
+\subsection{Definition of machine epsilion}
+Machine epsilion is the maximal possible relative error of the floating-point representation. (Tatjewski, p.14)
+Machine epsilion is equal to $2^{-t}$ where t is number of bits in the mantissa.
+In our case when we use IEEE Standard 754, mantissa is 53 bits long with first bit omitted as it is always equal to '1', so we technicaly work with 52 bits mantissa which makes the machine epsilion equal to: $2^{-52} = 2.220446\mathrm{e}{-16}$
+
+\section{Solution}
+
+\subsection{Matlab code}
+\begin{lstlisting}
+macheps = 1;
+while 1.0 + macheps / 2 > 1.0
+    macheps = macheps/2;
+end
+\end{lstlisting}
+Code above shifts macheps one bit to the right each iteration (by dividing by 2), it ends when we run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
+
+\begin{simplechar}
+\begin{lstlisting}
+format long
+disp("Display calculated macheps:")
+disp(macheps);
+disp("Display actual eps:")
+disp(eps);
+disp("Display 2^-52)
+disp(2^-52)
+disp("Display difference between calculated macheps and actual eps:")
+disp(macheps - eps)
+disp("Display difference between 2^-52 and actual eps:")
+disp(2^-52 - eps)
+disp("Display difference between calculated macheps and 2^-52:")
+disp(macheps - 2^-52)
+\end{lstlisting}
+\end{simplechar}
+Display calculated macheps:
+     \[2.220446049250313\mathrm{e}{-16}\]
+
+Display actual eps:
+     \[2.220446049250313\mathrm{e}{-16}\]
+
+Display $2^{-52}$:
+     \[2.220446049250313\mathrm{e}{-16}\]
+
+Display difference between calculated macheps and actual eps:
+     0
+
+Display difference between $2^{-52}$ and actual eps:
+     0
+
+Display difference between calculated macheps and $2^{-52}$:
+     0
+
+As expected they are all equal to eachother.
+\section{Discussion of the result}
+
+
+\chapter{Problem 2 - Solving a system of n linear equations - indicated method}
+
+\section{Problem}
+
+\section{Solution}
+
+\section{Discussion of the result}
+
+\chapter{Problem 3 - Solving a system of n linear equations - iterative algorithm}
+
+\section{Problem}
+
+\section{Solution}
+
+\section{Discussion of the result}
+\chapter{Problem 4 - QR method of finding eigenvalues}
+
+\section{Problem}
+
+\section{Solution}
+
+\section{Discussion of the result}
+
+\begin{thebibliography}{9}
+\bibitem{texbook}
+Piotr Tatjewski (2014) \emph{Numerical Methods}, Oficyna Wydawnicza Politechniki Warszawskiej
+\end{thebibliography}
+
+\end{document}

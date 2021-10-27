@@ -1,0 +1,19 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Problem 1 - Finding machine epsilion}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Problem}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Definition of machine epsilion}{section.2.1}% 4
+\BOOKMARK [1][-]{section.2.2}{Solution}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.2.1}{Matlab code}{section.2.2}% 6
+\BOOKMARK [1][-]{section.2.3}{Discussion of the result}{chapter.2}% 7
+\BOOKMARK [0][-]{chapter.3}{Problem 2 - Solving a system of n linear equations - indicated method}{}% 8
+\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.2}{Solution}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.3}{Discussion of the result}{chapter.3}% 11
+\BOOKMARK [0][-]{chapter.4}{Problem 3 - Solving a system of n linear equations - iterative algorithm}{}% 12
+\BOOKMARK [1][-]{section.4.1}{Problem}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.2}{Solution}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.3}{Discussion of the result}{chapter.4}% 15
+\BOOKMARK [0][-]{chapter.5}{Problem 4 - QR method of finding eigenvalues}{}% 16
+\BOOKMARK [1][-]{section.5.1}{Problem}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.2}{Solution}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.3}{Discussion of the result}{chapter.5}% 19
