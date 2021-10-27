@@ -1,5 +1,8 @@
 \documentclass{report}
 
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{systeme}
 \usepackage{siunitx}
 \usepackage[T1]{fontenc}
 \usepackage{hyperref}
@@ -39,17 +42,22 @@ linkto=all,
 \maketitle
 \tableofcontents
 
-\chapter{Introduction}
-
 \chapter{Problem 1 - Finding machine epsilion}
 
 \section{Problem}
 Write a program finding macheps in the MATLAB environment
+\section{Theoretical Introduction}
 \subsection{Definition of machine epsilion}
 Machine epsilion is the maximal possible relative error of the floating-point representation. (Tatjewski, p.14)
 Machine epsilion is equal to $2^{-t}$ where t is number of bits in the mantissa.
 In our case when we use IEEE Standard 754, mantissa is 53 bits long with first bit omitted as it is always equal to '1', so we technicaly work with 52 bits mantissa which makes the machine epsilion equal to: $2^{-52} = 2.220446\mathrm{e}{-16}$
 
+\subsection{Practical applications of machine epsilion}
+Since macheps is connected to IEEE754 standard it is always equal to the same number, which means that we can safely compare results from different machines without worrying about their individual errors.
+
+Macheps is also essential when we calculate cumulation of errors of given mathematical operation.
+
+\newpage
 \section{Solution}
 
 \subsection{Matlab code}
@@ -61,6 +69,7 @@ end
 \end{lstlisting}
 Code above shifts macheps one bit to the right each iteration (by dividing by 2), it ends when we run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
 
+\section{Discussion of the result}
 \begin{simplechar}
 \begin{lstlisting}
 format long
@@ -68,12 +77,12 @@ disp("Display calculated macheps:")
 disp(macheps);
 disp("Display actual eps:")
 disp(eps);
-disp("Display 2^-52)
+disp("Display 2^-52")
 disp(2^-52)
 disp("Display difference between calculated macheps and actual eps:")
 disp(macheps - eps)
 disp("Display difference between 2^-52 and actual eps:")
-disp(2^-52 - eps)
+disp(2^-52 - eps) \
 disp("Display difference between calculated macheps and 2^-52:")
 disp(macheps - 2^-52)
 \end{lstlisting}
@@ -88,21 +97,36 @@ Display $2^{-52}$:
      \[2.220446049250313\mathrm{e}{-16}\]
 
 Display difference between calculated macheps and actual eps:
-     0
+     \[0\]
 
 Display difference between $2^{-52}$ and actual eps:
-     0
+          \[0\]
 
 Display difference between calculated macheps and $2^{-52}$:
-     0
+         \[0\]
 
-As expected they are all equal to eachother.
-\section{Discussion of the result}
+As expected they are all equal to eachother. It means that our method of calculating macheps was correct.
 
 
 \chapter{Problem 2 - Solving a system of n linear equations - indicated method}
 
 \section{Problem}
+Write a program solving a system of \textit{n} linear equations Ax = b using the indicated method (Gaussian elimination with partial pivoting).
+
+\section{Theoretical Introduction}
+Gaussian elimination with partial pivoting consists of 3 main steps:
+\subsection{Transform system of equation into an upper-triangular matrix}
+We start with the system of linear equations looking like this:
+\begin{align*}
+a_{11}^{(1)} x_1 + a_{12}^{(1)}  x_2 + \cdots + a_{1n}^{(1)}  x_n &= b_1^{(1)}, \\
+a_{21}^{(1)} x_1 + a_{22}^{(1)}  x_2 + \cdots + a_{2n}^{(1)}  x_n &= b_2^{(1)}, \\
+&\vdotswithin{=} \\
+a_{n1}^{(1)} x_1 + a_{n2}^{(1)}  x_2 + \cdots + a_{nn}^{(1)}  x_n &= b_n^{(1)}, \\
+\end{align*}
+
+\subsection{Backward substitution}
+
+\subsection{Partial Pivoting}
 
 \section{Solution}
 
@@ -112,12 +136,16 @@ As expected they are all equal to eachother.
 
 \section{Problem}
 
+\section{Theoretical introduction}
+
 \section{Solution}
 
 \section{Discussion of the result}
 \chapter{Problem 4 - QR method of finding eigenvalues}
 
 \section{Problem}
+
+\section{Theoretical introduction}
 
 \section{Solution}
 

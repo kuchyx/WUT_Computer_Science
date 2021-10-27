@@ -1,0 +1,31 @@
+Useful links:
+
+Problem 1:
+https://stackoverflow.com/questions/27511349/how-to-calculate-machine-epsilon-in-matlab - How to calculate machine epsilion
+
+LaTeX related:
+https://latex-tutorial.com/symbols/text-formatting/ - Italics
+
+https://www.overleaf.com/learn/latex/Table_of_contents - Table of contents
+
+https://www.overleaf.com/learn/latex/Sections_and_chapters - Sections and chapters
+
+https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex - Bibliography management
+
+https://en.wikibooks.org/wiki/LaTeX/Title_Creation - Title Creation
+
+https://tex.stackexchange.com/questions/73862/how-can-i-make-a-clickable-table-of-contents - Clickable table of contents
+
+https://tex.stackexchange.com/questions/75116/what-can-i-use-to-typeset-matlab-code-in-my-document - Matlab in LaTeX
+
+https://tex.stackexchange.com/questions/269841/1-5e-10-style-scientific-notation-looks-ugly-in-latex-math-mode-how-can-i-forma - Pretty scientific notation LaTeX
+
+https://tex.stackexchange.com/questions/422197/latex-environment-to-write-in-plain-text-mode - How to treat special characters as simple characters (like '^')
+
+https://www.overleaf.com/learn/latex/Subscripts_and_superscripts - Subscripts and superscripts latex
+
+https://tex.stackexchange.com/questions/32217/3-dots-in-matrix/32221 - 3 dots latex
+
+https://stackoverflow.com/questions/48240982/how-do-you-align-a-system-of-equations - System of equations latex
+
+https://tex.stackexchange.com/questions/526025/problem-with-vdotswithin - vdots alligned to equal sign

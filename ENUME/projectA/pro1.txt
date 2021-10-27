@@ -15,7 +15,11 @@ Tutorial - Matlab Primer
 
 Project A
 4 Tasks to be completed
-1. Calculate the machine epsilon (Deliver a lot of background, theoretical findings necessary to deliver solution to the given task, The Definition of machine epsilon, Practical applications, Theoretical grounds on which you are going to design your algorithm which calculates the epsilon, the value of the epsilon should be verified (Best verification is to calculate manually, use some formula, take the value of machine epsilon from mathematical formula, maybe from some documentation maybe there is some standard, maybe Matlab has formula for it))
+1. Calculate the machine epsilon (Deliver a lot of background,
+Theoretical findings necessary to deliver solution to the given task
+The Definition of machine epsilon 
+Practical applications
+The value of the epsilon should be verified (Best verification is to calculate manually, use some formula, take the value of machine epsilon from mathematical formula, maybe from some documentation maybe there is some standard, maybe Matlab has formula for it))
 
 2.System of linear equations: First method is Gaussian elimination with partial pivoting, second with full. Discuss Gaussian elimination, do we need pivoting, can we apply it without pivoting, if so under what conditions, trade off between partial and full pivoting, maybe there is a gain, maybe there is a cost in accuracy, what kind of trade off we deal with, solution error of system of linear equation, discuss solution error. What is interesting is analysis of solution. This course is about analysis (Not implementing!). Take errors from graph and discuss them, for some it will be acceptable for other it will not be, (10^-8 vs 10^-2) what causes the big error, MOSTLY ASSESSED ANALYSIS NOT THE NUMBERS. Is it guessing or based on theory.
 
