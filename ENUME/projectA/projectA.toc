@@ -10,17 +10,21 @@
 \contentsline {section}{\numberline {2.1}Problem}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Theoretical Introduction}{5}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Transform system of equation into an upper-triangular matrix}{5}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Backward substitution}{6}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Partial Pivoting}{6}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Solution}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Discussion of the result}{6}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Problem 3 - Solving a system of n linear equations - iterative algorithm}{7}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Problem}{7}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Theoretical introduction}{7}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Solution}{7}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Discussion of the result}{7}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Problem 4 - QR method of finding eigenvalues}{8}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Problem}{8}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Theoretical introduction}{8}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Solution}{8}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Discussion of the result}{8}{section.4.4}%
+\contentsline {subsubsection}{Starting conditions}{5}{section*.2}%
+\contentsline {subsubsection}{Zeroing first column}{6}{section*.3}%
+\contentsline {subsubsection}{Zeroing second column}{6}{section*.4}%
+\contentsline {subsubsection}{Zeroing next columns}{6}{section*.5}%
+\contentsline {subsection}{\numberline {2.2.2}Backward substitution}{7}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Partial Pivoting}{7}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Solution}{7}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Discussion of the result}{7}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Problem 3 - Solving a system of n linear equations - iterative algorithm}{8}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problem}{8}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Theoretical introduction}{8}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Solution}{8}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Discussion of the result}{8}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Problem 4 - QR method of finding eigenvalues}{9}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problem}{9}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Theoretical introduction}{9}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Solution}{9}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Discussion of the result}{9}{section.4.4}%

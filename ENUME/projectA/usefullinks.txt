@@ -29,3 +29,7 @@ https://tex.stackexchange.com/questions/32217/3-dots-in-matrix/32221 - 3 dots la
 https://stackoverflow.com/questions/48240982/how-do-you-align-a-system-of-equations - System of equations latex
 
 https://tex.stackexchange.com/questions/526025/problem-with-vdotswithin - vdots alligned to equal sign
+
+https://www.overleaf.com/learn/latex/Brackets_and_Parentheses - Curly brackets latex
+
+https://tex.stackexchange.com/questions/130516/how-to-write-something-vertically-below-another-math-symbol - Symbol vertically below another 
