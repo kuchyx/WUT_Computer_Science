@@ -32,4 +32,10 @@ https://tex.stackexchange.com/questions/526025/problem-with-vdotswithin - vdots 
 
 https://www.overleaf.com/learn/latex/Brackets_and_Parentheses - Curly brackets latex
 
-https://tex.stackexchange.com/questions/130516/how-to-write-something-vertically-below-another-math-symbol - Symbol vertically below another 
+https://tex.stackexchange.com/questions/130516/how-to-write-something-vertically-below-another-math-symbol - Symbol vertically below another
+
+https://tex.stackexchange.com/questions/103998/how-to-force-a-table-of-contents-to-start-new-page - new page at the start of chapter in table of contents
+
+https://www.codegrepper.com/code-examples/whatever/column+vector+latex - Vector in latex
+
+https://tex.stackexchange.com/questions/9901/how-to-have-matrices-side-by-side-in-latex - Matrices side by side in LaTeX

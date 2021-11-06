@@ -1,0 +1,38 @@
+\BOOKMARK [0][-]{chapter.1}{Problem 1 - Finding machine epsilion}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Problem}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Theoretical Introduction}{chapter.1}% 3
+\BOOKMARK [2][-]{subsection.1.2.1}{Definition of machine epsilion}{section.1.2}% 4
+\BOOKMARK [2][-]{subsection.1.2.2}{Practical applications of machine epsilion}{section.1.2}% 5
+\BOOKMARK [1][-]{section.1.3}{Solution}{chapter.1}% 6
+\BOOKMARK [2][-]{subsection.1.3.1}{Matlab code}{section.1.3}% 7
+\BOOKMARK [1][-]{section.1.4}{Discussion of the result}{chapter.1}% 8
+\BOOKMARK [0][-]{chapter.2}{Problem 2 - Solving a system of n linear equations - indicated method}{}% 9
+\BOOKMARK [1][-]{section.2.1}{Problem}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.2}{Theoretical Introduction}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.1}{Transform matrix into upper-triangular matrix}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.2}{Backward substitution}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.3}{Partial Pivoting}{section.2.2}% 14
+\BOOKMARK [1][-]{section.2.3}{Solution}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.3.1}{Main function}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.2}{checkIfMatrixIsSquareMatrix}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.3}{gaussianEliminationWithPartialPivoting}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.4}{partialPivoting}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.5}{partialPivotingSwapOneRow}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.6}{swapRowMatrix}{section.2.3}% 21
+\BOOKMARK [2][-]{subsection.2.3.7}{swapValueVector}{section.2.3}% 22
+\BOOKMARK [2][-]{subsection.2.3.8}{gaussianElimination}{section.2.3}% 23
+\BOOKMARK [2][-]{subsection.2.3.9}{substractRows}{section.2.3}% 24
+\BOOKMARK [2][-]{subsection.2.3.10}{backSubstitutionPhase}{section.2.3}% 25
+\BOOKMARK [2][-]{subsection.2.3.11}{iterativeResidualCorrection}{section.2.3}% 26
+\BOOKMARK [2][-]{subsection.2.3.12}{improveSolution}{section.2.3}% 27
+\BOOKMARK [1][-]{section.2.4}{Discussion of the result}{chapter.2}% 28
+\BOOKMARK [0][-]{chapter.3}{Problem 3 - Solving a system of n linear equations - iterative algorithm}{}% 29
+\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{Theoretical introduction}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.3}{Solution}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.4}{Discussion of the result}{chapter.3}% 33
+\BOOKMARK [0][-]{chapter.4}{Problem 4 - QR method of finding eigenvalues}{}% 34
+\BOOKMARK [1][-]{section.4.1}{Problem}{chapter.4}% 35
+\BOOKMARK [1][-]{section.4.2}{Theoretical introduction}{chapter.4}% 36
+\BOOKMARK [1][-]{section.4.3}{Solution}{chapter.4}% 37
+\BOOKMARK [1][-]{section.4.4}{Discussion of the result}{chapter.4}% 38

@@ -107,7 +107,6 @@ Display difference between calculated macheps and $2^{-52}$:
 
 As expected they are all equal to eachother. It means that our method of calculating macheps was correct.
 
-
 \chapter{Problem 2 - Solving a system of n linear equations - indicated method}
 
 \section{Problem}
@@ -115,7 +114,7 @@ Write a program solving a system of \textit{n} linear equations Ax = b using the
 
 \section{Theoretical Introduction}
 Gaussian elimination with partial pivoting consists of 3 main steps:
-\subsection{Transform system of equation into an upper-triangular matrix}
+\subsection{Transform matrix into upper-triangular matrix}
 
 \subsubsection{Starting conditions}
 We start with the system of linear equations looking like this:
@@ -134,7 +133,9 @@ We start with the system of linear equations looking like this:
 \end{matrix}
 \]
 
-In order for this method to work all the elements of "diagonal" line - $ a_{11}, a_{22}, \dots, a_{nn} $ must be different from zero since we will be dividing by them.
+In order for this method to work all the elements of "diagonal" line:
+\[ a_{11}, a_{22}, \dots, a_{nn} \]
+Must be different from zero since we will be dividing by them.
 
 We will denote rows as '$w_i$' where 'i' is number of the row.
 
@@ -222,25 +223,269 @@ We do it before each Gaussian elimination step since this will lead to smaller e
 
 Then we swap this row with k-th row. Since the matrix we use is assumed to be nonsingular then $|{a_{ik}^{k}}| \neq 0$ will be always true. After that we continue with the Gaussian elimination method.
 
+\newpage
 \section{Solution}
 
 \subsection{Main function}
 \begin{simplechar}
 \begin{lstlisting}
-function x = indicatedMethod(Matrix, Vector)
-    [~,Columns] = size(Matrix);
+function x = indicatedMethod(Matrix, Vector) % Name of the method as in the textbook
+% x stands for obtained result
+    [~,Columns] = size(Matrix); % We need to know how big the matrix is in next steps
+    % notice the '~', since we assume we use square matrix, we do not need
+    % to have another variable for number of rows since it is the same as
+    % number of columns
     checkIfMatrixIsSquareMatrix(Matrix);
     [Matrix, Vector] = gaussianEliminationWithPartialPivoting(Columns, Matrix, Vector);
+    % Change matrix to upper triangular matrix
     [Matrix, Vector, x] = backSubstitutionPhase(Columns, Matrix, Vector);
-    x = iterativeResidualCorrection(Matrix, x, Vector);
+    % Get the solution
+    x = iterativeResidualCorrection(Matrix, x, Vector); % Improve on the solution
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{checkIfMatrixIsSquareMatrix}
+\begin{simplechar}
+\begin{lstlisting}
+function checkIfMatrixIsSquareMatrix(Matrix)
+    [Rows,Columns] = size(Matrix);
+    if Rows ~= Columns
+        error ('Matrix is not square matrix!');
+    end % end if
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\newpage
+\subsection{gaussianEliminationWithPartialPivoting}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, Vector] = gaussianEliminationWithPartialPivoting(Columns, Matrix, Vector)
+    for j = 1 : Columns
+            centralElement = max(Matrix(j:Columns,j));
+            % we stay in the same row (j) but we change columns, as in the
+            % textbook
+            [Matrix, Vector] = partialPivoting(Matrix, Vector, j, centralElement, Columns);
+            % ensures that a_kk != 0 and reduces errors
+            [Matrix, Vector] = gaussianElimination(j, Columns, Matrix, Vector);
+            % change matrix into upper triangular matrix
+    end % end for
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{partialPivoting}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, Vector] = partialPivoting(Matrix, Vector, j, centralElement, Columns)
+    for k = j : Columns
+        partialPivotingSwapOneRow(Matrix, Vector, j, k, centralElement);
+    end % end for
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{partialPivotingSwapOneRow}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, Vector] = partialPivotingSwapOneRow(Matrix, Vector, j, k, centralElement)
+    if Matrix(k,j) == centralElement
+    swapRowMatrix(Matrix, j, k); % swap jth row with kth row
+    swapValueVector(Vector, j, k); % swap jth value with kth value
+    end % end if
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\newpage
+\subsection{swapRowMatrix}
+\begin{simplechar}
+\begin{lstlisting}
+function Matrix = swapRowMatrix(Matrix, j, k)
+    temp =  Matrix(j , :); % ' : ' denote "all elements in jth row"
+    Matrix(j , :) = Matrix(k, :);
+    Matrix(k, :) = temp; % temp equal to previous value of jth row
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{swapValueVector}
+\begin{simplechar}
+\begin{lstlisting}
+function Vector = swapValueVector(Vector, j, k)
+    temp = Vector(j);
+    Vector(j) = Vector(k);
+    Vector(k) = temp;  % temp equal to previous value of k element of vector
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{gaussianElimination}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, Vector] = gaussianElimination(j, Columns, Matrix, Vector)
+    for i = j + 1 : Columns
+        rowMultiplier = Matrix(i,j) / Matrix(j,j);
+        [Matrix, Vector] = substractRows(Matrix, Vector, i, rowMultiplier, j, Columns);
+    end % end for
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{substractRows}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, Vector] = substractRows(Matrix, Vector, i, rowMultiplier, j, Columns)
+    Vector(i) = Vector(i) - rowMultiplier * Vector(j);
+    for curentColumn = 1 : Columns
+        Matrix(i,curentColumn) = Matrix(i,curentColumn) - rowMultiplier * Matrix(j, curentColumn);
+    end % end for
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\newpage
+\subsection{backSubstitutionPhase}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, Vector, x] = backSubstitutionPhase(Columns, Matrix, Vector)
+    for k = Columns : -1 : 1
+    % Start at final column and move by -1 each iteration until we reach 1
+        equation = 0;
+        for j = k+1 : Columns
+            equation = equation + Matrix(k,j) * x(j, 1);
+            % even though x is a vector we still need to put '1' to ensure
+            % that number of columns in the first matrix matches number of
+            % rows in second matrix
+        end % end for
+
+        x(k, 1) = (Vector(k,1) - equation) / Matrix(k,k);
+        % even though x is a vector we still need to put '1' to ensure
+        % that we do not exceed array bounds
+    end % end for
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{iterativeResidualCorrection}
+\begin{simplechar}
+\begin{lstlisting}
+function x = iterativeResidualCorrection(Matrix, x, Vector)
+    residuum = Matrix*x - Vector; % as in the book
+    newResiduum = residuum;
+    x = improveSolution(x, newResiduum, residuum, Matrix, Vector);
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{improveSolution}
+\begin{simplechar}
+\begin{lstlisting}
+function x = improveSolution(x, newResiduum, oldResiduum, Matrix, Vector)
+    while newResiduum <= oldResiduum
+        oldResiduum = newResiduum;
+        residuum = Matrix*x - Vector;
+        x = x - residuum;
+        newResiduum = residuum;
+    end % end while
 end % end function
 \end{lstlisting}
 \end{simplechar}
 
 
-
 \section{Discussion of the result}
+Solutions vectors for matrix A and vector A and n = 16:
+\[ x_{algorithm} = \left( \begin{array}{cc}
+  -0.930056653761514 \\
+  -1.223503294617857 \\
+  -1.273786563425385 \\
+  -1.231189728991652 \\
+  -1.153115956882885 \\
+  -1.061491474990357 \\
+  -0.964691801421511 \\
+  -0.865917262607523 \\
+  -0.766393319734375 \\
+  -0.666596029928932 \\
+  -0.566728103385765 \\
+  -0.466921613561691 \\
+  -0.367370070632649 \\
+  -0.268521931669581 \\
+  -0.171529057709426 \\
+  -0.079398574792031
+\end{array} \right)
+%
+x_{Matlab Method} = \left(  = \begin{array}{cc}
+  -0.930056653761507 \\
+  -1.223503294617854 \\
+  -1.273786563425390 \\
+  -1.231189728991649 \\
+  -1.153115956882891 \\
+  -1.061491474990357 \\
+  -0.964691801421514 \\
+  -0.865917262607518 \\
+  -0.766393319734373 \\
+  -0.666596029928935 \\
+  -0.566728103385765 \\
+  -0.466921613561692 \\
+  -0.367370070632646 \\
+  -0.268521931669579 \\
+  -0.171529057709426 \\
+  -0.079398574792031
+\end{array} \right)
+\]
 
+Error for 'A' method for algorithm: \[ 3.383918772654241 \]
+Error for 'A' method for matlab method: \[ 3.383918772654241 \]
+\newpage
+Solutions vectors for matrix B and vector B and n = 16 (Both multiplied by $ 1.0e+17 $):
+\[ x_{algorithm} = \left( \begin{array}{cc}
+  0.000001960155675 \\
+  -0.000102773501571 \\
+  0.001959454282882 \\
+  -0.018894079120425 \\
+  0.104895022735396 \\
+  -0.352396798852209 \\
+  0.705545645736628 \\
+  -0.728747526649489 \\
+  0.112818247768452 \\
+  0.261440075930356 \\
+  0.953713133491034 \\
+  -3.080986443185790 \\
+  3.765178552913233 \\
+  -2.440218622397594 \\
+  0.834768953546100 \\
+  -0.118974790826378
+\end{array} \right)
+%
+x_{Matlab Method} = \left(  = \begin{array}{cc}
+  0.000001102587209 \\
+  -0.000066546298462 \\
+  0.001476714765758 \\
+  -0.016859999627589 \\
+  0.113920718370153 \\
+  -0.488374161741872 \\
+  1.368641128884513 \\
+  -2.495283439985873 \\
+  2.793405296264694 \\
+  -1.547642305352008 \\
+  -0.035332172403445 \\
+  0.154726025421297 \\
+  0.807694426359552 \\
+  -1.133485136703852 \\
+  0.592810708065954 \\
+  -0.115632364630554
+\end{array} \right)
+\]
+
+Error for 'B' method for algorithm: \[ 5.699979882700911e+17 \]
+Error for 'B' method for matlab method: \[ 4.569118543317684e+17 \]
+
+
+
+
+
+\addtocontents{toc}{\protect\newpage}
 \chapter{Problem 3 - Solving a system of n linear equations - iterative algorithm}
 
 \section{Problem}

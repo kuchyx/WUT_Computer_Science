@@ -1,0 +1,43 @@
+\contentsline {chapter}{\numberline {1}Problem 1 - Finding machine epsilion}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Problem}{3}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Theoretical Introduction}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Definition of machine epsilion}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Practical applications of machine epsilion}{3}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Solution}{4}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Matlab code}{4}{subsection.1.3.1}%
+\contentsline {section}{\numberline {1.4}Discussion of the result}{4}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Problem 2 - Solving a system of n linear equations - indicated method}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Problem}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Theoretical Introduction}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Transform matrix into upper-triangular matrix}{6}{subsection.2.2.1}%
+\contentsline {subsubsection}{Starting conditions}{6}{section*.2}%
+\contentsline {subsubsection}{Zeroing first column}{7}{section*.3}%
+\contentsline {subsubsection}{Zeroing second column}{7}{section*.4}%
+\contentsline {subsubsection}{Zeroing next columns}{7}{section*.5}%
+\contentsline {subsection}{\numberline {2.2.2}Backward substitution}{8}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Partial Pivoting}{8}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Solution}{9}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Main function}{9}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}checkIfMatrixIsSquareMatrix}{9}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}gaussianEliminationWithPartialPivoting}{10}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}partialPivoting}{10}{subsection.2.3.4}%
+\contentsline {subsection}{\numberline {2.3.5}partialPivotingSwapOneRow}{10}{subsection.2.3.5}%
+\contentsline {subsection}{\numberline {2.3.6}swapRowMatrix}{11}{subsection.2.3.6}%
+\contentsline {subsection}{\numberline {2.3.7}swapValueVector}{11}{subsection.2.3.7}%
+\contentsline {subsection}{\numberline {2.3.8}gaussianElimination}{11}{subsection.2.3.8}%
+\contentsline {subsection}{\numberline {2.3.9}substractRows}{11}{subsection.2.3.9}%
+\contentsline {subsection}{\numberline {2.3.10}backSubstitutionPhase}{12}{subsection.2.3.10}%
+\contentsline {subsection}{\numberline {2.3.11}iterativeResidualCorrection}{12}{subsection.2.3.11}%
+\contentsline {subsection}{\numberline {2.3.12}improveSolution}{12}{subsection.2.3.12}%
+\contentsline {section}{\numberline {2.4}Discussion of the result}{13}{section.2.4}%
+\newpage 
+\contentsline {chapter}{\numberline {3}Problem 3 - Solving a system of n linear equations - iterative algorithm}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problem}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Theoretical introduction}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Solution}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Discussion of the result}{15}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Problem 4 - QR method of finding eigenvalues}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problem}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Theoretical introduction}{16}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Solution}{16}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Discussion of the result}{16}{section.4.4}%
