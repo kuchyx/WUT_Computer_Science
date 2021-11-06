@@ -224,6 +224,21 @@ Then we swap this row with k-th row. Since the matrix we use is assumed to be no
 
 \section{Solution}
 
+\subsection{Main function}
+\begin{simplechar}
+\begin{lstlisting}
+function x = indicatedMethod(Matrix, Vector)
+    [~,Columns] = size(Matrix);
+    checkIfMatrixIsSquareMatrix(Matrix);
+    [Matrix, Vector] = gaussianEliminationWithPartialPivoting(Columns, Matrix, Vector);
+    [Matrix, Vector, x] = backSubstitutionPhase(Columns, Matrix, Vector);
+    x = iterativeResidualCorrection(Matrix, x, Vector);
+end % end function
+\end{lstlisting}
+\end{simplechar}
+
+
+
 \section{Discussion of the result}
 
 \chapter{Problem 3 - Solving a system of n linear equations - iterative algorithm}

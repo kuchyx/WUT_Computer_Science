@@ -1,1 +1,0 @@
-fileattrib debilMode.m
