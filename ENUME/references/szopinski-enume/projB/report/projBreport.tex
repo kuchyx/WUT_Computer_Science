@@ -1,0 +1,504 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multicol}
+\setlength{\parskip}{1em}
+
+\begin{document}
+
+	\title{ENUME project report\\Project B: finding roots of polynomials \\
+	and zeros of other functions}
+	\author{Michał Szopiński\\\\
+	https://github.com/Lachcim/szopinski-enume\\
+	Project number 60}
+	\date{December 3, 2020}
+	\maketitle
+	
+	\numberwithin{equation}{section}
+	
+	\setcounter{section}{-1}
+	\section{Abstract}
+	
+	This project explores the numerical methods of finding the arguments (real
+	and complex) for which a function is equal to zero. The following concepts
+	are discussed within this document:
+	
+	\begin{itemize}
+		\item Computing the zeros of an arbitrary function using the bisection
+		method and Newton's algorithm
+		\item Finding the real and complex roots of a
+		4\textsuperscript{th}-degree polynomial using M{\"u}ller's method and
+		Laguerre's algorithm
+	\end{itemize}
+	
+	\newpage
+	
+	\section{Task 1: Finding the zeros of an arbitrary function using bisection
+	and Newton's method}
+	
+	\subsection{Overview}
+	
+	In this task, the zeros of the following function were to be found:
+	\begin{align*}
+		f(x) = 0.7 x \cos(x) - \ln(x + 1) && x \in [2; 11]
+	\end{align*}
+	This was to be done using the bisection method and Newton's algorithm.
+	
+	\subsection{Implementation}
+	
+	\subsubsection{Bracketing}
+	
+	The basis for finding the roots of a function within a given interval is a
+	heuristic algorithm which finds the function's \textit {root brackets},
+	i.e. the regions where root-finding algorithms converge to an answer.
+	
+	In this project, bracketing was implemented by dividing the original search
+	interval into 10 sub-intervals and checking the sign of the function at
+	each of the sub-invervals' boundaries. A sign mismatch signalizes that the
+	function crosses the x-axis somewhere within the interval, which can then
+	be passed to a root-finding algorithm.
+	
+	\subsubsection{Bisection}
+	
+	Bisection is the simplest of root-finding algorithms. It can be thought of
+	as a variation of the bracketing method. The original root bracket is
+	divided into two sub-intervals and the next interval to be considered is
+	chosen based on sign mismatch, implementing a ``binary search" type of
+	approach. This step is repeated until the considered interval is
+	sufficiently narrow.
+	
+	\subsubsection{Newton's method}
+	
+	A much more advanced algorithm is known as Newton's method. This method
+	uses a linear approximation of the function at the given inquiry point to
+	predict where the function may be zero. The next inquiry point is given as
+	the intersection of the current tangent line and the x-axis.
+	
+	Because Newton's algorithm isn't strictly interval-based, a speed-based
+	stop test has to be implemented. The test analyzes the distance between the
+	current and the previous inquiry point and stops the algorithm when it is
+	sufficiently small.
+	
+	\subsection{Program output}
+	
+	\subsubsection{Bisection method}
+	
+	\begin{multicols}{2}
+		\begin{verbatim}
+			step     root     value at root
+			  1       5.15        -0.28874 
+			  2      5.375         0.46222 
+			  3     5.2625        0.091218 
+			  4     5.2063       -0.098017 
+			  5     5.2344       -0.003167 
+			  6     5.2484         0.04409 
+			  7     5.2414        0.020477 
+			  8     5.2379       0.0086585 
+			  9     5.2361       0.0027467 
+			 10     5.2353     -0.00020995 
+			 11     5.2357       0.0012684 
+			 12     5.2355      0.00052925 
+			 13     5.2354      0.00015965 
+			 14     5.2353     -2.5147e-05 
+			 15     5.2353      6.7253e-05 
+			 16     5.2353      2.1053e-05 
+			 17     5.2353     -2.0473e-06 
+			 18     5.2353      9.5027e-06 
+			 19     5.2353      3.7277e-06 
+			 20     5.2353      8.4017e-07 
+			 21     5.2353     -6.0359e-07 
+			 22     5.2353      1.1829e-07 
+			 23     5.2353     -2.4265e-07 
+			 24     5.2353     -6.2178e-08 
+			 25     5.2353      2.8056e-08 
+			 26     5.2353     -1.7061e-08 
+			 27     5.2353      5.4976e-09 
+			 28     5.2353     -5.7818e-09 
+			 29     5.2353      -1.421e-10 
+			 30     5.2353      2.6777e-09 
+			 31     5.2353      1.2678e-09 
+			 32     5.2353      5.6286e-10 
+			 33     5.2353      2.1038e-10 
+			 34     5.2353      3.4142e-11 
+			 35     5.2353      -5.398e-11 
+			 36     5.2353     -9.9194e-12 
+			 37     5.2353      1.2111e-11 
+			 38     5.2353      1.0942e-12 
+			 39     5.2353     -4.4122e-12 
+			 40     5.2353     -1.6607e-12 
+			 41     5.2353     -2.8288e-13 
+			 42     5.2353      4.0723e-13 
+			 43     5.2353      6.0618e-14 
+			 44     5.2353      -1.128e-13 
+			 45     5.2353     -2.5979e-14 
+			 46     5.2353      1.8652e-14 
+			 47     5.2353     -5.3291e-15 
+			 48     5.2353      6.6613e-15 
+			 49     5.2353      8.8818e-16 
+			 50     5.2353     -2.2204e-15 
+			 51     5.2353      8.8818e-16
+		\end{verbatim}
+	\end{multicols}
+	
+	\newpage
+	
+	\begin{multicols}{2}
+		\begin{verbatim}
+			step     root     value at root
+			  1       7.85         -2.1585 
+			  2      7.625        -0.94313 
+			  3     7.5125        -0.38047 
+			  4     7.4563         -0.1133 
+			  5     7.4281        0.016422 
+			  6     7.4422       -0.048105 
+			  7     7.4352       -0.015758 
+			  8     7.4316      0.00035306 
+			  9     7.4334      -0.0076972 
+			 10     7.4325      -0.0036708 
+			 11     7.4321      -0.0016585 
+			 12     7.4319     -0.00065265 
+			 13     7.4318     -0.00014977 
+			 14     7.4317      0.00010165 
+			 15     7.4317     -2.4062e-05 
+			 16     7.4317      3.8794e-05 
+			 17     7.4317       7.366e-06 
+			 18     7.4317     -8.3478e-06 
+			 19     7.4317     -4.9087e-07 
+			 20     7.4317      3.4376e-06 
+			 21     7.4317      1.4734e-06 
+			 22     7.4317      4.9124e-07 
+			 23     7.4317      1.8718e-10 
+			 24     7.4317     -2.4534e-07 
+			 25     7.4317     -1.2258e-07 
+			 26     7.4317     -6.1195e-08 
+			 27     7.4317     -3.0504e-08 
+			 28     7.4317     -1.5158e-08 
+			 29     7.4317     -7.4856e-09 
+			 30     7.4317     -3.6492e-09 
+			 31     7.4317      -1.731e-09 
+			 32     7.4317     -7.7191e-10 
+			 33     7.4317     -2.9237e-10 
+			 34     7.4317     -5.2595e-11 
+			 35     7.4317      6.7295e-11 
+			 36     7.4317      7.3497e-12 
+			 37     7.4317     -2.2622e-11 
+			 38     7.4317     -7.6343e-12 
+			 39     7.4317     -1.4255e-13 
+			 40     7.4317      3.6025e-12 
+			 41     7.4317      1.7319e-12 
+			 42     7.4317      7.9714e-13 
+			 43     7.4317      3.2552e-13 
+			 44     7.4317      8.9706e-14 
+			 45     7.4317     -2.3981e-14 
+			 46     7.4317      3.2419e-14 
+			 47     7.4317      3.9968e-15 
+			 48     7.4317     -7.9936e-15 
+			 49     7.4317               0 
+			 50     7.4317               0 
+		\end{verbatim}
+	\end{multicols}
+	
+	\subsubsection{Newton's method}
+	
+	\begin{multicols}{2}
+		\begin{verbatim}
+			step     root     value at root
+			 1        5.15        -0.28874 
+			 2      5.2349      -0.0012685 
+			 3      5.2353     -4.1974e-08 
+			 4      5.2353      8.8818e-16 
+			 5      5.2353      8.8818e-16 
+		\end{verbatim}
+		\begin{verbatim}
+			step     root     value at root
+			 1        7.85         -2.1585 
+			 2      7.4649        -0.15373 
+			 3      7.4321      -0.0017786 
+			 4      7.4317      -2.561e-07 
+			 5      7.4317     -7.9936e-15 
+			 6      7.4317               0 
+			 7      7.4317               0 
+		\end{verbatim}
+	\end{multicols}
+	
+	\subsubsection{Function plots with marked zeros}
+	
+	\includegraphics[width=\textwidth]{bisectzeros}
+	\includegraphics[width=\textwidth]{newtonzeros}
+	
+	\subsection{Observations}
+	
+	The self-evident observation is that the bisection method is excruciatingly
+	slow compared to Newton's method, achieving in 50 iterations what Newton's
+	algorithm was able to achieve in just 7.
+
+	One remark which cannot be concluded from this experiment is that the
+	bisection method is globally convergent, whereas Newton's algorithm only
+	converges to a finite value within a specific sphere of convergence around
+	the known root. As a matter of fact, given the right circumstances, Newton's
+	algorithm may even diverge to infinity.
+	
+	A good general root-finding algorithm should use a mixture of both methods,
+	resorting to the slower one when the faster one fails.
+	
+	\newpage
+	
+	\section{Task 2: Finding the real and complex roots of a polynomial using
+	M{\"u}ller's method}
+	
+	\subsection{Overview}
+	
+	The goal of this task was to find the real and complex roots of the
+	following polynomial:
+	\begin{equation*}
+		f(x) = x^4 - 7 x^3 - 4 x^2 + 2 x + 9
+	\end{equation*}
+	This was to be accomplished using both versions of M{\"u}ller's method
+	known as MM1 and MM2. In addition, the real roots of the polynomial were to
+	be found using Newton's	algorithm.
+	
+	\subsection{Implementation}
+	
+	\subsubsection{Bracketing}
+	
+	Because any bracket-finding algorithm is heuristic in nature and there's no
+	guarantee that it will identify all existing brackets, an empirical analysis
+	of the polynomial was performed to approximate its roots.
+	
+	The previously mentioned algorithm was used to find the polynomial's real
+	root brackets within the interval $[1; 7]$. However, the complex root evaded
+	algorithmic detection and its bracket had to be hardcoded as $[-1 + i; 0]$.
+	
+	\subsubsection{MM1}
+	
+	M{\"u}ller's method 1 is an interval-based iterative algorithm which is
+	similar in operation to the so-called method of splines. The spline method
+	draws a line connecting the intersection of the function with the currently
+	considered interval boundaries and calculates its intersection with the
+	x-axis, determining the boundary of the new interval.
+	
+	MM1 expands this idea by approximating the polynomial with a quadratic
+	function rather than a linear one, yielding better results. This also
+	enables the algorithm to find the complex roots of the polynomial, provided
+	a complex arithmetic is used. Roots found in this way come in complex
+	conjugate pairs.
+	
+	\subsubsection{MM2}
+	
+	The MM2 variant is identical in principle to MM1, except that it uses the
+	polynomial's first and second derivatives to calculate the approximating
+	parabola, which is minor performance improvement. Being a
+	point-of-inquiry-based algorithm, it implements a stop test identical to
+	that used in Newton's algorithm.
+	
+	\subsection{Program output}
+	
+	\subsubsection{Comparison of MM1 and MM2}
+	
+	\begin{multicols}{2}
+		\begin{verbatim}
+			MM1
+			step     root     value at root
+			 1         1.9          -7.7409
+			 2      1.6141       0.00074121
+			 3      1.6141       3.5387e-08
+			 4      1.6141       1.7764e-15
+			 5      1.6141       1.7764e-15
+			 
+			 
+			 1         6.1          -34.243
+			 2      6.2745         -0.18262
+			 3      6.2754      -0.00033662
+			 4      6.2754      -3.0579e-09
+			 5      6.2754      -4.2277e-13
+			 6      6.2754       1.2079e-13
+			 7      6.2754       1.2079e-13
+			 
+			 1         -0.5±0.5i     6.6002
+			 2 -0.43687±0.77299i     1.3929
+			 3  0.44529±0.82695i    0.10396
+			 4 -0.44472±0.83109i 0.00076461
+			 5 -0.44475±0.83109i 7.0057e-08
+			 6 -0.44475±0.83109i  1.986e-15
+			 7 -0.44475±0.83109i 6.6613e-16
+		\end{verbatim}
+		\begin{verbatim}
+			MM2
+			step     root     value at root
+			 1         1.9          -7.7409
+			 2      1.6079           0.1425
+			 3      1.6141       0.00014476
+			 4      1.6141      -5.0846e-11
+			 5      1.6141       1.7764e-15
+			 6      1.6141       1.7764e-15
+			 
+			 1         6.1          -34.243
+			 2      6.2931           3.8249
+			 3      6.2753         -0.01103
+			 4      6.2754      -9.1773e-09
+			 5      6.2754       1.2079e-13
+			 6      6.2754       9.0594e-14
+			 
+			 
+			 1         -0.5±0.5i     6.6002
+			 2 -0.43179±0.82848i    0.32746
+			 3 -0.44475±0.83109i 9.1408e-05
+			 4 -0.44475±0.83109i 8.0852e-12
+			 5 -0.44475±0.83109i 6.6613e-16
+			 6 -0.44475±0.83109i 6.6613e-16
+			 
+		\end{verbatim}
+	\end{multicols}
+	
+	\subsubsection{Real roots found using M{\"u}ller's method}
+	
+	\includegraphics[width=\textwidth]{mm1realroots}
+	\includegraphics[width=\textwidth]{mm2realroots}
+	
+	\subsubsection{Complex roots found using M{\"u}ller's method}
+	
+	\includegraphics[width=\textwidth]{mm1complexroots}
+	\includegraphics[width=\textwidth]{mm2complexroots}
+	
+	\newpage
+	\subsubsection{Comparison of MM2 and Newton's method}
+	
+		\begin{multicols}{2}
+		\begin{verbatim}
+			MM2
+			step     root     value at root
+			 1         1.9         -7.7409 
+			 2      1.6079          0.1425 
+			 3      1.6141      0.00014476 
+			 4      1.6141     -5.0846e-11 
+			 5      1.6141      1.7764e-15 
+			 6      1.6141      1.7764e-15 
+			 
+
+			 1         6.1         -34.243 
+			 2      6.2931          3.8249 
+			 3      6.2753        -0.01103 
+			 4      6.2754     -9.1773e-09 
+			 5      6.2754      1.2079e-13 
+			 6      6.2754      9.0594e-14 
+		\end{verbatim}
+		\begin{verbatim}
+			Newton's method
+			step     root     value at root
+			 1         1.9         -7.7409 
+			 2      1.6517        -0.88341 
+			 3       1.615       -0.019292 
+			 4      1.6141     -1.0035e-05 
+			 5      1.6141     -2.7409e-12 
+			 6      1.6141     -3.5527e-15 
+			 7      1.6141      1.7764e-15 
+			 
+			 1         6.1         -34.243  
+			 2      6.2931          3.8249  
+			 3      6.2755        0.033727  
+			 4      6.2754      2.7013e-06  
+			 5      6.2754      9.0594e-14  
+			 6      6.2754      9.0594e-14  
+		\end{verbatim}
+	\end{multicols}
+	
+	\subsubsection{Real roots found using Newton's method}
+	
+	\includegraphics[width=\textwidth]{newtonrealroots}
+	
+	\subsection{Observations}
+	
+	Both methods MM1 and MM2 proved to be similarly efficient in terms of the
+	number of iterations. MM2's advantage over MM1 is that an individual step
+	takes less time to compute, rather than there being fewer steps.
+	
+	MM2 also exhibited a similar number of steps to Newton's method. This is
+	because both methods have a similar order of convergence (1.84 for
+	M{\"u}ller's, 2 for Newton's). That said, MM2 has the obvious advantage of
+	being able to find complex roots as well as real roots, to the latter of
+	which Newton's method is limited.
+	
+	\newpage
+	\section{Task 3: Finding the real and complex roots of a polynomial using
+	Laguerre's method}
+	
+	\subsection{Overview}
+	
+	Task 2 was to be repeated using Laguerre's algorithm.
+	
+	\subsection{Implementation}
+	
+	Laguerre's algorithm is nearly identical to the MM2 algorithm, except that
+	it implements a custom formula for calculating the next point of inquiry,
+	which takes into account the order of the polynomial.
+	
+	\subsection{Program output}
+	
+	\subsubsection{Comparison of Laguerre's method and MM2}
+	
+	\begin{multicols}{2}
+		\begin{verbatim}
+			Laguerre's algorithm
+			step     root     value at root
+			 1         1.9          -7.7409
+			 2      1.6111         0.070341
+			 3      1.6141       7.0457e-06
+			 4      1.6141      -2.3448e-13
+			 5      1.6141       1.7764e-15
+			 6      1.6141       1.7764e-15
+			 
+			 1         6.1          -34.243
+			 2      6.2931           3.8249
+			 3      6.2753        -0.010849
+			 4      6.2754       2.7981e-07
+			 5      6.2754       9.0594e-14
+			 6      6.2754       9.0594e-14
+			 
+			 1         -0.5±0.5i     6.6002
+			 2 -0.44301±0.82854i    0.07705
+			 3 -0.44475±0.83109i 5.4048e-06
+			 4 -0.44475±0.83109i 7.2709e-14
+			 5 -0.44475±0.83109i 6.6613e-16
+			 6 -0.44475±0.83109i 6.6613e-16
+		\end{verbatim}
+		\begin{verbatim}
+			MM2
+			step     root     value at root
+			 1         1.9          -7.7409
+			 2      1.6079           0.1425
+			 3      1.6141       0.00014476
+			 4      1.6141      -5.0846e-11
+			 5      1.6141       1.7764e-15
+			 6      1.6141       1.7764e-15
+			 
+			 1         6.1          -34.243
+			 2      6.2931           3.8249
+			 3      6.2753         -0.01103
+			 4      6.2754      -9.1773e-09
+			 5      6.2754       1.2079e-13
+			 6      6.2754       9.0594e-14
+			 
+			 1         -0.5±0.5i     6.6002
+			 2 -0.43179±0.82848i    0.32746
+			 3 -0.44475±0.83109i 9.1408e-05
+			 4 -0.44475±0.83109i 8.0852e-12
+			 5 -0.44475±0.83109i 6.6613e-16
+			 6 -0.44475±0.83109i 6.6613e-16
+		\end{verbatim}
+	\end{multicols}
+	
+	\subsubsection{Function plot with marked zeros}
+	
+	\includegraphics[width=\textwidth]{laguerrerealroots}
+	\includegraphics[width=\textwidth]{laguerrecomplexroots}
+	
+	\subsection{Observations}
+	
+	Although generally considered better than MM2 (convergence order 3 vs 1.84),
+	in this case, Laguerre's method proved just as fast as MM2. It's very easy
+	to implement, it has a high convergence order and it's capable of finding
+	complex roots -- in short, Laguerre's method is one of the best methods
+	for finding roots of polynomials.
+	
+\end{document}
