@@ -226,6 +226,213 @@ Then we swap this row with k-th row. Since the matrix we use is assumed to be no
 \newpage
 \section{Solution}
 
+\section{Discussion of the result}
+Solutions vectors for matrix A and vector A and n = 16:
+\[ x_{algorithm} = \left( \begin{array}{cc}
+  -0.930056653761514 \\
+  -1.223503294617857 \\
+  -1.273786563425385 \\
+  -1.231189728991652 \\
+  -1.153115956882885 \\
+  -1.061491474990357 \\
+  -0.964691801421511 \\
+  -0.865917262607523 \\
+  -0.766393319734375 \\
+  -0.666596029928932 \\
+  -0.566728103385765 \\
+  -0.466921613561691 \\
+  -0.367370070632649 \\
+  -0.268521931669581 \\
+  -0.171529057709426 \\
+  -0.079398574792031
+\end{array} \right)
+%
+x_{Matlab Method} = \left(  = \begin{array}{cc}
+  -0.930056653761507 \\
+  -1.223503294617854 \\
+  -1.273786563425390 \\
+  -1.231189728991649 \\
+  -1.153115956882891 \\
+  -1.061491474990357 \\
+  -0.964691801421514 \\
+  -0.865917262607518 \\
+  -0.766393319734373 \\
+  -0.666596029928935 \\
+  -0.566728103385765 \\
+  -0.466921613561692 \\
+  -0.367370070632646 \\
+  -0.268521931669579 \\
+  -0.171529057709426 \\
+  -0.079398574792031
+\end{array} \right)
+\]
+
+Error for 'A' method for algorithm: \[ 3.383918772654241 \]
+Error for 'A' method for matlab method: \[ 3.383918772654241 \]
+\newpage
+Solutions vectors for matrix B and vector B and n = 16 (Both multiplied by $ 1.0e+17 $):
+\[ x_{algorithm} = \left( \begin{array}{cc}
+  0.000001960155675 \\
+  -0.000102773501571 \\
+  0.001959454282882 \\
+  -0.018894079120425 \\
+  0.104895022735396 \\
+  -0.352396798852209 \\
+  0.705545645736628 \\
+  -0.728747526649489 \\
+  0.112818247768452 \\
+  0.261440075930356 \\
+  0.953713133491034 \\
+  -3.080986443185790 \\
+  3.765178552913233 \\
+  -2.440218622397594 \\
+  0.834768953546100 \\
+  -0.118974790826378
+\end{array} \right)
+%
+x_{Matlab Method} = \left(  = \begin{array}{cc}
+  0.000001102587209 \\
+  -0.000066546298462 \\
+  0.001476714765758 \\
+  -0.016859999627589 \\
+  0.113920718370153 \\
+  -0.488374161741872 \\
+  1.368641128884513 \\
+  -2.495283439985873 \\
+  2.793405296264694 \\
+  -1.547642305352008 \\
+  -0.035332172403445 \\
+  0.154726025421297 \\
+  0.807694426359552 \\
+  -1.133485136703852 \\
+  0.592810708065954 \\
+  -0.115632364630554
+\end{array} \right)
+\]
+
+Error for 'B' method for algorithm: \[ 5.699979882700911e+17 \]
+Error for 'B' method for matlab method: \[ 4.569118543317684e+17 \]
+
+
+
+
+
+\addtocontents{toc}{\protect\newpage}
+\chapter{Problem 3 - Solving a system of n linear equations - iterative algorithm}
+
+\section{Problem}
+Write a general program for solving the system of n linear equations Ax = b using the Gauss-Seidel \textbf{and} Jacobi iterative algorithms.
+
+We are given following system:
+\[
+\systeme{10x_1-4x_2+x_3+2x_4=-8, 2x_1-6x_2+3x_3-x_4=-12, x_1+4x_2-12x_3+x_4=4, 2x_1+3x_2-3x_3-10x_4=1}
+\]
+
+Then we need to compare the results of iterations plotting norm of the solution error versus the iteration number \textbf{k}, untill we get accuracy better than $10^{-10}$.
+
+We should also try to solve the equations from problem 2a) and 2b) for n = 10 using iterative method of our choice.
+
+
+\section{Theoretical introduction}
+
+Itertaive methods differ from the Gauss elimination method since they are iterative, which means that our solution will improve with each iteration. Building on that we can cnclude that the number of iterations will depend on what accuracy we want to achieve.
+
+In general:
+We start with:
+ \textbf{$x^{(0)}$ } - being the best known approximation of the solution point
+
+And we generate next vectors  \textbf{$x^{i+1}$}  in such way:
+\[ \mathbf{x^{i+1}} = \mathbf{M}\mathbf{x^{(i)}} + \mathbf{w} \]
+
+Where $\mathbf{M}$ is some matrix.
+
+For both Jacobi and Gauss-Seidel method we first decompose starting matrix $ \mathbf{A} $ to:
+\[ \mathbf{A} = \mathbf{L} + \mathbf{D} + \mathbf{U} \]
+where:
+$ \mathbf{L} $ - Subdiagonal matrix
+$ \mathbf{D} $ - Diagonal matrix
+$ \mathbf{U} $ - Matrix with entries over the diagonal.
+
+For example:
+For:
+\[ \mathbf{A} = \begin{bmatrix}
+2 & 3 & 3\\
+1 & 2 & 3\\
+1 & 1 & 2
+\end{bmatrix}
+\]
+
+We can get:
+\[ \mathbf{L} = \begin{bmatrix}
+0 & 0 & 0\\
+1 & 0 & 0\\
+1 & 1 & 0
+\end{bmatrix}
+\]
+\[ \mathbf{D} = \begin{bmatrix}
+2 & 0 & 0\\
+0 & 2 & 0\\
+0 & 0 & 2
+\end{bmatrix}
+\]
+\[ \mathbf{U} = \begin{bmatrix}
+0 & 0 & 0\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{bmatrix}
+\]
+
+so:
+
+\[ \mathbf{A} = \mathbf{L} + \mathbf{D} + \mathbf{U} \]
+
+\[
+\begin{bmatrix}
+2 & 3 & 3\\
+1 & 2 & 3\\
+1 & 1 & 2
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 & 0 & 0\\
+1 & 0 & 0\\
+1 & 1 & 0
+\end{bmatrix}
++
+\begin{bmatrix}
+2 & 0 & 0\\
+0 & 2 & 0\\
+0 & 0 & 2
+\end{bmatrix}
++
+\begin{bmatrix}
+0 & 3 & 3\\
+0 & 0 & 3\\
+0 & 0 & 0
+\end{bmatrix}
+\]
+
+
+Since we are using iterative method we don't have the guarantee of how many iteratiosn will be neeeded before we reach the solution,
+we also need to resolve the issue of convergence, the method we use may converge or it may not. We need to find what condition the method converges. We know that there is a sufficient condition which is faster but not 100 \% correct, the sufficient and necessary condition is slower but 100 \% correct. We should also answer the question what happens if the sufficient condition is not fullfiled.
+We also need to desin stop tests, when are we going to stop the process
+\section{Solution}
+
+\section{Discussion of the result}
+\chapter{Problem 4 - QR method of finding eigenvalues}
+
+\section{Problem}
+
+\section{Theoretical introduction}
+
+\section{Solution}
+
+\section{Discussion of the result}
+
+\chapter{Code appendix}
+
+\section{Task 2 Code}
+
 \subsection{Main function}
 \begin{simplechar}
 \begin{lstlisting}
@@ -392,118 +599,6 @@ function x = improveSolution(x, newResiduum, oldResiduum, Matrix, Vector)
 end % end function
 \end{lstlisting}
 \end{simplechar}
-
-
-\section{Discussion of the result}
-Solutions vectors for matrix A and vector A and n = 16:
-\[ x_{algorithm} = \left( \begin{array}{cc}
-  -0.930056653761514 \\
-  -1.223503294617857 \\
-  -1.273786563425385 \\
-  -1.231189728991652 \\
-  -1.153115956882885 \\
-  -1.061491474990357 \\
-  -0.964691801421511 \\
-  -0.865917262607523 \\
-  -0.766393319734375 \\
-  -0.666596029928932 \\
-  -0.566728103385765 \\
-  -0.466921613561691 \\
-  -0.367370070632649 \\
-  -0.268521931669581 \\
-  -0.171529057709426 \\
-  -0.079398574792031
-\end{array} \right)
-%
-x_{Matlab Method} = \left(  = \begin{array}{cc}
-  -0.930056653761507 \\
-  -1.223503294617854 \\
-  -1.273786563425390 \\
-  -1.231189728991649 \\
-  -1.153115956882891 \\
-  -1.061491474990357 \\
-  -0.964691801421514 \\
-  -0.865917262607518 \\
-  -0.766393319734373 \\
-  -0.666596029928935 \\
-  -0.566728103385765 \\
-  -0.466921613561692 \\
-  -0.367370070632646 \\
-  -0.268521931669579 \\
-  -0.171529057709426 \\
-  -0.079398574792031
-\end{array} \right)
-\]
-
-Error for 'A' method for algorithm: \[ 3.383918772654241 \]
-Error for 'A' method for matlab method: \[ 3.383918772654241 \]
-\newpage
-Solutions vectors for matrix B and vector B and n = 16 (Both multiplied by $ 1.0e+17 $):
-\[ x_{algorithm} = \left( \begin{array}{cc}
-  0.000001960155675 \\
-  -0.000102773501571 \\
-  0.001959454282882 \\
-  -0.018894079120425 \\
-  0.104895022735396 \\
-  -0.352396798852209 \\
-  0.705545645736628 \\
-  -0.728747526649489 \\
-  0.112818247768452 \\
-  0.261440075930356 \\
-  0.953713133491034 \\
-  -3.080986443185790 \\
-  3.765178552913233 \\
-  -2.440218622397594 \\
-  0.834768953546100 \\
-  -0.118974790826378
-\end{array} \right)
-%
-x_{Matlab Method} = \left(  = \begin{array}{cc}
-  0.000001102587209 \\
-  -0.000066546298462 \\
-  0.001476714765758 \\
-  -0.016859999627589 \\
-  0.113920718370153 \\
-  -0.488374161741872 \\
-  1.368641128884513 \\
-  -2.495283439985873 \\
-  2.793405296264694 \\
-  -1.547642305352008 \\
-  -0.035332172403445 \\
-  0.154726025421297 \\
-  0.807694426359552 \\
-  -1.133485136703852 \\
-  0.592810708065954 \\
-  -0.115632364630554
-\end{array} \right)
-\]
-
-Error for 'B' method for algorithm: \[ 5.699979882700911e+17 \]
-Error for 'B' method for matlab method: \[ 4.569118543317684e+17 \]
-
-
-
-
-
-\addtocontents{toc}{\protect\newpage}
-\chapter{Problem 3 - Solving a system of n linear equations - iterative algorithm}
-
-\section{Problem}
-
-\section{Theoretical introduction}
-
-\section{Solution}
-
-\section{Discussion of the result}
-\chapter{Problem 4 - QR method of finding eigenvalues}
-
-\section{Problem}
-
-\section{Theoretical introduction}
-
-\section{Solution}
-
-\section{Discussion of the result}
 
 \begin{thebibliography}{9}
 \bibitem{texbook}

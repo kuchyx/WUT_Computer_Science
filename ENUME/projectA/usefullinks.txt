@@ -39,3 +39,11 @@ https://tex.stackexchange.com/questions/103998/how-to-force-a-table-of-contents-
 https://www.codegrepper.com/code-examples/whatever/column+vector+latex - Vector in latex
 
 https://tex.stackexchange.com/questions/9901/how-to-have-matrices-side-by-side-in-latex - Matrices side by side in LaTeX
+
+https://latex.wikia.org/wiki/Percent_sign_(LaTeX_symbol) - percentage sign latex
+
+https://tex.stackexchange.com/questions/508341/writing-a-system-of-linear-equations - Writing system of equations LaTeX
+
+https://www.overleaf.com/learn/latex/Matrices - matrixes latex
+
+https://tex.stackexchange.com/questions/294561/using-textbf-vs-mathbf-in-math-mode - mathbf vs textbf
