@@ -14,16 +14,16 @@
 	Project number 62}
 	\date{November 12, 2020}
 	\maketitle
-	
+
 	\numberwithin{equation}{section}
-	
+
 	\setcounter{section}{-1}
 	\section{Abstract}
-	
+
 	This project explores the numerical methods of solving systems of linear
 	equations and finding eigenvalues of matrices. The following concepts are
 	discussed within this document:
-	
+
 	\begin{itemize}
 		\item Computing the machine epsilon of an environment
 		\item Solving linear equation systems using Gaussian elimination with
@@ -33,22 +33,22 @@
 		\item Finding the eigenvalues of a symmetric matrix using the QR method
 		with and without shifts
 	\end{itemize}
-	
+
 	\newpage
-	
+
 	\section{Task 1: Computing the machine epsilon}
-	
+
 	\subsection{Overview}
-	
+
 	The goal of this task was to find the machine epsilon of the MATLAB
 	environment, i.e. the maximum relative error of a floating-point
 	representation of a number.
-	
+
 	\subsection{Implementation}
-	
+
 	The computation of the machine epsilon is based on the following two
 	observations:
-	
+
 	\begin{enumerate}
 		\item In binary computer environments, the epsilon is a negative power
 		of two.
@@ -59,43 +59,43 @@
 		i.e. the smallest representable number such that, when added to $1$,
 		has a floating point representation greater than $1$.
 	\end{enumerate}
-	
+
 	An arbitrary starting point, in this case $2^0$, can thus be chosen, and its
 	value can then be sequentially halved until the criterion $fl(1 + x) > 1$ is
 	no longer met.
-	
+
 	\subsection{Program output}
-	
+
 	\begin{verbatim}
 		Found epsilon is 2.2204e-16
 		Epsilon is 2.2204e-16
 	\end{verbatim}
-	
+
 	\subsection{Observations}
-	
+
 	An epsilon of $2.2204 \cdot 10^{-16} = 2^{-52}$ is indicative of a standard
 	double-precision IEEE 754 floating point binary representation.
-	
+
 	\newpage
-	
+
 	\section{Task 2: Solving systems of linear equations using Gaussian
 	elimination}
-	
+
 	\subsection{Overview}
-	
+
 	The task consisted of two subtasks, each specifying a different system
 	of equations to solve. The systems were to be solved using Gaussian
 	elimination with partial pivoting. The size of the system was sequentially
 	doubled until the computation time became prohibitive. The error of each
 	solution was to be noted.
-	
+
 	Additionally, for systems whose number of equations was equal to 10,
 	residual correction was to be applied and the solution was to be noted.
-	
+
 	The systems were given by:
 	\begin{align*}
 		&A_{ij}^{(a)} =
-		\begin{cases} 
+		\begin{cases}
 			4 & \text{for } i = j \\
 			1 & \text{for } i = j \pm 1 \\
 			0 & \text{otherwise}
@@ -106,27 +106,27 @@
 		&A_{ij}^{(b)} = \frac{6}{7(i + j + 1)}
 		&&
 		b_i^{(b)} =
-		\begin{cases} 
+		\begin{cases}
 			\frac{1}{3i} & \text{for even } i\\
 			0 & \text{for odd } i
 		\end{cases}
 	\end{align*}
-	
+
 	\subsection{Implementation}
-	
+
 	Gaussian elimination is a process that takes a matrix describing a linear
 	equation system and returns its LU (lower-upper) decomposition, enabling the
 	system to be cheaply solved for any vector $b$. The triangular matrices $L$
 	and $U$ can be supplemented with $b$ to find the solution vector $x$ through
 	a process called back-substitution.
-	
+
 	\subsubsection{LU decomposition of a matrix}
-	
+
 	The function \texttt{gausseli} takes an equation system and returns the $L$
 	matrix, the $U$ matrix, the permutation matrix $P$ as well as a matrix
 	describing the entire system post-elimination, to be immediately handed to
 	back-substitution for the calculation of the result.
-	
+
 	The elimination itself is done by traveling along the diagonal of
 	\texttt{eqsys} and for each encountered cell, eliminating (reducing to $0$)
 	the coefficients directly below it. The program does so by multiplying the
@@ -134,54 +134,54 @@
 	This constant, called \texttt{reductor} in the code, is given as the
 	ratio of the cell to be reduced and the current diagonal cell. The reductor
 	is then stored in the $L$ matrix.
-	
+
 	\subsubsection{Partial pivoting}
-	
+
 	The above algorithm alone is prone to errors when a value on the diagonal is
 	equal to $0$ and the reductor cannot be constructed. For this reason,
 	partial pivoting is added.
-	
+
 	For each cell on the diagonal, the program looks at the cells beneath it and
 	finds the one with the greatest absolute value. If it exceeds the absolute
 	value of the current cell, the corresponding two rows are swapped. This
 	ensures that the divisor making up the reductor is as far from zero as
 	possible.
-	
+
 	Because the input matrix changes while being decomposed, a permutation
 	matrix $P$ is introduced to enable its recomposition from $L$ and $U$,
 	satisfying the equation:
 	\begin{equation}
 		LU = PA
 	\end{equation}
-	
+
 	Finally, the matrix $L$ is also permuted to reflect changes in the layout
 	of the system.
-	
+
 	\subsubsection{Back-substitution}
-	
+
 	A triangular matrix supplied with a constant vector $b$ can be easily solved
 	by traveling along its diagonal and eliminating the factors directly above
 	the visited cell. In the end, the matrix is transformed into an identity
 	matrix and the vector alongside it is transformed into $x$.
-	
+
 	\subsubsection{Residual correction}
-	
+
 	Residual correction is a method of improving the accuracy of the results
 	obtained from Gaussian elimination. By reusing the already obrained matrices
 	$L$, $U$ and $P$, the system is solved once again, this time with $b$
 	replaced with the vector of errors of the solution. The resulting vector
 	$\delta x$ is then subtracted from the previous solution. This procedure may
 	be repeated as needed.
-	
+
 	\subsection{Program output}
-	
+
 	\subsubsection{Error plots}
-	
+
 	\includegraphics[width=\textwidth]{aerror}
 	\includegraphics[width=\textwidth]{berror}
-	
+
 	\subsubsection{Solutions for $n = 10$}
-	
+
 	\begin{multicols}{2}
 		\begin{verbatim}
 			Solution to subtask a:
@@ -250,37 +250,37 @@
 			Error: 0.00020161
 		\end{verbatim}
 	\end{multicols}
-	
+
 	\newpage
 	\subsection{Observations}
-	
+
 	Matrices from both subtasks a and b lent themselves nicely to being solved
 	using Gaussian elimination. Their absolute errors, when divided by the
 	solutions themselves, resulted in very small relative errors, nearing the
 	machine epsilon.
-	
+
 	The computation time became prohibitive beyond $n = 320$, showing that
 	Gaussian elimination is an effective method of solving large systems
 	of equations.
-	
+
 	Residual correction was very effective for the matrix from subtask a,
 	reducing the error to a perfect $0$. For subtask b, on the other hand, no
 	matter the amount of iterations, the error could not be reduced any further.
 	This might be related to a high condition number of the matrix,
 	$2.4225 \cdot 10^{14}$, prohibiting it from producing accurate enough
 	results.
-	
+
 	\newpage
 	\section{Task 3: Solving systems of linear equations using the Jacobi and
 	Gauss-Seidel algorithms}
-	
+
 	\subsection{Overview}
-	
+
 	In this task, a predefined, fixed-size system of equations was to be solved
 	using the Jacobi and Gauss-Seidel iterative algorithms. The algorithms were
 	to be iterated until the accuracy $\lVert Ax_k - b \rVert < 10^{-10}$ was
 	achieved. The error of each iteration was to be noted.
-	
+
 	The system to be solved:
 	\begin{align*}
 		18x_1 + 2x_2 - 3x_3 + x_4 & = 7\\
@@ -288,12 +288,12 @@
 		x_1 + 3x_2 + 13x_3 - 8x_4 & = 24\\
 		x_1 + x_2 - 2x_3 - 10x_4 & = 20
 	\end{align*}
-	
+
 	Afterwards, one of the algorithms was to be applied to matrices from task 2
 	a and b, for $n = 10$.
-	
+
 	\subsection{Implementation}
-	
+
 	The general formula describing iterative methods of solving linear equation
 	systems is:
 	\begin{equation}\label{eq:1}
@@ -301,41 +301,41 @@
 	\end{equation}
 	Where the matrix $M$ and the vector $w$ are specific to the chosen
 	algorithm.
-	
+
 	\subsubsection{The Jacobi algorithm}
-	
+
 	The first step of the Jacobi algorithm is to split the matrix $A$ into three
 	matrices: the lower triangular matrix, the upper triangular matrix and the
 	diagonal matrix.
-	
+
 	Because the diagonal matrix is only ever used in its inverse from, the
 	function doing the splitting only returns the inverse diagonal matrix. It
 	utilizes the fact that the inverse of a diagonal matrix is a matrix of the
 	inverse of its diagonal elements.
-	
+
 	Once the matrices $L$, $U$ and $D^{-1}$ have been obtained, the parameters
 	$M$ and $w$ are given by:
 	\begin{align*}
 		M &= -D^{-1}(L + U)\\
 		w &= D^{-1}b
 	\end{align*}
-	
+
 	The step described in \eqref{eq:1} is then performed until the desired
 	accuracy is achieved.
-	
+
 	\subsubsection{The Gauss-Seidel algorithm}
-	
+
 	The Gauss-Seidel algorithm is similar to the Jacobi algorithm in that it
 	utilizes the lower, upper and inverse diagonal matrices to calculate
 	subsequent iterations. An important difference is that $M$ and $w$ are not
 	constant and they cannot be trivially calculated.
-	
+
 	An iteration of the Gauss-Seidel algorithm can be written as:
 	\begin{align*}
 		Dx^{(i + 1)} &= -Lx^{(i + 1)} - (Ux^{(i)} - b)\\
 		&= -Lx^{(i + 1)} - w^{(i)}
 	\end{align*}
-	
+
 	The presence of $x^{(i + 1)}$ on both sides of the equation might appear
 	problematic, however, it's crucial to observe that individual elements of
 	the vector $x_n^{(i + 1)}$ can be calculated based solely on the knowledge
@@ -350,19 +350,19 @@
 		- w_3^{(i)}) \cdot D^{-1}_{33}\\
 		&\ldots
 	\end{align*}
-	
+
 	And so, on each step, the vector $w^{(i)}$ is calculated first, after which
 	the elements of $x_n^{(i + 1)}$ are computed in sequence.
-	
+
 	\subsection{Program output}
-	
+
 	\subsubsection{Error plots}
-	
+
 	\includegraphics[width=\textwidth]{jacobierror}
 	\includegraphics[width=\textwidth]{gaussseidelerror}
-	
+
 	\subsubsection{Solutions}
-	
+
 	\begin{multicols}{2}
 		\begin{verbatim}
 			Solution using Jacobi:
@@ -387,10 +387,10 @@
 			Error: 4.6134e-11
 		\end{verbatim}
 	\end{multicols}
-	
+
 	\begin{verbatim}
 		Solution to task 2a using Gauss-Seidel:
-		
+
 		 i          x_i
 		 1       0.8953
 		 2      0.71881
@@ -405,33 +405,33 @@
 
 		Error: 3.01e-11
 	\end{verbatim}
-	
+
 	\subsection{Observations}
-	
+
 	In both algorithms, the error of the solution decreased exponentially in
 	relation to the number of iterations.
-	
+
 	The Gauss-Seidel method proved to be faster than the Jacobi method, with the
 	desired accuracy achieved in just 32 iterations compared to 43.
-	
+
 	The matrix from task 2a was solved correctly. The 2b variant, however, could
 	not achieve the desired accuracy and the algorithm became stuck in a
 	loop, iterating infinitely in an attempt to reduce the error. This again
 	may be related to the high condition number of the matrix, or to the fact
 	that the measured error is absolute rather than relative.
-	
+
 	\section{Task 4: Finding the eigenvalues of a symmetric matrix using the QR
 	method}
-	
+
 	\subsection{Overview}
-	
+
 	The problem presented in this task was to find the eigenvalues of a
 	symmetric matrix by utilizing the properties of its QR decomposition. Two
 	variants of the algorithm were to be used, one with and one without shifting
 	the diagonal to accelerate the convergence. The algorithms were to be
 	iterated until the off-diagonal elements decreased below the threshold of
 	$10^{-6}$. The resultant final matrices were to be printed.
-	
+
 	The matrix of choice:
 	\begin{equation*}
 		\begin{bmatrix}
@@ -442,55 +442,55 @@
 			2 & 4 & 8 & 8 & 1
 		\end{bmatrix}
 	\end{equation*}
-	
+
 	\subsection{Implementation}
-	
+
 	The QR method is based on the observation that by repeatedly decomposing the
 	matrix into its orthogonal matrix $Q$ and triangular matrix $R$ and
 	recomposing it as $R * Q$, the matrix will converge into a diagonal matrix
 	of its eigenvalues by means of similarity.
-	
+
 	\subsubsection{QR decomposition using the Gram-Schmidt algorithm}
-	
+
 	The columns of the input matrix $A$ are orthogonalized with the modified
 	Gram-Schmidt algorithm, producing matrices $Q$ and $R$, which can later be
 	multiplied together to reverse the process.
-	
+
 	The algorithm iterates over the columns of A and orthogonalizes every column
 	in front of it with relation to the currently visited column. This is done
 	by calculating the dot product of the two columns and using it to subtract
 	the ``common part" from the second column. The matrix $Q$ is produced in the
 	process, as well as $R$ as a byproduct.
-	
+
 	\subsubsection{QR method without shifts}
-	
+
 	The QR method for finding the eigenvalues of a matrix without shifts is a
 	naive implementation of the observation described at the beginning of this
 	section. The matrix is repeatedly decomposed and recomposed until its
 	off-diagonal elements converge below the prescribed threshold.
-	
+
 	\subsubsection{QR method with shifts}
-	
+
 	The QR method may be accelerated by shifting the diagonal of the matrix
 	towards an approximation of the expected eigenvalues. The required shift can
 	be calculated by finding the eigenvalues of the lower right $2 \times 2$
 	sub-matrix and choosing the one closer to the lower right corner of said
 	sub-matrix.
-	
+
 	The eigenvalues of the sub-matrix can be found by solving the characteristic
 	equation of the sub-matrix, $\det{(A - \lambda I)} = 0$. This will result in
 	a quadratic equation whose solutions are guaranteed to be real for a
 	symmetric matrix.
-	
+
 	This shift is applied on every iteration of the algorithm. Once all
 	non-diagonal values of the lowermost row of the matrix have decreased below
 	the threshold, the matrix is deflated, i.e. its size is reduced by one in
 	both dimensions. The algorithm stops once the matrix can't be deflated any
 	further.
-	
+
 	\newpage
 	\subsection{Program output}
-	
+
 	\begin{verbatim}
 	Solution using QR without shifts:
 	   23.3571   -9.3695   -7.8773    5.0307   -1.1410
@@ -503,7 +503,7 @@
 	   0.0000    0.0000    0.0000    0.0000   -1.1410
 
 	Iteration count: 75
-	
+
 	Solution using QR with shifts:
 	   5.0307   -1.1410   -7.8773   -9.3695   23.3571
 
@@ -516,10 +516,10 @@
 
 	Iteration count: 9
 	\end{verbatim}
-	
+
 	\subsection{Observations}
-	
+
 	The addition of shifting greatly improved the convergence ratio and the same
 	values could be obtained in just 9 iterations instead of 75.
-	
+
 \end{document}

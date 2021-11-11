@@ -9,7 +9,7 @@ function [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag] = 
     [L, D, U] = decomposeMatrix(Matrix);
     initial_x = ones(Rows, 1);
     whichIterationAreWeOn = 0;
-    demandedTolerance = 1e-10;
+    demandedTolerance = 1e-10; % as per task description
     flag = 0;
 end
 
@@ -24,7 +24,7 @@ function [L, D, U] = decomposeMatrix(Matrix)
 end
 
 function [x, whichIterationAreWeOn, demandedTolerance]  = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag)
-    while flag ~= 1
+    while flag ~= 1 % flag denotes whether norm(Matrix*x-Vector) <= demandedTolerance
         [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector);
     end
 end
@@ -42,16 +42,16 @@ function x = jacobiEquation(D, L, U, initial_x, Vector)
 end
 
 function [flag, demandedTolerance] = checkError(x, initial_x, demandedTolerance, Matrix, Vector)
-        flag = 0;
-        currentError = norm(x - initial_x);
-        if currentError <= demandedTolerance
-            currentError = norm(Matrix*x-Vector);
-            if currentError <= demandedTolerance
-                flag = 1;
-            else 
-                demandedTolerance = demandedTolerance * 2;
-            end
+    flag = 0;
+    currentError = norm(x - initial_x);
+    if currentError <= demandedTolerance
+        currentError = norm(Matrix*x-Vector);
+        if currentError <= demandedTolerance % if sequence as per textbook
+            flag = 1;
+        else 
+            demandedTolerance = demandedTolerance * 2; % arbitrary value
         end
+    end
 end
 
 function [initial_x, whichIterationAreWeOn, flag] = endOfLoop(x, whichIterationAreWeOn)
@@ -60,8 +60,6 @@ function [initial_x, whichIterationAreWeOn, flag] = endOfLoop(x, whichIterationA
     flag = 0;
 end
  
-
-
 function dispFinalResults(demandedTolerance, whichIterationAreWeOn, Matrix, Vector)
     disp("Final demandedTolerance");
     disp(demandedTolerance);

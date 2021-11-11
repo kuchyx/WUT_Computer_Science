@@ -39,3 +39,13 @@
 \BOOKMARK [2][-]{subsection.5.1.10}{backSubstitutionPhase}{section.5.1}% 39
 \BOOKMARK [2][-]{subsection.5.1.11}{iterativeResidualCorrection}{section.5.1}% 40
 \BOOKMARK [2][-]{subsection.5.1.12}{improveSolution}{section.5.1}% 41
+\BOOKMARK [1][-]{section.5.2}{Task 3e code}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.2.1}{jacobiMethod}{section.5.2}% 43
+\BOOKMARK [2][-]{subsection.5.2.2}{initializeValues}{section.5.2}% 44
+\BOOKMARK [2][-]{subsection.5.2.3}{decomposeMatrix}{section.5.2}% 45
+\BOOKMARK [2][-]{subsection.5.2.4}{jacobiLoop}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.5}{jacobiInsideLoop}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.6}{jacobiEquation}{section.5.2}% 48
+\BOOKMARK [2][-]{subsection.5.2.7}{checkError}{section.5.2}% 49
+\BOOKMARK [2][-]{subsection.5.2.8}{endOfLoop}{section.5.2}% 50
+\BOOKMARK [2][-]{subsection.5.2.9}{dispFinalResults}{section.5.2}% 51
