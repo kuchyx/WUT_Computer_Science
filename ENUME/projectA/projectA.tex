@@ -54,7 +54,7 @@ Machine epsilion is equal to $2^{-t}$ where t is number of bits in the mantissa.
 In our case when We use IEEE Standard 754, mantissa is 53 bits long with first bit omitted as it is always equal to '1', so We technicaly work with 52 bits mantissa which makes the machine epsilion equal to: $2^{-52} = 2.220446\mathrm{e}{-16}$
 
 \subsection{Practical applications of machine epsilion}
-Since macheps is connected to IEEE754 standard it is always equal to the same number, which means that We can safely compare results from different machines without worrying about their individual errors.
+Since macheps is connected to IEEE754 standard it is always equal to the same number, which means that we can safely compare results from different machines without worrying about their individual errors. Before standards, everyone could use any way of representing floats.
 
 Macheps is also essential when We calculate cumulation of errors of given mathematical operation.
 
@@ -224,8 +224,14 @@ We do it before each Gaussian elimination step since this will lead to smaller e
 
 Then We swap this row with k-th row. Since the matrix We use is assumed to be nonsingular then $|{a_{ik}^{k}}| \neq 0$ will be always true. After that We continue with the Gaussian elimination method.
 
-\section{Discussion of the result}
-Solutions vectors for matrix A and vector A and n = 10:
+Let's compare full pivoting to partial pivoting.
+Full pivoting carries more computational load. It comes from the fact that:
+In full pivoting we need to compare absolute values of the matrix elements. (Which gives us $ k^2-1$ comparisons every step as opposed to $k-1$ for partial pivoting). We also have column interchanges and corresponsing interchanges in the order of elements of \textbf{x}.
+Therefore when it comes to speed, partial pivoting is faster than full pivoting.
+
+\section{Results}
+Solutions vectors for matrix A and vector A and n = 10
+Without residual correction:
 \[ x_{algorithm} = \left(\begin{array}{cc}
 -0.930024655110760 \\
 -1.223407298665613 \\
@@ -238,8 +244,10 @@ Solutions vectors for matrix A and vector A and n = 10:
 -0.683708806203301 \\
 -0.450125157623323
 \end{array} \right)
-%
-x_{Matlab Method} = \left(  = \begin{array}{cc}
+\]
+
+With residual correction:
+\[ x_{algorithm} = \left(\begin{array}{cc}
 -0.930024655110760 \\
 -1.223407298665613 \\
 -1.273530574219411 \\
@@ -252,56 +260,119 @@ x_{Matlab Method} = \left(  = \begin{array}{cc}
 -0.450125157623323
 \end{array} \right)
 \]
-
-Error for 'A' method for algorithm: \[ 3.383918772654241 \]
-Error for 'A' method for matlab method: \[ 3.383918772654241 \]
-\newpage
-Solutions vectors for matrix B and vector B and n = 16 (Both multiplied by $ 1.0e+17 $):
-\[ x_{algorithm} = \left( \begin{array}{cc}
-  0.000001960155675 \\
-  -0.000102773501571 \\
-  0.001959454282882 \\
-  -0.018894079120425 \\
-  0.104895022735396 \\
-  -0.352396798852209 \\
-  0.705545645736628 \\
-  -0.728747526649489 \\
-  0.112818247768452 \\
-  0.261440075930356 \\
-  0.953713133491034 \\
-  -3.080986443185790 \\
-  3.765178552913233 \\
-  -2.440218622397594 \\
-  0.834768953546100 \\
-  -0.118974790826378
-\end{array} \right)
-%
+Matlab method:
+\[
 x_{Matlab Method} = \left(  = \begin{array}{cc}
-  0.000001102587209 \\
-  -0.000066546298462 \\
-  0.001476714765758 \\
-  -0.016859999627589 \\
-  0.113920718370153 \\
-  -0.488374161741872 \\
-  1.368641128884513 \\
-  -2.495283439985873 \\
-  2.793405296264694 \\
-  -1.547642305352008 \\
-  -0.035332172403445 \\
-  0.154726025421297 \\
-  0.807694426359552 \\
-  -1.133485136703852 \\
-  0.592810708065954 \\
-  -0.115632364630554
+-0.930024655110760 \\
+-1.223407298665612 \\
+-1.273530574219411 \\
+-1.230517757325956 \\
+-1.151356031091789 \\
+-1.056883669282743 \\
+-0.952628310089775 \\
+-0.834334594319914 \\
+-0.683708806203301 \\
+-0.450125157623323
 \end{array} \right)
 \]
 
-Error for 'B' method for algorithm: \[ 5.699979882700911e+17 \]
-Error for 'B' method for matlab method: \[ 4.569118543317684e+17 \]
+Error for 'A' system of equations for algorithm before residual correction: \[ 1.986027322597818e-15 \]
+Error for 'A' system of equations for algorithm after residual correction: \[ 1.986027322597818e-15 \]
+Error for 'A' system of equations for matlab method: \[ 3.383918772654241 \]
+\newpage
+Solutions vectors for matrix B and vector B and n = 10
+Without residual correction:
+\[ x_{algorithm} = 10^{14} * \left(\begin{array}{cc}
+-0.000050600471710 \\
+ 0.001764889142984 \\
+-0.022358533990003 \\
+ 0.142964542843099 \\
+-0.526425616773059 \\
+ 1.184552423606169 \\
+-1.655429692441864 \\
+ 1.402099618098568 \\
+-0.659000958954395 \\
+ 0.131884594651908 \\
+\end{array} \right)
+\]
+
+With residual correction:
+\[ x_{algorithm} = 10^{14} * \left(\begin{array}{cc}
+-0.000050600463347 \\
+ 0.001764888849422 \\
+-0.022358530253741 \\
+ 0.142964518868662 \\
+-0.526425528251739 \\
+ 1.184552223980917 \\
+-1.655429412965713 \\
+ 1.402099381042299 \\
+-0.659000847398248 \\
+ 0.131884572303072 \\
+\end{array} \right)
+\]
+Matlab method:
+\[
+x_{Matlab Method} = 10^{14} * \left(  = \begin{array}{cc}
+-0.000050613652388 \\
+0.001765340333555 \\
+-0.022364164880105 \\
+0.143000107689097 \\
+-0.526555232536911 \\
+1.184841538613606 \\
+-1.655830695338199 \\
+1.402437027506887 \\
+-0.659158629093553 \\
+0.131915987214953 \\
+\end{array} \right)
+\]
+
+Error for 'B' system of equations for algorithm before residual correction: \[ 3.775702543583306e-04 \]
+Error for 'B' system of equations for algorithm after residual correction: \[ 7.395459186003887e-04 \]
+Error for 'B' system of equations for matlab method: \[ 2.611906929269057e-04 \]
+
+\section{Discussion of results}
+As we can see error for 'B' system of equations increased after our residual correction. But that's just one matrix and vector pair, after testing more pairs we get following graphs (Tested on systems of equations from a) and b) respectively, with maximum size of matrices and vectors equal to 100):
+\begin{center}
+   \includegraphics[scale=0.75]{errorsA.eps}
+\end{center}
 
 \begin{center}
-   \includegraphics[scale=0.75]{errorsNoResidual.eps}
+   \includegraphics[scale=0.75]{errorsB.eps}
 \end{center}
+As we can see our residual correction method \textbf{does} work for Matrix B and Vector B and decreases the error drastically.
+
+\subsection{Errors in b)}
+Matrix B suffers from relatively huge errors. Where do they come from?
+Matrix B is a variant of Hilbert matrix.
+Equation for generating elements of this matrix is as follows:
+\[ b_{ij} = \frac{5}{8(i + j + 1)} \]
+Equation for generating elements of the Hilbert matrix is as follows:
+\[ b_{ij} = \frac{1}{(i + j - 1)} \]
+The only thing that changes are the constants, we have 5 instead of 1 in the numerator and 8 in front of the summation in the denominator and +1 instead of -1. For sufficiently huge 'i' and 'j' those differences hardly matter.
+Hilbert matrix is badly conditioned. It's condtion number for \textit{n} size hilbert matrix is equal to:
+\[ \mathcal{O}(\frac{e^{3.5255n}}{sqrt(n)}) \]
+Let's calculate condition number of matrix B in matlab:
+\begin{simplechar}
+\begin{lstlisting}
+cond(matrixB(10))
+ans = 2.428027097978043e+14
+\end{lstlisting}
+\end{simplechar}
+
+And compare it with condition number of matrix A:
+\begin{simplechar}
+\begin{lstlisting}
+cond(matrixA(10))
+ans = 4.550344127923193
+\end{lstlisting}
+\end{simplechar}
+As we can see the difference is huge, conditon number of matrix B for 10 elements is $10^{14}$ times bigger than for matrix A. This explains big errors for matrix B.
+
+
+
+
+
+
 
 
 
@@ -867,9 +938,15 @@ Gauss Seidel method again requires fewer iterations, around half the amount for 
 \chapter{Problem 4 - QR method of finding eigenvalues}
 
 \section{Problem}
-
+We must find eigenvalues of 5x5 matrices. Both without shifts and with shifts.
 \section{Theoretical introduction}
-
+\subsection{Eigenvalues}
+Eigenvalues of matrix \textbf{A} are defined as a pair of number $\lambda$ and vector \textbf{v} such that:
+\[ \mathbf{A}\mathbf{v} = \lambda\mathbf{v} \]
+This can be rewritten as:
+\[ (\mathbf{A} - \lambda\mathbf{I})\mathbf{v} = 0 \]
+And further we get characteristic equation:
+\[ det(\mathbf{A} - \lambda\mathbf{I}) = 0 \]
 \section{Solution}
 
 \section{Discussion of the result}
@@ -1238,6 +1315,47 @@ function plotIterations()
     xlabel('Size of matrix A');
     ylabel('Number of iterations');
 
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotIterations}
+\begin{simplechar}
+\begin{lstlisting}
+function plotErrorsGaussian(maxMatrixSize)
+
+    errorsA = zeros(maxMatrixSize);
+    errorsB = zeros(maxMatrixSize);
+    errorsAR = zeros(maxMatrixSize);
+    errorsBR = zeros(maxMatrixSize);
+    for i = 1 : maxMatrixSize
+        [~, errorBeforeResidualCorrection, errorAfterResidualCorrection] = indicatedMethod(matrixA(i), vectorA(i));
+        errorsA(i) = errorBeforeResidualCorrection;
+        errorsAR(i) = errorAfterResidualCorrection;
+        [~, errorBeforeResidualCorrection, errorAfterResidualCorrection] = indicatedMethod(matrixB(i), vectorB(i));
+        errorsB(i) = errorBeforeResidualCorrection;
+        errorsBR(i) = errorAfterResidualCorrection;
+    end
+    nexttile
+    plot(errorsA, '.');
+    title('Errors before residual correction for task 2a:');
+    xlabel('Size of matrix A');
+    ylabel('Errors');
+    nexttile
+    plot(errorsAR, '.');
+    title('Errors after residual correction for task 2a:');
+    xlabel('Size of matrix A');
+    ylabel('Errors');
+    nexttile
+    plot(errorsB, '.');
+    title('Errors before residual correction for task 2b:');
+    xlabel('Size of matrix A');
+    ylabel('Errors');
+    nexttile
+    plot(errorsBR, '.');
+    title('Errors after residual correction for task 2b:');
+    xlabel('Size of matrix A');
+    ylabel('Errors');
 end
 \end{lstlisting}
 \end{simplechar}

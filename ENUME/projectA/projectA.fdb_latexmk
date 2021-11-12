@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1636686293 "projectA.tex" "projectA.pdf" "projectA" 1636686295
+["pdflatex"] 1636689518 "projectA.tex" "projectA.pdf" "projectA" 1636689519
   "/etc/texmf/web2c/texmf.cnf" 1635008344 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -147,15 +147,16 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1635008389 5160710 ecf427ae8fa19139d8691f526e47bb9b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1635008460 2570450 6e12b1c097cbda0f70015645294afd24 ""
-  "errorsNoResidual.eps" 1636686290 3220234 2a79d07b4ca92f232f96615449182f2c ""
+  "errorsA.eps" 1636686866 1613352 8726309b9c94c5647644a20db10b9a1f ""
+  "errorsB.eps" 1636686908 1614432 a5ba1015251d54e816c9a68cee4a6856 ""
   "iterations.eps" 1636684222 67653 3e4ba61ec0de12fb403d5a37cff1a286 ""
-  "projectA.aux" 1636686295 10648 f4cd1d0058f9fd8a927d733c7491ccc1 "pdflatex"
-  "projectA.out" 1636686295 4029 c076c7290fbd603cc14617aaf5eda986 "pdflatex"
-  "projectA.tex" 1636686293 41776 b83f8c1db7cdddb1ba2bd5ef62837315 ""
-  "projectA.toc" 1636686295 6383 25942fa7a5e95477bafbe865fd374957 "pdflatex"
+  "projectA.aux" 1636689519 11132 20eada88a46049d6ee6d233ae73c741e "pdflatex"
+  "projectA.out" 1636689519 4281 2a0e019b1a585d28cf17a4b51046f2f3 "pdflatex"
+  "projectA.tex" 1636689517 46594 ab168ba0c7ab373ffc6e69da68a7221a ""
+  "projectA.toc" 1636689519 6703 dabbf52c638a1d1edbb1af66800929c8 "pdflatex"
   (generated)
-  "projectA.pdf"
-  "projectA.aux"
-  "projectA.out"
   "projectA.toc"
+  "projectA.out"
+  "projectA.pdf"
   "projectA.log"
+  "projectA.aux"
