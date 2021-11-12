@@ -56,3 +56,5 @@ https://www.overleaf.com/learn/latex/Matrices - matrixes latex
 https://tex.stackexchange.com/questions/294561/using-textbf-vs-mathbf-in-math-mode - mathbf vs textbf
 
 https://www.math-linux.com/latex-26/faq/latex-faq/article/how-to-get-dots-in-latex-ldots-cdots-vdots-and-ddots - Dots LaTeX
+
+https://www.overleaf.com/learn/latex/Tables - Tables LaTeX 

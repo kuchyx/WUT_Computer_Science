@@ -1,17 +1,15 @@
-function x = jacobiMethod(Matrix, Vector)
-    [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag] = initializeValues(Matrix);
-    [x, whichIterationAreWeOn, demandedTolerance] = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag);
+function x = gaussSeidelMethod(Matrix, Vector)
+    [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag, Rows] = initializeValues(Matrix);
+    [x, whichIterationAreWeOn, demandedTolerance] = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag, Rows);
     dispFinalResults(x, demandedTolerance, whichIterationAreWeOn, Matrix, Vector);
 end
 
-function [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag] = initializeValues(Matrix)
+function [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag, Rows] = initializeValues(Matrix)
     [Rows, ~] = size(Matrix);
     [L, D, U] = decomposeMatrix(Matrix);
-    initial_x = ones(Rows, 1);
+    initial_x = zeros(Rows, 1);
     whichIterationAreWeOn = 0;
     demandedTolerance = 10e-10; % as per task description
-    % Minimal values I got: 3.202372833989376e-15 for both system of
-    % equations - original and task 2a)
     flag = 0;
 end
 
@@ -25,22 +23,32 @@ function [L, D, U] = decomposeMatrix(Matrix)
     % start
 end
 
-function [x, whichIterationAreWeOn, demandedTolerance]  = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag)
+function [x, whichIterationAreWeOn, demandedTolerance]  = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag, Rows)
     while flag ~= 1 % flag denotes whether norm(Matrix*x-Vector) <= demandedTolerance
-        [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector);
+        [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, Rows);
     end
 end
 
-function [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector)
-    x = jacobiEquation(D, L, U, initial_x, Vector);
+function [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, Rows)
+    x = jacobiEquation(D, L, U, initial_x, Vector, Rows);
     [flag, demandedTolerance] = checkError(x, initial_x, demandedTolerance, Matrix, Vector);
     [initial_x, whichIterationAreWeOn] = endOfLoop(x, whichIterationAreWeOn);
 end
 
-function x = jacobiEquation(D, L, U, initial_x, Vector)
-    x = - D \ ( L + U ) * initial_x + D \ Vector; % As per formula
-    % We will be using D \ Vector and D \ ( ) instead of inverseD since
-    % this is faster according to matlab
+function x = jacobiEquation(D, L, U, initial_x, Vector, Rows)
+    W = U*initial_x - Vector;
+    x(1, 1) = -W(1, 1) / D(1,1);
+    for i = 2 : Rows
+        x(i, 1) = calculateNominator(i, L, x, W) / D(i, i);
+    end
+end
+
+function nominator = calculateNominator(i, L, x, W)
+    nominator = 0;
+    for j = 1 : i - 1
+    nominator = nominator + L(i, j) * x(j);
+    end
+    nominator = - nominator - W(j + 1, 1);
 end
 
 function [flag, demandedTolerance] = checkError(x, initial_x, demandedTolerance, Matrix, Vector)
@@ -52,7 +60,7 @@ function [flag, demandedTolerance] = checkError(x, initial_x, demandedTolerance,
         if currentError <= demandedTolerance % if sequence as per textbook
             flag = 1;
         else 
-            demandedTolerance = demandedTolerance * 1; % arbitrary value
+            demandedTolerance = demandedTolerance * 2; % arbitrary value
         end
     end
 end
@@ -68,8 +76,6 @@ function dispFinalResults(x, demandedTolerance, whichIterationAreWeOn, Matrix, V
     disp(demandedTolerance);
     disp("Final Iteration: ");
     disp(whichIterationAreWeOn);
-    disp("A\b matlab:");
-    disp(Matrix \ Vector);
     disp("Error:");
     disp(norm(Matrix*x - Vector));
     disp("A\b error:");

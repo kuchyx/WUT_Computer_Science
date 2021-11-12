@@ -50,12 +50,12 @@ Write a program finding macheps in the MATLAB environment
 \subsection{Definition of machine epsilion}
 Machine epsilion is the maximal possible relative error of the floating-point representation. (Tatjewski, p.14)
 Machine epsilion is equal to $2^{-t}$ where t is number of bits in the mantissa.
-In our case when we use IEEE Standard 754, mantissa is 53 bits long with first bit omitted as it is always equal to '1', so we technicaly work with 52 bits mantissa which makes the machine epsilion equal to: $2^{-52} = 2.220446\mathrm{e}{-16}$
+In our case when We use IEEE Standard 754, mantissa is 53 bits long with first bit omitted as it is always equal to '1', so We technicaly work with 52 bits mantissa which makes the machine epsilion equal to: $2^{-52} = 2.220446\mathrm{e}{-16}$
 
 \subsection{Practical applications of machine epsilion}
-Since macheps is connected to IEEE754 standard it is always equal to the same number, which means that we can safely compare results from different machines without worrying about their individual errors.
+Since macheps is connected to IEEE754 standard it is always equal to the same number, which means that We can safely compare results from different machines without worrying about their individual errors.
 
-Macheps is also essential when we calculate cumulation of errors of given mathematical operation.
+Macheps is also essential when We calculate cumulation of errors of given mathematical operation.
 
 \newpage
 \section{Solution}
@@ -67,7 +67,7 @@ while 1.0 + macheps / 2 > 1.0
     macheps = macheps/2;
 end
 \end{lstlisting}
-Code above shifts macheps one bit to the right each iteration (by dividing by 2), it ends when we run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
+Code above shifts macheps one bit to the right each iteration (by dividing by 2), it ends when We run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
 
 \section{Discussion of the result}
 \begin{simplechar}
@@ -135,7 +135,7 @@ We start with the system of linear equations looking like this:
 
 In order for this method to work all the elements of "diagonal" line:
 \[ a_{11}, a_{22}, \dots, a_{nn} \]
-Must be different from zero since we will be dividing by them.
+Must be different from zero since We will be dividing by them.
 
 We will denote rows as '$w_i$' where 'i' is number of the row.
 
@@ -143,9 +143,9 @@ We will denote rows as '$w_i$' where 'i' is number of the row.
 We start transforming the system by "zeroing" elements in first column excluding first row element. We do it by multiplying first row by $l_{i1}$, where:
 \[ l_{i1} = \frac{ a_{i1}^{(1)} }
 { a_{11}^{(1)} }  \]
-And then substracting what we got ($ l_{i1}w_1 $), from \textit{i} row.
+And then substracting what We got ($ l_{i1}w_1 $), from \textit{i} row.
 
-Doing so we obtain a system of linear equations:
+Doing so We obtain a system of linear equations:
 
 \[
 \begin{matrix}
@@ -162,7 +162,7 @@ Doing so we obtain a system of linear equations:
 \]
 
 \subsubsection{Zeroing second column}
-We continue onto the second column, this time we will zero all elements except first and second rows.
+We continue onto the second column, this time We will zero all elements except first and second rows.
 Row multiplier becomes:
 \[ l_{i2} = \frac{ a_{i2}^{(2)} }{ a_{22}^{(2)} } \]
 
@@ -171,7 +171,7 @@ Where:
 And:
 \[ a_{i2}^{(2)} = (a_{i2} - a_{12}l_{i1}) \]
 They are modified values obtained from previous step.
-We continue as in the first step and we end up with:
+We continue as in the first step and We end up with:
 
 \[
 \begin{matrix}
@@ -188,7 +188,7 @@ We continue as in the first step and we end up with:
 \]
 
 \subsubsection{Zeroing next columns}
-We repeat this process $n-1$ times and we end up with upper triangular matrix:
+We repeat this process $n-1$ times and We end up with upper triangular matrix:
 
 \[
 \begin{matrix}
@@ -205,8 +205,8 @@ We repeat this process $n-1$ times and we end up with upper triangular matrix:
 \]
 
 \subsection{Backward substitution}
-After transforming the system we solve the system from last to first. \\
-First we calculate value of last element:
+After transforming the system We solve the system from last to first. \\
+First We calculate value of last element:
 \[ x_n = \frac{b_n}{a_{nn}} \]
 Then one "above":
 \[ x_{n-1} = \frac{ b_{n-1} - a_{n-1, n}x_n}{a_{n-1, n-1}} \]
@@ -216,15 +216,12 @@ And so on, for $x_k$:
 \subsection{Partial Pivoting}
 Gaussian elimination method has one flaw, where it can come into halt if:
 \[ a_{kk}^{(k)} = 0 \]
-To avoid it we use method of pivoting, in our case we will use partial pivoting method.
+To avoid it We use method of pivoting, in our case We will use partial pivoting method.
 We do it before each Gaussian elimination step since this will lead to smaller error.
 \\We first find a row $i$ such that:
 \[ |{a_{ik}^{k}}| = \underset{j}{max} \{ |{a_{kk}^{k}}|, |{a_{k+1, k}^{k}}|, \cdots, |{a_{nk}^{k}}|\} \]
 
-Then we swap this row with k-th row. Since the matrix we use is assumed to be nonsingular then $|{a_{ik}^{k}}| \neq 0$ will be always true. After that we continue with the Gaussian elimination method.
-
-\newpage
-\section{Solution}
+Then We swap this row with k-th row. Since the matrix We use is assumed to be nonsingular then $|{a_{ik}^{k}}| \neq 0$ will be always true. After that We continue with the Gaussian elimination method.
 
 \section{Discussion of the result}
 Solutions vectors for matrix A and vector A and n = 16:
@@ -328,7 +325,7 @@ We are given following system:
 \systeme{10x_1-4x_2+x_3+2x_4=-8, 2x_1-6x_2+3x_3-x_4=-12, x_1+4x_2-12x_3+x_4=4, 2x_1+3x_2-3x_3-10x_4=1}
 \]
 
-Then we need to compare the results of iterations plotting norm of the solution error versus the iteration number \textbf{k}, untill we get accuracy better than $10^{-10}$.
+Then We need to compare the results of iterations plotting norm of the solution error versus the iteration number \textbf{k}, untill We get accuracy better than $10^{-10}$.
 
 We should also try to solve the equations from problem 2a) and 2b) for n = 10 using iterative method of our choice.
 
@@ -337,13 +334,13 @@ We should also try to solve the equations from problem 2a) and 2b) for n = 10 us
 
  We should also answer the question what happens if the sufficient condition is not fullfiled.
 
-Itertaive methods differ from the Gauss elimination method since they are iterative, which means that our solution will improve with each iteration. Building on that we can cnclude that the number of iterations will depend on what accuracy we want to achieve. Since we are using iterative method we don't have the guarantee of how many iterations will be neeeded before we reach the solution,
+Itertaive methods differ from the Gauss elimination method since they are iterative, which means that our solution will improve with each iteration. Building on that We can cnclude that the number of iterations will depend on what accuracy We want to achieve. Since We are using iterative method We don't have the guarantee of how many iterations will be neeeded before We reach the solution,
 
 In general:
 We start with:
  \textbf{$x^{(0)}$ } - being the best known approximation of the solution point
 
-And we generate next vectors  \textbf{$x^{i+1}$}  in such way:
+And We generate next vectors  \textbf{$x^{i+1}$}  in such way:
 \[ \mathbf{x^{i+1}} = \mathbf{M}\mathbf{x^{(i)}} + \mathbf{w} \]
 
 Where $\mathbf{M}$ is some matrix.
@@ -351,7 +348,7 @@ Where $\mathbf{M}$ is some matrix.
 \subsection{Procedure}
 
 \subsubsection{Decomposing matrix}
-For both Jacobi and Gauss-Seidel method we first decompose starting matrix $ \mathbf{A} $ to:
+For both Jacobi and Gauss-Seidel method We first decompose starting matrix $ \mathbf{A} $ to:
 \[ \mathbf{A} = \mathbf{L} + \mathbf{D} + \mathbf{U} \]
 where:
 $ \mathbf{L} $ - Subdiagonal matrix
@@ -418,13 +415,13 @@ so:
 \]
 
 \subsubsection{Jacobi's method}
-After decomposing matrix we can write the system of equations
+After decomposing matrix We can write the system of equations
 \[ \mathbf{A}\mathbf{x} = \mathbf{b} \]
 in the form:
 \[ \mathbf{D}\mathbf{x} = -(\mathbf{L}+\mathbf{U})\mathbf{x}+\mathbf{b}
 \]
 
-If we assume that diagonal entries of matrix \textbf{A} are nonzero, then matrix \textbf{D} is nonsingular therefore we can propose such an iterative method:
+If We assume that diagonal entries of matrix \textbf{A} are nonzero, then matrix \textbf{D} is nonsingular therefore We can propose such an iterative method:
 \[ \mathbf{x}^{i+1} = -\mathbf{D}^{-1}(\mathbf{L}+\mathbf{U})\mathbf{x}^{(i)}+\mathbf{D}^{-1}\mathbf{x}
 \]
 This is the Jacobi's method.
@@ -436,23 +433,23 @@ We can rewritte this equation in the form of \textit{n} independent scalar equat
 ) \]
 Where $d_{jj}$; $l_{jk}$;  $u_{jk}$ are the elements of the respective matrixes \textbf{D}, \textbf{L}, \textbf{U}
 
-Thanks to this we can do those computations in paraller, totally or partially if we are using a computer that enables a parallelization of the computations.
+Thanks to this We can do those computations in paraller, totally or partially if We are using a computer that enables a parallelization of the computations.
 
 \paragraph{Converging}
-Jacobi's method is convergent if we have strong diagonal dominance of the matrix \textbf{A}
+Jacobi's method is convergent if We have strong diagonal dominance of the matrix \textbf{A}
 
 
 \subsubsection{Gauss-Seidel method}
-After decomposing matrix we can write the system of equations
+After decomposing matrix We can write the system of equations
 \[ \mathbf{A}\mathbf{x} = \mathbf{b} \]
 in the form:
 \[ (\mathbf{L}+\mathbf{D})\mathbf{x} = -\mathbf{U}\mathbf{x}+\mathbf{b}
 \]
-Again we assume that \textbf{D} is nonsingular, in doing so we propose following iterative method:
+Again We assume that \textbf{D} is nonsingular, in doing so We propose following iterative method:
 \[ \mathbf{D}\mathbf{x}^{(i+1)} = -\mathbf{L}\mathbf{x}^{(i+1)}-\mathbf{U}\mathbf{x}^{(i)}+\mathbf{b}
 \]
-Since matrix \textbf{L} is subdiagonal, provided that we organse the calculation of elements of the vector $x^{(i_1)}$ in a proper way, it does not hurt that $x^{(i_1)}$ is on the right side of the equation.
-In order to organise the calculation in the correct way we:
+Since matrix \textbf{L} is subdiagonal, provided that We organse the calculation of elements of the vector $x^{(i_1)}$ in a proper way, it does not hurt that $x^{(i_1)}$ is on the right side of the equation.
+In order to organise the calculation in the correct way We:
 First take into account the structure of matrixes \textbf{D} and \textbf{L}:
 \[
 \begin{bmatrix}
@@ -469,7 +466,7 @@ d_{nn}x_n^{(i_1)}
 l_{21} & 0 & 0 & \cdots & 0\\
 l_{32} & l_{32} & 0 & \cdots & 0\\
 \vdots & \vdots & \vdots & \vdots & \vdots\\
-l_{n1} & l_{n2} & l_{n3} & \cdots & 0}
+l_{n1} & l_{n2} & l_{n3} & \cdots & 0
 \end{bmatrix}
 \begin{bmatrix}
 x_1^{(i_1)}\\
@@ -497,18 +494,18 @@ As opposed to Jacobi's method, Gauss-Seidel method computations must be performe
 Gauss-Seidel method is convergent if the matrix \textbf{A} is strongly row or column diagonnaly dominant. If the matrix is symmetric, the method is also convergent if the matrix \textbf{A} is positive definite. This method is also usually faster convergent compared to Jacobi's method.
 
 \subsubsection{Stop tests}
-There are two ways to check when to terminate iterations of the methods we just discussed:
+There are two ways to check when to terminate iterations of the methods We just discussed:
 \begin{enumerate}
 \item Check differences between two subsequent iteration points
 \[
 \| \mathbf{x}^{(i+1)} - \mathbf{x}^{(i)} \| \leq \delta
 \]
-Where $\delta$ is an assumed tolerance, (in our case $10^{-10}$). What we are really interested in though is whether the solution of the system of equation has required accuracy. If we want to check that we can additionaly check (higher level, more computationally demanding test):
+Where $\delta$ is an assumed tolerance, (in our case $10^{-10}$). What We are really interested in though is whether the solution of the system of equation has required accuracy. If We want to check that We can additionaly check (higher level, more computationally demanding test):
 \item Check differences between two subsequent iteration points
 \[
 \| \mathbf{A}\mathbf{x}^{(i+1)} - \mathbf{b}\| \leq \delta_2
 \]
-Where $\delta_2$ is an assumed tolerance. If this test is not passed then we can diminish the value of $\delta_2$ and continue with the iterations. Value of $\delta_2$ can not be too small since we are limited by the numerical errors.
+Where $\delta_2$ is an assumed tolerance. If this test is not passed then We can diminish the value of $\delta_2$ and continue with the iterations. Value of $\delta_2$ can not be too small since We are limited by the numerical errors.
 \end{enumerate}
 
 \subsubsection{\textbf{A} and \textbf{b}}
@@ -562,11 +559,183 @@ So:
 \end{bmatrix}
 \]
 
-
-
-\section{Solution}
-
 \section{Discussion of the result}
+
+\subsection{Jacobi method result}
+For system of equations We got in this task We got following results:
+\\
+Without the change in demanded tolerance:
+\[ x = \left( \begin{array}{cc}
+  -0.076776098668341 \\
+   2.105784262642568 \\
+   0.395344797635474 \\
+   0.397776619764909
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.154375287358407e-10 \]
+We managed to do this in \textbf{38} iterations of our loop, and the demanded tolerance did not change. (This required small change in code where We ommited the part of code responsible for changing demandedTolerance if $ \| \mathbf{A}x-b \| > \delta_2) $ )
+
+With the change in demanded tolerance:
+\[ x = \left( \begin{array}{cc}
+  -0.076776098668341 \\
+   2.105784262642568 \\
+   0.395344797635474 \\
+   0.397776619764909
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 5.770361548895147e-11 \]
+We got this result in \textbf{37} iterations and demanded tolerance was equal to $2*10^{-10}$
+
+Compared to matlab function
+\[ x_{matlab} = \left( \begin{array}{cc}
+  -0.076776098662498 \\
+   2.105784262636790 \\
+   0.395344797637659 \\
+   0.397776619767240 \\
+\end{array} \right)
+\]
+Matlab error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 4.070144838902081e-15 \]
+
+For data from task 2a We got: \\
+Without change in demanded tolerance:
+\[ x_a = \left( \begin{array}{cc}
+-0.930024655108186 \\
+-1.223407298660663 \\
+-1.273530574212508 \\
+-1.230517757317628 \\
+-1.151356031082747 \\
+-1.056883669273682 \\
+-0.952628310081466 \\
+-0.834334594312996 \\
+-0.683708806198363 \\
+-0.450125157620744 \\
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 6.955194519943778e-11 \]
+We managed to do this in \textbf{59} iterations of our loop, and the demanded tolerance did not change.
+
+With change in demanded tolerance:
+\[ x_a = \left( \begin{array}{cc}
+-0.930024655104470 \\
+-1.223407298653515 \\
+-1.273530574202540 \\
+-1.230517757305602 \\
+-1.151356031069692 \\
+-1.056883669260597 \\
+-0.952628310069469 \\
+-0.834334594303006 \\
+-0.683708806191233 \\
+-0.450125157617020 \\
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.699812218689508e-10 \]
+We managed to do this in \textbf{57} iterations of our loop, and the demanded tolerance changed to $4*10^{-10}$
+
+Compared to matlab $ A \ b $ function
+\[ x_{matlab} = \left( \begin{array}{cc}
+  -0.930024655110760 \\
+  -1.223407298665612 \\
+  -1.273530574219411 \\
+  -1.230517757325956 \\
+  -1.151356031091789 \\
+  -1.056883669282743 \\
+  -0.952628310089775 \\
+  -0.834334594319914 \\
+  -0.683708806203301 \\
+  -0.450125157623323 \\
+\end{array} \right)
+\]
+Matlab error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.662053438817790e-15 \]
+
+For Matrix and Vector from task 2b) error of
+\[ \| x^{(i+1)} - x^{(i)} \| \]
+grew to infinity, therefore We could never achieve demanded tolerance, therefore the program executed infinite loop.
+
+\subsubsection{Minimizing the demanded error}
+We tried to minimize the demanded error using this steps:
+\begin{enumerate}
+\item We copied error from matlab function and pasted it into demanded tolerance.
+\item If We did not get infinite loop We copied the newly acquired error and pasted it into demanded tolerance.
+\item If We got inifinite loop We used the previous error as "minimal" demanded error.
+\end{enumerate}
+\paragraph{For original system of equations:}
+We managed to get results with error as low as $1.776356839400250e-15$ with demanded tolerance = $3.202372833989376e-15$ for lower values program went into infinite loop.
+Results for demanded tolerance = $3.202372833989376e-15$
+For given matrix:
+\[ x = \left( \begin{array}{cc}
+  -0.076776098662498 \\
+   2.105784262636790 \\
+   0.395344797637659 \\
+   0.397776619767240
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.108624468950438e-15 \]
+We got this result in \textbf{53} iterations and demanded tolerance did not change.
+
+\paragraph{For task 2a) system of equations:}
+We managed to get results with error as low as
+\[ 3.108624468950438e-15 \] with demanded tolerance:
+\[ 3.202372833989376e-15 \]
+for lower values program went into infinite loop.
+
+For demanded tolerance = $3.202372833989376e-15$:
+Results for 2a) system of equation
+
+\[ x_a = \left( \begin{array}{cc}
+-0.930024655110760 \\
+-1.223407298665613 \\
+-1.273530574219411 \\
+-1.230517757325955 \\
+-1.151356031091788 \\
+-1.056883669282743 \\
+-0.952628310089775 \\
+-0.834334594319914 \\
+-0.683708806203301 \\
+-0.450125157623323
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.108624468950438e-15 \]
+We managed to do this in \textbf{84} iterations of our loop, and the demanded tolerance did not change.
+We managed to achieve slightly better (as in, the error was smaller) results than Matlab custom function.
+
+\paragraph{Table}
+
+\begin{center}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{||c c c c c c||}
+ \hline
+ system of equations & method & demanded tolerance & final demanded tolerance & error & iterations \\
+ \hline
+ task 3 system & Jacobi method & 10e-10 & 10e-10 & 1.154375287358407e-10 & 38 \\
+ \hline
+ task 3 system & Jacobi method & 10e-10 & 20e-10 & 5.770361548895147e-11 & 37 \\
+ \hline
+ task 3 system & Jacobi method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 53 \\
+ \hline
+ task 3 system & Matlab function & ? & ? & 4.070144838902081e-15 & ? \\
+ \hline
+ task 2a) system & Jacobi method & 10e-10 & 10e-10 & 6.955194519943778e-11 & 59 \\
+ \hline
+ task 2a) system & Jacobi method & 10e-10 & 40e-10 & 1.699812218689508e-10 & 57 \\
+ \hline
+ task 2a) system & Jacob method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 84 \\
+ \hline
+ task 2a) system & Matlab function & ? & ? & 3.662053438817790e-15 & ? \\
+ \hline
+
+\end{tabular}}
+\end{center}
+
+
+
 \chapter{Problem 4 - QR method of finding eigenvalues}
 
 \section{Problem}
@@ -587,7 +756,7 @@ So:
 function x = indicatedMethod(Matrix, Vector) % Name of the method as in the textbook
 % x stands for obtained result
     [~,Columns] = size(Matrix); % We need to know how big the matrix is in next steps
-    % notice the '~', since we assume we use square matrix, we do not need
+    % notice the '~', since We assume We use square matrix, We do not need
     % to have another variable for number of rows since it is the same as
     % number of columns
     checkIfMatrixIsSquareMatrix(Matrix);
@@ -619,7 +788,7 @@ end % end function
 function [Matrix, Vector] = gaussianEliminationWithPartialPivoting(Columns, Matrix, Vector)
     for j = 1 : Columns
             centralElement = max(Matrix(j:Columns,j));
-            % we stay in the same row (j) but we change columns, as in the
+            % We stay in the same row (j) but We change columns, as in the
             % textbook
             [Matrix, Vector] = partialPivoting(Matrix, Vector, j, centralElement, Columns);
             % ensures that a_kk != 0 and reduces errors
@@ -706,18 +875,18 @@ end % end function
 \begin{lstlisting}
 function [Matrix, Vector, x] = backSubstitutionPhase(Columns, Matrix, Vector)
     for k = Columns : -1 : 1
-    % Start at final column and move by -1 each iteration until we reach 1
+    % Start at final column and move by -1 each iteration until We reach 1
         equation = 0;
         for j = k+1 : Columns
             equation = equation + Matrix(k,j) * x(j, 1);
-            % even though x is a vector we still need to put '1' to ensure
+            % even though x is a vector We still need to put '1' to ensure
             % that number of columns in the first matrix matches number of
             % rows in second matrix
         end % end for
 
         x(k, 1) = (Vector(k,1) - equation) / Matrix(k,k);
-        % even though x is a vector we still need to put '1' to ensure
-        % that we do not exceed array bounds
+        % even though x is a vector We still need to put '1' to ensure
+        % that We do not exceed array bounds
     end % end for
 end % end function
 \end{lstlisting}
@@ -780,10 +949,10 @@ end
 function [L, D, U] = decomposeMatrix(Matrix)
     D = diag(diag(Matrix));
     U = triu(Matrix, 1); % Generates upper triangular part of matrix
-    % where the second variable denotes on which diagonal of matrix should we
+    % where the second variable denotes on which diagonal of matrix should We
     % start
     L = tril(Matrix, -1); % Generates lower triangular part of matrix
-    % where the second variable denotes on which diagonal of matrix should we
+    % where the second variable denotes on which diagonal of matrix should We
     % start
 end
 \end{lstlisting}
