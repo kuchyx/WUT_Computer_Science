@@ -63,10 +63,9 @@ Macheps is also essential when we calculate cumulation of errors of given mathem
 \section{Solution}
 
 
-Code above shifts macheps one bit to the right each iteration (by dividing by 2), it ends when we run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
+\hyperlink{function1_macheps}{Code for finding macheps} shifts macheps one bit to the right each iteration (by dividing by 2), it ends when we run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
 \newpage
 \section{Results}
-\hyperlink{function1_macheps}{Code for finding macheps}\\
 \hyperlink{function1_display}{Code for displaying results}\\
 Display calculated macheps:
      \[2.220446049250313\mathrm{e}{-16}\]
@@ -1059,7 +1058,7 @@ while 1.0 + macheps / 2 > 1.0
     macheps = macheps/2;
 end
 \end{lstlisting}
-
+\newpage
 \hypertarget{function1_display}{\subsection{Display results}}
 \begin{simplechar}
 \begin{lstlisting}
@@ -1078,8 +1077,9 @@ disp("Display difference between calculated macheps and 2^-52:")
 disp(macheps - 2^-52)
 \end{lstlisting}
 \end{simplechar}
-\section{Task 2 Code}
 
+\newpage
+\section{Task 2 Code}
 \subsection{Main function}
 \begin{simplechar}
 \begin{lstlisting}
@@ -1495,6 +1495,7 @@ end
 \end{lstlisting}
 \end{simplechar}
 
+\newpage
 \hypertarget{function_3_dominant}{Code for checking if matrix is diagonally dominant}
 \begin{lstlisting}
 function d = checkIfDiagonallyDominant(Matrix)

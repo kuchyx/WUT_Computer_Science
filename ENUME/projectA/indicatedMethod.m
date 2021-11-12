@@ -14,7 +14,7 @@ function x = indicatedMethod(Matrix, Vector) % Name of the method as in the text
     disp(errorAfterResidualCorrection);
     disp("A\b error:")
     disp(norm(Matrix *  (Matrix \ Vector)  - Vector));
-    %disp(Matrix\Vector);
+    disp(Matrix\Vector);
 
 end % end function
 

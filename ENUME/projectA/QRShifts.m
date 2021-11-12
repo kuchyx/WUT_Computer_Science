@@ -4,7 +4,7 @@ function [eigenValues, whatIterationAreWeOn, Matrix] = QRShifts(Matrix)
     initialMatrix = Matrix;
     [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix);
     [Matrix, whatIterationAreWeOn, eigenValues] = QRShiftLoop(matrixSize, Matrix, eigenValues, minThreshold, whatIterationAreWeOn);
-    %dispResults(eigenValues, Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix);
+    dispResults(eigenValues, Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix);
 end 
 
 function [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix)
