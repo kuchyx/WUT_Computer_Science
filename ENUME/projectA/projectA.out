@@ -19,32 +19,35 @@
 \BOOKMARK [2][-]{subsection.3.2.1}{Procedure}{section.3.2}% 19
 \BOOKMARK [1][-]{section.3.3}{Discussion of the result}{chapter.3}% 20
 \BOOKMARK [2][-]{subsection.3.3.1}{Jacobi method result}{section.3.3}% 21
-\BOOKMARK [0][-]{chapter.4}{Problem 4 - QR method of finding eigenvalues}{}% 22
-\BOOKMARK [1][-]{section.4.1}{Problem}{chapter.4}% 23
-\BOOKMARK [1][-]{section.4.2}{Theoretical introduction}{chapter.4}% 24
-\BOOKMARK [1][-]{section.4.3}{Solution}{chapter.4}% 25
-\BOOKMARK [1][-]{section.4.4}{Discussion of the result}{chapter.4}% 26
-\BOOKMARK [0][-]{chapter.5}{Code appendix}{}% 27
-\BOOKMARK [1][-]{section.5.1}{Task 2 Code}{chapter.5}% 28
-\BOOKMARK [2][-]{subsection.5.1.1}{Main function}{section.5.1}% 29
-\BOOKMARK [2][-]{subsection.5.1.2}{checkIfMatrixIsSquareMatrix}{section.5.1}% 30
-\BOOKMARK [2][-]{subsection.5.1.3}{gaussianEliminationWithPartialPivoting}{section.5.1}% 31
-\BOOKMARK [2][-]{subsection.5.1.4}{partialPivoting}{section.5.1}% 32
-\BOOKMARK [2][-]{subsection.5.1.5}{partialPivotingSwapOneRow}{section.5.1}% 33
-\BOOKMARK [2][-]{subsection.5.1.6}{swapRowMatrix}{section.5.1}% 34
-\BOOKMARK [2][-]{subsection.5.1.7}{swapValueVector}{section.5.1}% 35
-\BOOKMARK [2][-]{subsection.5.1.8}{gaussianElimination}{section.5.1}% 36
-\BOOKMARK [2][-]{subsection.5.1.9}{substractRows}{section.5.1}% 37
-\BOOKMARK [2][-]{subsection.5.1.10}{backSubstitutionPhase}{section.5.1}% 38
-\BOOKMARK [2][-]{subsection.5.1.11}{iterativeResidualCorrection}{section.5.1}% 39
-\BOOKMARK [2][-]{subsection.5.1.12}{improveSolution}{section.5.1}% 40
-\BOOKMARK [1][-]{section.5.2}{Task 3e code}{chapter.5}% 41
-\BOOKMARK [2][-]{subsection.5.2.1}{jacobiMethod}{section.5.2}% 42
-\BOOKMARK [2][-]{subsection.5.2.2}{initializeValues}{section.5.2}% 43
-\BOOKMARK [2][-]{subsection.5.2.3}{decomposeMatrix}{section.5.2}% 44
-\BOOKMARK [2][-]{subsection.5.2.4}{jacobiLoop}{section.5.2}% 45
-\BOOKMARK [2][-]{subsection.5.2.5}{jacobiInsideLoop}{section.5.2}% 46
-\BOOKMARK [2][-]{subsection.5.2.6}{jacobiEquation}{section.5.2}% 47
-\BOOKMARK [2][-]{subsection.5.2.7}{checkError}{section.5.2}% 48
-\BOOKMARK [2][-]{subsection.5.2.8}{endOfLoop}{section.5.2}% 49
-\BOOKMARK [2][-]{subsection.5.2.9}{dispFinalResults}{section.5.2}% 50
+\BOOKMARK [2][-]{subsection.3.3.2}{Gauss-Seidel method result}{section.3.3}% 22
+\BOOKMARK [0][-]{chapter.4}{Problem 4 - QR method of finding eigenvalues}{}% 23
+\BOOKMARK [1][-]{section.4.1}{Problem}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.2}{Theoretical introduction}{chapter.4}% 25
+\BOOKMARK [1][-]{section.4.3}{Solution}{chapter.4}% 26
+\BOOKMARK [1][-]{section.4.4}{Discussion of the result}{chapter.4}% 27
+\BOOKMARK [0][-]{chapter.5}{Code appendix}{}% 28
+\BOOKMARK [1][-]{section.5.1}{Task 2 Code}{chapter.5}% 29
+\BOOKMARK [2][-]{subsection.5.1.1}{Main function}{section.5.1}% 30
+\BOOKMARK [2][-]{subsection.5.1.2}{checkIfMatrixIsSquareMatrix}{section.5.1}% 31
+\BOOKMARK [2][-]{subsection.5.1.3}{gaussianEliminationWithPartialPivoting}{section.5.1}% 32
+\BOOKMARK [2][-]{subsection.5.1.4}{partialPivoting}{section.5.1}% 33
+\BOOKMARK [2][-]{subsection.5.1.5}{partialPivotingSwapOneRow}{section.5.1}% 34
+\BOOKMARK [2][-]{subsection.5.1.6}{swapRowMatrix}{section.5.1}% 35
+\BOOKMARK [2][-]{subsection.5.1.7}{swapValueVector}{section.5.1}% 36
+\BOOKMARK [2][-]{subsection.5.1.8}{gaussianElimination}{section.5.1}% 37
+\BOOKMARK [2][-]{subsection.5.1.9}{substractRows}{section.5.1}% 38
+\BOOKMARK [2][-]{subsection.5.1.10}{backSubstitutionPhase}{section.5.1}% 39
+\BOOKMARK [2][-]{subsection.5.1.11}{iterativeResidualCorrection}{section.5.1}% 40
+\BOOKMARK [2][-]{subsection.5.1.12}{improveSolution}{section.5.1}% 41
+\BOOKMARK [1][-]{section.5.2}{Task 3 code}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.2.1}{initializeValues}{section.5.2}% 43
+\BOOKMARK [2][-]{subsection.5.2.2}{decomposeMatrix}{section.5.2}% 44
+\BOOKMARK [2][-]{subsection.5.2.3}{jacobiLoop}{section.5.2}% 45
+\BOOKMARK [2][-]{subsection.5.2.4}{jacobiInsideLoop}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.5}{jacobiEquation}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.6}{gaussSeidelLoop}{section.5.2}% 48
+\BOOKMARK [2][-]{subsection.5.2.7}{gaussiInsideLoop}{section.5.2}% 49
+\BOOKMARK [2][-]{subsection.5.2.8}{gaussSeidelEquation}{section.5.2}% 50
+\BOOKMARK [2][-]{subsection.5.2.9}{checkError}{section.5.2}% 51
+\BOOKMARK [2][-]{subsection.5.2.10}{endOfLoop}{section.5.2}% 52
+\BOOKMARK [2][-]{subsection.5.2.11}{dispFinalResults}{section.5.2}% 53

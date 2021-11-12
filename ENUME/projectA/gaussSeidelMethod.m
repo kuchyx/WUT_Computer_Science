@@ -30,7 +30,7 @@ function [x, whichIterationAreWeOn, demandedTolerance]  = jacobiLoop(Matrix, L, 
 end
 
 function [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, Rows)
-    x = jacobiEquation(D, L, U, initial_x, Vector, Rows);
+    x = jacobiEquation(D, L, U, initial_x, Vector);
     [flag, demandedTolerance] = checkError(x, initial_x, demandedTolerance, Matrix, Vector);
     [initial_x, whichIterationAreWeOn] = endOfLoop(x, whichIterationAreWeOn);
 end

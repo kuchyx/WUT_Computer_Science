@@ -734,6 +734,178 @@ We managed to achieve slightly better (as in, the error was smaller) results tha
 \end{tabular}}
 \end{center}
 
+\subsection{Gauss-Seidel method result}
+For system of equations We got in this task We got following results:
+\\
+Without the change in demanded tolerance:
+\[ x = \left( \begin{array}{cc}
+  -0.076776098668341 \\
+   2.105784262642568 \\
+   0.395344797635474 \\
+   0.397776619764909
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.154375287358407e-10 \]
+We managed to do this in \textbf{38} iterations of our loop, and the demanded tolerance did not change. (This required small change in code where We ommited the part of code responsible for changing demandedTolerance if $ \| \mathbf{A}x-b \| > \delta_2) $ )
+
+With the change in demanded tolerance:
+\[ x = \left( \begin{array}{cc}
+  -0.076776098668341 \\
+   2.105784262642568 \\
+   0.395344797635474 \\
+   0.397776619764909
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 5.770361548895147e-11 \]
+We got this result in \textbf{37} iterations and demanded tolerance was equal to $2*10^{-10}$
+
+Compared to matlab function
+\[ x_{matlab} = \left( \begin{array}{cc}
+  -0.076776098662498 \\
+   2.105784262636790 \\
+   0.395344797637659 \\
+   0.397776619767240 \\
+\end{array} \right)
+\]
+Matlab error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 4.070144838902081e-15 \]
+
+For data from task 2a We got: \\
+Without change in demanded tolerance:
+\[ x_a = \left( \begin{array}{cc}
+-0.930024655108186 \\
+-1.223407298660663 \\
+-1.273530574212508 \\
+-1.230517757317628 \\
+-1.151356031082747 \\
+-1.056883669273682 \\
+-0.952628310081466 \\
+-0.834334594312996 \\
+-0.683708806198363 \\
+-0.450125157620744 \\
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 6.955194519943778e-11 \]
+We managed to do this in \textbf{59} iterations of our loop, and the demanded tolerance did not change.
+
+With change in demanded tolerance:
+\[ x_a = \left( \begin{array}{cc}
+-0.930024655104470 \\
+-1.223407298653515 \\
+-1.273530574202540 \\
+-1.230517757305602 \\
+-1.151356031069692 \\
+-1.056883669260597 \\
+-0.952628310069469 \\
+-0.834334594303006 \\
+-0.683708806191233 \\
+-0.450125157617020 \\
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.699812218689508e-10 \]
+We managed to do this in \textbf{57} iterations of our loop, and the demanded tolerance changed to $4*10^{-10}$
+
+Compared to matlab $ A \ b $ function
+\[ x_{matlab} = \left( \begin{array}{cc}
+  -0.930024655110760 \\
+  -1.223407298665612 \\
+  -1.273530574219411 \\
+  -1.230517757325956 \\
+  -1.151356031091789 \\
+  -1.056883669282743 \\
+  -0.952628310089775 \\
+  -0.834334594319914 \\
+  -0.683708806203301 \\
+  -0.450125157623323 \\
+\end{array} \right)
+\]
+Matlab error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.662053438817790e-15 \]
+
+For Matrix and Vector from task 2b) error of
+\[ \| x^{(i+1)} - x^{(i)} \| \]
+grew to infinity, therefore We could never achieve demanded tolerance, therefore the program executed infinite loop.
+
+\subsubsection{Minimizing the demanded error}
+We tried to minimize the demanded error using this steps:
+\begin{enumerate}
+\item We copied error from matlab function and pasted it into demanded tolerance.
+\item If We did not get infinite loop We copied the newly acquired error and pasted it into demanded tolerance.
+\item If We got inifinite loop We used the previous error as "minimal" demanded error.
+\end{enumerate}
+\paragraph{For original system of equations:}
+We managed to get results with error as low as $1.776356839400250e-15$ with demanded tolerance = $3.202372833989376e-15$ for lower values program went into infinite loop.
+Results for demanded tolerance = $3.202372833989376e-15$
+For given matrix:
+\[ x = \left( \begin{array}{cc}
+  -0.076776098662498 \\
+   2.105784262636790 \\
+   0.395344797637659 \\
+   0.397776619767240
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.108624468950438e-15 \]
+We got this result in \textbf{53} iterations and demanded tolerance did not change.
+
+\paragraph{For task 2a) system of equations:}
+We managed to get results with error as low as
+\[ 3.108624468950438e-15 \] with demanded tolerance:
+\[ 3.202372833989376e-15 \]
+for lower values program went into infinite loop.
+
+For demanded tolerance = $3.202372833989376e-15$:
+Results for 2a) system of equation
+
+\[ x_a = \left( \begin{array}{cc}
+-0.930024655110760 \\
+-1.223407298665613 \\
+-1.273530574219411 \\
+-1.230517757325955 \\
+-1.151356031091788 \\
+-1.056883669282743 \\
+-0.952628310089775 \\
+-0.834334594319914 \\
+-0.683708806203301 \\
+-0.450125157623323
+\end{array} \right)
+\]
+Error:
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.108624468950438e-15 \]
+We managed to do this in \textbf{84} iterations of our loop, and the demanded tolerance did not change.
+We managed to achieve slightly better (as in, the error was smaller) results than Matlab custom function.
+
+\paragraph{Table}
+
+\begin{center}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{||c c c c c c||}
+ \hline
+ system of equations & method & demanded tolerance & final demanded tolerance & error & iterations \\
+ \hline
+ task 3 system & Jacobi method & 10e-10 & 10e-10 & 1.154375287358407e-10 & 38 \\
+ \hline
+ task 3 system & Jacobi method & 10e-10 & 20e-10 & 5.770361548895147e-11 & 37 \\
+ \hline
+ task 3 system & Jacobi method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 53 \\
+ \hline
+ task 3 system & Matlab function & ? & ? & 4.070144838902081e-15 & ? \\
+ \hline
+ task 2a) system & Jacobi method & 10e-10 & 10e-10 & 6.955194519943778e-11 & 59 \\
+ \hline
+ task 2a) system & Jacobi method & 10e-10 & 40e-10 & 1.699812218689508e-10 & 57 \\
+ \hline
+ task 2a) system & Jacob method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 84 \\
+ \hline
+ task 2a) system & Matlab function & ? & ? & 3.662053438817790e-15 & ? \\
+ \hline
+
+\end{tabular}}
+\end{center}
 
 
 \chapter{Problem 4 - QR method of finding eigenvalues}
@@ -917,27 +1089,30 @@ end % end function
 \end{lstlisting}
 \end{simplechar}
 
-\section{Task 3e code}
-\subsection{jacobiMethod}
+\section{Task 3 code}
 \begin{simplechar}
 \begin{lstlisting}
-function x = jacobiMethod(Matrix, Vector)
-    [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag] = initializeValues(Matrix);
-    [x, whichIterationAreWeOn, demandedTolerance] = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag);
-    dispFinalResults(demandedTolerance, whichIterationAreWeOn, Matrix, Vector);
+function [x_j, x_g] = iterative(Matrix, Vector)
+    [L, D, U, initial_x, whichIterationAreWeOnJ, whichIterationAreWeOnG, demandedToleranceJ, demandedToleranceG, flag, Rows] = initializeValues(Matrix);
+    [x_j, whichIterationAreWeOnJ, demandedToleranceJ] = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOnJ, demandedToleranceJ, Vector, flag);
+    [x_g, whichIterationAreWeOnG, demandedToleranceG] = gaussSeidelLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOnG, demandedToleranceG, Vector, flag, Rows);
+    dispFinalResults(x_j, x_g, demandedToleranceJ, demandedToleranceG, whichIterationAreWeOnJ, whichIterationAreWeOnG, Matrix, Vector);
 end
+
 \end{lstlisting}
 \end{simplechar}
 
 \subsection{initializeValues}
 \begin{simplechar}
 \begin{lstlisting}
-function [L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, flag] = initializeValues(Matrix)
+function [L, D, U, initial_x, whichIterationAreWeOnJ, whichIterationAreWeOnG, demandedToleranceJ, demandedToleranceG, flag, Rows] = initializeValues(Matrix)
     [Rows, ~] = size(Matrix);
     [L, D, U] = decomposeMatrix(Matrix);
-    initial_x = ones(Rows, 1);
-    whichIterationAreWeOn = 0;
-    demandedTolerance = 1e-10; % as per task description
+    initial_x = zeros(Rows, 1);
+    whichIterationAreWeOnJ = 0;
+    whichIterationAreWeOnG = 0;
+    demandedToleranceJ = 10e-10; % as per task description
+    demandedToleranceG = 10e-10; % as per task description
     flag = 0;
 end
 \end{lstlisting}
@@ -949,10 +1124,10 @@ end
 function [L, D, U] = decomposeMatrix(Matrix)
     D = diag(diag(Matrix));
     U = triu(Matrix, 1); % Generates upper triangular part of matrix
-    % where the second variable denotes on which diagonal of matrix should We
+    % where the second variable denotes on which diagonal of matrix should we
     % start
     L = tril(Matrix, -1); % Generates lower triangular part of matrix
-    % where the second variable denotes on which diagonal of matrix should We
+    % where the second variable denotes on which diagonal of matrix should we
     % start
 end
 \end{lstlisting}
@@ -961,22 +1136,21 @@ end
 \subsection{jacobiLoop}
 \begin{simplechar}
 \begin{lstlisting}
-function [x, whichIterationAreWeOn, demandedTolerance]  = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag)
-  while flag ~= 1 % flag denotes whether norm(Matrix*x-Vector) <= demandedTolerance
-      [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector);
-  end
+function [x_j, whichIterationAreWeOn, demandedTolerance]  = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag)
+    while flag ~= 1 % flag denotes whether norm(Matrix*x_g-Vector) <= demandedTolerance
+        [x_j, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector);
+    end
 end
-
 \end{lstlisting}
 \end{simplechar}
 
 \subsection{jacobiInsideLoop}
 \begin{simplechar}
 \begin{lstlisting}
-function [x, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector)
-    x = jacobiEquation(D, L, U, initial_x, Vector);
-    [flag, demandedTolerance] = checkError(x, initial_x, demandedTolerance, Matrix, Vector);
-    [initial_x, whichIterationAreWeOn] = endOfLoop(x, whichIterationAreWeOn);
+function [x_j, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = jacobiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector)
+    x_j = jacobiEquation(D, L, U, initial_x, Vector);
+    [flag, demandedTolerance] = checkError(x_j, initial_x, demandedTolerance, Matrix, Vector);
+    [initial_x, whichIterationAreWeOn] = endOfLoop(x_j, whichIterationAreWeOn);
 end
 \end{lstlisting}
 \end{simplechar}
@@ -988,6 +1162,41 @@ function x = jacobiEquation(D, L, U, initial_x, Vector)
     x = - D \ ( L + U ) * initial_x + D \ Vector; % As per formula
     % We will be using D \ Vector and D \ ( ) instead of inverseD since
     % this is faster according to matlab
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{gaussSeidelLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [x_g, whichIterationAreWeOn, demandedTolerance]  = gaussSeidelLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, flag, Rows)
+    while flag ~= 1 % flag denotes whether norm(Matrix*x_g-Vector) <= demandedTolerance
+        [x_g, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = gaussiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, Rows);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{gaussiInsideLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [x_j, whichIterationAreWeOn, demandedTolerance, flag, initial_x] = gaussiInsideLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOn, demandedTolerance, Vector, Rows)
+    x_j = gaussSeidelEquation(D, L, U, initial_x, Vector, Rows);
+    [flag, demandedTolerance] = checkError(x_j, initial_x, demandedTolerance, Matrix, Vector);
+    [initial_x, whichIterationAreWeOn] = endOfLoop(x_j, whichIterationAreWeOn);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{gaussSeidelEquation}
+\begin{simplechar}
+\begin{lstlisting}
+function x_g = gaussSeidelEquation(D, L, U, initial_x, Vector, Rows)
+    W = U*initial_x - Vector;
+    x_g(1, 1) = -W(1, 1) / D(1,1);
+    for i = 2 : Rows
+        x_g(i, 1) = calculateNominator(i, L, x_g, W) / D(i, i);
+    end
 end
 \end{lstlisting}
 \end{simplechar}
@@ -1024,13 +1233,25 @@ end
 \subsection{dispFinalResults}
 \begin{simplechar}
 \begin{lstlisting}
-function dispFinalResults(demandedTolerance, whichIterationAreWeOn, Matrix, Vector)
-    disp("Final demandedTolerance");
-    disp(demandedTolerance);
-    disp("Final Iteration: ");
-    disp(whichIterationAreWeOn);
-    disp("A\b matlab:");
-    disp(Matrix \ Vector);
+function dispFinalResults(x_j, x_g, demandedToleranceJ, demandedToleranceG, whichIterationAreWeOnJ, whichIterationAreWeOnG, Matrix, Vector)
+    disp("Final demandedTolerance for Jacobi method");
+    disp(demandedToleranceJ);
+    disp("Final demandedTolerance for Gaussian-Seidel method:");
+    disp(demandedToleranceG);
+    disp("Final Iteration for Jacobi method: ");
+    disp(whichIterationAreWeOnJ);
+    disp("Final Iteration for Gaussian-Seidel method: ");
+    disp(whichIterationAreWeOnG);
+    disp("Error for Jacobi method:");
+    disp(norm(Matrix*x_j - Vector));
+    disp("Error for Gaussian-Seidel method:");
+    disp(norm(Matrix*x_g - Vector));
+    disp("A\b error:");
+    disp(norm(Matrix * (Matrix\Vector) - Vector));
+    disp("Answer for Jacobi method: ");
+    disp(x_j);
+    disp("Answer for Gaussian-Seidel method: ");
+    disp(x_g);
 end
 \end{lstlisting}
 \end{simplechar}
