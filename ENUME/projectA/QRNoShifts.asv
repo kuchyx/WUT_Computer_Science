@@ -1,0 +1,62 @@
+function [eigenValues, whichIterationAreWeOn, Matrix] = QRNoShifts(Matrix)
+    [whichIterationAreWeOn, threshold] = initializeValues();
+    while threshold > 1e-6
+        [Q, R] = gramSchmidtAlgorithm(Matrix);
+        Matrix = R * Q;
+        whichIterationAreWeOn = whichIterationAreWeOn + 1;
+        
+        % iterate until all non-diagonal elements are below the threshold
+        nondiag = Matrix - diag(diag(Matrix)); % first diag converts Matrix 
+        % into vector consisting of values on the diagonal of matrix, 
+        % second diag converts this vector into matrix with zeros on
+        % everything except diagonal
+        threshold = max(abs(nondiag));
+    end
+    
+    % convert eigenvalue matrix to vector
+    eigenValues = diag(Matrix)';
+    disp("Iterations it took: ");
+    disp(whichIterationAreWeOn);
+    disp("Final matrix: ");
+    disp(Matrix);
+end
+
+function [whichIterationAreWeOn, threshold] = initializeValues()
+    whichIterationAreWeOn = 0;
+    threshold = inf;
+end
+
+% performs QR or QRdash decomposition of a matrix
+function [Q, R] = gramSchmidtAlgorithm(Matrix)
+    [columns, Q, R, d] = initializeGramSchmid(Matrix);
+    [Q, R] = factorizeColumnsOfQ(columns, Q, Matrix, R, d);
+    [Q, R] = normalizeColumns(columns, Q, R);
+end
+
+function [columns, Q, R, d] = initializeGramSchmid(Matrix)
+    % We start with empty matrices
+    [rows, columns] = size(Matrix);
+    Q = zeros(rows, columns);
+    R = zeros(columns, columns);
+    d = zeros(1, columns);
+end
+
+function [Q, R] = factorizeColumnsOfQ(columns, Q, Matrix, R, d)
+    for i = 1 : columns 
+        Q(:, i) = Matrix(:, i);
+        R(i, i) = 1;
+        d(i) = Q(:, i)' * Q(:, i);
+        for i2 = i + 1 : columns 
+            R(i, i2) = (Q(:, i)' * Matrix(:, i2)) / d(i);
+            Matrix(:, i2) = Matrix(:, i2) - R(i, i2) * Q(:, i);
+        end
+    end
+end
+
+function [Q, R] = normalizeColumns(columns, Q, R)
+    for i = 1 : columns
+        dd = norm(Q(:, i));
+        Q(:, i) = Q(:, i) / dd;
+        R(i, i:columns) = R(i, i : columns) * dd;
+    end
+end
