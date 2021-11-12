@@ -1,9 +1,10 @@
 % finds the eigenValues of a matrix using QR with shifts
 function [eigenValues, whatIterationAreWeOn, Matrix] = QRShifts(Matrix)
     eigenFromMatlab = eig(Matrix);
+    initialMatrix = Matrix;
     [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix);
     [Matrix, whatIterationAreWeOn, eigenValues] = QRShiftLoop(matrixSize, Matrix, eigenValues, minThreshold, whatIterationAreWeOn);
-    dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab);
+    dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix);
 end 
 
 function [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix)
@@ -121,7 +122,9 @@ function [Q, R] = normalizeColumns(columns, Q, R)
     end
 end
 
-function dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab)
+function dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix)
+    disp("Initial matrix: ");
+    disp(initialMatrix);
     disp("Final matrix: ");
     disp(Matrix);
     disp("Number of iterations: ");
