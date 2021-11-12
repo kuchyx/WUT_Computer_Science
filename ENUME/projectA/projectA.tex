@@ -62,33 +62,12 @@ Macheps is also essential when we calculate cumulation of errors of given mathem
 \newpage
 \section{Solution}
 
-\subsection{Matlab code}
-\begin{lstlisting}
-macheps = 1;
-while 1.0 + macheps / 2 > 1.0
-    macheps = macheps/2;
-end
-\end{lstlisting}
+
 Code above shifts macheps one bit to the right each iteration (by dividing by 2), it ends when we run out of mantissa bits which renders us unable to save smaller number. Due to underflow the value of macheps becomes 0 and therefore 1.0 > (macheps / 2) > 1.0 will become false.
 \newpage
-\section{Discussion of the result}
-\begin{simplechar}
-\begin{lstlisting}
-format long
-disp("Display calculated macheps:")
-disp(macheps);
-disp("Display actual eps:")
-disp(eps);
-disp("Display 2^-52")
-disp(2^-52)
-disp("Display difference between calculated macheps and actual eps:")
-disp(macheps - eps)
-disp("Display difference between 2^-52 and actual eps:")
-disp(2^-52 - eps) \
-disp("Display difference between calculated macheps and 2^-52:")
-disp(macheps - 2^-52)
-\end{lstlisting}
-\end{simplechar}
+\section{Results}
+\hyperlink{function1_macheps}{Code for finding macheps}\\
+\hyperlink{function1_display}{Code for displaying results}\\
 Display calculated macheps:
      \[2.220446049250313\mathrm{e}{-16}\]
 
@@ -107,7 +86,7 @@ Display difference between $2^{-52}$ and actual eps:
 Display difference between calculated macheps and $2^{-52}$:
          \[0\]
 
-As expected they are all equal to eachother. It means that our method of calculating macheps was correct.
+As expected they are all equal to each other. It means that our method of calculating macheps was correct.
 
 \chapter{Problem 2 - Solving a system of n linear equations - indicated method}
 
@@ -333,6 +312,7 @@ Error for 'B' system of equations for matlab method: \[ 2.611906929269057e-04 \]
 
 \newpage
 \section{Discussion of results}
+\hyperlink{function2_plot}{Code for generating plots}\\
 As we can see error for 'B' system of equations increased after our residual correction. But that's just one matrix and vector pair, after testing more pairs we get following graphs (Tested on systems of equations from a) and b) respectively, with maximum size of matrices and vectors equal to 100):
 \begin{center}
    \includegraphics[scale=0.5]{errorsA.eps}
@@ -702,7 +682,7 @@ Error:
 \[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.699812218689508e-10 \]
 We managed to do this in \textbf{57} iterations of our loop, and the demanded tolerance changed to $4*10^{-10}$
 
-Compared to matlab $ A \ b $ function
+Compared to matlab function
 \[ x_{matlab} = \left( \begin{array}{cc}
   -0.930024655110760 \\
   -1.223407298665612 \\
@@ -912,26 +892,13 @@ For Gaussian-Seidel method the matrix is convergent if it has strong diagonal do
 \subsubsection{2b) task convergence }
 Let's check strong diagonal dominance from matrix \textbf{A} from task 2b) in matlab:
 \begin{simplechar}
-\begin{lstlisting}
-function d = checkIfDiagonallyDominant(Matrix)
-    d = 1;
-    [Rows, ~] = size(Matrix);
-    for i = 1 : Rows
-        rowsSum = 0;
-        for j = 1 : Rows
-            rowsSum = rowsSum + abs(Matrix(i, j));
-        end
-        rowsSum = rowsSum - Matrix(i, i);
-        if Matrix(i, i) <= rowsSum
-            d = 0;
-            break
-        end
-    end
-end
-\end{lstlisting}
-\end{simplechar}
+
+\hyperlink{function_3_dominant}{Code for checking if matrix is diagonally dominant}
+\\
+
 checkIfDiagonallyDominant(matrixB(10)) returns '0', therefore matrix from task 2b) will \textbf{not} converge. And as expected it does not work when put in my jacobiLoop function.
 \subsubsection{Iterations as function of size of Matrix}
+\hyperlink{function_3_plot}{Code for creating plot}
 I have used matrix from task 2a), demanded tolerance equal to 10e-10, and max size of matrix equal to 500. for both methods
 \begin{center}
    \includegraphics[scale=0.75]{iterations.eps}
@@ -980,17 +947,7 @@ Wher $p_k$ should be chosen as a best estimate of $\lambda_{i+1}$
 \section{Results}
 \subsection{Starting matrix}
 I decided to generate random symmetric matrix using following code:
-\begin{simplechar}
-\begin{lstlisting}
-function A = matrix4()
-    A = 10 * rand(5); % rand generates 5x5 matrix filled with random numbers
-    % we multiply by 10 to get at lest one digit in front of the dot
-    A = floor(A); % we floor the matrix we got to get nice natural numbers matrix
-    A = A * A'; % we get symmetric matrix
-    disp(issymmetric(A)); % we check if matrix is symmetric
-end
-\end{lstlisting}
-\end{simplechar}
+\hyperlink{function4_matrix_generation}{code for matrix generation.}
 I got the following matrix:
 \[
 \begin{bmatrix}
@@ -1094,6 +1051,33 @@ QR method with shifts is much more efficient and reliable.
 \addtocontents{toc}{\protect\newpage}
 \chapter{Code appendix}
 
+\section{Task 1 Code}
+\hypertarget{function1_macheps}{\subsection{Find macheps}}
+\begin{lstlisting}
+macheps = 1;
+while 1.0 + macheps / 2 > 1.0
+    macheps = macheps/2;
+end
+\end{lstlisting}
+
+\hypertarget{function1_display}{\subsection{Display results}}
+\begin{simplechar}
+\begin{lstlisting}
+format long
+disp("Display calculated macheps:")
+disp(macheps);
+disp("Display actual eps:")
+disp(eps);
+disp("Display 2^-52")
+disp(2^-52)
+disp("Display difference between calculated macheps and actual eps:")
+disp(macheps - eps)
+disp("Display difference between 2^-52 and actual eps:")
+disp(2^-52 - eps) \
+disp("Display difference between calculated macheps and 2^-52:")
+disp(macheps - 2^-52)
+\end{lstlisting}
+\end{simplechar}
 \section{Task 2 Code}
 
 \subsection{Main function}
@@ -1270,7 +1254,7 @@ end % end function
 \end{simplechar}
 
 \newpage
-\subsection{plotErrorsGaussian}
+\hypertarget{function2_plot}{\subsection{plotErrorsGaussian}}
 \begin{simplechar}
 \begin{lstlisting}
 function plotErrorsGaussian(maxMatrixSize)
@@ -1484,7 +1468,7 @@ end
 \end{simplechar}
 
 \newpage
-\subsection{plotIterations}
+\hypertarget{function_3_plot}{\subsection{plotIterations}}
 \begin{simplechar}
 \begin{lstlisting}
 function plotIterations()
@@ -1507,6 +1491,26 @@ function plotIterations()
     xlabel('Size of matrix A');
     ylabel('Number of iterations');
 
+end
+\end{lstlisting}
+\end{simplechar}
+
+\hypertarget{function_3_dominant}{Code for checking if matrix is diagonally dominant}
+\begin{lstlisting}
+function d = checkIfDiagonallyDominant(Matrix)
+    d = 1;
+    [Rows, ~] = size(Matrix);
+    for i = 1 : Rows
+        rowsSum = 0;
+        for j = 1 : Rows
+            rowsSum = rowsSum + abs(Matrix(i, j));
+        end
+        rowsSum = rowsSum - Matrix(i, i);
+        if Matrix(i, i) <= rowsSum
+            d = 0;
+            break
+        end
+    end
 end
 \end{lstlisting}
 \end{simplechar}
@@ -1845,6 +1849,19 @@ function task4Plot(maxMatrixSize)
     title('Number of iterations for different sizes of matrices for shift method');
     xlabel('Size of matrix A');
     ylabel('Number of iterations');
+end
+\end{lstlisting}
+\end{simplechar}
+
+\hypertarget{function4_matrix_generation}{\subsection{Matrix generation}}
+\begin{simplechar}
+\begin{lstlisting}
+function A = matrix4()
+    A = 10 * rand(5); % rand generates 5x5 matrix filled with random numbers
+    % we multiply by 10 to get at lest one digit in front of the dot
+    A = floor(A); % we floor the matrix we got to get nice natural numbers matrix
+    A = A * A'; % we get symmetric matrix
+    disp(issymmetric(A)); % we check if matrix is symmetric
 end
 \end{lstlisting}
 \end{simplechar}

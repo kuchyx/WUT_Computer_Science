@@ -4,72 +4,75 @@
 \BOOKMARK [2][-]{subsection.1.2.1}{Definition of machine epsilion}{section.1.2}% 4
 \BOOKMARK [2][-]{subsection.1.2.2}{Practical applications of machine epsilion}{section.1.2}% 5
 \BOOKMARK [1][-]{section.1.3}{Solution}{chapter.1}% 6
-\BOOKMARK [2][-]{subsection.1.3.1}{Matlab code}{section.1.3}% 7
-\BOOKMARK [1][-]{section.1.4}{Discussion of the result}{chapter.1}% 8
-\BOOKMARK [0][-]{chapter.2}{Problem 2 - Solving a system of n linear equations - indicated method}{}% 9
-\BOOKMARK [1][-]{section.2.1}{Problem}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.2}{Theoretical Introduction}{chapter.2}% 11
-\BOOKMARK [2][-]{subsection.2.2.1}{Transform matrix into upper-triangular matrix}{section.2.2}% 12
-\BOOKMARK [2][-]{subsection.2.2.2}{Backward substitution}{section.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.2.3}{Partial Pivoting}{section.2.2}% 14
-\BOOKMARK [1][-]{section.2.3}{Results}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.3.1}{2a\)}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.2}{2b\)}{section.2.3}% 17
-\BOOKMARK [1][-]{section.2.4}{Discussion of results}{chapter.2}% 18
-\BOOKMARK [2][-]{subsection.2.4.1}{Errors in b\)}{section.2.4}% 19
-\BOOKMARK [0][-]{chapter.3}{Problem 3 - Solving a system of n linear equations - iterative algorithm}{}% 20
-\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.2}{Theoretical introduction}{chapter.3}% 22
-\BOOKMARK [2][-]{subsection.3.2.1}{Procedure}{section.3.2}% 23
-\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.3.1}{Jacobi method result}{section.3.3}% 25
-\BOOKMARK [2][-]{subsection.3.3.2}{Gauss-Seidel method result}{section.3.3}% 26
-\BOOKMARK [1][-]{section.3.4}{Discussion of results}{chapter.3}% 27
-\BOOKMARK [2][-]{subsection.3.4.1}{Comparison based on table}{section.3.4}% 28
-\BOOKMARK [2][-]{subsection.3.4.2}{Convergence}{section.3.4}% 29
-\BOOKMARK [0][-]{chapter.4}{Problem 4 - QR method of finding eigenvalues}{}% 30
-\BOOKMARK [1][-]{section.4.1}{Problem}{chapter.4}% 31
-\BOOKMARK [1][-]{section.4.2}{Theoretical introduction}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.2.1}{Eigenvalues}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.2}{QR method for finding eigenvalues}{section.4.2}% 34
-\BOOKMARK [1][-]{section.4.3}{Results}{chapter.4}% 35
-\BOOKMARK [2][-]{subsection.4.3.1}{Starting matrix}{section.4.3}% 36
-\BOOKMARK [2][-]{subsection.4.3.2}{QR method with no shifts}{section.4.3}% 37
-\BOOKMARK [2][-]{subsection.4.3.3}{QR method with shifts}{section.4.3}% 38
-\BOOKMARK [1][-]{section.4.4}{Discussion of the result}{chapter.4}% 39
-\BOOKMARK [2][-]{subsection.4.4.1}{Plot}{section.4.4}% 40
-\BOOKMARK [2][-]{subsection.4.4.2}{Shift method superiority}{section.4.4}% 41
-\BOOKMARK [0][-]{chapter.5}{Code appendix}{}% 42
-\BOOKMARK [1][-]{section.5.1}{Task 2 Code}{chapter.5}% 43
-\BOOKMARK [2][-]{subsection.5.1.1}{Main function}{section.5.1}% 44
-\BOOKMARK [2][-]{subsection.5.1.2}{checkIfMatrixIsSquareMatrix}{section.5.1}% 45
-\BOOKMARK [2][-]{subsection.5.1.3}{gaussianEliminationWithPartialPivoting}{section.5.1}% 46
-\BOOKMARK [2][-]{subsection.5.1.4}{partialPivoting}{section.5.1}% 47
-\BOOKMARK [2][-]{subsection.5.1.5}{partialPivotingSwapOneRow}{section.5.1}% 48
-\BOOKMARK [2][-]{subsection.5.1.6}{swapRowMatrix}{section.5.1}% 49
-\BOOKMARK [2][-]{subsection.5.1.7}{swapValueVector}{section.5.1}% 50
-\BOOKMARK [2][-]{subsection.5.1.8}{gaussianElimination}{section.5.1}% 51
-\BOOKMARK [2][-]{subsection.5.1.9}{substractRows}{section.5.1}% 52
-\BOOKMARK [2][-]{subsection.5.1.10}{backSubstitutionPhase}{section.5.1}% 53
-\BOOKMARK [2][-]{subsection.5.1.11}{iterativeResidualCorrection}{section.5.1}% 54
-\BOOKMARK [2][-]{subsection.5.1.12}{improveSolution}{section.5.1}% 55
-\BOOKMARK [2][-]{subsection.5.1.13}{plotErrorsGaussian}{section.5.1}% 56
-\BOOKMARK [1][-]{section.5.2}{Task 3 Code}{chapter.5}% 57
-\BOOKMARK [2][-]{subsection.5.2.1}{initializeValues}{section.5.2}% 58
-\BOOKMARK [2][-]{subsection.5.2.2}{decomposeMatrix}{section.5.2}% 59
-\BOOKMARK [2][-]{subsection.5.2.3}{jacobiLoop}{section.5.2}% 60
-\BOOKMARK [2][-]{subsection.5.2.4}{jacobiInsideLoop}{section.5.2}% 61
-\BOOKMARK [2][-]{subsection.5.2.5}{jacobiEquation}{section.5.2}% 62
-\BOOKMARK [2][-]{subsection.5.2.6}{gaussSeidelLoop}{section.5.2}% 63
-\BOOKMARK [2][-]{subsection.5.2.7}{gaussiInsideLoop}{section.5.2}% 64
-\BOOKMARK [2][-]{subsection.5.2.8}{gaussSeidelEquation}{section.5.2}% 65
-\BOOKMARK [2][-]{subsection.5.2.9}{checkError}{section.5.2}% 66
-\BOOKMARK [2][-]{subsection.5.2.10}{endOfLoop}{section.5.2}% 67
-\BOOKMARK [2][-]{subsection.5.2.11}{dispFinalResults}{section.5.2}% 68
-\BOOKMARK [2][-]{subsection.5.2.12}{plotIterations}{section.5.2}% 69
-\BOOKMARK [1][-]{section.5.3}{Task 4 Code}{chapter.5}% 70
-\BOOKMARK [2][-]{subsection.5.3.1}{Gram-Schmid algorithm}{section.5.3}% 71
-\BOOKMARK [2][-]{subsection.5.3.2}{task4}{section.5.3}% 72
-\BOOKMARK [2][-]{subsection.5.3.3}{QRNoShifts}{section.5.3}% 73
-\BOOKMARK [2][-]{subsection.5.3.4}{QRShifts}{section.5.3}% 74
-\BOOKMARK [2][-]{subsection.5.3.5}{task4Plot}{section.5.3}% 75
+\BOOKMARK [1][-]{section.1.4}{Results}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Problem 2 - Solving a system of n linear equations - indicated method}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Problem}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{Theoretical Introduction}{chapter.2}% 10
+\BOOKMARK [2][-]{subsection.2.2.1}{Transform matrix into upper-triangular matrix}{section.2.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.2}{Backward substitution}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.3}{Partial Pivoting}{section.2.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Results}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.3.1}{2a\)}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{2b\)}{section.2.3}% 16
+\BOOKMARK [1][-]{section.2.4}{Discussion of results}{chapter.2}% 17
+\BOOKMARK [2][-]{subsection.2.4.1}{Errors in b\)}{section.2.4}% 18
+\BOOKMARK [0][-]{chapter.3}{Problem 3 - Solving a system of n linear equations - iterative algorithm}{}% 19
+\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.2}{Theoretical introduction}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.2.1}{Procedure}{section.3.2}% 22
+\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.3.1}{Jacobi method result}{section.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.2}{Gauss-Seidel method result}{section.3.3}% 25
+\BOOKMARK [1][-]{section.3.4}{Discussion of results}{chapter.3}% 26
+\BOOKMARK [2][-]{subsection.3.4.1}{Comparison based on table}{section.3.4}% 27
+\BOOKMARK [2][-]{subsection.3.4.2}{Convergence}{section.3.4}% 28
+\BOOKMARK [0][-]{chapter.4}{Problem 4 - QR method of finding eigenvalues}{}% 29
+\BOOKMARK [1][-]{section.4.1}{Problem}{chapter.4}% 30
+\BOOKMARK [1][-]{section.4.2}{Theoretical introduction}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.2.1}{Eigenvalues}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{QR method for finding eigenvalues}{section.4.2}% 33
+\BOOKMARK [1][-]{section.4.3}{Results}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.3.1}{Starting matrix}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.2}{QR method with no shifts}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.3}{QR method with shifts}{section.4.3}% 37
+\BOOKMARK [1][-]{section.4.4}{Discussion of the result}{chapter.4}% 38
+\BOOKMARK [2][-]{subsection.4.4.1}{Plot}{section.4.4}% 39
+\BOOKMARK [2][-]{subsection.4.4.2}{Shift method superiority}{section.4.4}% 40
+\BOOKMARK [0][-]{chapter.5}{Code appendix}{}% 41
+\BOOKMARK [1][-]{section.5.1}{Task 1 Code}{chapter.5}% 42
+\BOOKMARK [2][-]{subsection.5.1.1}{Find macheps}{section.5.1}% 43
+\BOOKMARK [2][-]{subsection.5.1.2}{Display results}{section.5.1}% 44
+\BOOKMARK [1][-]{section.5.2}{Task 2 Code}{chapter.5}% 45
+\BOOKMARK [2][-]{subsection.5.2.1}{Main function}{section.5.2}% 46
+\BOOKMARK [2][-]{subsection.5.2.2}{checkIfMatrixIsSquareMatrix}{section.5.2}% 47
+\BOOKMARK [2][-]{subsection.5.2.3}{gaussianEliminationWithPartialPivoting}{section.5.2}% 48
+\BOOKMARK [2][-]{subsection.5.2.4}{partialPivoting}{section.5.2}% 49
+\BOOKMARK [2][-]{subsection.5.2.5}{partialPivotingSwapOneRow}{section.5.2}% 50
+\BOOKMARK [2][-]{subsection.5.2.6}{swapRowMatrix}{section.5.2}% 51
+\BOOKMARK [2][-]{subsection.5.2.7}{swapValueVector}{section.5.2}% 52
+\BOOKMARK [2][-]{subsection.5.2.8}{gaussianElimination}{section.5.2}% 53
+\BOOKMARK [2][-]{subsection.5.2.9}{substractRows}{section.5.2}% 54
+\BOOKMARK [2][-]{subsection.5.2.10}{backSubstitutionPhase}{section.5.2}% 55
+\BOOKMARK [2][-]{subsection.5.2.11}{iterativeResidualCorrection}{section.5.2}% 56
+\BOOKMARK [2][-]{subsection.5.2.12}{improveSolution}{section.5.2}% 57
+\BOOKMARK [2][-]{subsection.5.2.13}{plotErrorsGaussian}{section.5.2}% 58
+\BOOKMARK [1][-]{section.5.3}{Task 3 Code}{chapter.5}% 59
+\BOOKMARK [2][-]{subsection.5.3.1}{initializeValues}{section.5.3}% 60
+\BOOKMARK [2][-]{subsection.5.3.2}{decomposeMatrix}{section.5.3}% 61
+\BOOKMARK [2][-]{subsection.5.3.3}{jacobiLoop}{section.5.3}% 62
+\BOOKMARK [2][-]{subsection.5.3.4}{jacobiInsideLoop}{section.5.3}% 63
+\BOOKMARK [2][-]{subsection.5.3.5}{jacobiEquation}{section.5.3}% 64
+\BOOKMARK [2][-]{subsection.5.3.6}{gaussSeidelLoop}{section.5.3}% 65
+\BOOKMARK [2][-]{subsection.5.3.7}{gaussiInsideLoop}{section.5.3}% 66
+\BOOKMARK [2][-]{subsection.5.3.8}{gaussSeidelEquation}{section.5.3}% 67
+\BOOKMARK [2][-]{subsection.5.3.9}{checkError}{section.5.3}% 68
+\BOOKMARK [2][-]{subsection.5.3.10}{endOfLoop}{section.5.3}% 69
+\BOOKMARK [2][-]{subsection.5.3.11}{dispFinalResults}{section.5.3}% 70
+\BOOKMARK [2][-]{subsection.5.3.12}{plotIterations}{section.5.3}% 71
+\BOOKMARK [1][-]{section.5.4}{Task 4 Code}{chapter.5}% 72
+\BOOKMARK [2][-]{subsection.5.4.1}{Gram-Schmid algorithm}{section.5.4}% 73
+\BOOKMARK [2][-]{subsection.5.4.2}{task4}{section.5.4}% 74
+\BOOKMARK [2][-]{subsection.5.4.3}{QRNoShifts}{section.5.4}% 75
+\BOOKMARK [2][-]{subsection.5.4.4}{QRShifts}{section.5.4}% 76
+\BOOKMARK [2][-]{subsection.5.4.5}{task4Plot}{section.5.4}% 77
+\BOOKMARK [2][-]{subsection.5.4.6}{Matrix generation}{section.5.4}% 78
