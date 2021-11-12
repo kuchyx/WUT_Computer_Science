@@ -2,10 +2,10 @@
 \contentsline {section}{\numberline {1.1}Problem}{4}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Theoretical Introduction}{4}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Definition of machine epsilion}{4}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Practical applications of machine epsilion}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.2}Practical applications of machine epsilion}{5}{subsection.1.2.2}%
 \contentsline {section}{\numberline {1.3}Solution}{6}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Matlab code}{6}{subsection.1.3.1}%
-\contentsline {section}{\numberline {1.4}Discussion of the result}{6}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Discussion of the result}{7}{section.1.4}%
 \contentsline {chapter}{\numberline {2}Problem 2 - Solving a system of n linear equations - indicated method}{8}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Problem}{8}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Theoretical Introduction}{8}{section.2.2}%
@@ -15,95 +15,100 @@
 \contentsline {subsubsection}{Zeroing second column}{9}{section*.4}%
 \contentsline {subsubsection}{Zeroing next columns}{10}{section*.5}%
 \contentsline {subsection}{\numberline {2.2.2}Backward substitution}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Partial Pivoting}{10}{subsection.2.2.3}%
-\contentsline {section}{\numberline {2.3}Results}{11}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Discussion of results}{14}{section.2.4}%
+\contentsline {subsection}{\numberline {2.2.3}Partial Pivoting}{11}{subsection.2.2.3}%
+\contentsline {section}{\numberline {2.3}Results}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}2a)}{12}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}2b)}{14}{subsection.2.3.2}%
+\contentsline {section}{\numberline {2.4}Discussion of results}{16}{section.2.4}%
 \contentsline {subsection}{\numberline {2.4.1}Errors in b)}{17}{subsection.2.4.1}%
 \newpage 
-\contentsline {chapter}{\numberline {3}Problem 3 - Solving a system of n linear equations - iterative algorithm}{18}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Problem}{18}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Theoretical introduction}{19}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Procedure}{19}{subsection.3.2.1}%
-\contentsline {subsubsection}{Decomposing matrix}{19}{section*.6}%
-\contentsline {subsubsection}{Jacobi's method}{20}{section*.7}%
-\contentsline {paragraph}{Converging}{20}{section*.8}%
-\contentsline {subsubsection}{Gauss-Seidel method}{21}{section*.9}%
-\contentsline {paragraph}{Converging}{22}{section*.10}%
-\contentsline {subsubsection}{Stop tests}{22}{section*.11}%
-\contentsline {subsubsection}{\textbf {A} and \textbf {b}}{23}{section*.12}%
-\contentsline {section}{\numberline {3.3}Results}{23}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Jacobi method result}{23}{subsection.3.3.1}%
-\contentsline {subsubsection}{Minimizing the demanded error}{26}{section*.13}%
-\contentsline {paragraph}{For original system of equations:}{26}{section*.14}%
-\contentsline {paragraph}{For task 2a) system of equations:}{26}{section*.15}%
-\contentsline {subsection}{\numberline {3.3.2}Gauss-Seidel method result}{27}{subsection.3.3.2}%
-\contentsline {subsubsection}{Minimizing the demanded error}{28}{section*.16}%
-\contentsline {paragraph}{For original system of equations:}{28}{section*.17}%
-\contentsline {paragraph}{For task 2a) system of equations:}{29}{section*.18}%
-\contentsline {paragraph}{Table}{30}{section*.19}%
-\contentsline {section}{\numberline {3.4}Discussion of results}{30}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Comparison based on table}{30}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Convergence}{30}{subsection.3.4.2}%
-\contentsline {subsubsection}{2b) task convergence }{31}{section*.20}%
-\contentsline {subsubsection}{Iterations as function of size of Matrix}{31}{section*.21}%
-\contentsline {chapter}{\numberline {4}Problem 4 - QR method of finding eigenvalues}{34}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Problem}{34}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Theoretical introduction}{34}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Eigenvalues}{34}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}QR method for finding eigenvalues}{34}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Results}{35}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Starting matrix}{35}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}QR method with no shifts}{36}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}QR method with shifts}{36}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Discussion of the result}{37}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Plot}{38}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Shift method superiority}{38}{subsection.4.4.2}%
-\contentsline {chapter}{\numberline {5}Code appendix}{40}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Task 2 Code}{40}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Main function}{40}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}checkIfMatrixIsSquareMatrix}{41}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}gaussianEliminationWithPartialPivoting}{42}{subsection.5.1.3}%
-\contentsline {subsection}{\numberline {5.1.4}partialPivoting}{42}{subsection.5.1.4}%
-\contentsline {subsection}{\numberline {5.1.5}partialPivotingSwapOneRow}{42}{subsection.5.1.5}%
-\contentsline {subsection}{\numberline {5.1.6}swapRowMatrix}{43}{subsection.5.1.6}%
-\contentsline {subsection}{\numberline {5.1.7}swapValueVector}{43}{subsection.5.1.7}%
-\contentsline {subsection}{\numberline {5.1.8}gaussianElimination}{43}{subsection.5.1.8}%
-\contentsline {subsection}{\numberline {5.1.9}substractRows}{44}{subsection.5.1.9}%
-\contentsline {subsection}{\numberline {5.1.10}backSubstitutionPhase}{45}{subsection.5.1.10}%
-\contentsline {subsection}{\numberline {5.1.11}iterativeResidualCorrection}{45}{subsection.5.1.11}%
-\contentsline {subsection}{\numberline {5.1.12}improveSolution}{45}{subsection.5.1.12}%
-\contentsline {section}{\numberline {5.2}Task 3 code}{46}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}initializeValues}{46}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}decomposeMatrix}{47}{subsection.5.2.2}%
-\contentsline {subsection}{\numberline {5.2.3}jacobiLoop}{47}{subsection.5.2.3}%
-\contentsline {subsection}{\numberline {5.2.4}jacobiInsideLoop}{48}{subsection.5.2.4}%
-\contentsline {subsection}{\numberline {5.2.5}jacobiEquation}{48}{subsection.5.2.5}%
-\contentsline {subsection}{\numberline {5.2.6}gaussSeidelLoop}{48}{subsection.5.2.6}%
-\contentsline {subsection}{\numberline {5.2.7}gaussiInsideLoop}{49}{subsection.5.2.7}%
-\contentsline {subsection}{\numberline {5.2.8}gaussSeidelEquation}{49}{subsection.5.2.8}%
-\contentsline {subsection}{\numberline {5.2.9}checkError}{49}{subsection.5.2.9}%
-\contentsline {subsection}{\numberline {5.2.10}endOfLoop}{50}{subsection.5.2.10}%
-\contentsline {subsection}{\numberline {5.2.11}dispFinalResults}{50}{subsection.5.2.11}%
-\contentsline {subsection}{\numberline {5.2.12}plotIterations}{51}{subsection.5.2.12}%
-\contentsline {subsection}{\numberline {5.2.13}plotIterations}{52}{subsection.5.2.13}%
-\contentsline {section}{\numberline {5.3}Task 4 Code}{53}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Gram-Schmid algorithm}{53}{subsection.5.3.1}%
-\contentsline {subsubsection}{initializeGramSchmid}{53}{section*.22}%
-\contentsline {subsubsection}{initializeGramSchmid}{53}{section*.23}%
-\contentsline {subsubsection}{initializeGramSchmid}{54}{section*.24}%
-\contentsline {subsection}{\numberline {5.3.2}QRNoShifts}{54}{subsection.5.3.2}%
-\contentsline {subsubsection}{QRNoShiftsLoop}{55}{section*.25}%
-\contentsline {subsubsection}{QRNoShiftsInsideLoop}{55}{section*.26}%
-\contentsline {subsubsection}{displayResults}{56}{section*.27}%
-\contentsline {subsubsection}{initializeValues}{56}{section*.28}%
-\contentsline {subsection}{\numberline {5.3.3}QRShifts}{56}{subsection.5.3.3}%
-\contentsline {subsubsection}{initiateValues}{57}{section*.29}%
-\contentsline {subsubsection}{QRShiftLoop}{57}{section*.30}%
-\contentsline {subsubsection}{findEigenValue}{58}{section*.31}%
-\contentsline {subsubsection}{getEigenValueFromCorner}{58}{section*.32}%
-\contentsline {subsubsection}{shiftAndIterate}{58}{section*.33}%
-\contentsline {subsubsection}{deflateMatrix}{59}{section*.34}%
-\contentsline {subsubsection}{thresholdBreached}{59}{section*.35}%
-\contentsline {subsubsection}{solveCharactersticEquation}{59}{section*.36}%
-\contentsline {subsubsection}{calculateZeros}{60}{section*.37}%
-\contentsline {subsubsection}{dispResults}{60}{section*.38}%
+\contentsline {chapter}{\numberline {3}Problem 3 - Solving a system of n linear equations - iterative algorithm}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problem}{19}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Theoretical introduction}{20}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Procedure}{20}{subsection.3.2.1}%
+\contentsline {subsubsection}{Decomposing matrix}{20}{section*.6}%
+\contentsline {subsubsection}{Jacobi's method}{21}{section*.7}%
+\contentsline {paragraph}{Converging}{21}{section*.8}%
+\contentsline {subsubsection}{Gauss-Seidel method}{22}{section*.9}%
+\contentsline {paragraph}{Converging}{23}{section*.10}%
+\contentsline {subsubsection}{Stop tests}{24}{section*.11}%
+\contentsline {subsubsection}{\textbf {A} and \textbf {b}}{25}{section*.12}%
+\contentsline {section}{\numberline {3.3}Results}{26}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Jacobi method result}{26}{subsection.3.3.1}%
+\contentsline {subsubsection}{Minimizing the demanded error}{28}{section*.13}%
+\contentsline {paragraph}{For original system of equations:}{29}{section*.14}%
+\contentsline {paragraph}{For task 2a) system of equations:}{30}{section*.15}%
+\contentsline {subsection}{\numberline {3.3.2}Gauss-Seidel method result}{31}{subsection.3.3.2}%
+\contentsline {subsubsection}{Minimizing the demanded error}{32}{section*.16}%
+\contentsline {paragraph}{For original system of equations:}{32}{section*.17}%
+\contentsline {paragraph}{For task 2a) system of equations:}{33}{section*.18}%
+\contentsline {section}{\numberline {3.4}Discussion of results}{34}{section.3.4}%
+\contentsline {paragraph}{Table}{34}{section*.19}%
+\contentsline {subsection}{\numberline {3.4.1}Comparison based on table}{34}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Convergence}{35}{subsection.3.4.2}%
+\contentsline {subsubsection}{2b) task convergence }{35}{section*.20}%
+\contentsline {subsubsection}{Iterations as function of size of Matrix}{36}{section*.21}%
+\contentsline {chapter}{\numberline {4}Problem 4 - QR method of finding eigenvalues}{39}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problem}{39}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Theoretical introduction}{39}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Eigenvalues}{39}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}QR method for finding eigenvalues}{40}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Results}{41}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Starting matrix}{41}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}QR method with no shifts}{42}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}QR method with shifts}{42}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Discussion of the result}{43}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Plot}{43}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}Shift method superiority}{44}{subsection.4.4.2}%
+\newpage 
+\contentsline {chapter}{\numberline {5}Code appendix}{45}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Task 2 Code}{45}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Main function}{45}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}checkIfMatrixIsSquareMatrix}{46}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}gaussianEliminationWithPartialPivoting}{47}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}partialPivoting}{47}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}partialPivotingSwapOneRow}{48}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}swapRowMatrix}{48}{subsection.5.1.6}%
+\contentsline {subsection}{\numberline {5.1.7}swapValueVector}{48}{subsection.5.1.7}%
+\contentsline {subsection}{\numberline {5.1.8}gaussianElimination}{49}{subsection.5.1.8}%
+\contentsline {subsection}{\numberline {5.1.9}substractRows}{49}{subsection.5.1.9}%
+\contentsline {subsection}{\numberline {5.1.10}backSubstitutionPhase}{50}{subsection.5.1.10}%
+\contentsline {subsection}{\numberline {5.1.11}iterativeResidualCorrection}{50}{subsection.5.1.11}%
+\contentsline {subsection}{\numberline {5.1.12}improveSolution}{51}{subsection.5.1.12}%
+\contentsline {subsection}{\numberline {5.1.13}plotErrorsGaussian}{52}{subsection.5.1.13}%
+\contentsline {section}{\numberline {5.2}Task 3 Code}{53}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}initializeValues}{54}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}decomposeMatrix}{54}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}jacobiLoop}{55}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}jacobiInsideLoop}{55}{subsection.5.2.4}%
+\contentsline {subsection}{\numberline {5.2.5}jacobiEquation}{55}{subsection.5.2.5}%
+\contentsline {subsection}{\numberline {5.2.6}gaussSeidelLoop}{56}{subsection.5.2.6}%
+\contentsline {subsection}{\numberline {5.2.7}gaussiInsideLoop}{56}{subsection.5.2.7}%
+\contentsline {subsection}{\numberline {5.2.8}gaussSeidelEquation}{57}{subsection.5.2.8}%
+\contentsline {subsection}{\numberline {5.2.9}checkError}{57}{subsection.5.2.9}%
+\contentsline {subsection}{\numberline {5.2.10}endOfLoop}{58}{subsection.5.2.10}%
+\contentsline {subsection}{\numberline {5.2.11}dispFinalResults}{58}{subsection.5.2.11}%
+\contentsline {subsection}{\numberline {5.2.12}plotIterations}{59}{subsection.5.2.12}%
+\contentsline {section}{\numberline {5.3}Task 4 Code}{60}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Gram-Schmid algorithm}{60}{subsection.5.3.1}%
+\contentsline {subsubsection}{initializeGramSchmid}{60}{section*.22}%
+\contentsline {subsubsection}{factorizeColumnsOfQ}{60}{section*.23}%
+\contentsline {subsubsection}{normalizeColumns}{61}{section*.24}%
+\contentsline {subsection}{\numberline {5.3.2}task4}{61}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}QRNoShifts}{61}{subsection.5.3.3}%
+\contentsline {subsubsection}{QRNoShiftsLoop}{62}{section*.25}%
+\contentsline {subsubsection}{QRNoShiftsInsideLoop}{62}{section*.26}%
+\contentsline {subsubsection}{displayResults}{63}{section*.27}%
+\contentsline {subsubsection}{initializeValues}{63}{section*.28}%
+\contentsline {subsection}{\numberline {5.3.4}QRShifts}{64}{subsection.5.3.4}%
+\contentsline {subsubsection}{initiateValues}{64}{section*.29}%
+\contentsline {subsubsection}{QRShiftLoop}{65}{section*.30}%
+\contentsline {subsubsection}{findEigenValue}{65}{section*.31}%
+\contentsline {subsubsection}{getEigenValueFromCorner}{66}{section*.32}%
+\contentsline {subsubsection}{shiftAndIterate}{66}{section*.33}%
+\contentsline {subsubsection}{deflateMatrix}{66}{section*.34}%
+\contentsline {subsubsection}{thresholdBreached}{67}{section*.35}%
+\contentsline {subsubsection}{solveCharactersticEquation}{67}{section*.36}%
+\contentsline {subsubsection}{calculateZeros}{68}{section*.37}%
+\contentsline {subsubsection}{dispResults}{68}{section*.38}%
+\contentsline {subsection}{\numberline {5.3.5}task4Plot}{69}{subsection.5.3.5}%
