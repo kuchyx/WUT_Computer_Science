@@ -970,11 +970,120 @@ Since this method can be slowly convergent we use shifts. Single iteration of QR
 \end{split}
 \end{equation}
 
-Wher $p_k$ sholud be chosen as a best estimate of $\lambda_{i+1}$
+Wher $p_k$ should be chosen as a best estimate of $\lambda_{i+1}$
 
-\section{Solution}
+\section{Results}
+\subsection{Starting matrix}
+I decided to generate random symmetric matrix using following code:
+\begin{simplechar}
+\begin{lstlisting}
+function A = matrix4()
+    A = 10 * rand(5); % rand generates 5x5 matrix filled with random numbers
+    % we multiply by 10 to get at lest one digit in front of the dot
+    A = floor(A); % we floor the matrix we got to get nice natural numbers matrix
+    A = A * A'; % we get symmetric matrix
+    disp(issymmetric(A)); % we check if matrix is symmetric
+end
+\end{lstlisting}
+\end{simplechar}
+I got the following matrix:
+\[
+\begin{bmatrix}
+171  &  48  & 133  &  81  &  93 \\
+ 48  & 108  &  63  &  35  &  30 \\
+133  &  63  & 131  &  64  &  91 \\
+ 81  &  35  &  64  &  41  &  37 \\
+ 93  &  30  &  91  &  37  & 106
+\end{bmatrix}
+\]
+
+Putting it through Matlab eig function I got eigen values equal to:
+\[
+10^{2} *
+\begin{bmatrix}
+  0.000050598692964 \\
+  0.105696602175690 \\
+  0.454589544003707 \\
+  0.870708987227002 \\
+  4.138954267900641
+\end{bmatrix}
+\]
+
+
+\subsection{QR method with no shifts}
+Putting this matrix to my functions QRNoShifts and QRShifts I got:
+for qr method with no shifts:
+Final matrix:
+\[
+\begin{bmatrix}
+413.8954  &  0.0000  & -0.0000  &  0.0000  &  0.0000 \\
+ 0.0000  & 87.0709  &  -0.0000  &  -0.0000  &  0.0000 \\
+0.0000  &  -0.0000  & 45.4590  &  -0.0000  &  -0.0000 \\
+ -0.0000  &  0.0000  &  -0.0000  &  10.5697  &  -0.0000 \\
+ 0.0000  &  -0.0000  &  0.0000  &  0  & 0.0051
+\end{bmatrix}
+\]
+
+Eigen values:
+\[
+10^{2} *
+\begin{bmatrix}
+  4.138954267900639 \\
+   0.870708987227001 \\
+   0.454589544003706 \\
+   0.105696602175689 \\
+   0.000050598692964 \\
+\end{bmatrix}
+\]
+
+It took \textbf{26} iterations to get those values.
+
+\subsection{QR method with shifts}
+For qr method with shiftts:
+Final matrix:
+\[
+\begin{bmatrix}
+413.8954
+\end{bmatrix}
+\]
+
+Eigen values:
+\[
+10^{2} *
+\begin{bmatrix}
+  0.454589544003706 \\
+  0.870708987227001 \\
+  0.105696602175689 \\
+  0.000050598692964 \\
+  4.138954267900639
+\end{bmatrix}
+\]
+
+It took \textbf{12} iterations to get those values.
 
 \section{Discussion of the result}
+Following plot was generated using task4Plot function, using maxMatrixSize = 25 and generating random symmetrical matrix of size i x i in each loop. Both QR methods were given exactly the same matrices.
+\subsection{Plot}
+
+\begin{center}
+   \includegraphics[scale=0.5]{task4plot.eps}
+\end{center}
+\subsection{Shift method superiority}
+As we can see:
+QR method with shifts is much more efficient and reliable.
+\begin{enumerate}
+\item For big enough matrices it requires ten times less iterations compared to QR method without shifts.
+\item It is more efficient in our chosen matrix.
+\item It can work with non-symetric matrices
+\item Has no problem with generating complex eigen values.
+\end{enumerate}
+ One thing that does not change much is the precision, with both algorithms outputting similar results.
+
+
+
+
+
+
 
 \chapter{Code appendix}
 
@@ -1384,6 +1493,311 @@ function plotErrorsGaussian(maxMatrixSize)
 end
 \end{lstlisting}
 \end{simplechar}
+
+\section{Task 4 Code}
+\subsection{Gram-Schmid algorithm}
+
+\begin{simplechar}
+\begin{lstlisting}
+% performs QR or QRdash decomposition of a matrix
+function [Q, R] = gramSchmidtAlgorithm(Matrix)
+    [columns, Q, R, d] = initializeGramSchmid(Matrix);
+    [Q, R] = factorizeColumnsOfQ(columns, Q, Matrix, R, d);
+    [Q, R] = normalizeColumns(columns, Q, R);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{initializeGramSchmid}
+\begin{simplechar}
+\begin{lstlisting}
+function [columns, Q, R, d] = initializeGramSchmid(Matrix)
+    % We start with empty matrices
+    [rows, columns] = size(Matrix);
+    Q = zeros(rows, columns);
+    R = zeros(columns, columns);
+    d = zeros(1, columns);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{initializeGramSchmid}
+\begin{simplechar}
+\begin{lstlisting}
+function [Q, R] = factorizeColumnsOfQ(columns, Q, Matrix, R, d)
+    for i = 1 : columns
+        Q(:, i) = Matrix(:, i);
+        R(i, i) = 1;
+        d(i) = Q(:, i)' * Q(:, i);
+        for i2 = i + 1 : columns
+            R(i, i2) = (Q(:, i)' * Matrix(:, i2)) / d(i);
+            Matrix(:, i2) = Matrix(:, i2) - R(i, i2) * Q(:, i);
+        end
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{initializeGramSchmid}
+\begin{simplechar}
+\begin{lstlisting}
+function [Q, R] = normalizeColumns(columns, Q, R)
+    for i = 1 : columns
+        dd = norm(Q(:, i));
+        Q(:, i) = Q(:, i) / dd;
+        R(i, i:columns) = R(i, i : columns) * dd;
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+
+\begin{simplechar}
+\begin{lstlisting}
+function [eigenValuesNoShifts, iterationsNoShifts, finalMatrixNoShifts, eigenValuesShifts, iterationsShifts, finalMatrixShifts] = task4(Matrix)
+    [eigenValuesNoShifts, iterationsNoShifts, finalMatrixNoShifts] = QRNoShifts(Matrix);
+    [eigenValuesShifts, iterationsShifts, finalMatrixShifts] = QRShifts(Matrix);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{QRNoShifts}
+\begin{simplechar}
+\begin{lstlisting}
+function [eigenValues, whichIterationAreWeOn, Matrix] = QRNoShifts(Matrix)
+
+    [whichIterationAreWeOn, threshold, startingMatrix, matlabEigen] = initializeValues(Matrix);
+    [Matrix, whichIterationAreWeOn] = QRNoShiftsLoop(threshold, Matrix, whichIterationAreWeOn);
+    eigenValues = diag(Matrix)';
+    displayResults(eigenValues, whichIterationAreWeOn, Matrix, startingMatrix, matlabEigen);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{QRNoShiftsLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, whichIterationAreWeOn] = QRNoShiftsLoop(threshold, Matrix, whichIterationAreWeOn)
+    while threshold > 1e-6
+        [Matrix, whichIterationAreWeOn, threshold] = QRNoShiftsInsideLoop(Matrix, whichIterationAreWeOn);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{QRNoShiftsInsideLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, whichIterationAreWeOn, threshold] = QRNoShiftsInsideLoop(Matrix, whichIterationAreWeOn)
+    [Q, R] = gramSchmidtAlgorithm(Matrix);
+    Matrix = R * Q;
+    whichIterationAreWeOn = whichIterationAreWeOn + 1;
+
+    % iterate until all non-diagonal elements are below the threshold
+    matrixWithoutDiagonal = Matrix - diag(diag(Matrix)); % first diag converts Matrix
+    % into vector consisting of values on the diagonal of matrix,
+    % second diag converts this vector into matrix with zeros on
+    % everything except diagonal
+    % If we substract it from Matrix we get original Matrix with zeros
+    % on a diagonal
+    threshold = max(max(abs(matrixWithoutDiagonal)));
+    % first max returns vector of elements
+    % second max returns max element from this vector
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{displayResults}
+\begin{simplechar}
+\begin{lstlisting}
+function displayResults(eigenValues, whichIterationsAreWeOn, Matrix, startingMatrix, matlabEigen)
+    disp("How many iterations it took:")
+    disp(whichIterationsAreWeOn)
+    disp("Starting Matrix:")
+    disp(startingMatrix)
+    disp("Final Matrix:")
+    disp(Matrix)
+    disp("eig(Matrix) eigen values:")
+    disp(matlabEigen)
+    disp("Our eigen values:")
+    disp(eigenValues);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{initializeValues}
+\begin{simplechar}
+\begin{lstlisting}
+function [whichIterationAreWeOn, threshold, startingMatrix, matlabEigen] = initializeValues(Matrix)
+    whichIterationAreWeOn = 0;
+    threshold = inf;
+    startingMatrix = Matrix;
+    matlabEigen = eig(Matrix);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{QRShifts}
+\begin{simplechar}
+\begin{lstlisting}
+function [eigenValues, whatIterationAreWeOn, Matrix] = QRShifts(Matrix)
+    eigenFromMatlab = eig(Matrix);
+    initialMatrix = Matrix;
+    [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix);
+    [Matrix, whatIterationAreWeOn, eigenValues] = QRShiftLoop(matrixSize, Matrix, eigenValues, minThreshold, whatIterationAreWeOn);
+    dispResults(eigenValues, Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{initiateValues}
+\begin{simplechar}
+\begin{lstlisting}
+function [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix)
+    eigenValues = double.empty(1, 0);
+    whatIterationAreWeOn = 0;
+    matrixSize = size(Matrix, 1);
+    minThreshold = 1e-6;
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{QRShiftLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, whatIterationAreWeOn, eigenValues] = QRShiftLoop(matrixSize, Matrix, eigenValues, minThreshold, whatIterationAreWeOn)
+    while matrixSize >= 2
+        flag = 0;
+        [Matrix, matrixSize, whatIterationAreWeOn, eigenValues] = findEigenValue(Matrix, matrixSize, whatIterationAreWeOn, eigenValues, minThreshold, flag);
+        [matrixSize, Matrix] = deflateMatrix(Matrix, matrixSize);
+    end
+    eigenValues(size(eigenValues, 2) + 1) = Matrix(1, 1);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{findEigenValue}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, matrixSize, whatIterationAreWeOn, eigenValues] = findEigenValue(Matrix, matrixSize, whatIterationAreWeOn, eigenValues, minThreshold, flag)
+    while flag == 0
+        eigenValueCorner = getEigenValueFromCorner(Matrix, matrixSize);
+        [Matrix, whatIterationAreWeOn] = shiftAndIterate(matrixSize, Matrix, eigenValueCorner, whatIterationAreWeOn);
+        [flag, eigenValues] = thresholdBreached(Matrix, matrixSize, minThreshold, eigenValues);
+    end
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{getEigenValueFromCorner}
+\begin{simplechar}
+\begin{lstlisting}
+function eigenValueCorner = getEigenValueFromCorner(Matrix, matrixSize)
+    corner = Matrix((matrixSize - 1) : matrixSize, (matrixSize - 1) : matrixSize);
+    % get 2 x 2 corner of the matrix
+    eigenValueCorner = solveCharactersticEquation(corner);
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{shiftAndIterate}
+\begin{simplechar}
+\begin{lstlisting}
+function [Matrix, whatIterationAreWeOn] = shiftAndIterate(matrixSize, Matrix, eigenValueCorner, whatIterationAreWeOn)
+    % shift and iterate algorithm
+    identityMatrix = eye(matrixSize);
+    Matrix = Matrix - identityMatrix * eigenValueCorner;
+    [Q, R] = gramSchmidtAlgorithm(Matrix);
+    Matrix = R * Q + identityMatrix * eigenValueCorner;
+    whatIterationAreWeOn = whatIterationAreWeOn + 1;
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{deflateMatrix}
+\begin{simplechar}
+\begin{lstlisting}
+function [matrixSize, Matrix] = deflateMatrix(Matrix, matrixSize)
+    matrixSize = matrixSize - 1;
+    Matrix = Matrix(1:matrixSize, 1:matrixSize);
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{thresholdBreached}
+\begin{simplechar}
+\begin{lstlisting}
+function [flag, eigenValues] = thresholdBreached(Matrix, matrixSize, minThreshold, eigenValues)
+    flag = 0;
+    threshold = max(abs(Matrix(matrixSize, 1:(matrixSize - 1))));
+
+     % once we zero the row (or rather get close enough to zero) exit loop
+    if (threshold <= minThreshold)
+        eigenValues(size(eigenValues, 2) + 1) = Matrix(matrixSize, matrixSize);
+        flag = 1;
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{solveCharactersticEquation}
+\begin{simplechar}
+\begin{lstlisting}
+% finds the eigenvalue of a 2x2 matrix that is closer to the lower right corner
+function eigen = solveCharactersticEquation(Matrix)
+    [eigenOne, eigenTwo] = calculateZeros(Matrix);
+    eigen = valueCloserToLowerRightCorner(eigenOne, eigenTwo, Matrix);
+end
+
+function eigen = valueCloserToLowerRightCorner(eigenOne, eigenTwo, Matrix)
+    if abs(Matrix(4) - eigenOne) < abs(Matrix(4) - eigenTwo)
+        eigen = eigenOne;
+    else
+        eigen = eigenTwo;
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{calculateZeros}
+\begin{simplechar}
+\begin{lstlisting}
+function [zeroOne, zeroTwo] = calculateZeros(Matrix)
+    b = Matrix(1) + Matrix(4);
+    ac = Matrix(1) * Matrix(4) - Matrix(2) * Matrix(3);
+    delta = (b) ^ 2 - 4 * ac;
+    % get delta of quadratic equation
+    squareRootDelta = sqrt(delta);
+    % square delta
+    zeroOne = (b - squareRootDelta) / 2;
+    zeroTwo = (b + squareRootDelta) / 2;
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsubsection{dispResults}
+\begin{simplechar}
+\begin{lstlisting}
+function dispResults(eigenValues, Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix)
+    disp("Initial matrix: ");
+    disp(initialMatrix);
+    disp("Final matrix: ");
+    disp(Matrix);
+    disp("Number of iterations: ");
+    disp(whatIterationAreWeOn);
+    disp("Eigen values from eig(Matrix):");
+    disp(eigenFromMatlab);
+    disp("Our eigen values: ");
+    disp(eigenValues);
+end
+\end{lstlisting}
+\end{simplechar}
+
 
 \begin{thebibliography}{9}
 \bibitem{texbook}

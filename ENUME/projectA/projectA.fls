@@ -863,6 +863,17 @@ INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/ts1fvm.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/bera/ts1fvm.fd
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/bera/fvmr8c.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/bera/fvmr8c.vf
+INPUT ./task4plot.eps
+INPUT ./task4plot.eps
+INPUT task4plot.eps
+INPUT ./task4plot.eps
+INPUT ./task4plot.eps
+INPUT ./task4plot-eps-converted-to.pdf
+INPUT ./task4plot-eps-converted-to.pdf
+INPUT ./task4plot.eps
+INPUT ./task4plot-eps-converted-to.pdf
+INPUT ./task4plot-eps-converted-to.pdf
+INPUT ./task4plot-eps-converted-to.pdf
 INPUT projectA.aux
 INPUT ./projectA.out
 INPUT ./projectA.out

@@ -4,7 +4,7 @@ function [eigenValues, whatIterationAreWeOn, Matrix] = QRShifts(Matrix)
     initialMatrix = Matrix;
     [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix);
     [Matrix, whatIterationAreWeOn, eigenValues] = QRShiftLoop(matrixSize, Matrix, eigenValues, minThreshold, whatIterationAreWeOn);
-    dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix);
+    %dispResults(eigenValues, Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix);
 end 
 
 function [eigenValues, whatIterationAreWeOn, matrixSize, minThreshold] = initiateValues(Matrix)
@@ -122,7 +122,7 @@ function [Q, R] = normalizeColumns(columns, Q, R)
     end
 end
 
-function dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix)
+function dispResults(eigenValues, Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatrix)
     disp("Initial matrix: ");
     disp(initialMatrix);
     disp("Final matrix: ");
@@ -132,4 +132,5 @@ function dispResults(Matrix, whatIterationAreWeOn, eigenFromMatlab, initialMatri
     disp("Eigen values from eig(Matrix):");
     disp(eigenFromMatlab);
     disp("Our eigen values: ");
+    disp(eigenValues);
 end

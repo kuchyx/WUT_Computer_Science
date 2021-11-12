@@ -3,7 +3,7 @@ function [eigenValues, whichIterationAreWeOn, Matrix] = QRNoShifts(Matrix)
     [whichIterationAreWeOn, threshold, startingMatrix, matlabEigen] = initializeValues(Matrix);
     [Matrix, whichIterationAreWeOn] = QRNoShiftsLoop(threshold, Matrix, whichIterationAreWeOn);
     eigenValues = diag(Matrix)';
-    displayResults(whichIterationAreWeOn, Matrix, startingMatrix, matlabEigen);
+    %displayResults(eigenValues, whichIterationAreWeOn, Matrix, startingMatrix, matlabEigen);
 end
 
 function [Matrix, whichIterationAreWeOn] = QRNoShiftsLoop(threshold, Matrix, whichIterationAreWeOn)
@@ -29,7 +29,7 @@ function [Matrix, whichIterationAreWeOn, threshold] = QRNoShiftsInsideLoop(Matri
     % second max returns max element from this vector
 end
 
-function displayResults(whichIterationsAreWeOn, Matrix, startingMatrix, matlabEigen)
+function displayResults(eigenValues, whichIterationsAreWeOn, Matrix, startingMatrix, matlabEigen)
     disp("How many iterations it took:")
     disp(whichIterationsAreWeOn)
     disp("Starting Matrix:")
@@ -39,6 +39,7 @@ function displayResults(whichIterationsAreWeOn, Matrix, startingMatrix, matlabEi
     disp("eig(Matrix) eigen values:")
     disp(matlabEigen)
     disp("Our eigen values:")
+    disp(eigenValues);
 end
 
 function [whichIterationAreWeOn, threshold, startingMatrix, matlabEigen] = initializeValues(Matrix)
