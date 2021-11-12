@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass[12pt]{report}
 
 \usepackage{mathtools}
 \usepackage{amsmath}
@@ -9,6 +9,7 @@
 \usepackage{bigfoot}
 \usepackage[numbered, framed]{matlab-prettifier}
 \usepackage{filecontents}
+\usepackage{graphicx}
 \hypersetup{
 colorlinks,
 citecolor=black,
@@ -224,43 +225,31 @@ We do it before each Gaussian elimination step since this will lead to smaller e
 Then We swap this row with k-th row. Since the matrix We use is assumed to be nonsingular then $|{a_{ik}^{k}}| \neq 0$ will be always true. After that We continue with the Gaussian elimination method.
 
 \section{Discussion of the result}
-Solutions vectors for matrix A and vector A and n = 16:
-\[ x_{algorithm} = \left( \begin{array}{cc}
-  -0.930056653761514 \\
-  -1.223503294617857 \\
-  -1.273786563425385 \\
-  -1.231189728991652 \\
-  -1.153115956882885 \\
-  -1.061491474990357 \\
-  -0.964691801421511 \\
-  -0.865917262607523 \\
-  -0.766393319734375 \\
-  -0.666596029928932 \\
-  -0.566728103385765 \\
-  -0.466921613561691 \\
-  -0.367370070632649 \\
-  -0.268521931669581 \\
-  -0.171529057709426 \\
-  -0.079398574792031
+Solutions vectors for matrix A and vector A and n = 10:
+\[ x_{algorithm} = \left(\begin{array}{cc}
+-0.930024655110760 \\
+-1.223407298665613 \\
+-1.273530574219411 \\
+-1.230517757325955 \\
+-1.151356031091789 \\
+-1.056883669282743 \\
+-0.952628310089775 \\
+-0.834334594319914 \\
+-0.683708806203301 \\
+-0.450125157623323
 \end{array} \right)
 %
 x_{Matlab Method} = \left(  = \begin{array}{cc}
-  -0.930056653761507 \\
-  -1.223503294617854 \\
-  -1.273786563425390 \\
-  -1.231189728991649 \\
-  -1.153115956882891 \\
-  -1.061491474990357 \\
-  -0.964691801421514 \\
-  -0.865917262607518 \\
-  -0.766393319734373 \\
-  -0.666596029928935 \\
-  -0.566728103385765 \\
-  -0.466921613561692 \\
-  -0.367370070632646 \\
-  -0.268521931669579 \\
-  -0.171529057709426 \\
-  -0.079398574792031
+-0.930024655110760 \\
+-1.223407298665613 \\
+-1.273530574219411 \\
+-1.230517757325955 \\
+-1.151356031091788 \\
+-1.056883669282743 \\
+-0.952628310089775 \\
+-0.834334594319914 \\
+-0.683708806203301 \\
+-0.450125157623323
 \end{array} \right)
 \]
 
@@ -309,6 +298,10 @@ x_{Matlab Method} = \left(  = \begin{array}{cc}
 
 Error for 'B' method for algorithm: \[ 5.699979882700911e+17 \]
 Error for 'B' method for matlab method: \[ 4.569118543317684e+17 \]
+
+\begin{center}
+   \includegraphics[scale=0.75]{errorsNoResidual.eps}
+\end{center}
 
 
 
@@ -509,7 +502,7 @@ Where $\delta_2$ is an assumed tolerance. If this test is not passed then We can
 \end{enumerate}
 
 \subsubsection{\textbf{A} and \textbf{b}}
-We have been given with the following system:
+We have been given the following system:
 \[
 \systeme{10x_1-4x_2+x_3+2x_4=-8, 2x_1-6x_2+3x_3-x_4=-12, x_1+4x_2-12x_3+x_4=4, 2x_1+3x_2-3x_3-10x_4=1}
 \]
@@ -559,7 +552,7 @@ So:
 \end{bmatrix}
 \]
 
-\section{Discussion of the result}
+\section{Results}
 
 \subsection{Jacobi method result}
 For system of equations We got in this task We got following results:
@@ -706,140 +699,55 @@ Error:
 We managed to do this in \textbf{84} iterations of our loop, and the demanded tolerance did not change.
 We managed to achieve slightly better (as in, the error was smaller) results than Matlab custom function.
 
-\paragraph{Table}
-
-\begin{center}
-\resizebox{\textwidth}{!}{
-\begin{tabular}{||c c c c c c||}
- \hline
- system of equations & method & demanded tolerance & final demanded tolerance & error & iterations \\
- \hline
- task 3 system & Jacobi method & 10e-10 & 10e-10 & 1.154375287358407e-10 & 38 \\
- \hline
- task 3 system & Jacobi method & 10e-10 & 20e-10 & 5.770361548895147e-11 & 37 \\
- \hline
- task 3 system & Jacobi method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 53 \\
- \hline
- task 3 system & Matlab function & ? & ? & 4.070144838902081e-15 & ? \\
- \hline
- task 2a) system & Jacobi method & 10e-10 & 10e-10 & 6.955194519943778e-11 & 59 \\
- \hline
- task 2a) system & Jacobi method & 10e-10 & 40e-10 & 1.699812218689508e-10 & 57 \\
- \hline
- task 2a) system & Jacob method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 84 \\
- \hline
- task 2a) system & Matlab function & ? & ? & 3.662053438817790e-15 & ? \\
- \hline
-
-\end{tabular}}
-\end{center}
-
 \subsection{Gauss-Seidel method result}
 For system of equations We got in this task We got following results:
 \\
-Without the change in demanded tolerance:
 \[ x = \left( \begin{array}{cc}
-  -0.076776098668341 \\
-   2.105784262642568 \\
-   0.395344797635474 \\
-   0.397776619764909
+  -0.076776098752996 \\
+   2.105784262542701 \\
+   0.395344797589652 \\
+   0.397776619735316
 \end{array} \right)
 \]
 Error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.154375287358407e-10 \]
-We managed to do this in \textbf{38} iterations of our loop, and the demanded tolerance did not change. (This required small change in code where We ommited the part of code responsible for changing demandedTolerance if $ \| \mathbf{A}x-b \| > \delta_2) $ )
-
-With the change in demanded tolerance:
-\[ x = \left( \begin{array}{cc}
-  -0.076776098668341 \\
-   2.105784262642568 \\
-   0.395344797635474 \\
-   0.397776619764909
-\end{array} \right)
-\]
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 6.999102842719934e-10 \]
+We managed to do this in \textbf{19} iterations of our loop, and the demanded tolerance did not change.
 Error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 5.770361548895147e-11 \]
-We got this result in \textbf{37} iterations and demanded tolerance was equal to $2*10^{-10}$
-
-Compared to matlab function
-\[ x_{matlab} = \left( \begin{array}{cc}
-  -0.076776098662498 \\
-   2.105784262636790 \\
-   0.395344797637659 \\
-   0.397776619767240 \\
-\end{array} \right)
-\]
-Matlab error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 4.070144838902081e-15 \]
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 6.999102842719934e-10 \]
+We got this result in \textbf{19} iterations and demanded tolerance was equal to $2*10^{-10}$
 
 For data from task 2a We got: \\
-Without change in demanded tolerance:
 \[ x_a = \left( \begin{array}{cc}
--0.930024655108186 \\
--1.223407298660663 \\
--1.273530574212508 \\
--1.230517757317628 \\
--1.151356031082747 \\
--1.056883669273682 \\
--0.952628310081466 \\
--0.834334594312996 \\
--0.683708806198363 \\
--0.450125157620744 \\
+-0.930024655049330 \\
+-1.223407298590161 \\
+-1.273530574151901 \\
+-1.230517757273947 \\
+-1.151356031055568 \\
+-1.056883669259564 \\
+-0.952628310076145 \\
+-0.834334594312669 \\
+-0.683708806199986 \\
+-0.450125157622217 \\
 \end{array} \right)
 \]
 Error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 6.955194519943778e-11 \]
-We managed to do this in \textbf{59} iterations of our loop, and the demanded tolerance did not change.
-
-With change in demanded tolerance:
-\[ x_a = \left( \begin{array}{cc}
--0.930024655104470 \\
--1.223407298653515 \\
--1.273530574202540 \\
--1.230517757305602 \\
--1.151356031069692 \\
--1.056883669260597 \\
--0.952628310069469 \\
--0.834334594303006 \\
--0.683708806191233 \\
--0.450125157617020 \\
-\end{array} \right)
-\]
-Error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.699812218689508e-10 \]
-We managed to do this in \textbf{57} iterations of our loop, and the demanded tolerance changed to $4*10^{-10}$
-
-Compared to matlab $ A \ b $ function
-\[ x_{matlab} = \left( \begin{array}{cc}
-  -0.930024655110760 \\
-  -1.223407298665612 \\
-  -1.273530574219411 \\
-  -1.230517757325956 \\
-  -1.151356031091789 \\
-  -1.056883669282743 \\
-  -0.952628310089775 \\
-  -0.834334594319914 \\
-  -0.683708806203301 \\
-  -0.450125157623323 \\
-\end{array} \right)
-\]
-Matlab error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.662053438817790e-15 \]
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 5.311669113699570e-10 \]
+We managed to do this in \textbf{28} iterations of our loop, and the demanded tolerance did not change.
 
 For Matrix and Vector from task 2b) error of
 \[ \| x^{(i+1)} - x^{(i)} \| \]
 grew to infinity, therefore We could never achieve demanded tolerance, therefore the program executed infinite loop.
 
 \subsubsection{Minimizing the demanded error}
-We tried to minimize the demanded error using this steps:
+I tried to minimize the demanded error using this steps:
 \begin{enumerate}
-\item We copied error from matlab function and pasted it into demanded tolerance.
-\item If We did not get infinite loop We copied the newly acquired error and pasted it into demanded tolerance.
-\item If We got inifinite loop We used the previous error as "minimal" demanded error.
+\item I copied error from matlab function and pasted it into demanded tolerance.
+\item If I did not get infinite loop I copied the newly acquired error and pasted it into demanded tolerance.
+\item If I got inifinite loop I used the previous error as "minimal" demanded error.
 \end{enumerate}
 \paragraph{For original system of equations:}
-We managed to get results with error as low as $1.776356839400250e-15$ with demanded tolerance = $3.202372833989376e-15$ for lower values program went into infinite loop.
-Results for demanded tolerance = $3.202372833989376e-15$
+We managed to get results with error as low as $1.776356839400250e-15$ with demanded tolerance = $ 1.986027322597818e-15 $ for lower values program went into infinite loop.
+Results for demanded tolerance = $1.986027322597818e-15$
 For given matrix:
 \[ x = \left( \begin{array}{cc}
   -0.076776098662498 \\
@@ -849,16 +757,16 @@ For given matrix:
 \end{array} \right)
 \]
 Error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.108624468950438e-15 \]
-We got this result in \textbf{53} iterations and demanded tolerance did not change.
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.776356839400250e-15 \]
+We got this result in \textbf{30} iterations and demanded tolerance did not change.
 
 \paragraph{For task 2a) system of equations:}
 We managed to get results with error as low as
-\[ 3.108624468950438e-15 \] with demanded tolerance:
-\[ 3.202372833989376e-15 \]
+\[ 1.538370149106851e-15 \] with demanded tolerance:
+\[ 1.538370149106851e-15 \]
 for lower values program went into infinite loop.
 
-For demanded tolerance = $3.202372833989376e-15$:
+For demanded tolerance = $1.538370149106851e-15$:
 Results for 2a) system of equation
 
 \[ x_a = \left( \begin{array}{cc}
@@ -871,12 +779,12 @@ Results for 2a) system of equation
 -0.952628310089775 \\
 -0.834334594319914 \\
 -0.683708806203301 \\
--0.450125157623323
+-0.450125157623323 \\
 \end{array} \right)
 \]
 Error:
-\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 3.108624468950438e-15 \]
-We managed to do this in \textbf{84} iterations of our loop, and the demanded tolerance did not change.
+\[ r = \| \mathbf{A}\mathbf{x} - \mathbf{b}\| = 1.538370149106851e-15 \]
+We managed to do this in \textbf{42} iterations of our loop, and the demanded tolerance did not change.
 We managed to achieve slightly better (as in, the error was smaller) results than Matlab custom function.
 
 \paragraph{Table}
@@ -885,28 +793,76 @@ We managed to achieve slightly better (as in, the error was smaller) results tha
 \resizebox{\textwidth}{!}{
 \begin{tabular}{||c c c c c c||}
  \hline
- system of equations & method & demanded tolerance & final demanded tolerance & error & iterations \\
+ system of equations & method & demanded tolerance & error & iterations \\
  \hline
- task 3 system & Jacobi method & 10e-10 & 10e-10 & 1.154375287358407e-10 & 38 \\
+ task 3 system & Jacobi method & 10e-10 & 1.154375287358407e-10 & 38 \\
  \hline
- task 3 system & Jacobi method & 10e-10 & 20e-10 & 5.770361548895147e-11 & 37 \\
+ task 3 system & Jacobi method & 10e-10 & 5.770361548895147e-11 & 37 \\
  \hline
- task 3 system & Jacobi method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 53 \\
+ task 3 system & Jacobi method & 3.202372833989376e-15 & 3.108624468950438e-15 & 53 \\
  \hline
- task 3 system & Matlab function & ? & ? & 4.070144838902081e-15 & ? \\
+ task 3 system & Gaussian-Seidel method & 10e-10 & 6.999102842719934e-10 & 19 \\
  \hline
- task 2a) system & Jacobi method & 10e-10 & 10e-10 & 6.955194519943778e-11 & 59 \\
+ task 3 system & Gaussian-Seidel method & 1.776356839400250e-15 & 1.776356839400250e-15 & 30 \\
  \hline
- task 2a) system & Jacobi method & 10e-10 & 40e-10 & 1.699812218689508e-10 & 57 \\
+ task 3 system & Matlab function & ? & 4.070144838902081e-15 & ? \\
  \hline
- task 2a) system & Jacob method & 3.202372833989376e-15 & 3.202372833989376e-15 & 3.108624468950438e-15 & 84 \\
+ task 2a) system & Jacobi method & 10e-10 & 6.955194519943778e-11 & 59 \\
  \hline
- task 2a) system & Matlab function & ? & ? & 3.662053438817790e-15 & ? \\
+ task 2a) system & Jacobi method & 10e-10 & 1.699812218689508e-10 & 57 \\
+ \hline
+ task 2a) system & Jacob method & 3.202372833989376e-15 & 3.108624468950438e-15 & 84 \\
+ \hline
+ task 2a) system & Gaussian-Seidel method & 10e-10 & 5.311669113699570e-10 & 28 \\
+ \hline
+ task 2a) system & Gaussian-Seidel method & 1.538370149106851e-15 & 1.538370149106851e-15 & 42 \\
+ \hline
+ task 2a) system & Matlab function & ? & 3.662053438817790e-15 & ? \\
  \hline
 
 \end{tabular}}
 \end{center}
 
+\section{Discussion of results}
+\subsection{Comparison based on table}
+Gaussian-Seidel method takes less iterations, can achieve smaller error and works under smaller demanded tolerance, that being said Jacobi method has one crucial advantage - it can be run in parallel. That means that even when Jacobi method takes twice or thrice amount of iteration us Gaussian-Seidel one if we just run it in paraller we can diminish this difference. In the examples we worked in, just two jacobi method running in paraller provide us with similar amount of iterations per one process as in Gaussian-Seidel one, and three or more processes give the edge to Jacobi method. With modern CPU's with at least 5 cores and correct implementation of algorithm, jacobi method reigns supreme.
+
+\subsection{Convergence}
+The biggest problem is of course the fact that those iterative methods do not work on every system of equation. Like the one from task 2b).
+For Jacobi's method the matrix is convergent if it has strong diagonal dominance. \textbf{A}, i.e:
+\begin{enumerate}
+  \item \[ \| a_{ii} \| > \sum^n_{j=1, j \neq i} \|a_{ij} \| \]
+  \item \[ \| a_{jj} \| > \sum^n_{i=1, i \neq j} \|a_{ij} \| \]
+\end{enumerate}
+For Gaussian-Seidel method the matrix is convergent if it has strong diagonal dominance \textbf{or} if the matrix \textbf{A} is symmetric and positivie definite.
+\subsubsection{2b) task convergence }
+Let's check strong diagonal dominance from matrix \textbf{A} from task 2b) in matlab:
+\begin{simplechar}
+\begin{lstlisting}
+function d = checkIfDiagonallyDominant(Matrix)
+    d = 1;
+    [Rows, ~] = size(Matrix);
+    for i = 1 : Rows
+        rowsSum = 0;
+        for j = 1 : Rows
+            rowsSum = rowsSum + abs(Matrix(i, j));
+        end
+        rowsSum = rowsSum - Matrix(i, i);
+        if Matrix(i, i) <= rowsSum
+            d = 0;
+            break
+        end
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+checkIfDiagonallyDominant(matrixB(10)) returns '0', therefore matrix from task 2b) will \textbf{not} converge. And as expected it does not work when put in my jacobiLoop function.
+\subsubsection{Iterations as function of size of Matrix}
+I have used matrix from task 2a), demanded tolerance equal to 10e-10, and max size of matrix equal to 500. for both methods
+\begin{center}
+   \includegraphics[scale=0.75]{iterations.eps}
+\end{center}
+Gauss Seidel method again requires fewer iterations, around half the amount for jacobi method. For both methods number of iterations acts like logarithmic function. Therefore we can assume that for big matrices required number of iterations will not change so drastically.
 
 \chapter{Problem 4 - QR method of finding eigenvalues}
 
@@ -1078,14 +1034,17 @@ end % end function
 \subsection{improveSolution}
 \begin{simplechar}
 \begin{lstlisting}
-function x = improveSolution(x, newResiduum, oldResiduum, Matrix, Vector)
-    while newResiduum <= oldResiduum
-        oldResiduum = newResiduum;
-        residuum = Matrix*x - Vector;
-        x = x - residuum;
-        newResiduum = residuum;
-    end % end while
+function x = iterativeResidualCorrection(A, x, b)
+    r = A*x - b;
+    for i = 1 : 100
+        [~, ~, deltaX] = solveSystem(A, r);
+        newX = x - deltaX;
+        r = A*newX - b;
+        x = newX;
+    end
+
 end % end function
+
 \end{lstlisting}
 \end{simplechar}
 
@@ -1252,6 +1211,33 @@ function dispFinalResults(x_j, x_g, demandedToleranceJ, demandedToleranceG, whic
     disp(x_j);
     disp("Answer for Gaussian-Seidel method: ");
     disp(x_g);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotIterations}
+\begin{simplechar}
+\begin{lstlisting}
+function plotIterations()
+    maxMatrixSize = 500;
+    iterationsJ = zeros(maxMatrixSize);
+    iterationsG = zeros(maxMatrixSize);
+    for i = 1 : maxMatrixSize
+        [~, ~, whichIterationAreWeOnJ, whichIterationAreWeOnG] = iterative(matrixA(i), vectorA(i));
+        iterationsJ(i) = whichIterationAreWeOnJ;
+        iterationsG(i) = whichIterationAreWeOnG;
+    end
+    nexttile
+    plot(iterationsJ, '.');
+    title('Number of iterations for different sizes of matrices for Jacobi method');
+    xlabel('Size of matrix A');
+    ylabel('Number of iterations');
+    nexttile
+    plot(iterationsG, '.');
+    title('Number of iterations for different sizes of matrices for Gauss-Seidel method');
+    xlabel('Size of matrix A');
+    ylabel('Number of iterations');
+
 end
 \end{lstlisting}
 \end{simplechar}

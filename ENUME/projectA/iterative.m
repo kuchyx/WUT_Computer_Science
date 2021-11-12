@@ -1,4 +1,4 @@
-function [x_j, x_g] = iterative(Matrix, Vector)
+function [x_j, x_g, whichIterationAreWeOnJ, whichIterationAreWeOnG] = iterative(Matrix, Vector)
     [L, D, U, initial_x, whichIterationAreWeOnJ, whichIterationAreWeOnG, demandedToleranceJ, demandedToleranceG, flag, Rows] = initializeValues(Matrix);
     [x_j, whichIterationAreWeOnJ, demandedToleranceJ] = jacobiLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOnJ, demandedToleranceJ, Vector, flag);
     [x_g, whichIterationAreWeOnG, demandedToleranceG] = gaussSeidelLoop(Matrix, L, D, U, initial_x, whichIterationAreWeOnG, demandedToleranceG, Vector, flag, Rows);
@@ -81,7 +81,7 @@ function [flag, demandedTolerance] = checkError(x_g, initial_x, demandedToleranc
         if currentError <= demandedTolerance % if sequence as per textbook
             flag = 1;
         else 
-            demandedTolerance = demandedTolerance * 2; % arbitrary value
+            demandedTolerance = demandedTolerance * 1; % arbitrary value
         end
     end
 end

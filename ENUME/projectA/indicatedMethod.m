@@ -1,15 +1,17 @@
-function x = indicatedMethod(Matrix, Vector) % Name of the method as in the textbook
+function [x, errorBeforeResidualCorrection, errorAfterResidualCorrection] = indicatedMethod(Matrix, Vector) % Name of the method as in the textbook
 % x stands for obtained result
     checkIfMatrixIsSquareMatrix(Matrix);
     [Matrix, Vector, x] = solveSystem(Matrix, Vector);
     errorBeforeResidualCorrection = norm(Matrix*x - Vector);
     x = iterativeResidualCorrection(Matrix, x, Vector); % Improve on the solution
-    disp("errorBeforeResidualCorrection")
-    disp(errorBeforeResidualCorrection);
-    disp("errorAfterResidualCorrection")
-    disp(norm(Matrix*x - Vector));
-    disp("A\b error:")
-    disp(norm(Matrix *  (Matrix \ Vector)  - Vector));
+    %disp("errorBeforeResidualCorrection")
+    %disp(errorBeforeResidualCorrection);
+    errorAfterResidualCorrection = norm(Matrix*x - Vector);
+    %disp("errorAfterResidualCorrection")
+    %disp(errorAfterResidualCorrection);
+    %disp("A\b error:")
+    %disp(norm(Matrix *  (Matrix \ Vector)  - Vector));
+    %disp(Matrix\Vector);
 
 end % end function
 
@@ -102,10 +104,11 @@ end % end function
 
 function x = iterativeResidualCorrection(A, x, b)
     r = A*x - b;
-    for i = 1 : 10
-        deltaX = solveSystem(A, r);
+    for i = 1 : 100
+        [~, ~, deltaX] = solveSystem(A, r);
         newX = x - deltaX;
         r = A*newX - b;
         x = newX;
     end 
+
 end % end function
