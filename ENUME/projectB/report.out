@@ -10,12 +10,14 @@
 \BOOKMARK [0][-]{chapter.2}{Find real and complex roots of the polynomial}{}% 10
 \BOOKMARK [1][-]{section.2.1}{Problem}{chapter.2}% 11
 \BOOKMARK [1][-]{section.2.2}{Theoretical Introduction}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.3}{Results}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.3.1}{Comparison of results between MM1 and MM2}{section.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.3.2}{Comparison of results between Newton's method and MM2}{section.2.3}% 15
-\BOOKMARK [0][-]{chapter.3}{Find real and complex roots of the polynomial using Laguerre's method}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 17
-\BOOKMARK [1][-]{section.3.2}{Theoretical Introduction}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 19
-\BOOKMARK [2][-]{subsection.3.3.1}{Comparison of results between MM1 and MM2}{section.3.3}% 20
-\BOOKMARK [0][-]{chapter.4}{Code appendix}{}% 21
+\BOOKMARK [2][-]{subsection.2.2.1}{MM1}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.2}{MM2}{section.2.2}% 14
+\BOOKMARK [1][-]{section.2.3}{Results}{chapter.2}% 15
+\BOOKMARK [2][-]{subsection.2.3.1}{Comparison of results between MM1 and MM2}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.2}{Comparison of results between Newton's method and MM2}{section.2.3}% 17
+\BOOKMARK [0][-]{chapter.3}{Find real and complex roots of the polynomial using Laguerre's method}{}% 18
+\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.2}{Theoretical Introduction}{chapter.3}% 20
+\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 21
+\BOOKMARK [2][-]{subsection.3.3.1}{Comparison of results between MM1 and MM2}{section.3.3}% 22
+\BOOKMARK [0][-]{chapter.4}{Code appendix}{}% 23
