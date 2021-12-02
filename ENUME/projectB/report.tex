@@ -1,0 +1,119 @@
+\documentclass[12pt]{report}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{siunitx}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{bigfoot}
+\usepackage[numbered, framed]{matlab-prettifier}
+\usepackage{filecontents}
+\usepackage{graphicx}
+\hypersetup{
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black
+linkto=all,
+}
+
+\newenvironment{simplechar}{%
+   \catcode`\^=12
+}{}
+
+\title{Numerical Methods, project B, Number 32}
+\author{Krzysztof Rudnicki\\ Student number: 307585 \\ Advisor: dr Adam Krzemieniowski}
+\date{\today}
+
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+
+\begin{document}
+
+
+
+\maketitle
+\tableofcontents
+
+\chapter{Find all zeros of function}
+
+\section{a) False position method}
+
+\subsection{Problem}
+
+We have to find zeros of the function
+\[ f(x) = -2.1 + 0.3x - xe^{-x} \]
+In the interval $[-5; 10]$
+
+using false position method
+
+\subsection{Theoretical Introduction}
+\subsection{Solution}
+\subsection{Results}
+
+\section{b) the Newton's method}
+
+\subsection{Problem}
+
+We have to find zeros of the function
+\[ f(x) = -2.1 + 0.3x - xe^{-x} \]
+In the interval $[-5; 10]$
+
+using the Newton's method
+\subsection{Theoretical Introduction}
+\subsection{Solution}
+\subsection{Results}
+
+
+\chapter{Find real and complex roots of the polynomial}
+
+\section{Problem}
+
+We have to Find all real and complex roots of the polynomial
+
+\[ f(x) = a_4x^4+a_3x^3+a_2x^2+a_1x+a_0 \]
+where:
+\[ [a_4 \; a_3 \; a_2 \; a_1 \; a_0] = [-2 \; 12 \; 4 \; 1 \; 3] \]
+
+So our polynomial looks like this:
+\[ f(x) = -2x^4+12x^3+4x^2+1x+3 \]
+
+Using the M{\"u}ller's method. We have to implement both MM1 and MM2 versions. We also need to find real roots using the Newton's method and compare these results with what we got from MM2 version of the M{\"u}ller's method.
+\section{Theoretical Introduction}
+\section{Solution}
+\section{Results}
+
+\subsection{Comparison of results between MM1 and MM2}
+\subsection{Comparison of results between Newton's method and MM2}
+
+\chapter{Find real and complex roots of the polynomial using Laguerre's method}
+
+\section{Problem}
+We have to find all (real and complex) roots of the polynomial from previous exercise:
+\[ f(x) = -2x^4+12x^3+4x^2+1x+3 \]
+Using the Laguerre's method. Then we should compare those results with the MM2 version of the  M{\"u}ller's method.
+
+
+\section{Theoretical Introduction}
+\section{Solution}
+\section{Results}
+\subsection{Comparison of results between MM1 and MM2}
+
+\chapter{Code appendix}
+
+\begin{thebibliography}{9}
+\bibitem{texbook}
+Piotr Tatjewski (2014) \emph{Numerical Methods}, Oficyna Wydawnicza Politechniki Warszawskiej
+\end{thebibliography}
+
+
+\end{document}
