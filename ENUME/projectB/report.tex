@@ -52,12 +52,10 @@ linkto=all,
 
 We have to find zeros of the function
 \[ f(x) = -2.1 + 0.3x - xe^{-x} \]
-In the interval $[-5; 10]$
-
-using false position method.
+In the interval $[-5; 10]$ using false position method.
 
 \subsection{Theoretical Introduction}
-\emph{False position} method also called \emph{regula falsi} in fancier circles is similar to the bisection method, with a difference where the interval we use $[a_n, b_n]$ is divided into two subintervals. We have:
+\emph{False position} method also called \emph{regula falsi} in fancier circles is similar to the bisection method, the difference is that the interval we use $[a_n, b_n]$ is divided into two subintervals. We have:
 \begin{itemize}
 \item $\alpha$ - The root
 \item $a_n$ - 'left' interval
@@ -67,7 +65,7 @@ using false position method.
 \end{itemize}
 
 We get:
-\[ \frac{f(b_n) - f_(a_n)}{b_n - a_n} = \frac{f(b_n) - 0}{b_n - c_n} \]
+\[ \frac{f(b_n) - f(a_n)}{b_n - a_n} = \frac{f(b_n) - 0}{b_n - c_n} \]
 From which we get:
 \[ c_n = b_n - \frac{f(b_n)(b_n - a_n)}{f(b_n) - f(a_n)} = \frac{a_nf(b_n) - b_n f(a_n)}{f(b_n)-f(a_n)} \]
 
@@ -88,16 +86,7 @@ It is superlinearly convergent, globally convergent and length of intervals we g
 \subsection{Results}
 
 \section{b) the Newton's method}
-\emph{The Newton's method} also called \emph{the tangent method} relies on first order part of its expansion into Taylor series for a given current approximation of root.
-\[ f(x) \approx f(x_n) + f^{'}(x_n)(x-x_n) \]
-Then we obtain the next point $x_{x+1}$ by finding root of linear function:
-\[ f(x_n) + f^{'}(x_n)(x_{n+1}-x_n) = 0 \]
-From this we get formula for $x_{n+1}$:
-\[ x_{n+1} = x_n - \frac{f(x_n)}{f^{'}(x_n)} \]
 
-This method asw opposed to \emph{regula falsi} method is locally convergent, should we choose initial point too far from the root (area which is close enough to root is called set of attraction) then we can get a divergence. On the other side if the Newton's method will converge then it is quite rapid with convergence of order p = 2, quadratic convergence.
-
-Newton's method is also effective if the function derrivative if far from zero, so the slope of the function is steep, conversely if the derrivative is close the zero the method is not recommended.
 
 \subsection{Problem}
 
@@ -107,6 +96,16 @@ In the interval $[-5; 10]$
 
 using the Newton's method
 \subsection{Theoretical Introduction}
+\emph{The Newton's method} also called \emph{the tangent method} relies on first order part of its expansion into Taylor series for a given current approximation of root.
+\[ f(x) \approx f(x_n) + f^{'}(x_n)(x-x_n) \]
+Then we obtain the next point $x_{x+1}$ by finding root of linear function:
+\[ f(x_n) + f^{'}(x_n)(x_{n+1}-x_n) = 0 \]
+From this we get formula for $x_{n+1}$:
+\[ x_{n+1} = x_n - \frac{f(x_n)}{f^{'}(x_n)} \]
+
+This method as opposed to \emph{regula falsi} method is locally convergent, should we choose initial point too far from the root (area which is close enough to root is called set of attraction) then we can get a divergence. On the other side if the Newton's method will converge then it is quite rapid with convergence of order p = 2 - quadratic convergence.
+
+Newton's method is also effective if the function derrivative is far from zero, so the slope of the function is steep, conversely if the derrivative is close to zero the method is not recommended.
 \subsection{Results}
 
 
@@ -114,7 +113,7 @@ using the Newton's method
 
 \section{Problem}
 
-We have to Find all real and complex roots of the polynomial
+We have to find all real and complex roots of the polynomial:
 
 \[ f(x) = a_4x^4+a_3x^3+a_2x^2+a_1x+a_0 \]
 where:
@@ -125,9 +124,9 @@ So our polynomial looks like this:
 
 Using the M{\"u}ller's method. We have to implement both MM1 and MM2 versions. We also need to find real roots using the Newton's method and compare these results with what we got from MM2 version of the M{\"u}ller's method.
 \section{Theoretical Introduction}
-M{\"u}ller's method revoles around the idea of approximating the polynomial locally close to the root by a quadratic function. Based on three different points we can use quadratic interpolation and develop our method. This means that we can treat it as a generalization of secant method. That being said wwe can also realize it in an efficient way if we use just one point. We can use for this case values of polynomial, and its first and second derrivative at current point.
+M{\"u}ller's method revoles around the idea of approximating the polynomial locally close to the root by a quadratic function. Based on three different points we can use quadratic interpolation and develop our method. This means that we can treat it as a generalization of secant method. That being said we can also realize it in an efficient way if we use just one point. We can use for this case values of polynomial, and its first and second derrivative at current point.
 
-There are two versions of M{\"u}ller's method: \textbf{MM1} and \textbf{MM2}.
+Accordingly there are two versions of M{\"u}ller's method: \textbf{MM1} and \textbf{MM2}.
 
 \subsection{MM1}
 Given three points: $x_0; x_1; x_2$ and their polynomial values: $f(x_0), f(x_1), f(x_2)$ we construct a (quadratic) function passing through these points. Then we find roots of this parabola and we choose one of these rots for the approximation of the result.
@@ -157,12 +156,12 @@ Roots are equal to:
 \[ z_- = \frac{-2c}{b-\sqrt{b^2 - 4ac}} \]
 
 We choose a root with smaller absolute value for next iteration:
-\[ z_min = \min{|z_+, z_-|} \]
-\[ x_3 = x_2 + z_min \]
+\[ z_{min} = \min{|z_+, z_-|} \]
+\[ x_3 = x_2 + z_{min} \]
 
 Then we choose new point $x_3$ and two selected from $x_0, x_1, x_2$ which were closer to $x_3$.
 
-This method should also work for $\delta < 0 $
+This method should also work for $\Delta < 0 $
 
 
 \subsection{MM2}
@@ -185,7 +184,7 @@ We can derive from that formula for roots:
 Then we choose root with smaller absolute value for next iteration:
 \[ x_{k+1} = x_k + z_{min} \]
 
-Again this method should be implemented in complexd number arithmetic.
+Again this method should be implemented in complex number arithmetic.
 This method is locally convergent with order of convergence equal to 1.84. It is locally more effective that secant method and it is almost as fast as Newton's method while being capable of finding complex roots. It can be used to find roots of polynomials or another nonlinear functions.
 
 \section{Results}
