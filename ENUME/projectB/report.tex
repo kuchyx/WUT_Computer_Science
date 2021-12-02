@@ -54,10 +54,37 @@ We have to find zeros of the function
 \[ f(x) = -2.1 + 0.3x - xe^{-x} \]
 In the interval $[-5; 10]$
 
-using false position method
+using false position method.
 
 \subsection{Theoretical Introduction}
-\subsection{Solution}
+\emph{False position} method also called \emph{regula falsi} in fancier circles is similar to the bisection method, with a difference where the interval we use $[a_n, b_n]$ is divided into two subintervals. We have:
+\begin{itemize}
+\item $\alpha$ - The root
+\item $a_n$ - 'left' interval
+\item $b_n$ - 'right' interval
+\item $f(a_n)$ - Value at left interval
+\item $f(b_n)$ - Value at right interval
+\end{itemize}
+
+We get:
+\[ \frac{f(b_n) - f_(a_n)}{b_n - a_n} = \frac{f(b_n) - 0}{b_n - c_n} \]
+From which we get:
+\[ c_n = b_n - \frac{f(b_n)(b_n - a_n)}{f(b_n) - f(a_n)} = \frac{a_nf(b_n) - b_n f(a_n)}{f(b_n)-f(a_n)} \]
+
+Then we choose next interval as in the bisection method so: we calculate products of function values at $a_n$ and $b_n$ and that subinterval is selected for the next iteration of \emph{false position} method. This subinterval corresponds to the negative product value.
+
+\subsubsection{Properties of \emph{false position method}}
+This method is always convergent, simillary to bisection method, since it will always choose and shorten the interval which contains the root. If the function is continous and differentiable the method is linearly convergent. That being said the convergence may become sluggish. It can happen if for example one of the endpoints of the intervals will remain the same and the iterating will not shorten the interval to 0. One of the examples of functions that lead to that are barrier functions used in constrained optimization methods.
+
+\paragraph{Improvement to the method}
+In order to improve the formula and avoid aforementioned situation we can take smaller value of the function for the value that does not change.
+For right end:
+\[ c_n = \frac{a_n\frac{f(b_n)}{2} - b_nf(a_n)}{\frac{f(b_n)}{2} - f(a_n)} \]
+And for left end:
+\[ c_n = \frac{a_nf(b_n) - b_n\frac{f(a_n)}{2}}{f(b_n)- \frac{f(a_n)}{2}} \]
+
+This is called \emph{modified regula falsi} or \emph{Illinois algorithm}.
+It is superlinearly convergent, globally convergent and length of intervals we get in each iterations converges to zero. 
 \subsection{Results}
 
 \section{b) the Newton's method}
@@ -70,7 +97,6 @@ In the interval $[-5; 10]$
 
 using the Newton's method
 \subsection{Theoretical Introduction}
-\subsection{Solution}
 \subsection{Results}
 
 
@@ -89,7 +115,6 @@ So our polynomial looks like this:
 
 Using the M{\"u}ller's method. We have to implement both MM1 and MM2 versions. We also need to find real roots using the Newton's method and compare these results with what we got from MM2 version of the M{\"u}ller's method.
 \section{Theoretical Introduction}
-\section{Solution}
 \section{Results}
 
 \subsection{Comparison of results between MM1 and MM2}
@@ -104,7 +129,6 @@ Using the Laguerre's method. Then we should compare those results with the MM2 v
 
 
 \section{Theoretical Introduction}
-\section{Solution}
 \section{Results}
 \subsection{Comparison of results between MM1 and MM2}
 
