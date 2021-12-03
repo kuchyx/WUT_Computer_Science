@@ -1,5 +1,5 @@
 % graph the complex roots of a function
-function printcomplex(func, algorithms, bracket, plottitle, outputsuffix)
+function printComplexGraph(func, algorithms, bracket, plottitle, outputsuffix)
     % perform task for all available algorithms
     for alg = 1:size(algorithms, 1)
         [algname, algfunc] = algorithms{alg, :};
@@ -29,7 +29,7 @@ function printcomplex(func, algorithms, bracket, plottitle, outputsuffix)
         hold off;
         set(gcf, 'PaperPosition', [0 0 6 4]);
         set(gcf, 'PaperSize', [6 4]);
-        print(['report/', func2str(algfunc), outputsuffix], '-dpdf');
+        printComplexGraph(['report/', func2str(algfunc), outputsuffix], '-dpdf');
         
         % print root table
         disp([plottitle, ' (', algname, ')']);

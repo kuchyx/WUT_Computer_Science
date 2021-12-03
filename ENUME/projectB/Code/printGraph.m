@@ -1,6 +1,6 @@
 % graph the real roots of a function
 function printGraph(taskFunction, algorithmName, algorithm, interval, rootBrackets, plotTitle)
-
+    figure()
     grid on; % Get y values lines
     hold on; % Retain current plot when adding new plots
     title([plotTitle, algorithmName]);
