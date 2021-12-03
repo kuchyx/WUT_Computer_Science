@@ -13,21 +13,25 @@
 \BOOKMARK [2][-]{subsection.2.2.1}{MM1}{section.2.2}% 13
 \BOOKMARK [2][-]{subsection.2.2.2}{MM2}{section.2.2}% 14
 \BOOKMARK [1][-]{section.2.3}{Results}{chapter.2}% 15
-\BOOKMARK [2][-]{subsection.2.3.1}{Comparison of results between MM1 and MM2}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.2}{Comparison of results between Newton's method and MM2}{section.2.3}% 17
-\BOOKMARK [0][-]{chapter.3}{Find real and complex roots of the polynomial using Laguerre's method}{}% 18
-\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.2}{Theoretical Introduction}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 21
-\BOOKMARK [2][-]{subsection.3.3.1}{Comparison of results between MM1 and MM2}{section.3.3}% 22
-\BOOKMARK [0][-]{chapter.4}{Code appendix}{}% 23
-\BOOKMARK [1][-]{section.4.1}{Task 1}{chapter.4}% 24
-\BOOKMARK [2][-]{subsection.4.1.1}{task1Bisection.m}{section.4.1}% 25
-\BOOKMARK [2][-]{subsection.4.1.2}{task1Newton.m}{section.4.1}% 26
-\BOOKMARK [1][-]{section.4.2}{Task 2}{chapter.4}% 27
-\BOOKMARK [2][-]{subsection.4.2.1}{task2MM1.m}{section.4.2}% 28
-\BOOKMARK [2][-]{subsection.4.2.2}{task2MM2.m}{section.4.2}% 29
-\BOOKMARK [1][-]{section.4.3}{Task 3}{chapter.4}% 30
-\BOOKMARK [2][-]{subsection.4.3.1}{rootBrackering.m}{section.4.3}% 31
-\BOOKMARK [2][-]{subsection.4.3.2}{printGraph.m}{section.4.3}% 32
-\BOOKMARK [2][-]{subsection.4.3.3}{printComplexGraph.m}{section.4.3}% 33
+\BOOKMARK [2][-]{subsection.2.3.1}{Graphs for MM1}{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.2}{Graphs for MM2}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.3}{Tables for MM1}{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.4}{Tables for MM2}{section.2.3}% 19
+\BOOKMARK [2][-]{subsection.2.3.5}{Comparison of results between MM1 and MM2}{section.2.3}% 20
+\BOOKMARK [2][-]{subsection.2.3.6}{Comparison of results between Newton's method and MM2}{section.2.3}% 21
+\BOOKMARK [0][-]{chapter.3}{Find real and complex roots of the polynomial using Laguerre's method}{}% 22
+\BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 23
+\BOOKMARK [1][-]{section.3.2}{Theoretical Introduction}{chapter.3}% 24
+\BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.1}{Comparison of results between MM1 and MM2}{section.3.3}% 26
+\BOOKMARK [0][-]{chapter.4}{Code appendix}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Task 1}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.1.1}{task1Bisection.m}{section.4.1}% 29
+\BOOKMARK [2][-]{subsection.4.1.2}{task1Newton.m}{section.4.1}% 30
+\BOOKMARK [1][-]{section.4.2}{Task 2}{chapter.4}% 31
+\BOOKMARK [2][-]{subsection.4.2.1}{task2MM1.m}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.2}{task2MM2.m}{section.4.2}% 33
+\BOOKMARK [1][-]{section.4.3}{Task 3}{chapter.4}% 34
+\BOOKMARK [2][-]{subsection.4.3.1}{rootBrackering.m}{section.4.3}% 35
+\BOOKMARK [2][-]{subsection.4.3.2}{printGraph.m}{section.4.3}% 36
+\BOOKMARK [2][-]{subsection.4.3.3}{printComplexGraph.m}{section.4.3}% 37
