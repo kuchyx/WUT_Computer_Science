@@ -31,7 +31,9 @@ function [approximation, iterations] = insideLoop(approximation, polynomial, ite
         [a, b, c] = getABC(approximation, polynomial);
         [zPlus, zMinus] = findRoots(a, b, c);
         newApproximation = chooseNewApproximation(zPlus, zMinus, approximation);
-        [approximation, iterations] = updateApproximations(newApproximation, iterations, polynomial);
+
+        approximation = newApproximation;
+        iterations(:, size(iterations, 2) + 1) = [approximation, polynomial(approximation)];
 end
 
 function [a, b, c] = getABC(approximation, polynomial)
@@ -53,10 +55,8 @@ function newApproximation = chooseNewApproximation(zPlus, zMinus, approximation)
     end
 end
 
-function [approximation, iterations] = updateApproximations(newApproximation, iterations, polynomial)
-    approximation = newApproximation;
-    iterations(:, size(iterations, 2) + 1) = [approximation, polynomial(approximation)];
-end
+function [approximation, iterations] = updateApproximations(newApproximation, iterations)
+
 
 % calculate the nth derivative of func at x
 function y = derivative(function_, x, degree)
