@@ -5,91 +5,91 @@
 \contentsline {subsubsection}{Properties of \emph {false position method}}{4}{section*.2}%
 \contentsline {paragraph}{Improvement to the method}{4}{section*.3}%
 \contentsline {subsection}{\numberline {1.1.3}Results}{5}{subsection.1.1.3}%
-\contentsline {section}{\numberline {1.2}b) the Newton's method}{5}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Problem}{5}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Theoretical Introduction}{5}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Results}{5}{subsection.1.2.3}%
-\contentsline {chapter}{\numberline {2}Find real and complex roots of the polynomial}{6}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Problem}{6}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Theoretical Introduction}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}MM1}{7}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}MM2}{8}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Results}{9}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Comparison of results between MM1 and MM2}{9}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Comparison of results between Newton's method and MM2}{9}{subsection.2.3.2}%
-\contentsline {chapter}{\numberline {3}Find real and complex roots of the polynomial using Laguerre's method}{10}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Problem}{10}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Theoretical Introduction}{10}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Results}{11}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Comparison of results between MM1 and MM2}{11}{subsection.3.3.1}%
-\contentsline {chapter}{\numberline {4}Code appendix}{12}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Task 1}{12}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}task1Bisection.m}{12}{subsection.4.1.1}%
-\contentsline {subsubsection}{Top of task1Bisection.m}{12}{section*.4}%
-\contentsline {subsubsection}{taskFunction}{12}{section*.5}%
-\contentsline {subsubsection}{falsePosition}{13}{section*.6}%
-\contentsline {subsubsection}{initialize}{13}{section*.7}%
-\contentsline {subsubsection}{taskFunction}{13}{section*.8}%
-\contentsline {subsubsection}{firstTwoIterations}{14}{section*.9}%
-\contentsline {subsubsection}{falsePositionLoop}{14}{section*.10}%
-\contentsline {subsubsection}{insideLoop}{15}{section*.11}%
-\contentsline {subsubsection}{changeLastTwoAB}{15}{section*.12}%
-\contentsline {subsubsection}{calculateZero}{16}{section*.13}%
-\contentsline {subsubsection}{newSubInterval}{16}{section*.14}%
-\contentsline {subsection}{\numberline {4.1.2}task1Newton.m}{16}{subsection.4.1.2}%
-\contentsline {subsubsection}{Top of task1Newton.m}{16}{section*.15}%
-\contentsline {subsubsection}{taskFunction}{17}{section*.16}%
-\contentsline {subsubsection}{newtonMethod}{17}{section*.17}%
-\contentsline {subsubsection}{initialize}{17}{section*.18}%
-\contentsline {subsubsection}{newtonLoop}{17}{section*.19}%
-\contentsline {subsubsection}{insideLoop}{18}{section*.20}%
-\contentsline {subsubsection}{calculateZeroIterations}{18}{section*.21}%
-\contentsline {subsubsection}{checkForDivergence}{18}{section*.22}%
-\contentsline {section}{\numberline {4.2}Task 2}{19}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}task2MM1.m}{19}{subsection.4.2.1}%
-\contentsline {subsubsection}{Top of task2MM1}{19}{section*.23}%
-\contentsline {subsubsection}{polynomial}{19}{section*.24}%
-\contentsline {subsubsection}{mm1}{19}{section*.25}%
-\contentsline {subsubsection}{initialize}{20}{section*.26}%
-\contentsline {subsubsection}{mm1Loop}{20}{section*.27}%
-\contentsline {subsubsection}{insideLoop}{20}{section*.28}%
-\contentsline {subsubsection}{createEquationSystem}{21}{section*.29}%
-\contentsline {subsubsection}{rootsOfQuadraticFormula}{21}{section*.30}%
-\contentsline {subsubsection}{updateApproximations}{21}{section*.31}%
-\contentsline {subsubsection}{initializeEquationSystem}{22}{section*.32}%
-\contentsline {subsubsection}{solveEquationSystem}{22}{section*.33}%
-\contentsline {subsubsection}{createApproximatedQuadraticFormula}{23}{section*.34}%
-\contentsline {subsubsection}{findRootsOfQuadraticFormula}{23}{section*.35}%
-\contentsline {subsubsection}{chooseNewRoot}{23}{section*.36}%
-\contentsline {subsubsection}{addZeroToIterationVector}{23}{section*.37}%
-\contentsline {subsubsection}{getWorstApproximationIndex}{24}{section*.38}%
-\contentsline {subsubsection}{deleteWorstApproximation}{24}{section*.39}%
-\contentsline {subsection}{\numberline {4.2.2}task2MM2.m}{25}{subsection.4.2.2}%
-\contentsline {subsubsection}{top of task2MM2.m}{25}{section*.40}%
-\contentsline {subsubsection}{polynomial}{25}{section*.41}%
-\contentsline {subsubsection}{mm2}{25}{section*.42}%
-\contentsline {subsubsection}{initialize}{25}{section*.43}%
-\contentsline {subsubsection}{mm2Loop}{26}{section*.44}%
-\contentsline {subsubsection}{insideLoop}{26}{section*.45}%
-\contentsline {subsubsection}{getABC}{26}{section*.46}%
-\contentsline {subsubsection}{findRoots}{26}{section*.47}%
-\contentsline {subsubsection}{chooseNewApproximation}{27}{section*.48}%
-\contentsline {subsubsection}{updateApproximations}{27}{section*.49}%
-\contentsline {subsubsection}{derivative}{27}{section*.50}%
-\contentsline {section}{\numberline {4.3}Task 3}{28}{section.4.3}%
-\contentsline {subsubsection}{Top of Task 3}{28}{section*.51}%
-\contentsline {subsubsection}{polynomial}{28}{section*.52}%
-\contentsline {subsubsection}{laguerre}{28}{section*.53}%
-\contentsline {subsubsection}{initialize}{29}{section*.54}%
-\contentsline {subsubsection}{laguerreLoop}{29}{section*.55}%
-\contentsline {subsubsection}{insideLoop}{29}{section*.56}%
-\contentsline {subsubsection}{calculateDerrivatives}{30}{section*.57}%
-\contentsline {subsubsection}{calculateZ}{30}{section*.58}%
-\contentsline {subsubsection}{chooseNewZero}{30}{section*.59}%
-\contentsline {subsubsection}{updateZeros}{31}{section*.60}%
-\contentsline {subsection}{\numberline {4.3.1}rootBrackering.m}{31}{subsection.4.3.1}%
-\contentsline {subsubsection}{updateZeros}{31}{section*.61}%
-\contentsline {subsubsection}{initializeValues}{32}{section*.62}%
-\contentsline {subsubsection}{bracketingLoop}{33}{section*.63}%
-\contentsline {subsection}{\numberline {4.3.2}printGraph.m}{34}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}printComplexGraph.m}{36}{subsection.4.3.3}%
+\contentsline {section}{\numberline {1.2}b) the Newton's method}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Problem}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Theoretical Introduction}{6}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Results}{7}{subsection.1.2.3}%
+\contentsline {chapter}{\numberline {2}Find real and complex roots of the polynomial}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Problem}{9}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Theoretical Introduction}{9}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}MM1}{10}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}MM2}{11}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Results}{12}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Comparison of results between MM1 and MM2}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Comparison of results between Newton's method and MM2}{16}{subsection.2.3.2}%
+\contentsline {chapter}{\numberline {3}Find real and complex roots of the polynomial using Laguerre's method}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Problem}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Theoretical Introduction}{17}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Results}{18}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Comparison of results between MM1 and MM2}{20}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {4}Code appendix}{21}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Task 1}{21}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}task1Bisection.m}{21}{subsection.4.1.1}%
+\contentsline {subsubsection}{Top of task1Bisection.m}{21}{section*.4}%
+\contentsline {subsubsection}{taskFunction}{21}{section*.5}%
+\contentsline {subsubsection}{falsePosition}{22}{section*.6}%
+\contentsline {subsubsection}{initialize}{22}{section*.7}%
+\contentsline {subsubsection}{taskFunction}{22}{section*.8}%
+\contentsline {subsubsection}{firstTwoIterations}{23}{section*.9}%
+\contentsline {subsubsection}{falsePositionLoop}{23}{section*.10}%
+\contentsline {subsubsection}{insideLoop}{24}{section*.11}%
+\contentsline {subsubsection}{changeLastTwoAB}{24}{section*.12}%
+\contentsline {subsubsection}{calculateZero}{25}{section*.13}%
+\contentsline {subsubsection}{newSubInterval}{25}{section*.14}%
+\contentsline {subsection}{\numberline {4.1.2}task1Newton.m}{25}{subsection.4.1.2}%
+\contentsline {subsubsection}{Top of task1Newton.m}{25}{section*.15}%
+\contentsline {subsubsection}{taskFunction}{26}{section*.16}%
+\contentsline {subsubsection}{newtonMethod}{26}{section*.17}%
+\contentsline {subsubsection}{initialize}{26}{section*.18}%
+\contentsline {subsubsection}{newtonLoop}{26}{section*.19}%
+\contentsline {subsubsection}{insideLoop}{27}{section*.20}%
+\contentsline {subsubsection}{calculateZeroIterations}{27}{section*.21}%
+\contentsline {subsubsection}{checkForDivergence}{27}{section*.22}%
+\contentsline {section}{\numberline {4.2}Task 2}{28}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}task2MM1.m}{28}{subsection.4.2.1}%
+\contentsline {subsubsection}{Top of task2MM1}{28}{section*.23}%
+\contentsline {subsubsection}{polynomial}{28}{section*.24}%
+\contentsline {subsubsection}{mm1}{28}{section*.25}%
+\contentsline {subsubsection}{initialize}{29}{section*.26}%
+\contentsline {subsubsection}{mm1Loop}{29}{section*.27}%
+\contentsline {subsubsection}{insideLoop}{29}{section*.28}%
+\contentsline {subsubsection}{createEquationSystem}{30}{section*.29}%
+\contentsline {subsubsection}{rootsOfQuadraticFormula}{30}{section*.30}%
+\contentsline {subsubsection}{updateApproximations}{30}{section*.31}%
+\contentsline {subsubsection}{initializeEquationSystem}{31}{section*.32}%
+\contentsline {subsubsection}{solveEquationSystem}{31}{section*.33}%
+\contentsline {subsubsection}{createApproximatedQuadraticFormula}{32}{section*.34}%
+\contentsline {subsubsection}{findRootsOfQuadraticFormula}{32}{section*.35}%
+\contentsline {subsubsection}{chooseNewRoot}{32}{section*.36}%
+\contentsline {subsubsection}{addZeroToIterationVector}{32}{section*.37}%
+\contentsline {subsubsection}{getWorstApproximationIndex}{33}{section*.38}%
+\contentsline {subsubsection}{deleteWorstApproximation}{33}{section*.39}%
+\contentsline {subsection}{\numberline {4.2.2}task2MM2.m}{34}{subsection.4.2.2}%
+\contentsline {subsubsection}{top of task2MM2.m}{34}{section*.40}%
+\contentsline {subsubsection}{polynomial}{34}{section*.41}%
+\contentsline {subsubsection}{mm2}{34}{section*.42}%
+\contentsline {subsubsection}{initialize}{34}{section*.43}%
+\contentsline {subsubsection}{mm2Loop}{35}{section*.44}%
+\contentsline {subsubsection}{insideLoop}{35}{section*.45}%
+\contentsline {subsubsection}{getABC}{35}{section*.46}%
+\contentsline {subsubsection}{findRoots}{35}{section*.47}%
+\contentsline {subsubsection}{chooseNewApproximation}{36}{section*.48}%
+\contentsline {subsubsection}{updateApproximations}{36}{section*.49}%
+\contentsline {subsubsection}{derivative}{36}{section*.50}%
+\contentsline {section}{\numberline {4.3}Task 3}{37}{section.4.3}%
+\contentsline {subsubsection}{Top of Task 3}{37}{section*.51}%
+\contentsline {subsubsection}{polynomial}{37}{section*.52}%
+\contentsline {subsubsection}{laguerre}{37}{section*.53}%
+\contentsline {subsubsection}{initialize}{38}{section*.54}%
+\contentsline {subsubsection}{laguerreLoop}{38}{section*.55}%
+\contentsline {subsubsection}{insideLoop}{38}{section*.56}%
+\contentsline {subsubsection}{calculateDerrivatives}{39}{section*.57}%
+\contentsline {subsubsection}{calculateZ}{39}{section*.58}%
+\contentsline {subsubsection}{chooseNewZero}{39}{section*.59}%
+\contentsline {subsubsection}{updateZeros}{40}{section*.60}%
+\contentsline {subsection}{\numberline {4.3.1}rootBrackering.m}{40}{subsection.4.3.1}%
+\contentsline {subsubsection}{updateZeros}{40}{section*.61}%
+\contentsline {subsubsection}{initializeValues}{41}{section*.62}%
+\contentsline {subsubsection}{bracketingLoop}{42}{section*.63}%
+\contentsline {subsection}{\numberline {4.3.2}printGraph.m}{43}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}printComplexGraph.m}{45}{subsection.4.3.3}%
