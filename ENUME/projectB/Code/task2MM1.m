@@ -10,7 +10,6 @@ function y = polynomial(x)
 end
 
 function [approximation, iterations] = mm1(polynomial, a, b, tolerance)
-
     [approximation, approximationValue, iterations] = initialize(a, b, polynomial);
     [approximation, iterations] = mm1Loop(approximation, tolerance, approximationValue, iterations, polynomial);
 end

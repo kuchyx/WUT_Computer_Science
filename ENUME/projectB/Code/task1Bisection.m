@@ -12,7 +12,6 @@ function [zero, iterations] = falsePosition(taskFunction, a, b, tolerance)
     [iterations, lastTwoA, lastTwoB, i] = initialize();
     [zero, iterations, a, b, lastTwoA, lastTwoB] = firstTwoIterations(a, b, taskFunction, iterations, lastTwoA, lastTwoB);
     [zero, iterations] = falsePositionLoop(taskFunction, zero, tolerance, lastTwoA, lastTwoB, i, a, b, iterations);
-
 end
 
 function [iterations, lastTwoA, lastTwoB, i] = initialize()
@@ -47,7 +46,6 @@ function [lastTwoA, i, a, lastTwoB, b, tolerance, zero, iterations] = insideLoop
     zero = calculateZero(lastTwoB, tolerance, a, b, lastTwoA, taskFunction);
     iterations(:, size(iterations, 2) + 1) = [zero, taskFunction(zero)];
     [a, b] = newSubInterval(taskFunction, a, b, zero);
-
 end
 
 function [lastTwoA, lastTwoB] = changeLastTwoAB(lastTwoA, lastTwoB, i, a, b)

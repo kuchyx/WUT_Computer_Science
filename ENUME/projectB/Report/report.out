@@ -21,3 +21,13 @@
 \BOOKMARK [1][-]{section.3.3}{Results}{chapter.3}% 21
 \BOOKMARK [2][-]{subsection.3.3.1}{Comparison of results between MM1 and MM2}{section.3.3}% 22
 \BOOKMARK [0][-]{chapter.4}{Code appendix}{}% 23
+\BOOKMARK [1][-]{section.4.1}{Task 1}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.1.1}{task1Bisection.m}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.2}{task1Newton.m}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Task 2}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{task2MM1.m}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.2}{task2MM2.m}{section.4.2}% 29
+\BOOKMARK [1][-]{section.4.3}{Task 3}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.3.1}{rootBrackering.m}{section.4.3}% 31
+\BOOKMARK [2][-]{subsection.4.3.2}{printGraph.m}{section.4.3}% 32
+\BOOKMARK [2][-]{subsection.4.3.3}{printComplexGraph.m}{section.4.3}% 33
