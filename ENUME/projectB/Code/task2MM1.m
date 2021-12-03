@@ -3,7 +3,7 @@ rootBrackets = rootBracketing(@polynomial, interval(1), interval(2));
 
 printGraph(@polynomial, 'MM1', @mm1, interval, rootBrackets, 'Approximate zeros of function for method of ');
      
-printComplexGraph(@polynomial, 'MM1', @mm1, [-1 + i, 0], 'Aproximate complex roots of polynomial');
+printComplexGraph(@polynomial, 'MM1', @mm1, [-1 - i, 1 + i], 'Aproximate complex roots of polynomial');
 
 function y = polynomial(x)
     y = -2 * x^4 + 12 * x^3 + 4* x^2 + 1 * x + 3;

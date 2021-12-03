@@ -274,6 +274,19 @@ Iteration & root         & f(root) \\
 \end{tabular}
 \end{center}
 
+\subsection{Discussion of results}
+As we can see and as we could expect from theory Newton method reigns supreme.
+It is:
+\begin{enumerate}
+\item Faster.
+Especially for finding first root. It took 36 iterations for false position method to find first root with accuary up to $10^{-10}$ and it took only 6 iterations for the Newton method.
+\item More accurate
+Not only that we also got more accurate results with Newton method! With first root being so close to the real answer that the matlab calculated the value of this function at this point as exactly equal to 0. For second root the accuary is $10^{6}$ better than for the false position method.
+\item Smaller gaps
+Looking at graphs we got from both method we can clearly see that the gaps between the final result and each and every step are much smaller for Newton method. This again proves that it is faster and more accurate compared to false position method.
+\end{enumerate}
+
+
 
 \chapter{Find real and complex roots of the polynomial}
 
@@ -357,52 +370,60 @@ This method is locally convergent with order of convergence equal to 1.84. It is
 
 \subsection{Graphs for MM1}
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm1overall.eps}
+   \includegraphics[scale=0.25]{task2mm1realoverall.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm1zommedleft.eps}
+   \includegraphics[scale=0.25]{task2mm1realleft.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm1zommedright.eps}
+   \includegraphics[scale=0.25]{task2mm1realright.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm1complexzommedleft.eps}
+   \includegraphics[scale=0.25]{task2mm1complexoverall.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm1complexzommeddown.eps}
+   \includegraphics[scale=0.25]{task2mm1complexdown.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm1complexzommedup.eps}
+   \includegraphics[scale=0.25]{task2mm1complexmiddle.eps}
+\end{center}
+
+\begin{center}
+   \includegraphics[scale=0.25]{task2mm1complexup.eps}
 \end{center}
 
 \subsection{Graphs for MM2}
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm2overall.eps}
+   \includegraphics[scale=0.25]{task2mm2realoverall.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm2zommedleft.eps}
+   \includegraphics[scale=0.25]{task2mm2realleft.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm2zommedright.eps}
+   \includegraphics[scale=0.25]{task2mm2realright.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm2complexzommedleft.eps}
+   \includegraphics[scale=0.25]{task2mm2complexoverall.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm2complexzommedmiddle.eps}
+   \includegraphics[scale=0.25]{task2mm2complexright.eps}
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task2mm2complexzommedup.eps}
+   \includegraphics[scale=0.25]{task2mm2complexleft.eps}
+\end{center}
+
+\begin{center}
+   \includegraphics[scale=0.25]{task2mm2complexup.eps}
 \end{center}
 
 \subsection{Tables for MM1}
@@ -411,21 +432,22 @@ This method is locally convergent with order of convergence equal to 1.84. It is
 \hline
 Iteration & root         & f(root) \\
 \hline
-1  &       -1.25   &       -20.32 \\
+1    &     -1.25  &        -20.32 \\
 \hline
-2  &     -1.0009   &      -8.0351 \\
+2    &   -1.0009  &       -8.0351 \\
 \hline
-3  &   -0.76855    &     -1.5512 \\
+3    &  -0.76855  &       -1.5512 \\
 \hline
-4  &    -0.63496   &     0.58064 \\
+4    &  -0.63496  &       0.58064 \\
 \hline
-5  &    -0.67945   &   -0.023155 \\
+5    &  -0.67945  &     -0.023155 \\
 \hline
-6  &    -0.67788   &  -0.00010725 \\
+6    & -0.67788   &  -0.00010725 \\
 \hline
-7  &    -0.67787   &  -8.6306e-09 \\
+7    & -0.67787   &  -8.6306e-09 \\
 \hline
-8  &   -0.67787    &           0 \\
+8    &  -0.67787  &             0 \\
+\hline
 \hline
 
 \end{tabular}
@@ -440,11 +462,13 @@ Iteration & root         & f(root) \\
 \hline
 2   &   6.3257   &       4.4966 \\
 \hline
-3   &   6.3341   &     0.033379 \\
+3   &  6.3341    &   0.033379 \\
 \hline
-4   &  6.3341    & -1.6916e-06 \\
+4   &   6.3341   &  -1.6916e-06 \\
 \hline
-5   &  6.3341    & -7.1942e-14 \\
+5   &   6.3341   &  -7.1942e-14 \\
+\hline
+
 \hline
 
 \end{tabular}
@@ -455,21 +479,24 @@ Iteration & root         & f(root) \\
 \hline
 Iteration & root         & f(root) \\
 \hline
-1   &       -0.5-0.5i         &         6.1847 \\
+1   &            0+0i         &             3   \\
 \hline
-2   &   -0.42823-0.15033i     &         2.6872  \\
+2   &  -0.0072549-0.12193i    &       2.9384   \\
 \hline
-3   &   -0.59202+0.094367i    &        1.6012   \\
+3   &     0.069406-0.45062i   &       1.7235  \\
 \hline
-4   &  -0.71249-0.0089336i    &       0.55524  \\
+4   &      0.19733-0.61224i   &      0.82578   \\
 \hline
-5   &  -0.67654+0.00084164i   &      0.022962  \\
+5   &     0.16937-0.56334i    &     0.047116   \\
 \hline
-6    &  -0.67787+8.4773e-06i  &     0.00012412  \\
+6   &      0.17186-0.56551i   &     0.0003142   \\
 \hline
-7    &  -0.67787+3.6458e-10i  &     8.3668e-09  \\
+7   &      0.17188-0.56551i   &    4.4741e-08  \\
 \hline
-8    &  -0.67787+9.1168e-18i  &     1.3321e-16 \\
+8   &      0.17188-0.56551i   &    2.6645e-15    \\
+\hline
+9   &      0.17188-0.56551i   &             0   \\
+\hline
 \hline
 
 \end{tabular}
@@ -481,15 +508,16 @@ Iteration & root         & f(root) \\
 \hline
 Iteration & root         & f(root) \\
 \hline
- 1   &      -1.25+0i           &       -20.32+0i   \\
- \hline
- 2   &  -0.72604-0.25326i      &      1.0515-4.0744i  \\
- \hline
- 3   &   -0.68613-0.01483i     &     -0.11667-0.22303i  \\
- \hline
- 4   &   -0.67788+2.5407e-06i  & -0.00010163+3.7123e-05i\\
- \hline
- 5   &  -0.67787-8.0819e-13i   & 1.4105e-11-1.1809e-11i \\
+1  &       -1.25+0i         &         -20.32+0i    \\
+\hline
+2  &    -0.72604-0.25326i   &         1.0515-4.0744i  \\
+\hline
+3  &   -0.68613-0.01483i    &      -0.11667-0.22303i   \\
+\hline
+4  &   -0.67788+2.5407e-06i &   -0.00010163+3.7123e-05i \\
+\hline
+5  &    -0.67787-8.0819e-13i &    1.4105e-11-1.1809e-11i \\
+\hline
  \hline
 
 \end{tabular}
@@ -500,15 +528,16 @@ Iteration & root         & f(root) \\
 \hline
 Iteration & root         & f(root) \\
 \hline
-1   &     6.25  &         43.43  \\
+1   &     6.25    &       43.43 \\
 \hline
-2   &   6.3376  &       -1.8647  \\
+2   &   6.3376    &     -1.8647 \\
 \hline
-3   &  6.3341   &    0.0029695  \\
+3   &  6.3341     &  0.0029695 \\
 \hline
-4   &   6.3341  &    1.6294e-08  \\
+4   &   6.3341    &  1.6294e-08 \\
 \hline
-5   &  6.3341   &  -4.6896e-13  \\
+5   &   6.3341    & -4.6896e-13 \\
+\hline
 \hline
 
 \end{tabular}
@@ -519,21 +548,27 @@ Iteration & root         & f(root) \\
 \hline
 Iteration & root         & f(root) \\
 \hline
-1    &      -0.5-0.5i           &       6.1847 \\
+1   &         0+0i          &            3 \\
 \hline
-2    &  -0.60346-0.076584i      &       1.3673  \\
+2   &    -0.125+0.85696i    &       8.0341 \\
 \hline
-3    &  -0.67709+0.001186i      &     0.020767 \\
+3   &   0.16892+0.62593i    &      0.94053 \\
 \hline
-4    &  -0.67787+1.518e-08i     &   2.2673e-07  \\
+4   &   0.17203+0.56536i    &    0.0031354  \\
 \hline
-5    &  -0.67787-2.0556e-17i    &  3.0035e-16   \\
+5   &   0.17188+0.56551i    &   3.8615e-09  \\
+\hline
+6   &   0.17188+0.56551i    &            0  \\
+\hline
 \hline
 
 \end{tabular}
 \end{center}
 
 \subsection{Comparison of results between MM1 and MM2}
+As we can see MM2 method is much better, it took on average 5 iterations for it to find a root with sufficient accuracy compared to around 7 iterations that MM1 needed to find roots.  But MM1 is slightly more accurate. There was also fatal error for one of the complex roots for MM1 where the algorithm failed to calculate the complex part. MM2 correctly calculated complex root while MM1 calculated only real part of the result.
+
+We can also observe that on graphs with MM2 approaching the root faster than MM1 and MM1 being slightly more accurate.
 \subsection{Comparison of results between Newton's method and MM2}
 
 \chapter{Find real and complex roots of the polynomial using Laguerre's method}
@@ -573,7 +608,11 @@ This formula is similar to the one from MM2 but also takes order of the polynomi
 \end{center}
 
 \begin{center}
-   \includegraphics[scale=0.25]{task3complexdown.eps}
+   \includegraphics[scale=0.25]{task3complexleft.eps}
+\end{center}
+
+\begin{center}
+   \includegraphics[scale=0.25]{task3complexright.eps}
 \end{center}
 
 \begin{center}
@@ -587,11 +626,12 @@ Iteration & root         & f(root) \\
 \hline
 1    &     -1.25   &       -20.32 \\
 \hline
-2    & -0.67905    &   -0.017268 \\
+2    &  -0.67905   &    -0.017268 \\
 \hline
 3    &  -0.67787   &  -3.1489e-07 \\
 \hline
-4    &  -0.67787   &            0 \\
+4    & -0.67787    &           0 \\
+\hline
 \hline
 \hline
 
@@ -603,15 +643,17 @@ Iteration & root         & f(root) \\
 \hline
 Iteration & root         & f(root) \\
 \hline
-1    &     -1.25    &      -20.32 \\
+1   &     6.25   &        43.43 \\
 \hline
-2    &  -0.67905    &   -0.017268 \\
+2   &   6.3376   &      -1.8647 \\
 \hline
-3    &  -0.67787    & -3.1489e-07 \\
+3   &  6.3341    &   0.0029631 \\
 \hline
-4    &  -0.67787    &           0 \\
+4   &   6.3341   &  7.9942e-09\\
 \hline
+5   &  6.3341    & -7.1942e-14\\
 \hline
+
 
 \end{tabular}
 \end{center}
@@ -622,15 +664,19 @@ Iteration & root         & f(root) \\
 \hline
 Iteration & root         & f(root) \\
 \hline
-1    &     -1.25    &      -20.32 \\
+1   &           0+0i           &           3 \\
 \hline
-2    &  -0.67905    &   -0.017268 \\
+2   &   -0.042857+0.71586i     &      4.1826 \\
 \hline
-3    &  -0.67787    & -3.1489e-07 \\
+3   &       0.172+0.56266i     &    0.040584 \\
 \hline
-4    &  -0.67787    &           0 \\
+4   &    0.17188+0.56551i     &  2.8484e-06 \\
 \hline
+5   &     0.17188+0.56551i    &   2.2952e-14 \\
 \hline
+6   &     0.17188+0.56551i    &            0 \\
+\hline
+
 
 \end{tabular}
 \end{center}
@@ -882,7 +928,7 @@ rootBrackets = rootBracketing(@polynomial, interval(1), interval(2));
 
 printGraph(@polynomial, 'MM1', @mm1, interval, rootBrackets, 'Approximate zeros of function for method of ');
 
-printComplexGraph(@polynomial, 'MM1', @mm1, [-1 + i, 0], 'Aproximate complex roots of polynomial');
+printComplexGraph(@polynomial, 'MM1', @mm1, [-1 - i, 1 + i], 'Aproximate complex roots of polynomial');
 \end{lstlisting}
 \end{simplechar}
 
@@ -1083,7 +1129,7 @@ rootBrackets = rootBracketing(@polynomial, interval(1), interval(2));
 
 printGraph(@polynomial, 'MM2', @mm2, interval, rootBrackets, 'Approximate zeros of function for method of ');
 
-printComplexGraph(@polynomial, 'MM2', @mm2, [-1 + i, 0], 'Aproximate complex roots of polynomial');
+printComplexGraph(@polynomial, 'MM2', @mm2, [-1 - i, 1 + i], 'Aproximate complex roots of polynomial');
 \end{lstlisting}
 \end{simplechar}
 
@@ -1210,7 +1256,7 @@ rootBrackets = rootBracketing(@polynomial, interval(1), interval(2));
 
 printGraph(@polynomial, 'Laguerre', @laguerre, interval, rootBrackets, 'Approximate zeros of function for method of ');
 
-printComplexGraph(@polynomial, 'Laguerre', @laguerre, [-1 + i, 0], 'Aproximate complex roots of polynomial');
+printComplexGraph(@polynomial, 'Laguerre', @laguerre, [-1 - i, 1 + i], 'Aproximate complex roots of polynomial');
 \end{lstlisting}
 \end{simplechar}
 

@@ -1,10 +1,15 @@
 interval = [-5, 10];
 rootBrackets = rootBracketing(@taskFunction, interval(1), interval(2));
 
-printGraph(@taskFunction, 'Newton', @newtonMethod, interval, rootBrackets, 'Approximate zeros of function for method of ');
-    
+% printGraph(@taskFunction, 'Newton', @newtonMethod, interval, rootBrackets, 'Approximate zeros of function for method of ');
+printGraph(@polynomial, 'Newton', @newtonMethod, interval, rootBrackets, 'Approximate zeros of function for method of ');    
+
 function y = taskFunction(x)
     y = -2.1 + 0.3*x - x*exp(1)^(-x);
+end
+
+function y = polynomial(x)
+    y = -2 * x^4 + 12 * x^3 + 4* x^2 + 1 * x + 3;
 end
 
 function [zero, iterations] = newtonMethod(taskFunction, a, b, tolerance)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.10.23)  3 DEC 2021 05:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2021.10.23)  3 DEC 2021 05:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -470,7 +470,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./report.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.28 ...between MM1 and MM2}{24}{subsection.3.3.1}
+l.28 ...\numberline {3.3}Results}{24}{section.3.3}
                                                   % [1
 
 ])
@@ -486,12 +486,12 @@ Package epstopdf Info: Source file: <task1falsepositionoverall.eps>
 (epstopdf)                    date: 2021-12-03 04:34:38
 (epstopdf)                    size: 44376 bytes
 (epstopdf)             Output file: <task1falsepositionoverall-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:46:17
+(epstopdf)                    date: 2021-12-03 05:49:31
 (epstopdf)                    size: 21613 bytes
 (epstopdf)             Command: <repstopdf --outfile=task1falsepositionoverall-eps-converted-to.pdf task1falsepositionoverall.eps>
 (epstopdf)             \includegraphics on input line 89.
 Package epstopdf Info: Output file is already uptodate.
-<task1falsepositionoverall-eps-converted-to.pdf, id=223, 1385.175pt x 712.6625pt>
+<task1falsepositionoverall-eps-converted-to.pdf, id=228, 1385.175pt x 712.6625pt>
 File: task1falsepositionoverall-eps-converted-to.pdf Graphic file (type pdf)
 <use task1falsepositionoverall-eps-converted-to.pdf>
 Package pdftex.def Info: task1falsepositionoverall-eps-converted-to.pdf  used on input line 89.
@@ -501,12 +501,12 @@ Package epstopdf Info: Source file: <task1falsepositionzommedleft.eps>
 (epstopdf)                    date: 2021-12-03 04:34:59
 (epstopdf)                    size: 20632 bytes
 (epstopdf)             Output file: <task1falsepositionzommedleft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:46:17
+(epstopdf)                    date: 2021-12-03 05:49:31
 (epstopdf)                    size: 12359 bytes
 (epstopdf)             Command: <repstopdf --outfile=task1falsepositionzommedleft-eps-converted-to.pdf task1falsepositionzommedleft.eps>
 (epstopdf)             \includegraphics on input line 93.
 Package epstopdf Info: Output file is already uptodate.
-<task1falsepositionzommedleft-eps-converted-to.pdf, id=233, 1385.175pt x 712.6625pt>
+<task1falsepositionzommedleft-eps-converted-to.pdf, id=238, 1385.175pt x 712.6625pt>
 File: task1falsepositionzommedleft-eps-converted-to.pdf Graphic file (type pdf)
 <use task1falsepositionzommedleft-eps-converted-to.pdf>
 Package pdftex.def Info: task1falsepositionzommedleft-eps-converted-to.pdf  used on input line 93.
@@ -515,12 +515,12 @@ Package epstopdf Info: Source file: <task1falsepositionzommedright.eps>
 (epstopdf)                    date: 2021-12-03 04:35:29
 (epstopdf)                    size: 17120 bytes
 (epstopdf)             Output file: <task1falsepositionzommedright-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:46:18
+(epstopdf)                    date: 2021-12-03 05:49:32
 (epstopdf)                    size: 9154 bytes
 (epstopdf)             Command: <repstopdf --outfile=task1falsepositionzommedright-eps-converted-to.pdf task1falsepositionzommedright.eps>
 (epstopdf)             \includegraphics on input line 97.
 Package epstopdf Info: Output file is already uptodate.
-<task1falsepositionzommedright-eps-converted-to.pdf, id=234, 1385.175pt x 712.6625pt>
+<task1falsepositionzommedright-eps-converted-to.pdf, id=239, 1385.175pt x 712.6625pt>
 File: task1falsepositionzommedright-eps-converted-to.pdf Graphic file (type pdf)
 <use task1falsepositionzommedright-eps-converted-to.pdf>
 Package pdftex.def Info: task1falsepositionzommedright-eps-converted-to.pdf  used on input line 97.
@@ -530,12 +530,12 @@ Package epstopdf Info: Source file: <task1Newtonoverall.eps>
 (epstopdf)                    date: 2021-12-03 04:36:08
 (epstopdf)                    size: 42219 bytes
 (epstopdf)             Output file: <task1Newtonoverall-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:46:18
+(epstopdf)                    date: 2021-12-03 05:49:32
 (epstopdf)                    size: 19697 bytes
 (epstopdf)             Command: <repstopdf --outfile=task1Newtonoverall-eps-converted-to.pdf task1Newtonoverall.eps>
 (epstopdf)             \includegraphics on input line 224.
 Package epstopdf Info: Output file is already uptodate.
-<task1Newtonoverall-eps-converted-to.pdf, id=272, 1385.175pt x 712.6625pt>
+<task1Newtonoverall-eps-converted-to.pdf, id=277, 1385.175pt x 712.6625pt>
 File: task1Newtonoverall-eps-converted-to.pdf Graphic file (type pdf)
 <use task1Newtonoverall-eps-converted-to.pdf>
 Package pdftex.def Info: task1Newtonoverall-eps-converted-to.pdf  used on input line 224.
@@ -545,12 +545,12 @@ Package epstopdf Info: Source file: <task1Newtonzommedleft.eps>
 (epstopdf)                    date: 2021-12-03 04:36:25
 (epstopdf)                    size: 17046 bytes
 (epstopdf)             Output file: <task1Newtonzommedleft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:46:18
+(epstopdf)                    date: 2021-12-03 05:49:32
 (epstopdf)                    size: 9310 bytes
 (epstopdf)             Command: <repstopdf --outfile=task1Newtonzommedleft-eps-converted-to.pdf task1Newtonzommedleft.eps>
 (epstopdf)             \includegraphics on input line 228.
 Package epstopdf Info: Output file is already uptodate.
-<task1Newtonzommedleft-eps-converted-to.pdf, id=278, 1385.175pt x 712.6625pt>
+<task1Newtonzommedleft-eps-converted-to.pdf, id=283, 1385.175pt x 712.6625pt>
 File: task1Newtonzommedleft-eps-converted-to.pdf Graphic file (type pdf)
 <use task1Newtonzommedleft-eps-converted-to.pdf>
 Package pdftex.def Info: task1Newtonzommedleft-eps-converted-to.pdf  used on input line 228.
@@ -559,535 +559,588 @@ Package epstopdf Info: Source file: <task1Newtonzommedright.eps>
 (epstopdf)                    date: 2021-12-03 04:36:42
 (epstopdf)                    size: 17986 bytes
 (epstopdf)             Output file: <task1Newtonzommedright-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:46:18
+(epstopdf)                    date: 2021-12-03 05:49:32
 (epstopdf)                    size: 9809 bytes
 (epstopdf)             Command: <repstopdf --outfile=task1Newtonzommedright-eps-converted-to.pdf task1Newtonzommedright.eps>
 (epstopdf)             \includegraphics on input line 232.
 Package epstopdf Info: Output file is already uptodate.
-<task1Newtonzommedright-eps-converted-to.pdf, id=279, 1385.175pt x 712.6625pt>
+<task1Newtonzommedright-eps-converted-to.pdf, id=284, 1385.175pt x 712.6625pt>
 File: task1Newtonzommedright-eps-converted-to.pdf Graphic file (type pdf)
 <use task1Newtonzommedright-eps-converted-to.pdf>
 Package pdftex.def Info: task1Newtonzommedright-eps-converted-to.pdf  used on input line 232.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [9 <./task1Newtonoverall-eps-converted-to.pdf> <./task1Newtonzommedleft-eps-converted-to.pdf>] [10 <./task1Newtonzommedright-eps-converted-to.pdf>]
+ [9 <./task1Newtonoverall-eps-converted-to.pdf> <./task1Newtonzommedleft-eps-converted-to.pdf>] [10 <./task1Newtonzommedright-eps-converted-to.pdf>] [11]
 Chapter 2.
-[11
+[12
 
-] [12]
-Package epstopdf Info: Source file: <task2mm1overall.eps>
-(epstopdf)                    date: 2021-12-03 04:37:33
-(epstopdf)                    size: 42434 bytes
-(epstopdf)             Output file: <task2mm1overall-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:48:05
-(epstopdf)                    size: 20938 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm1overall-eps-converted-to.pdf task2mm1overall.eps>
-(epstopdf)             \includegraphics on input line 360.
+] [13]
+Package epstopdf Info: Source file: <task2mm1realoverall.eps>
+(epstopdf)                    date: 2021-12-03 05:44:25
+(epstopdf)                    size: 42438 bytes
+(epstopdf)             Output file: <task2mm1realoverall-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:32
+(epstopdf)                    size: 20946 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1realoverall-eps-converted-to.pdf task2mm1realoverall.eps>
+(epstopdf)             \includegraphics on input line 373.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm1overall-eps-converted-to.pdf, id=321, 1385.175pt x 712.6625pt>
-File: task2mm1overall-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm1overall-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm1overall-eps-converted-to.pdf  used on input line 360.
+<task2mm1realoverall-eps-converted-to.pdf, id=334, 1385.175pt x 712.6625pt>
+File: task2mm1realoverall-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1realoverall-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1realoverall-eps-converted-to.pdf  used on input line 373.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [13]
-Package epstopdf Info: Source file: <task2mm1zommedleft.eps>
-(epstopdf)                    date: 2021-12-03 04:37:48
-(epstopdf)                    size: 18731 bytes
-(epstopdf)             Output file: <task2mm1zommedleft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:48:05
-(epstopdf)                    size: 10082 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm1zommedleft-eps-converted-to.pdf task2mm1zommedleft.eps>
-(epstopdf)             \includegraphics on input line 364.
+ [14]
+Package epstopdf Info: Source file: <task2mm1realleft.eps>
+(epstopdf)                    date: 2021-12-03 05:44:39
+(epstopdf)                    size: 17067 bytes
+(epstopdf)             Output file: <task2mm1realleft-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:33
+(epstopdf)                    size: 9875 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1realleft-eps-converted-to.pdf task2mm1realleft.eps>
+(epstopdf)             \includegraphics on input line 377.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm1zommedleft-eps-converted-to.pdf, id=328, 1385.175pt x 712.6625pt>
-File: task2mm1zommedleft-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm1zommedleft-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm1zommedleft-eps-converted-to.pdf  used on input line 364.
+<task2mm1realleft-eps-converted-to.pdf, id=340, 1385.175pt x 712.6625pt>
+File: task2mm1realleft-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1realleft-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1realleft-eps-converted-to.pdf  used on input line 377.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task2mm1zommedright.eps>
-(epstopdf)                    date: 2021-12-03 04:38:02
-(epstopdf)                    size: 16218 bytes
-(epstopdf)             Output file: <task2mm1zommedright-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:48:06
-(epstopdf)                    size: 8929 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm1zommedright-eps-converted-to.pdf task2mm1zommedright.eps>
-(epstopdf)             \includegraphics on input line 368.
+Package epstopdf Info: Source file: <task2mm1realright.eps>
+(epstopdf)                    date: 2021-12-03 05:44:54
+(epstopdf)                    size: 17105 bytes
+(epstopdf)             Output file: <task2mm1realright-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:33
+(epstopdf)                    size: 9271 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1realright-eps-converted-to.pdf task2mm1realright.eps>
+(epstopdf)             \includegraphics on input line 381.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm1zommedright-eps-converted-to.pdf, id=329, 1385.175pt x 712.6625pt>
-File: task2mm1zommedright-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm1zommedright-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm1zommedright-eps-converted-to.pdf  used on input line 368.
+<task2mm1realright-eps-converted-to.pdf, id=341, 1385.175pt x 712.6625pt>
+File: task2mm1realright-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1realright-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1realright-eps-converted-to.pdf  used on input line 381.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [14 <./task2mm1overall-eps-converted-to.pdf> <./task2mm1zommedleft-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <task2mm1complexzommedleft.eps>
-(epstopdf)                    date: 2021-12-03 04:38:53
-(epstopdf)                    size: 17087 bytes
-(epstopdf)             Output file: <task2mm1complexzommedleft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:48:06
-(epstopdf)                    size: 9045 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm1complexzommedleft-eps-converted-to.pdf task2mm1complexzommedleft.eps>
-(epstopdf)             \includegraphics on input line 372.
-Package epstopdf Info: Output file is already uptodate.
-<task2mm1complexzommedleft-eps-converted-to.pdf, id=350, 1385.175pt x 712.6625pt>
-File: task2mm1complexzommedleft-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm1complexzommedleft-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm1complexzommedleft-eps-converted-to.pdf  used on input line 372.
-(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task2mm1complexzommeddown.eps>
-(epstopdf)                    date: 2021-12-03 04:39:18
-(epstopdf)                    size: 21306 bytes
-(epstopdf)             Output file: <task2mm1complexzommeddown-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:48:06
-(epstopdf)                    size: 11241 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm1complexzommeddown-eps-converted-to.pdf task2mm1complexzommeddown.eps>
-(epstopdf)             \includegraphics on input line 376.
-Package epstopdf Info: Output file is already uptodate.
-<task2mm1complexzommeddown-eps-converted-to.pdf, id=351, 1385.175pt x 712.6625pt>
-File: task2mm1complexzommeddown-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm1complexzommeddown-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm1complexzommeddown-eps-converted-to.pdf  used on input line 376.
-(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task2mm1complexzommedup.eps>
-(epstopdf)                    date: 2021-12-03 04:39:37
-(epstopdf)                    size: 20522 bytes
-(epstopdf)             Output file: <task2mm1complexzommedup-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:48:06
-(epstopdf)                    size: 10708 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm1complexzommedup-eps-converted-to.pdf task2mm1complexzommedup.eps>
-(epstopdf)             \includegraphics on input line 380.
-Package epstopdf Info: Output file is already uptodate.
-<task2mm1complexzommedup-eps-converted-to.pdf, id=352, 1385.175pt x 712.6625pt>
-File: task2mm1complexzommedup-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm1complexzommedup-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm1complexzommedup-eps-converted-to.pdf  used on input line 380.
-(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [15 <./task2mm1zommedright-eps-converted-to.pdf> <./task2mm1complexzommedleft-eps-converted-to.pdf> <./task2mm1complexzommeddown-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <task2mm2overall.eps>
-(epstopdf)                    date: 2021-12-03 04:48:51
-(epstopdf)                    size: 42230 bytes
-(epstopdf)             Output file: <task2mm2overall-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:00
-(epstopdf)                    size: 20666 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm2overall-eps-converted-to.pdf task2mm2overall.eps>
+ [15 <./task2mm1realoverall-eps-converted-to.pdf> <./task2mm1realleft-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <task2mm1complexoverall.eps>
+(epstopdf)                    date: 2021-12-03 05:45:10
+(epstopdf)                    size: 16860 bytes
+(epstopdf)             Output file: <task2mm1complexoverall-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:33
+(epstopdf)                    size: 9106 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1complexoverall-eps-converted-to.pdf task2mm1complexoverall.eps>
 (epstopdf)             \includegraphics on input line 385.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm2overall-eps-converted-to.pdf, id=382, 1385.175pt x 712.6625pt>
-File: task2mm2overall-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm2overall-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm2overall-eps-converted-to.pdf  used on input line 385.
+<task2mm1complexoverall-eps-converted-to.pdf, id=362, 1385.175pt x 712.6625pt>
+File: task2mm1complexoverall-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1complexoverall-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1complexoverall-eps-converted-to.pdf  used on input line 385.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task2mm2zommedleft.eps>
-(epstopdf)                    date: 2021-12-03 04:49:02
-(epstopdf)                    size: 17890 bytes
-(epstopdf)             Output file: <task2mm2zommedleft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:00
-(epstopdf)                    size: 9815 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm2zommedleft-eps-converted-to.pdf task2mm2zommedleft.eps>
+Package epstopdf Info: Source file: <task2mm1complexdown.eps>
+(epstopdf)                    date: 2021-12-03 05:45:22
+(epstopdf)                    size: 17299 bytes
+(epstopdf)             Output file: <task2mm1complexdown-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:33
+(epstopdf)                    size: 9352 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1complexdown-eps-converted-to.pdf task2mm1complexdown.eps>
 (epstopdf)             \includegraphics on input line 389.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm2zommedleft-eps-converted-to.pdf, id=383, 1385.175pt x 712.6625pt>
-File: task2mm2zommedleft-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm2zommedleft-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm2zommedleft-eps-converted-to.pdf  used on input line 389.
+<task2mm1complexdown-eps-converted-to.pdf, id=363, 1385.175pt x 712.6625pt>
+File: task2mm1complexdown-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1complexdown-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1complexdown-eps-converted-to.pdf  used on input line 389.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [16 <./task2mm1complexzommedup-eps-converted-to.pdf> <./task2mm2overall-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <task2mm2zommedright.eps>
-(epstopdf)                    date: 2021-12-03 04:49:17
-(epstopdf)                    size: 17932 bytes
-(epstopdf)             Output file: <task2mm2zommedright-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:00
-(epstopdf)                    size: 9367 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm2zommedright-eps-converted-to.pdf task2mm2zommedright.eps>
+Package epstopdf Info: Source file: <task2mm1complexmiddle.eps>
+(epstopdf)                    date: 2021-12-03 05:45:35
+(epstopdf)                    size: 15057 bytes
+(epstopdf)             Output file: <task2mm1complexmiddle-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:34
+(epstopdf)                    size: 8837 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1complexmiddle-eps-converted-to.pdf task2mm1complexmiddle.eps>
 (epstopdf)             \includegraphics on input line 393.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm2zommedright-eps-converted-to.pdf, id=405, 1385.175pt x 712.6625pt>
-File: task2mm2zommedright-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm2zommedright-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm2zommedright-eps-converted-to.pdf  used on input line 393.
+<task2mm1complexmiddle-eps-converted-to.pdf, id=364, 1385.175pt x 712.6625pt>
+File: task2mm1complexmiddle-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1complexmiddle-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1complexmiddle-eps-converted-to.pdf  used on input line 393.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task2mm2complexzommedleft.eps>
-(epstopdf)                    date: 2021-12-03 04:49:57
-(epstopdf)                    size: 17333 bytes
-(epstopdf)             Output file: <task2mm2complexzommedleft-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:00
-(epstopdf)                    size: 9564 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm2complexzommedleft-eps-converted-to.pdf task2mm2complexzommedleft.eps>
+ [16 <./task2mm1realright-eps-converted-to.pdf> <./task2mm1complexoverall-eps-converted-to.pdf> <./task2mm1complexdown-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <task2mm1complexup.eps>
+(epstopdf)                    date: 2021-12-03 05:45:48
+(epstopdf)                    size: 15773 bytes
+(epstopdf)             Output file: <task2mm1complexup-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:34
+(epstopdf)                    size: 8778 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm1complexup-eps-converted-to.pdf task2mm1complexup.eps>
 (epstopdf)             \includegraphics on input line 397.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm2complexzommedleft-eps-converted-to.pdf, id=406, 1385.175pt x 712.6625pt>
-File: task2mm2complexzommedleft-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm2complexzommedleft-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm2complexzommedleft-eps-converted-to.pdf  used on input line 397.
+<task2mm1complexup-eps-converted-to.pdf, id=393, 1385.175pt x 712.6625pt>
+File: task2mm1complexup-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm1complexup-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm1complexup-eps-converted-to.pdf  used on input line 397.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task2mm2complexzommedmiddle.eps>
-(epstopdf)                    date: 2021-12-03 04:50:16
-(epstopdf)                    size: 16594 bytes
-(epstopdf)             Output file: <task2mm2complexzommedmiddle-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:00
-(epstopdf)                    size: 8955 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm2complexzommedmiddle-eps-converted-to.pdf task2mm2complexzommedmiddle.eps>
-(epstopdf)             \includegraphics on input line 401.
+Package epstopdf Info: Source file: <task2mm2realoverall.eps>
+(epstopdf)                    date: 2021-12-03 05:46:09
+(epstopdf)                    size: 42234 bytes
+(epstopdf)             Output file: <task2mm2realoverall-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:34
+(epstopdf)                    size: 20674 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2realoverall-eps-converted-to.pdf task2mm2realoverall.eps>
+(epstopdf)             \includegraphics on input line 402.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm2complexzommedmiddle-eps-converted-to.pdf, id=407, 1385.175pt x 712.6625pt>
-File: task2mm2complexzommedmiddle-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm2complexzommedmiddle-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm2complexzommedmiddle-eps-converted-to.pdf  used on input line 401.
+<task2mm2realoverall-eps-converted-to.pdf, id=394, 1385.175pt x 712.6625pt>
+File: task2mm2realoverall-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2realoverall-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2realoverall-eps-converted-to.pdf  used on input line 402.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [17 <./task2mm2zommedleft-eps-converted-to.pdf> <./task2mm2zommedright-eps-converted-to.pdf> <./task2mm2complexzommedleft-eps-converted-to.pdf>]
-Package epstopdf Info: Source file: <task2mm2complexzommedup.eps>
-(epstopdf)                    date: 2021-12-03 04:50:30
-(epstopdf)                    size: 17336 bytes
-(epstopdf)             Output file: <task2mm2complexzommedup-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:01
-(epstopdf)                    size: 9183 bytes
-(epstopdf)             Command: <repstopdf --outfile=task2mm2complexzommedup-eps-converted-to.pdf task2mm2complexzommedup.eps>
-(epstopdf)             \includegraphics on input line 405.
+ [17 <./task2mm1complexmiddle-eps-converted-to.pdf> <./task2mm1complexup-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <task2mm2realleft.eps>
+(epstopdf)                    date: 2021-12-03 05:46:21
+(epstopdf)                    size: 16999 bytes
+(epstopdf)             Output file: <task2mm2realleft-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:34
+(epstopdf)                    size: 9627 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2realleft-eps-converted-to.pdf task2mm2realleft.eps>
+(epstopdf)             \includegraphics on input line 406.
 Package epstopdf Info: Output file is already uptodate.
-<task2mm2complexzommedup-eps-converted-to.pdf, id=436, 1385.175pt x 712.6625pt>
-File: task2mm2complexzommedup-eps-converted-to.pdf Graphic file (type pdf)
-<use task2mm2complexzommedup-eps-converted-to.pdf>
-Package pdftex.def Info: task2mm2complexzommedup-eps-converted-to.pdf  used on input line 405.
+<task2mm2realleft-eps-converted-to.pdf, id=415, 1385.175pt x 712.6625pt>
+File: task2mm2realleft-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2realleft-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2realleft-eps-converted-to.pdf  used on input line 406.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [18 <./task2mm2complexzommedmiddle-eps-converted-to.pdf> <./task2mm2complexzommedup-eps-converted-to.pdf>] [19] [20]
+Package epstopdf Info: Source file: <task2mm2realright.eps>
+(epstopdf)                    date: 2021-12-03 05:46:32
+(epstopdf)                    size: 17592 bytes
+(epstopdf)             Output file: <task2mm2realright-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:34
+(epstopdf)                    size: 9347 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2realright-eps-converted-to.pdf task2mm2realright.eps>
+(epstopdf)             \includegraphics on input line 410.
+Package epstopdf Info: Output file is already uptodate.
+<task2mm2realright-eps-converted-to.pdf, id=416, 1385.175pt x 712.6625pt>
+File: task2mm2realright-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2realright-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2realright-eps-converted-to.pdf  used on input line 410.
+(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+ [18 <./task2mm2realoverall-eps-converted-to.pdf> <./task2mm2realleft-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <task2mm2complexoverall.eps>
+(epstopdf)                    date: 2021-12-03 05:46:44
+(epstopdf)                    size: 17747 bytes
+(epstopdf)             Output file: <task2mm2complexoverall-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:35
+(epstopdf)                    size: 9409 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2complexoverall-eps-converted-to.pdf task2mm2complexoverall.eps>
+(epstopdf)             \includegraphics on input line 414.
+Package epstopdf Info: Output file is already uptodate.
+<task2mm2complexoverall-eps-converted-to.pdf, id=438, 1385.175pt x 712.6625pt>
+File: task2mm2complexoverall-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2complexoverall-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2complexoverall-eps-converted-to.pdf  used on input line 414.
+(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+Package epstopdf Info: Source file: <task2mm2complexright.eps>
+(epstopdf)                    date: 2021-12-03 05:47:04
+(epstopdf)                    size: 16509 bytes
+(epstopdf)             Output file: <task2mm2complexright-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:35
+(epstopdf)                    size: 9154 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2complexright-eps-converted-to.pdf task2mm2complexright.eps>
+(epstopdf)             \includegraphics on input line 418.
+Package epstopdf Info: Output file is already uptodate.
+<task2mm2complexright-eps-converted-to.pdf, id=439, 1385.175pt x 712.6625pt>
+File: task2mm2complexright-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2complexright-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2complexright-eps-converted-to.pdf  used on input line 418.
+(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+Package epstopdf Info: Source file: <task2mm2complexleft.eps>
+(epstopdf)                    date: 2021-12-03 05:47:18
+(epstopdf)                    size: 17136 bytes
+(epstopdf)             Output file: <task2mm2complexleft-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:35
+(epstopdf)                    size: 9090 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2complexleft-eps-converted-to.pdf task2mm2complexleft.eps>
+(epstopdf)             \includegraphics on input line 422.
+Package epstopdf Info: Output file is already uptodate.
+<task2mm2complexleft-eps-converted-to.pdf, id=440, 1385.175pt x 712.6625pt>
+File: task2mm2complexleft-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2complexleft-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2complexleft-eps-converted-to.pdf  used on input line 422.
+(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+ [19 <./task2mm2realright-eps-converted-to.pdf> <./task2mm2complexoverall-eps-converted-to.pdf> <./task2mm2complexright-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <task2mm2complexup.eps>
+(epstopdf)                    date: 2021-12-03 05:47:31
+(epstopdf)                    size: 17389 bytes
+(epstopdf)             Output file: <task2mm2complexup-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:49:35
+(epstopdf)                    size: 9363 bytes
+(epstopdf)             Command: <repstopdf --outfile=task2mm2complexup-eps-converted-to.pdf task2mm2complexup.eps>
+(epstopdf)             \includegraphics on input line 426.
+Package epstopdf Info: Output file is already uptodate.
+<task2mm2complexup-eps-converted-to.pdf, id=469, 1385.175pt x 712.6625pt>
+File: task2mm2complexup-eps-converted-to.pdf Graphic file (type pdf)
+<use task2mm2complexup-eps-converted-to.pdf>
+Package pdftex.def Info: task2mm2complexup-eps-converted-to.pdf  used on input line 426.
+(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+ [20 <./task2mm2complexleft-eps-converted-to.pdf> <./task2mm2complexup-eps-converted-to.pdf>] [21] [22]
 Chapter 3.
-[21
+[23
 
 ]
 Package epstopdf Info: Source file: <task3overall.eps>
-(epstopdf)                    date: 2021-12-03 04:40:16
+(epstopdf)                    date: 2021-12-03 05:52:39
 (epstopdf)                    size: 42160 bytes
 (epstopdf)             Output file: <task3overall-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:51:55
+(epstopdf)                    date: 2021-12-03 05:54:40
 (epstopdf)                    size: 20523 bytes
 (epstopdf)             Command: <repstopdf --outfile=task3overall-eps-converted-to.pdf task3overall.eps>
-(epstopdf)             \includegraphics on input line 559.
+(epstopdf)             \includegraphics on input line 594.
 Package epstopdf Info: Output file is already uptodate.
-<task3overall-eps-converted-to.pdf, id=470, 1385.175pt x 712.6625pt>
+<task3overall-eps-converted-to.pdf, id=503, 1385.175pt x 712.6625pt>
 File: task3overall-eps-converted-to.pdf Graphic file (type pdf)
 <use task3overall-eps-converted-to.pdf>
-Package pdftex.def Info: task3overall-eps-converted-to.pdf  used on input line 559.
+Package pdftex.def Info: task3overall-eps-converted-to.pdf  used on input line 594.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
 Package epstopdf Info: Source file: <task3left.eps>
-(epstopdf)                    date: 2021-12-03 04:40:29
-(epstopdf)                    size: 16781 bytes
+(epstopdf)                    date: 2021-12-03 05:52:50
+(epstopdf)                    size: 18391 bytes
 (epstopdf)             Output file: <task3left-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:53:16
-(epstopdf)                    size: 9493 bytes
+(epstopdf)                    date: 2021-12-03 05:54:40
+(epstopdf)                    size: 9752 bytes
 (epstopdf)             Command: <repstopdf --outfile=task3left-eps-converted-to.pdf task3left.eps>
-(epstopdf)             \includegraphics on input line 564.
+(epstopdf)             \includegraphics on input line 599.
 Package epstopdf Info: Output file is already uptodate.
-<task3left-eps-converted-to.pdf, id=471, 1385.175pt x 712.6625pt>
+<task3left-eps-converted-to.pdf, id=504, 1385.175pt x 712.6625pt>
 File: task3left-eps-converted-to.pdf Graphic file (type pdf)
 <use task3left-eps-converted-to.pdf>
-Package pdftex.def Info: task3left-eps-converted-to.pdf  used on input line 564.
+Package pdftex.def Info: task3left-eps-converted-to.pdf  used on input line 599.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
 Package epstopdf Info: Source file: <task3right.eps>
-(epstopdf)                    date: 2021-12-03 04:40:46
-(epstopdf)                    size: 17218 bytes
+(epstopdf)                    date: 2021-12-03 05:53:01
+(epstopdf)                    size: 17899 bytes
 (epstopdf)             Output file: <task3right-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:53:17
-(epstopdf)                    size: 9321 bytes
+(epstopdf)                    date: 2021-12-03 05:54:41
+(epstopdf)                    size: 9354 bytes
 (epstopdf)             Command: <repstopdf --outfile=task3right-eps-converted-to.pdf task3right.eps>
-(epstopdf)             \includegraphics on input line 568.
+(epstopdf)             \includegraphics on input line 603.
 Package epstopdf Info: Output file is already uptodate.
-<task3right-eps-converted-to.pdf, id=472, 1385.175pt x 712.6625pt>
+<task3right-eps-converted-to.pdf, id=505, 1385.175pt x 712.6625pt>
 File: task3right-eps-converted-to.pdf Graphic file (type pdf)
 <use task3right-eps-converted-to.pdf>
-Package pdftex.def Info: task3right-eps-converted-to.pdf  used on input line 568.
+Package pdftex.def Info: task3right-eps-converted-to.pdf  used on input line 603.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [22 <./task3overall-eps-converted-to.pdf> <./task3left-eps-converted-to.pdf>]
+ [24 <./task3overall-eps-converted-to.pdf> <./task3left-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <task3complexoverall.eps>
-(epstopdf)                    date: 2021-12-03 04:41:11
-(epstopdf)                    size: 15531 bytes
+(epstopdf)                    date: 2021-12-03 05:53:19
+(epstopdf)                    size: 16613 bytes
 (epstopdf)             Output file: <task3complexoverall-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:53:17
-(epstopdf)                    size: 9104 bytes
+(epstopdf)                    date: 2021-12-03 05:54:41
+(epstopdf)                    size: 9282 bytes
 (epstopdf)             Command: <repstopdf --outfile=task3complexoverall-eps-converted-to.pdf task3complexoverall.eps>
-(epstopdf)             \includegraphics on input line 572.
+(epstopdf)             \includegraphics on input line 607.
 Package epstopdf Info: Output file is already uptodate.
-<task3complexoverall-eps-converted-to.pdf, id=494, 1385.175pt x 712.6625pt>
+<task3complexoverall-eps-converted-to.pdf, id=527, 1385.175pt x 712.6625pt>
 File: task3complexoverall-eps-converted-to.pdf Graphic file (type pdf)
 <use task3complexoverall-eps-converted-to.pdf>
-Package pdftex.def Info: task3complexoverall-eps-converted-to.pdf  used on input line 572.
+Package pdftex.def Info: task3complexoverall-eps-converted-to.pdf  used on input line 607.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
-Package epstopdf Info: Source file: <task3complexdown.eps>
-(epstopdf)                    date: 2021-12-03 04:41:37
-(epstopdf)                    size: 16835 bytes
-(epstopdf)             Output file: <task3complexdown-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:53:17
-(epstopdf)                    size: 9312 bytes
-(epstopdf)             Command: <repstopdf --outfile=task3complexdown-eps-converted-to.pdf task3complexdown.eps>
-(epstopdf)             \includegraphics on input line 576.
+Package epstopdf Info: Source file: <task3complexleft.eps>
+(epstopdf)                    date: 2021-12-03 05:53:50
+(epstopdf)                    size: 16074 bytes
+(epstopdf)             Output file: <task3complexleft-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:54:41
+(epstopdf)                    size: 9115 bytes
+(epstopdf)             Command: <repstopdf --outfile=task3complexleft-eps-converted-to.pdf task3complexleft.eps>
+(epstopdf)             \includegraphics on input line 611.
 Package epstopdf Info: Output file is already uptodate.
-<task3complexdown-eps-converted-to.pdf, id=495, 1385.175pt x 712.6625pt>
-File: task3complexdown-eps-converted-to.pdf Graphic file (type pdf)
-<use task3complexdown-eps-converted-to.pdf>
-Package pdftex.def Info: task3complexdown-eps-converted-to.pdf  used on input line 576.
+<task3complexleft-eps-converted-to.pdf, id=528, 1385.175pt x 712.6625pt>
+File: task3complexleft-eps-converted-to.pdf Graphic file (type pdf)
+<use task3complexleft-eps-converted-to.pdf>
+Package pdftex.def Info: task3complexleft-eps-converted-to.pdf  used on input line 611.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+Package epstopdf Info: Source file: <task3complexright.eps>
+(epstopdf)                    date: 2021-12-03 05:53:37
+(epstopdf)                    size: 18005 bytes
+(epstopdf)             Output file: <task3complexright-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-12-03 05:54:41
+(epstopdf)                    size: 9361 bytes
+(epstopdf)             Command: <repstopdf --outfile=task3complexright-eps-converted-to.pdf task3complexright.eps>
+(epstopdf)             \includegraphics on input line 615.
+Package epstopdf Info: Output file is already uptodate.
+<task3complexright-eps-converted-to.pdf, id=529, 1385.175pt x 712.6625pt>
+File: task3complexright-eps-converted-to.pdf Graphic file (type pdf)
+<use task3complexright-eps-converted-to.pdf>
+Package pdftex.def Info: task3complexright-eps-converted-to.pdf  used on input line 615.
+(pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
+ [25 <./task3right-eps-converted-to.pdf> <./task3complexoverall-eps-converted-to.pdf> <./task3complexleft-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <task3complexup.eps>
-(epstopdf)                    date: 2021-12-03 04:41:49
-(epstopdf)                    size: 16935 bytes
+(epstopdf)                    date: 2021-12-03 05:54:00
+(epstopdf)                    size: 17027 bytes
 (epstopdf)             Output file: <task3complexup-eps-converted-to.pdf>
-(epstopdf)                    date: 2021-12-03 04:53:17
-(epstopdf)                    size: 9239 bytes
+(epstopdf)                    date: 2021-12-03 05:54:41
+(epstopdf)                    size: 9677 bytes
 (epstopdf)             Command: <repstopdf --outfile=task3complexup-eps-converted-to.pdf task3complexup.eps>
-(epstopdf)             \includegraphics on input line 580.
+(epstopdf)             \includegraphics on input line 619.
 Package epstopdf Info: Output file is already uptodate.
-<task3complexup-eps-converted-to.pdf, id=496, 1385.175pt x 712.6625pt>
+<task3complexup-eps-converted-to.pdf, id=558, 1385.175pt x 712.6625pt>
 File: task3complexup-eps-converted-to.pdf Graphic file (type pdf)
 <use task3complexup-eps-converted-to.pdf>
-Package pdftex.def Info: task3complexup-eps-converted-to.pdf  used on input line 580.
+Package pdftex.def Info: task3complexup-eps-converted-to.pdf  used on input line 619.
 (pdftex.def)             Requested size: 346.29291pt x 178.16519pt.
- [23 <./task3right-eps-converted-to.pdf> <./task3complexoverall-eps-converted-to.pdf> <./task3complexdown-eps-converted-to.pdf>] [24 <./task3complexup-eps-converted-to.pdf>]
+ [26 <./task3complexright-eps-converted-to.pdf> <./task3complexup-eps-converted-to.pdf>] [27]
 Chapter 4.
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 649.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 695.
 (/usr/share/texlive/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 )
 LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
-(Font)              scaled to size 10.20007pt on input line 649.
+(Font)              scaled to size 10.20007pt on input line 695.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 650.
-LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 653.
+(textcomp)             Default family used instead on input line 696.
+LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 699.
  (/usr/share/texlive/texmf-dist/tex/latex/bera/ts1fvm.fd
 File: ts1fvm.fd 2004/09/07 scalable font definitions for TS1/fvm.
 )
 LaTeX Font Info:    Font shape `TS1/fvm/m/n' will be
-(Font)              scaled to size 10.20007pt on input line 653.
+(Font)              scaled to size 10.20007pt on input line 699.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 661.
+(textcomp)             Default family used instead on input line 707.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 661.
+(textcomp)             Default family used instead on input line 707.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 661.
- [25
+(textcomp)             Default family used instead on input line 707.
+ [28
 
 ]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 695.
+(textcomp)             Default family used instead on input line 741.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 695.
+(textcomp)             Default family used instead on input line 741.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 695.
- [26]
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 706.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 706.
- [27] [28]
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 759.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 760.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 760.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 761.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 762.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 762.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 764.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 764.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 791.
+(textcomp)             Default family used instead on input line 741.
  [29]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 802.
+(textcomp)             Default family used instead on input line 752.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 802.
+(textcomp)             Default family used instead on input line 752.
+ [30] [31]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 802.
- [30]
+(textcomp)             Default family used instead on input line 805.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 854.
+(textcomp)             Default family used instead on input line 806.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 854.
+(textcomp)             Default family used instead on input line 806.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 855.
- [31]
+(textcomp)             Default family used instead on input line 807.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 880.
+(textcomp)             Default family used instead on input line 808.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 885.
+(textcomp)             Default family used instead on input line 808.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 893.
- [32] [33] [34]
+(textcomp)             Default family used instead on input line 810.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 978.
+(textcomp)             Default family used instead on input line 810.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 979.
+(textcomp)             Default family used instead on input line 837.
+ [32]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 980.
+(textcomp)             Default family used instead on input line 848.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 981.
+(textcomp)             Default family used instead on input line 848.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 992.
+(textcomp)             Default family used instead on input line 848.
+ [33]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 995.
- [35]
+(textcomp)             Default family used instead on input line 900.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1017.
+(textcomp)             Default family used instead on input line 900.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1017.
+(textcomp)             Default family used instead on input line 901.
+ [34]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1018.
+(textcomp)             Default family used instead on input line 926.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1018.
+(textcomp)             Default family used instead on input line 931.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1018.
- [36]
+(textcomp)             Default family used instead on input line 931.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1050.
+(textcomp)             Default family used instead on input line 939.
+ [35] [36] [37]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1053.
- [37]
+(textcomp)             Default family used instead on input line 1024.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1081.
+(textcomp)             Default family used instead on input line 1025.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1086.
+(textcomp)             Default family used instead on input line 1026.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1094.
+(textcomp)             Default family used instead on input line 1027.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1038.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1041.
  [38]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1159.
+(textcomp)             Default family used instead on input line 1063.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1159.
+(textcomp)             Default family used instead on input line 1063.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1160.
+(textcomp)             Default family used instead on input line 1064.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1160.
+(textcomp)             Default family used instead on input line 1064.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1160.
+(textcomp)             Default family used instead on input line 1064.
  [39]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1198.
+(textcomp)             Default family used instead on input line 1096.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1198.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1198.
-Package textcomp Info: Symbol \textminus not provided by
-(textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1198.
+(textcomp)             Default family used instead on input line 1099.
  [40]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1208.
+(textcomp)             Default family used instead on input line 1127.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1213.
+(textcomp)             Default family used instead on input line 1132.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1221.
- [41] [42]
+(textcomp)             Default family used instead on input line 1132.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1288.
+(textcomp)             Default family used instead on input line 1140.
+ [41]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1288.
+(textcomp)             Default family used instead on input line 1205.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1288.
+(textcomp)             Default family used instead on input line 1205.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1292.
+(textcomp)             Default family used instead on input line 1206.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1302.
+(textcomp)             Default family used instead on input line 1206.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1304.
- [43] [44]
+(textcomp)             Default family used instead on input line 1206.
+ [42]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1340.
+(textcomp)             Default family used instead on input line 1244.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1343.
- [45] [46]
+(textcomp)             Default family used instead on input line 1244.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1395.
- [47] [48]
+(textcomp)             Default family used instead on input line 1244.
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1432.
+(textcomp)             Default family used instead on input line 1244.
+ [43]
 Package textcomp Info: Symbol \textminus not provided by
 (textcomp)             font family fvm in TS1 encoding.
-(textcomp)             Default family used instead on input line 1438.
- [49] [50] [51
+(textcomp)             Default family used instead on input line 1254.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1259.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1259.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1267.
+ [44] [45]
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1334.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1334.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1334.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1338.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1348.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1350.
+ [46] [47]
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1386.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1389.
+ [48] [49]
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1441.
+ [50] [51]
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1478.
+Package textcomp Info: Symbol \textminus not provided by
+(textcomp)             font family fvm in TS1 encoding.
+(textcomp)             Default family used instead on input line 1484.
+ [52] [53] [54
 
 ] (./report.aux)
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: FE20C5958A2A6290FBB81D61FAE213A3;2504.
+(rerunfilecheck)             Checksum: 30783B09B42F2C8326374F2DA71401CA;2579.
  ) 
 Here is how much of TeX's memory you used:
- 13122 strings out of 479304
- 230457 string characters out of 5869778
- 947389 words of memory out of 5000000
- 29465 multiletter control sequences out of 15000+600000
+ 13148 strings out of 479304
+ 231091 string characters out of 5869778
+ 947656 words of memory out of 5000000
+ 29481 multiletter control sequences out of 15000+600000
  420612 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  81i,6n,88p,548b,2255s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super
 /sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb>
-Output written on report.pdf (52 pages, 536576 bytes).
+Output written on report.pdf (55 pages, 554080 bytes).
 PDF statistics:
- 1375 PDF objects out of 1440 (max. 8388607)
- 1192 compressed objects within 12 object streams
- 615 named destinations out of 1000 (max. 500000)
- 417 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1423 PDF objects out of 1440 (max. 8388607)
+ 1226 compressed objects within 13 object streams
+ 622 named destinations out of 1000 (max. 500000)
+ 440 words of extra memory for PDF output out of 10000 (max. 10000000)
 
