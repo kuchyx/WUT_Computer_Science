@@ -1,3 +1,2 @@
-# ENUME_Project_31
-## First project scored maximum (15/15) points
-## Second project scored maximum (15/15) points
+# First project (Number 31) scored maximum (15/15) points
+# Second project (Number 32) scored maximum (15/15) points
