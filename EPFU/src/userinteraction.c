@@ -1,5 +1,9 @@
 #include "game_struct.h"
+
+#ifdef _WIN32
 #include "windows.h"
+#endif
+
 void welcome()
 {
     printf("Hey there! Lets play ''HEY THAT'S MY FISH'' \n");
@@ -18,6 +22,7 @@ END */
 
 int ScoreBoard(GameState Game)
 {
+    #ifdef _WIN32
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_SCREEN_BUFFER_INFO consoleInfo;
     WORD saved_attributes;
@@ -32,6 +37,11 @@ int ScoreBoard(GameState Game)
     SetConsoleTextAttribute(hConsole, 6);
     printf("Player number 2 score: %d\n\n", Game.player_data[1].score);
     SetConsoleTextAttribute(hConsole, saved_attributes);
+    #else
+    printf("Player number 1 score: %d\n", Game.player_data[0].score);
+    printf("Player number 2 score: %d\n\n", Game.player_data[1].score);
+
+    #endif
 
     return 1;
 }

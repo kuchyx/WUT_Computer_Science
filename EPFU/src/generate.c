@@ -39,9 +39,9 @@ Field** randomizeFields(GameState Game)
     return Game.board;
 }
 
-char** generateCommandLine(GameState Game, int argc, char *argv[])
+char** generateCommandLine(GameState Game, int argc)
 {
-    int i, j;
+    int i;
     Game.command_line = (char **)malloc(argc * sizeof(char*));
     for(i = 0; i < argc; i++)
     {

@@ -191,7 +191,11 @@ int checkMovement(Movement_coordinates c, GameState Game)
         printf("You can't move the penguin diagonally!\n");
         return 0;
     }
+
+    printf("Something went really bad in function checkMovement()");
+    return 0;
 }
+
 int ourPenguins(GameState Game)
 {
     int i, j;  // This function checks how many penguins we have and returns this number

@@ -23,7 +23,7 @@ int isItBoardParameter(GameState Game, int command_number)
 {
     int len = strlen(Game.command_line[command_number]);
     int j = 0, i;
-    char extension[4];
+    char extension[4] = "";
     int answer = 0;
     memset(extension, 0, strlen(extension));
     for(i = len - 4; i < len; i++)
@@ -40,7 +40,7 @@ int isItBoardParameter(GameState Game, int command_number)
 
 char** handlingParameters(int argc, char *argv[], GameState Game)
 {
-    int i, j;
+    int i;
     for(i = 1; i < argc; i++)
     {
          strcpy(Game.command_line[i - 1], argv[i]);
@@ -76,7 +76,6 @@ int checkParameterType(GameState *Game, int command_number)
         if(Game -> file_type == 0)  // First file is input board file
         {
             printf("It is an input board file!\n");
-            char line[255];
             Game -> file_type = Game -> file_type + 1;
             printf("%s", Game -> command_line[command_number]);
             Game -> input_board_command_number = command_number;
@@ -85,7 +84,6 @@ int checkParameterType(GameState *Game, int command_number)
         }else if(Game -> file_type == 1) // Second file is output board file
         {
             printf("It is an output board file!\n");
-            char line[255];
             if(!strcmp(Game -> command_line[Game -> input_board_command_number], Game -> command_line[command_number]))  // If the input and board file are the same
                 // then we open it in r+ mode
             {

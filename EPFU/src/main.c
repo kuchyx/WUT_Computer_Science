@@ -9,9 +9,11 @@
 #include "movement.c"
 #include "command_line_parameters.c"
 #include "game_struct.h" // Header file for file where we store all our structures
-#include <windows.h>
-//#define INTERACTIVE
-#define AUTOMATIC
+#ifdef _WIN32
+#include "windows.h"
+#endif
+#define INTERACTIVE
+//#define AUTOMATIC
 
 int interactive_mode(GameState Game)
 {
@@ -68,7 +70,12 @@ int interactive_mode(GameState Game)
     }else printf("It's a tie!\n");
     return 0;
 }
-int main(int argc, char *argv[])
+int main(
+  #ifdef AUTOMATIC
+  int argc,
+  char *argv[]
+  #endif
+  )
 {
     GameState Game;
     #ifdef AUTOMATIC
@@ -77,7 +84,7 @@ int main(int argc, char *argv[])
     if(argc != 1)
     {
          // Creating a Game variable that will hold informations needed to run the program
-        Game.command_line = generateCommandLine(Game, argc, argv);  // Generates 2D dynamic array of strings
+        Game.command_line = generateCommandLine(Game, argc);  // Generates 2D dynamic array of strings
         handlingParameters(argc, argv, Game);  // Stores all commands inside Game.command_line array
         Game.file_type = 0;  // We use this variable to check if the file we open is inputboardfile or outputboardfile
         Game.phase = 0;  // We use this variable to check if current game phase is placement (1) or movement(2)
