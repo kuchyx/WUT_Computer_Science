@@ -1,1 +1,24 @@
 This is a WUT project about creating an AI that can play board game "Hey that's my fish" 
+toDo:
+
+feat:
+Code to translate "Current board status" from terminal into GameState for bug fixing
+
+fix: Game ending early despite one of the players having possible moves 
+Current board status:
+  0  1  2  3  4  
+0 P1 ~  F2 F3 F3 
+1 P2 ~  F3 F3 F2 
+2 P1 ~  F3 F2 F3 
+3 P2 F2 ~  F2 F2 
+4 P1 ~  F3 P2 ~  
+
+Player number 1 score: 10
+Player number 2 score: 10
+
+It's a tie!
+Should have continued with player two still playing
+
+fix: Picking a penguin that has no moves left changes this penguin into water (???) and then asks player to choose another penguin
+
+

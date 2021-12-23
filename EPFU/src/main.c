@@ -15,59 +15,127 @@
 #define INTERACTIVE
 //#define AUTOMATIC
 
+const char START_MESSAGE[] = "Hello again! Please enter the number of rows and columns \n";
+const char PLACEMENT_TEXT[] = "================================\n \tPLACEMENT PHASE!\n================================\n";
+const int BOTH_PLAYERS_HAVE_MOVES_FLAG = 0;
+const int BOTH_PLAYERS_OUT_OF_MOVES_FLAG = 2;
+const char PLAYER_ONE_WON[] = "Player ONE won!\n";
+const char PLAYER_TWO_WON[] = "Player TWO won!\n";
+const char TIE_MESSAGE[] = "It's a tie!\n";
+
+void clearScreen()
+{
+  system("clear || cls");
+}
+
+void enterBoardWidthAndHeight(GameState *Game)
+{
+  printf(START_MESSAGE);
+  scanf("%d", &(Game -> board_width));
+  scanf("%d", &(Game  -> board_height));
+}
+
+void prepareBoard(GameState *Game)
+{
+  Game -> board = allocateMemory(*Game);
+  Game -> board = randomizeFields(*Game);
+}
+
+const int STARTING_SCORE = 0;
+
+GameState initializePlayerScoreVariables(GameState Game)
+{
+  Game.player_data[0].player_number = 1;
+  Game.player_data[1].player_number = 2;
+  Game.player_data[0].score = STARTING_SCORE;
+  Game.player_data[1].score = STARTING_SCORE;
+  return Game;
+}
+
+GameState setUpPenguinsPerPlayer(GameState Game)
+{
+  Game.one_fish_fields = checkPlacement(Game);
+  Game.penguins_per_player = floor(Game.one_fish_fields / 2);
+  return Game;
+}
+
+GameState initializeGame(GameState Game)
+{
+  enterBoardWidthAndHeight(&Game);
+  prepareBoard(&Game);
+  Game = initializePlayerScoreVariables(Game);
+  printBoard(Game);
+  Game = setUpPenguinsPerPlayer(Game);
+  Game.current_player = 1;
+  return Game;
+}
+
+
+
+
+GameState insidePlacePenguinsLoop(GameState Game, int i)
+{
+  while(!placePenguin(&Game));
+  printBoard(Game);
+  Game.current_player = (i + 1) % 2 + 1; // Since player numbers are 1 and 2 we need to make sure that this number is at least 1 and at max 2 as opposed to 0 and 1 if we just used i % 2
+  return Game;
+}
+
+GameState placePenguins(GameState Game)
+{
+  int penguinsToPlace = 2 * Game.penguins_per_player;
+  for(int i = 0; i < penguinsToPlace; i++)
+  {
+    Game = insidePlacePenguinsLoop(Game, i);
+  }
+  return Game;
+}
+
+GameState setUpGameBeforePlayPhase(GameState Game)
+{
+  clearScreen();
+  printBoard(Game);
+  Game.current_player = 1;
+  Game.flag = BOTH_PLAYERS_HAVE_MOVES_FLAG;
+  return Game;
+}
+
+GameState playPhase(GameState Game)
+{
+  while(Game.flag != BOTH_PLAYERS_OUT_OF_MOVES_FLAG)
+  {
+      movePenguin(&Game);
+      clearScreen();
+      /*
+      if(movePenguin(&Game))
+      {
+          clearScreen();
+      } Old code, not sure why we check if movePenguin end successfuly?
+      */
+      printBoard(Game);
+  }
+  return Game;
+}
+
+void calculateScorePhase(const GameState Game)
+{
+  if(Game.player_data[0].score > Game.player_data[1].score)
+  {
+      printf(PLAYER_ONE_WON);
+  }else if(Game.player_data[0].score < Game.player_data[1].score)
+  {
+      printf(PLAYER_TWO_WON);
+  }else printf(TIE_MESSAGE);
+}
+
 int interactive_mode(GameState Game)
 {
-    printf("Hello again! Please enter the number of rows and columns \n");
-    scanf("%d", &Game.board_width);
-    scanf("%d", &Game.board_height);
-    // User enters values to the Game structure
-    // User Interaction - Telling user to input rows and columns
-    // Creating a board for our game using Field structure
-    Game.board = allocateMemory(Game);
-    Game.board = randomizeFields(Game);
-
-    // Changed variables we use to Game structure and board
-    Game.player_data[0].player_number = 1;
-    Game.player_data[1].player_number = 2;
-    Game.player_data[0].score = 0;
-    Game.player_data[1].score = 0;
-
-    printBoard(Game);
-    Game.one_fish_fields = checkPlacement(Game);
-    Game.penguins_per_player = floor(Game.one_fish_fields / 2);
-    Game.current_player = 1;
-
-
-    printf("================================\n");
-    printf("\tPLACEMENT PHASE!\n");
-    printf("================================\n");
-    for(int i = 0; i < 2 * Game.penguins_per_player; i++)
-    {
-        while(!placePenguin(&Game));
-        system("clear || cls");
-        printBoard(Game);
-        Game.current_player = (i + 1) % 2 + 1;
-
-    }
-    system("clear || cls");
-    printBoard(Game);
-    Game.current_player = 1;
-    Game.flag = 0;
-    while(Game.flag != 2)
-    {
-        if(movePenguin(&Game))
-        {
-            system("clear || cls");
-        }
-        printBoard(Game);
-    }
-    if(Game.player_data[0].score > Game.player_data[1].score)
-    {
-        printf("Player ONE won!\n");
-    }else if(Game.player_data[0].score < Game.player_data[1].score)
-    {
-        printf("Player TWO won!\n");
-    }else printf("It's a tie!\n");
+    Game = initializeGame(Game);
+    printf(PLACEMENT_TEXT);
+    Game = placePenguins(Game);
+    Game = setUpGameBeforePlayPhase(Game);
+    Game = playPhase(Game);
+    calculateScorePhase(Game);
     return 0;
 }
 int main(
