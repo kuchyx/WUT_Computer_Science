@@ -57,4 +57,8 @@ https://tex.stackexchange.com/questions/294561/using-textbf-vs-mathbf-in-math-mo
 
 https://www.math-linux.com/latex-26/faq/latex-faq/article/how-to-get-dots-in-latex-ldots-cdots-vdots-and-ddots - Dots LaTeX
 
-https://www.overleaf.com/learn/latex/Tables - Tables LaTeX 
+https://www.overleaf.com/learn/latex/Tables - Tables LaTeX
+
+https://en.wikibooks.org/wiki/LaTeX/Special_Characters - an arrow (circumflex) above letter in latex
+
+https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols - For every symbol in LaTeX 

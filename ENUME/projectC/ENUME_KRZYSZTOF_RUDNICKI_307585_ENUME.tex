@@ -2,6 +2,7 @@
 
 \usepackage{mathtools}
 \usepackage{amsmath}
+\usepackage{amsfonts}
 \usepackage{systeme}
 \usepackage{siunitx}
 \usepackage[T1]{fontenc}
@@ -38,10 +39,6 @@ linkto=all,
 }
 
 \begin{document}
-
-
-
-
 \maketitle
 \tableofcontents
 
@@ -79,11 +76,16 @@ $x_i$ & $y_i$ \\
 \end{tabular}
 \end{center}
 
-We have to determine polynomial function $ y  = f(x) $ that best fits this data.
+We have to determine polynomial function $ y  = f(x) $ that best fits this data. \\
 We will use least-square approximation using system of normal equation with QR factorization.
 
 \section{Theoretical introduction}
-
+We have polynomial function:
+\[ y(x) = a_nx^n + a_{n-1}x^{n-1} + \dots + a_1x^1 + a_0 \]
+where n - degree of the polynomial we use to approximate function \\
+Given matrix $\mathbf{A} \in \mathbb{R}^{m \times n} \quad (m > n)$ and vector $\mathbf{y} \in \mathbb{R}^m$ \\
+We need to find vector \^{x} such that:
+\[ 	\forall x \in \mathbb{R}^n \quad|| \mathbf{y} - \mathbf{A} \hat{x} ||_2 \leq || \mathbf{y} - \mathbf{A}x ||_2  \]
 
 
 \chapter{Determine trajectory of the motion}

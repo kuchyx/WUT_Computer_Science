@@ -1,10 +1,10 @@
 \contentsline {chapter}{\numberline {1}Determine polynomial function fitting experimental data}{2}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Problem}{2}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Theoretical introduction}{2}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Determine trajectory of the motion}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}a) Runge-Kutta method of $4^{th}$ order and Adams PC}{3}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Problem}{3}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Theoretical Introdution}{4}{subsection.2.1.2}%
-\contentsline {section}{\numberline {2.2}b) Runge-Kutta method of $4^{th}$ order with variable step size automatically adjusted}{4}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Problem}{4}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Theoretical Introdution}{4}{subsection.2.2.2}%
+\contentsline {section}{\numberline {1.2}Theoretical introduction}{3}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Determine trajectory of the motion}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}a) Runge-Kutta method of $4^{th}$ order and Adams PC}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Problem}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Theoretical Introdution}{5}{subsection.2.1.2}%
+\contentsline {section}{\numberline {2.2}b) Runge-Kutta method of $4^{th}$ order with variable step size automatically adjusted}{5}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Problem}{5}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Theoretical Introdution}{5}{subsection.2.2.2}%
