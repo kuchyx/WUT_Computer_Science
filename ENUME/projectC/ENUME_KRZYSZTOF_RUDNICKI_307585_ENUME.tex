@@ -1,0 +1,118 @@
+\documentclass[12pt]{report}
+
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{systeme}
+\usepackage{siunitx}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{bigfoot}
+\usepackage[numbered, framed]{matlab-prettifier}
+\usepackage{filecontents}
+\usepackage{graphicx}
+\hypersetup{
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=black,
+urlcolor=black
+linkto=all,
+}
+
+\newenvironment{simplechar}{%
+   \catcode`\^=12
+}{}
+
+\title{Numerical Methods, project C, Number 32}
+\author{Krzysztof Rudnicki\\ Student number: 307585 \\ Advisor: dr hab. Piotr Marusak}
+\date{\today}
+
+\let\ph\mlplaceholder % shorter macro
+\lstMakeShortInline"
+
+\lstset{
+  style              = Matlab-editor,
+  basicstyle         = \mlttfamily,
+  escapechar         = ",
+  mlshowsectionrules = true,
+}
+
+\begin{document}
+
+
+
+
+\maketitle
+\tableofcontents
+
+\chapter{Determine polynomial function fitting experimental data}
+\section{Problem}
+Given following samples:
+\begin{center}
+  \begin{tabular}{| c | c |}
+\hline
+$x_i$ & $y_i$ \\
+\hline
+-5 & -6.5743\\
+\hline
+-4 & 0.9765\\
+\hline
+-3 & 3.1026\\
+\hline
+-2 & 1.8572 \\
+\hline
+-1 & 1.3165 \\
+\hline
+0 & -0.6144 \\
+\hline
+1 & 0.1032 \\
+\hline
+2 & 0.3729 \\
+\hline
+3 & 2.5327 \\
+\hline
+4 & 7.3857 \\
+\hline
+5 & 9.4892 \\
+\hline
+
+\end{tabular}
+\end{center}
+
+We have to determine polynomial function $ y  = f(x) $ that best fits this data.
+We will use least-square approximation using system of normal equation with QR factorization.
+
+\section{Theoretical introduction}
+
+
+
+\chapter{Determine trajectory of the motion}
+\section{a) Runge-Kutta method of $4^{th}$ order and Adams PC}
+\subsection{Problem}
+We are given following equations:
+\[ \frac{dx_1}{dt} = x_2 + x_1(0.5 - x_1^2 - x_2^2) \]
+\[ \frac{dx_2}{dt} = -x_1 + x_2(0.5 - x_1^2 - x_2^2) \]
+
+And we have to determine the trajectory of the motion on interval $[0, 15]$ with following initial conditions:
+$ x_1(0) = 8; x_2(0) = 9 $
+In this section we will use Runge-Kutta method of $4^{th}$ order and Adams PC with different step-sizes until we find an optimal constant step size - when the decrease of the step size does not influence the solution significantly.
+
+\subsection{Theoretical Introdution}
+
+\section{b) Runge-Kutta method of $4^{th}$ order with variable step size automatically adjusted}
+\subsection{Problem}
+We are given following equations:
+\[ \frac{dx_1}{dt} = x_2 + x_1(0.5 - x_1^2 - x_2^2) \]
+\[ \frac{dx_2}{dt} = -x_1 + x_2(0.5 - x_1^2 - x_2^2) \]
+And we have to determine the trajectory of the motion on interval $[0, 15]$ with following initial conditions:
+$ x_1(0) = 8; x_2(0) = 9 $
+In this section we will use Runge-Kutta method of $4^{th}$ order with step size automatically adjusted by the algorithm, with error estimation made according to the step-doubling rule.
+\subsection{Theoretical Introdution}
+
+\begin{thebibliography}{9}
+\bibitem{texbook}
+Piotr Tatjewski (2014) \emph{Numerical Methods}, Oficyna Wydawnicza Politechniki Warszawskiej
+\end{thebibliography}
+
+
+\end{document}
