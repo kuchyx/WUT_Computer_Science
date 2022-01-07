@@ -1,26 +1,37 @@
-function [Q, R, invqtq] = QRDecomposition(A)
-    % initialize empty matrices
-    Q = zeros(size(A));
-    R = eye(size(A, 2));
-    invqtq = zeros(size(A, 2));
-    
-    % modified Gram-Schmidt, use each column to orthogonalize the ones in front of it
-    for col = 1:size(A, 2)
-        % by the time we've reached this column, it's already been orthogonalized
-        Q(:, col) = A(:, col);
-        
-        % calculate current column dot product for R
-        coldot = dot(Q(:, col), Q(:, col));
-        invqtq(col, col) = 1 / coldot;
-        
-        % orthogonalize further columns
-        for next = (col + 1):size(A, 2)
-            % calculate R cell for this column pair
-            R(col, next) = dot(Q(:, col), A(:, next)) / coldot;
-            
-            % orthogonalize column
-            A(:, next) = A(:, next) - R(col, next) * Q(:, col);
-        end
+function [Q, R, QTQInverse] = QRDecomposition(A)
+    [Q, R, QTQInverse, upperLoopLimit] = initialize(A);
+    [Q, R, QTQInverse] = GramSchmidtAlgorithm(A, Q, R, QTQInverse, upperLoopLimit);
+end
+
+function [Q, R, QTQInverse, upperLoopLimit] = initialize(Matrix)
+    Q = zeros(size(Matrix));
+    upperLoopLimit = size(Matrix, 2);
+    R = eye(upperLoopLimit);
+    QTQInverse = zeros(upperLoopLimit);
+end
+
+function [Q, R, QTQInverse] = GramSchmidtAlgorithm(A, Q, R, QTQInverse, upperLoopLimit)
+    for column = 1 : upperLoopLimit
+        [Q, R, QTQInverse, A] = GramSchmidtAlgorithmOuterLoop(upperLoopLimit, A, Q, R, QTQInverse, column);
     end
-   
+end
+
+function [Q, R, QTQInverse, A] = GramSchmidtAlgorithmOuterLoop(upperLoopLimit, A, Q, R, QTQInverse, column)
+
+    [columnDotProduct, QTQInverse, Q] = calculateColumnDotProduct(A, column, Q, QTQInverse);
+    [R, A] = orthogonalizeFurther(column, A, columnDotProduct, Q, R, upperLoopLimit);
+end
+
+function [columnDotProduct, QTQInverse, Q] = calculateColumnDotProduct(A, column, Q, QTQInverse)
+    Q(:, column) = A(:, column);
+    
+    columnDotProduct = dot(Q(:, column), Q(:, column));
+    QTQInverse(column, column) = 1 / columnDotProduct;
+end
+
+function [R, A] = orthogonalizeFurther(column, A, columnDotProduct, Q, R, upperLoopLimit)
+    for next = (column + 1): upperLoopLimit
+        R(column, next) = dot(Q(:, column), A(:, next)) / columnDotProduct;
+        A(:, next) = A(:, next) - R(column, next) * Q(:, column);
+    end
 end
