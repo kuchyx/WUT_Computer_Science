@@ -1,16 +1,20 @@
-% solves system with triangular matrix
-function result = backSubstitution(eqsys)
-    for col = size(eqsys, 1):-1:1
-        % normalize diagonal coefficients to 1
-        eqsys(col, :) = eqsys(col, :) / eqsys(col, col);
-        
-        % eliminate factor from other rows
-        for row = (col - 1):-1:1
-            reductor = eqsys(row, col) / eqsys(col, col);
-            eqsys(row, :) = eqsys(row, :) - eqsys(col, :) * reductor;
-        end
+function solution = backSubstitution(Matrix)
+    Columns = size(Matrix, 1);
+    Matrix = backSubstitutionOuterLoop(Matrix, Columns);
+    % rightmost column of the Matrix is now our result
+    solution = Matrix(:, size(Matrix, 2));
+end
+
+function Matrix = backSubstitutionOuterLoop(Matrix, Columns)
+    for k = Columns : -1 : 1
+        % Diagonal coefficients of matrix need to be equal to 1
+        Matrix(k, :) = Matrix(k, :) / Matrix(k, k);
+        Matrix = eliminateFactors(Matrix, k);
     end
-    
-    % rightmost column is now the result
-    result = eqsys(:, size(eqsys, 2));
+end
+
+function Matrix = eliminateFactors(Matrix, k)
+    for row = (k - 1) : -1 : 1
+        Matrix(row, :) = Matrix(row, :) - Matrix(k, :) * (Matrix(row, k) / Matrix(k, k));
+    end
 end
