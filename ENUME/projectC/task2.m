@@ -13,7 +13,7 @@ algorithms = {
 };
 
 % solve ODE using different algorithms and step sizes
-for alg = 1:size(algorithms, 1)
+for alg = 1 : 2
     [algname, algfunc, stepsizes] = algorithms{alg, :};
     
     % solve using the given algorithm for each step size
@@ -32,8 +32,6 @@ for alg = 1:size(algorithms, 1)
         % begin plot
         figure; grid on; hold on;
         title([algname, ', x_', num2str(eqnum), ' against time']);
-        set(gcf, 'PaperPosition', [0 0 6 4]);
-        set(gcf, 'PaperSize', [6 4]);
         
         % plot component for each step size
         for stepresult = stepresults'
@@ -43,14 +41,11 @@ for alg = 1:size(algorithms, 1)
         % finish plot
         hold off;
         legend(stepresults{:, 2});
-%        %print(['report/', func2str(algfunc), 'x', num2str(eqnum)], '-dpdf');
     end
     
     % plot first two components against each other
     figure; grid on; hold on;
     title([algname, ' trajectory plot (x_2 against x_1)']);
-    set(gcf, 'PaperPosition', [0 0 6 4]);
-    set(gcf, 'PaperSize', [6 4]);
     
     % plot for each step size
     for stepresult = stepresults'
@@ -72,9 +67,6 @@ figure;
 plot(result(2, :), result(3, :));
 grid on;
 title('RK4 auto-step trajectory plot (x_2 against x_1)');
-set(gcf, 'PaperPosition', [0 0 6 4]);
-set(gcf, 'PaperSize', [6 4]);
-%%print(['report/', 'rk4autotraj'], '-dpdf');
 
 % plot statistics
 stats = {
@@ -86,9 +78,6 @@ for stat = stats'
     plot(result(1, 2:(end - 1)), stat{3});
     grid on;
     title(stat{1});
-    set(gcf, 'PaperPosition', [0 0 6 4]);
-    set(gcf, 'PaperSize', [6 4]);
-%    %print(strcat("report/", stat{2}), '-dpdf');
 end
 
 % compare results with ODE45
@@ -99,6 +88,3 @@ figure;
 plot(x(:, 1), x(:, 2));
 grid on;
 title('ODE45 trajectory plot (x_2 against x_1)');
-set(gcf, 'PaperPosition', [0 0 6 4]);
-set(gcf, 'PaperSize', [6 4]);
-%print('report/ode45', '-dpdf');

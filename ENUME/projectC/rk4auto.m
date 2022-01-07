@@ -19,7 +19,7 @@ function [x, sizes, errors] = rk4auto(functs, init, interval, initstep, eps_rel,
         % advance output function
         for eqnum = 1:size(functs, 1)
             % generic single-step iteration
-            phi = rk4phi(functs{eqnum}, stepval, stepsize);
+            phi = RK4Phi(functs{eqnum}, stepval, stepsize);
             x(eqnum, step + 1) = x(eqnum, step) + stepsize * phi;
         end
         
@@ -30,7 +30,7 @@ function [x, sizes, errors] = rk4auto(functs, init, interval, initstep, eps_rel,
         % also calculate next step using two half-steps
         for substep = 1:2
             for eqnum = 1:size(functs, 1)
-                phi = rk4phi(functs{eqnum}, stepval, stepsize / 2);
+                phi = RK4Phi(functs{eqnum}, stepval, stepsize / 2);
                 stepval(eqnum) = stepval(eqnum) + (stepsize / 2) * phi;
             end
         end
