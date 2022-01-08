@@ -1,4 +1,4 @@
-function x = adamspc(functions, initialValues, interval, stepSize)
+function x = AdamsPCMethod(functions, initialValues, interval, stepSize)
     [x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount] = initialize(functions, initialValues, interval, stepSize);
     x = adamsPcLoop(x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount, functions, stepSize);
     % append arguments to output

@@ -88,13 +88,13 @@ function plotTrajectory(result)
     figure;
     plot(result(2, :), result(3, :));
     grid on;
-    title('RK4 with auto step trajectory plot (x_2 against x_1)');
+    title('RK4 auto-step trajectory plot (x_2 against x_1)');
 end
 
 function plotStatistics(result, sizes, errors)
     stats = {
-        "RK4 with auto step step size", "rk4sizes", sizes;
-        "RK4 with auto step approximation error", "rk4errors", errors
+        "RK4 auto-step step size", "rk4sizes", sizes;
+        "RK4 auto-step approximation error", "rk4errors", errors
     };
     for stat = stats'
         figure;
