@@ -1,6 +1,6 @@
 function x = adamspc(functs, init, interval, stepsize)
     % obtain first five steps from RK4
-    [x, derivs] = rk4(functs, init, interval, stepsize, 5);
+    [x, derivs] = RK4(functs, init, interval, stepsize, 5);
     x = x(2:end, :);
     
     % define coefficient tables
