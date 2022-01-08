@@ -8,7 +8,7 @@ interval = [0; 15];
 
 % define available algorithms
 algorithms = {
-    'RK4', @rk4, [0.01, 0.013408];
+    'RK4', @RK4, [0.01, 0.013408];
     'Adams PC', @adamspc, [0.002, 0.01305]
 };
 
@@ -59,7 +59,7 @@ for alg = 1 : 2
 end
 
 % solve ODE using RK4 with automatic step size
-[result, sizes, errors] = rk4auto(sysfuncts, initvalues, interval, ...
+[result, sizes, errors] = RK4Automatic(sysfuncts, initvalues, interval, ...
     1e-5, 10e-10, 10e-10);
 
 % plot trajectory

@@ -1,7 +1,3 @@
-% ENUME MICHAŁ SZOPIŃSKI
-% PROJECT C NUMBER 60
-% https://github.com/Lachcim/szopinski-enume
-
 % coordinate arguments
 argsx = -1:0.1:1;
 argsy = -2:0.5:12;

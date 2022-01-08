@@ -1,15 +1,15 @@
 % automatic step size variant of RK4
-function [x, sizes, errors] = rk4auto(functs, init, interval, initstep, eps_rel, eps_abs)
+function [x, sizes, errors] = RK4Automatic(equations, initialValues, interval, initialStepSize, relativeEpsilon, absoluteEpsilon)
     % set start points of output
     args = interval(1);
-    x = init;
+    x = initialValues;
     
     % initialize output plots
     sizes = double.empty();
     errors = double.empty();
     
     % integrate function until end of interval reached
-    stepsize = initstep;
+    stepsize = initialStepSize;
     step = 0;
     while 1
         % obtain the preceding function values
@@ -17,9 +17,9 @@ function [x, sizes, errors] = rk4auto(functs, init, interval, initstep, eps_rel,
         stepval = x(:, step);
         
         % advance output function
-        for eqnum = 1:size(functs, 1)
+        for eqnum = 1:size(equations, 1)
             % generic single-step iteration
-            phi = RK4Phi(functs{eqnum}, stepval, stepsize);
+            phi = RK4Phi(equations{eqnum}, stepval, stepsize);
             x(eqnum, step + 1) = x(eqnum, step) + stepsize * phi;
         end
         
@@ -29,21 +29,21 @@ function [x, sizes, errors] = rk4auto(functs, init, interval, initstep, eps_rel,
         
         % also calculate next step using two half-steps
         for substep = 1:2
-            for eqnum = 1:size(functs, 1)
-                phi = RK4Phi(functs{eqnum}, stepval, stepsize / 2);
+            for eqnum = 1:size(equations, 1)
+                phi = RK4Phi(equations{eqnum}, stepval, stepsize / 2);
                 stepval(eqnum) = stepval(eqnum) + (stepsize / 2) * phi;
             end
         end
         
         % calculate step correction factor
         alpha = Inf;
-        for eqnum = 1:size(functs, 1)
+        for eqnum = 1:size(equations, 1)
             % calculate approximation error
             delta = abs(stepval(eqnum) - x(eqnum, step + 1)) / 15;
             errors(step) = delta;
             
             % calculate equation-specific alpha
-            epsilon = abs(stepval(eqnum)) * eps_rel + eps_abs;
+            epsilon = abs(stepval(eqnum)) * relativeEpsilon + absoluteEpsilon;
             eqalpha = epsilon / delta;
             
             % minimum alpha wins
