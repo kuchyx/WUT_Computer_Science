@@ -17,7 +17,7 @@ function [ordinaryDifferentialEquations, initialValues, interval, algorithms] = 
     
     algorithms = {
         'RK4 algorithm', @RK4, [0.01, 0.011];
-        'Adams PC algorithm', @AdamsPCMethod, [0.002, 0.01305]
+        'Adams PC algorithm', @AdamsPCMethod, [0.002, 0.013]
     };
 end
 

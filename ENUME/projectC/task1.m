@@ -5,8 +5,8 @@ function task1(polynomialDegree)
         [LSPSolutions, error, conditionNumber] = approximate(dataPoints, currentPolynomialDegree);
         displayInfo(currentPolynomialDegree, error, conditionNumber);
         plotGraph(currentPolynomialDegree, dataPoints, LSPSolutions)
-    
     end
+    
 end
 
 function displayInfo(currentPolynomialDegree, error, conditionNumber)
