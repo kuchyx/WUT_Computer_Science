@@ -1,47 +1,79 @@
-function x = adamspc(functs, init, interval, stepsize)
+function x = adamspc(functions, initialValues, interval, stepSize)
+    [x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount] = initialize(functions, initialValues, interval, stepSize);
+    x = adamsPcLoop(x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount, functions, stepSize);
+    % append arguments to output
+    x = [interval(1):stepSize:(stepCount * stepSize); x];
+end
+
+function [x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount] = initialize(functions, initialValues, interval, stepSize)
     % obtain first five steps from RK4
-    [x, derivs] = RK4(functs, init, interval, stepsize, 5);
+    [x, derrivatives] = RK4(functions, initialValues, interval, stepSize, 5);
     x = x(2:end, :);
     
-    % define coefficient tables
-    beta = [1901, -2774, 2616, -1274, 251] / 720;
-    betastar = [475, 1427, -798, 482, -173, 27] / 1440;
-    
+    % define coefficient 
+    explicitCoefficients = [1901, -2774, 1616, -1274, 251] / 720; 
+    % Constants that can  be found on the Internet or in Mister Tatjewski
+    % book on page 177, notice how beta(3) = 1616 instead of 2616
+    % I have found on the internet different value for this parameter and
+    % got better results with it so I decided to stick with it
+    implicitCoefficients = [475, 1427, -798, 482, -173, 27] / 1440;  
+    % Constants that can  be found on the Internet or in Mister Tatjewski
+    % book on page 178
     % build output based on preceding values
-    stepcount = ceil((interval(2) - interval(1)) / stepsize);
-    for step = 6:(stepcount + 1)     
-        % predict
-        xpred = x(:, step - 1);
-        for eqnum = 1:size(functs, 1)
-            for prev = 1:5
-                xpred(eqnum) = xpred(eqnum) ...
-                    + stepsize * beta(prev) * derivs(eqnum, step - prev);
-            end
-        end
-            
-        % evaluate
-        derivpred = zeros(size(functs, 1), 1);
-        for eqnum = 1:size(functs, 1)
-            derivpred(eqnum) = functs{eqnum}(xpred);
-        end
-            
-        % correct
-        x(:, step) = x(:, step - 1);
-        for eqnum = 1:size(functs, 1)
-            for prev = 1:5
-                x(eqnum, step) = x(eqnum, step) ...
-                    + stepsize * betastar(prev + 1) * derivs(eqnum, step - prev);
-            end
-            x(eqnum, step) = x(eqnum, step) ...
-                + stepsize * betastar(1) * derivpred(eqnum);
-        end
+    stepCount = ceil((interval(2) - interval(1)) / stepSize);
+end
+
+function x = adamsPcLoop(x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount, functions, stepSize)
+    for step = 6: (stepCount + 1)    
+        [x, derrivatives] = PECE(x, derrivatives, explicitCoefficients, implicitCoefficients, step, functions, stepSize);
+    end
+end
+
+function [x, derrivatives] = PECE(x, derrivatives, explicitCoefficients, implicitCoefficients, step, functions, stepSize)
+    % P
+    predictionOfX = adamsPredict(x, step, stepSize, explicitCoefficients, derrivatives);
         
-        % evaluate
-        for eqnum = 1:size(functs, 1)
-            derivs(eqnum, step) = functs{eqnum}(x(:, step));
+    % E
+    derrivativePrediction = zeros(size(functions, 1), 1);
+    derrivativePrediction = adamsEvaluate(functions, predictionOfX, derrivativePrediction);
+        
+    % C
+    x = adamsCorrect(step, functions, stepSize, implicitCoefficients, derrivatives, derrivativePrediction, x);
+    
+    % E
+    derrivatives = adamsEvaluateTwo(functions, step, x, derrivatives);
+end
+
+
+function predictionOfX = adamsPredict(x, step, stepSize, explicitCoefficients, derrivatives)
+    % predict
+    predictionOfX = x(:, step - 1);
+    for equationNumber = 1 : 2
+        for previous = 1:5
+            predictionOfX(equationNumber) = predictionOfX(equationNumber) ...
+                + stepSize * explicitCoefficients(previous) * derrivatives(equationNumber, step - previous);
         end
     end
-    
-    % append arguments to output
-    x = [interval(1):stepsize:(stepcount * stepsize); x];
+end
+
+function derrivativePrediction = adamsEvaluate(functions, predictionOfX, derrivativePrediction)
+    for equationNumber = 1:size(functions, 1)
+        derrivativePrediction(equationNumber) = functions{equationNumber}(predictionOfX);
+    end
+end
+
+function x = adamsCorrect(step, functions, stepSize, implicitCoefficients, derrivatives, derrivativePrediction, x)
+    x(:, step) = x(:, step - 1);
+    for equationNumber = 1:size(functions, 1)
+        for previous = 1:5
+            x(equationNumber, step) = x(equationNumber, step) + stepSize * implicitCoefficients(previous + 1) * derrivatives(equationNumber, step - previous);
+        end
+        x(equationNumber, step) = x(equationNumber, step) + stepSize * implicitCoefficients(1) * derrivativePrediction(equationNumber);
+    end
+end
+
+function derrivatives = adamsEvaluateTwo(functions, step, x, derrivatives)
+    for equationNumber = 1:size(functions, 1)
+        derrivatives(equationNumber, step) = functions{equationNumber}(x(:, step));
+    end
 end
