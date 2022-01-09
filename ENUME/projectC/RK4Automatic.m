@@ -42,7 +42,6 @@ function [stepSize, errors] = calculateStepAndErrors(equations, stepValue, stepS
     stepValue = calculateNextStep(equations, stepValue, stepSize);
     [stepCorrectionFactor, errors] = calculateStepCorrection(stepValue, x, step, relativeEpsilon, absoluteEpsilon, errors);
     stepSize = 0.9 * stepCorrectionFactor * stepSize;
-
 end
 
 function [step, stepValue] = initializeSteps(step, x)

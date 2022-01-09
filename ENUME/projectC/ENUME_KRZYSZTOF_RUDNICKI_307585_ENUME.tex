@@ -1,6 +1,6 @@
 \documentclass[12pt]{report}
 
-
+\usepackage{tikz}
 \usepackage{eqparbox}
 \usepackage{mathtools}
 \usepackage{amsmath}
@@ -13,6 +13,7 @@
 \usepackage[numbered, framed]{matlab-prettifier}
 \usepackage{filecontents}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 \hypersetup{
 colorlinks,
 citecolor=black,
@@ -21,6 +22,12 @@ linkcolor=black,
 urlcolor=black
 linkto=all,
 }
+
+\usetikzlibrary{automata, shapes.geometric, arrows.meta, calc, matrix, positioning}
+
+\tikzstyle{startstop} = [rectangle, text width=5cm, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black]
+\tikzstyle{io} = [trapezium, text width=3cm, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 
 \newenvironment{simplechar}{%
    \catcode`\^=12
@@ -155,49 +162,18 @@ Then we get a very well conditioned set of normal equations:
 
 I decided to simulate polynomials up to $\mathbf{10^{th}}$ degree.
 
-\begin{center}
-   \includegraphics[scale=0.25]{10.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{11.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{12.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{13.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{14.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{15.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{16.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{17.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{18.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{19.eps}
-\end{center}
-
-\begin{center}
-   \includegraphics[scale=0.25]{110.eps}
-\end{center}
+\includepdf[pages=-]{10-eps-converted-to.pdf}
+\includepdf[pages=-]{11-eps-converted-to.pdf}
+\includepdf[pages=-]{12-eps-converted-to.pdf}
+\includepdf[pages=-]{13-eps-converted-to.pdf}
+\includepdf[pages=-]{14-eps-converted-to.pdf}
+\includepdf[pages=-]{15-eps-converted-to.pdf}
+\includepdf[pages=-]{16-eps-converted-to.pdf}
+\includepdf[pages=-]{17-eps-converted-to.pdf}
+\includepdf[pages=-]{18-eps-converted-to.pdf}
+\includepdf[pages=-]{19-eps-converted-to.pdf}
+\includepdf[pages=-]{110-eps-converted-to.pdf}
+\includepdf[pages=-]{111-eps-converted-to.pdf}
 
 \begin{center}
   \begin{tabular}{| c | c | c |}
@@ -227,9 +203,13 @@ Degree & Error & Condition number of Gram's Matrix \\
 \hline
 10& 6.3645e-13& 9.2930e+14\\
 \hline
+11 & 2.2390 & 8.7763e+17 \\
+\hline
   \end{tabular}
 \end{center}
 
+\section{Discussion of results}
+As expected, with the increase in polynomial degree error of the solution decreased and condion number of Gram's matrix increased. The most interesting part is how for polynomial of degree \textbf{10} the error got significantly lower, $10^{-12}$ times lower than for polynomial of lower degree, with only around 100 times bigger Gram's matrix condition number, and then for polynomial of degree 11, the error become much much higher and so did Gram's matrix. I suppose that since we get 11 data points, approaching number of data points with the degree of the polynomial lowers the erorr until we have the same polynomial degree as data points at which point the error increases again.
 
 
 
@@ -349,47 +329,879 @@ For RK methods we have following parameters:
 \[ \epsilon_i = |(y_i)_n^{(2)}| \epsilon_r + \epsilon_a \]
 \[ \alpha = \min_{1 \leq i \leq m} (\frac{\epsilon_i}{|\delta_n(h)_i}|)^{\frac{1}{p+1}} \]
 
+\subsection{Flow diagram}
+\begin{tikzpicture}[node distance=5cm]
+  \node (start) [startstop, align=center]
+  {
+        START
+  \begin{itemize}
+
+    \item Functions from task
+    \item Initial values
+    \item Initial step size
+    \item Integration interval
+    \item Absolute error
+    \item Relative error
+  \end{itemize}
+  };
+  \node (solution) [align=center, startstop, below of = start]
+  {
+  Calculate solution:
+  \[ x_{n+1} = x_n + h_n \]
+  \[ y_{n+1} = y_n + h \phi_f(x_n; y_n; h) \]
+  };
+  \node (interval) [align=center, io, below of = solution]
+  {
+  $x_n$ > integration interval?
+  };
+  \node (finish) [startstop, align=center, , right=3cm of interval] {Finish};
+  \node (error) [startstop, align=center, , below of = interval]
+  {
+  Estimate error and update step size:
+  \[ h_{n+1} = s\alpha h_n \]
+  };
+
+\path [-stealth, thick]
+    (start) edge   (solution);
+\path [-stealth, thick]
+  (solution) edge   (interval);
+\path [-stealth, thick]
+  (interval) edge node[anchor=south] {YES}  (finish);
+\path [-stealth, thick]
+  (interval) edge node[anchor=east] {NO}   (error);
+\path [-stealth, thick]
+  (error) edge [bend left = 90]   (solution);
+
+\end{tikzpicture}
+
 \section{Results}
 
-\begin{center}
-   \includegraphics[scale=0.25]{20.eps}
-\end{center}
+\includepdf[pages=-]{20-eps-converted-to.pdf}
+\includepdf[pages=-]{21-eps-converted-to.pdf}
+\includepdf[pages=-]{22-eps-converted-to.pdf}
+\includepdf[pages=-]{23-eps-converted-to.pdf}
+\includepdf[pages=-]{24-eps-converted-to.pdf}
+\includepdf[pages=-]{25-eps-converted-to.pdf}
+\includepdf[pages=-]{26-eps-converted-to.pdf}
+\includepdf[pages=-]{27-eps-converted-to.pdf}
+\includepdf[pages=-]{28-eps-converted-to.pdf}
+\includepdf[pages=-]{29-eps-converted-to.pdf}
 
-\begin{center}
-   \includegraphics[scale=0.25]{21.eps}
-\end{center}
+\section{Discussion of results}
+As we can see using RK4 algorithm with auto step size results in best solutions error-wise, trajectory plot is almost the same as the one generated by matlab function. Especially graph of step approximation error for RK4 auto step algorithm looks very good with errors as low as $10^{-7}$. Adam PC method on the other hand suffers from bigger accuarcy loss though the results are still satisfactory while requiring much less work on the coding part.
 
-\begin{center}
-   \includegraphics[scale=0.25]{22.eps}
-\end{center}
+\chapter{Code appendix}
 
-\begin{center}
-   \includegraphics[scale=0.25]{23.eps}
-\end{center}
+\section{functionDataPoints.m}
+\subsection{functionDataPoints}
+\begin{simplechar}
+\begin{lstlisting}
+function dataPoints = functionDataPoints()
+    dataPoints = (-5:5)';
+    dataPoints(:, 2) = [
+        -6.5743
+        0.9765
+        3.1026
+        1.8572
+        1.3165
+        -0.6144
+        0.1032
+        0.3729
+        2.5327
+        7.3857
+        9.4892
+    ];
+end
+\end{lstlisting}
+\end{simplechar}
 
-\begin{center}
-   \includegraphics[scale=0.25]{24.eps}
-\end{center}
+\section{task1.m}
+\subsection{task1}
+\begin{simplechar}
+\begin{lstlisting}
+function task1(polynomialDegree)
+    for currentPolynomialDegree = 0 : polynomialDegree
+        dataPoints = functionDataPoints();
+        % obtain LSPSolutions of approximating polynomial
+        [LSPSolutions, error, conditionNumber] = approximate(dataPoints, currentPolynomialDegree);
+        displayInfo(currentPolynomialDegree, error, conditionNumber);
+        plotGraph(currentPolynomialDegree, dataPoints, LSPSolutions)
+    end
+end
+\end{lstlisting}
+\end{simplechar}
 
-\begin{center}
-   \includegraphics[scale=0.25]{25.eps}
-\end{center}
+\subsection{displayInfo}
+\begin{simplechar}
+\begin{lstlisting}
+function displayInfo(currentPolynomialDegree, error, conditionNumber)
+    disp("Current Polynomial Degree:");
+    disp(currentPolynomialDegree);
+    disp("Error: ");
+    disp(error);
+    disp("Condition number of Gram's Matrix: ");
+    disp(conditionNumber);
+end
+\end{lstlisting}
+\end{simplechar}
 
-\begin{center}
-   \includegraphics[scale=0.25]{26.eps}
-\end{center}
+\subsection{plotGraph}
+\begin{simplechar}
+\begin{lstlisting}
+function plotGraph(currentPolynomialDegree, dataPoints, LSPSolutions)
+    figure;
+    grid on;
+    hold on;
+    plotDataPoints(currentPolynomialDegree, dataPoints);
+    plotApproximation(dataPoints, LSPSolutions);
+    hold off;
+end
+\end{lstlisting}
+\end{simplechar}
 
-\begin{center}
-   \includegraphics[scale=0.25]{27.eps}
-\end{center}
+\subsection{plotDataPoints}
+\begin{simplechar}
+\begin{lstlisting}
+function plotDataPoints(currentPolynomialDegree, dataPoints)
+    title(['Polynomial approximation of the funtion using: ', num2str(currentPolynomialDegree), ' degree']);
+    scatter(dataPoints(:, 1), dataPoints(:, 2), 72, 'x');
+end
+\end{lstlisting}
+\end{simplechar}
 
-\begin{center}
-   \includegraphics[scale=0.25]{28.eps}
-\end{center}
+\subsection{plotApproximation}
+\begin{simplechar}
+\begin{lstlisting}
+function plotApproximation(dataPoints, LSPSolutions)
+    x = dataPoints(1):0.05:dataPoints(end, 1);
+    y = valueApproximationAtx(LSPSolutions, x);
+    plot(x, y);
+end
 
-\begin{center}
-   \includegraphics[scale=0.25]{29.eps}
-\end{center}
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{approximate}
+\begin{simplechar}
+\begin{lstlisting}
+% find the approximating polynomial of the given degree
+function [LSPSolutions, error, conditionNumber] = approximate(dataPoints, polydeg)
+    % initialize A matrix
+    A = zeros(size(dataPoints, 1), polydeg + 1);
+
+    A = calculateACells(dataPoints, A);
+    LSPSolutions = solveLSP(A, dataPoints);
+
+    % Calculate error of solution
+    error = norm(dataPoints(:, 2) - A * LSPSolutions);
+    % Calculate condition number of Gram's matrix
+    GramsMatrix = A' * A;
+    conditionNumber = cond(GramsMatrix);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateACells}
+\begin{simplechar}
+\begin{lstlisting}
+function Matrix = calculateACells(dataPoints, Matrix)
+    for row = 1 : size(Matrix, 1)
+        for column = 1 : size(Matrix, 2)
+            Matrix(row, column) = dataPoints(row, 1) ^ (column - 1);
+        end
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{solveLSP}
+\begin{simplechar}
+\begin{lstlisting}
+function solutions = solveLSP(Matrix, dataPoints)
+    [Q, eqsys, invqtq] = QRDecomposition(Matrix);
+    eqsys(:, end + 1) = invqtq * Q' * dataPoints(:, 2);
+    solutions = backSubstitution(eqsys);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{valueApproximationAtx}
+\begin{simplechar}
+\begin{lstlisting}
+function arrayOfValues = valueApproximationAtx(LSPSolutions, arrayOfArguments)
+    arrayOfValues = zeros(1, size(arrayOfArguments, 2));
+    arrayOfValues = calculateArrayofValues(arrayOfArguments, arrayOfValues, LSPSolutions);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateArrayofValues}
+\begin{simplechar}
+\begin{lstlisting}
+function arrayOfValues = calculateArrayofValues(arrayOfArguments, arrayOfValues, LSPSolutions)
+    for x = 1 : size(arrayOfArguments, 2)
+        for i = 1 : size(LSPSolutions, 1)
+            arrayOfValues(x) = arrayOfValues(x) + LSPSolutions(i) * arrayOfArguments(x) ^ (i - 1);
+        end
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\section{task2.m}
+\subsection{task2}
+\begin{simplechar}
+\begin{lstlisting}
+function task2()
+    [ordinaryDifferentialEquations, initialValues, interval, algorithms] = initialize();
+    solveAndPrintODEs(algorithms, ordinaryDifferentialEquations, initialValues, interval);
+    [result, sizes, errors] = solveAndPlotODEAutomatic(ordinaryDifferentialEquations, initialValues, interval);
+    plotStatistics(result, sizes, errors);
+    plotComparisonToMatlabFunction(ordinaryDifferentialEquations, interval, initialValues);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{initialize}
+\begin{simplechar}
+\begin{lstlisting}
+function [ordinaryDifferentialEquations, initialValues, interval, algorithms] = initialize()
+    ordinaryDifferentialEquations = {
+        @(x) x(2) + x(1) * (0.5 - x(1)^2 - x(2)^2);
+        @(x) -x(1) + x(2) * (0.5 - x(1)^2 - x(2)^2)
+    };
+    initialValues = [8; 9];
+    interval = [0; 15];
+
+    algorithms = {
+        'RK4 algorithm', @RK4, [0.01, 0.011];
+        'Adams PC algorithm', @AdamsPCMethod, [0.002, 0.013]
+    };
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{solveAndPrintODEs}
+\begin{simplechar}
+\begin{lstlisting}
+function solveAndPrintODEs(algorithms, ordinaryDifferentialEquations, initialValues, interval)
+    for algorithm = 1 : 2
+        [algorithmName, algorithmFunction, stepSizes] = algorithms{algorithm, :};
+        stepResults = solveForEachStep(stepSizes, ordinaryDifferentialEquations, initialValues, interval, algorithmFunction);
+        plotAgainstTime(ordinaryDifferentialEquations, algorithmName, stepResults);
+        plotAgainst(algorithmName, stepResults);
+
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{solveForEachStep}
+\begin{simplechar}
+\begin{lstlisting}
+function stepResults = solveForEachStep(stepSizes, ordinaryDifferentialEquations, initialValues, interval, algorithmFunction)
+    stepResults = cell(size(stepSizes, 2), 3);
+    stepNames = {'Optimal Step Size', 'Slightly Larger Step Size'};
+    for stepNumber = 1:size(stepSizes, 2)
+        result = algorithmFunction(ordinaryDifferentialEquations, initialValues, interval, stepSizes(stepNumber));
+        stepResults(stepNumber, :) = {stepSizes(stepNumber), stepNames{stepNumber}, result};
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{beginPlot}
+\begin{simplechar}
+\begin{lstlisting}
+function beginPlot()
+    figure;
+    grid on;
+    hold on;
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotAgainstTime}
+\begin{simplechar}
+\begin{lstlisting}
+function plotAgainstTime(ordinaryDifferentialEquations, algorithmName, stepResults)
+    for equationNumber = 1:size(ordinaryDifferentialEquations, 1)
+        beginPlot();
+
+        title([algorithmName, ', x_', num2str(equationNumber), ' ODE']);
+
+        for stepresult = stepResults'
+            plot(stepresult{3}(1, :), stepresult{3}(equationNumber + 1, :));
+        end
+
+        hold off;
+        legend(stepResults{:, 2});
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotAgainst}
+\begin{simplechar}
+\begin{lstlisting}
+function plotAgainst(algorithmName, stepResults)
+    beginPlot();
+    title([algorithmName, ' trajectory plot (x_2 compared to x_1)']);
+    for stepresult = stepResults'
+        plot(stepresult{3}(2, :), stepresult{3}(3, :));
+    end
+    hold off;
+    legend(stepResults{:, 2});
+%    %print(['report/', func2str(algfunc), 'traj'], '-dpdf');
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{solveAndPlotODEAutomatic}
+\begin{simplechar}
+\begin{lstlisting}
+function [result, sizes, errors] = solveAndPlotODEAutomatic(ordinaryDifferentialEquations, initialValues, interval)
+    [result, sizes, errors] = solveRKAutomatic(ordinaryDifferentialEquations, initialValues, interval);
+    plotTrajectory(result);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{solveRKAutomatic}
+\begin{simplechar}
+\begin{lstlisting}
+function [result, sizes, errors] = solveRKAutomatic(ordinaryDifferentialEquations, initialValues, interval)
+    initialStepSize = 1e-5;
+    relativeEpsilon = 1e-9;
+    absoluteEpsilon = 1e-9;
+    [result, sizes, errors] = RK4Automatic(ordinaryDifferentialEquations, initialValues, interval, initialStepSize, relativeEpsilon, absoluteEpsilon);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotTrajectory}
+\begin{simplechar}
+\begin{lstlisting}
+function plotTrajectory(result)
+    figure;
+    plot(result(2, :), result(3, :));
+    grid on;
+    title('RK4 with auto step trajectory plot (x_2 against x_1)');
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotStatistics}
+\begin{simplechar}
+\begin{lstlisting}
+function plotStatistics(result, sizes, errors)
+    stats = {
+        "RK4 with auto step step size", "rk4sizes", sizes;
+        "RK4 with auto step approximation error", "rk4errors", errors
+    };
+    for stat = stats'
+        figure;
+        plot(result(1, 2:(end - 1)), stat{3});
+        grid on;
+        title(stat{1});
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{plotComparisonToMatlabFunction}
+\begin{simplechar}
+\begin{lstlisting}
+function plotComparisonToMatlabFunction(ordinaryDifferentialEquations, interval, initialValues)
+    % compare results with ODE45
+    odefun = @(t, x) [ ordinaryDifferentialEquations{1}(x); ordinaryDifferentialEquations{2}(x) ];
+    odeoptions = odeset('RelTol', 10e-10, 'AbsTol', 10e-10);
+    [~, x] = ode45(odefun, interval, initialValues, odeoptions);
+    figure;
+    plot(x(:, 1), x(:, 2));
+    grid on;
+    title('ODE45 trajectory plot (x_2 against x_1)');
+end
+\end{lstlisting}
+\end{simplechar}
+
+\section{AdamsPCMethod.m}
+\subsection{AdamsPCMethod}
+\begin{simplechar}
+\begin{lstlisting}
+function x = AdamsPCMethod(functions, initialValues, interval, stepSize)
+    [x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount] = initialize(functions, initialValues, interval, stepSize);
+    x = adamsPcLoop(x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount, functions, stepSize);
+    % append arguments to output
+    x = [interval(1):stepSize:(stepCount * stepSize); x];
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{initialize}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount] = initialize(functions, initialValues, interval, stepSize)
+    % obtain first five steps from RK4
+    [x, derrivatives] = RK4(functions, initialValues, interval, stepSize, 5);
+    x = x(2:end, :);
+
+    % define coefficient
+    explicitCoefficients = [1901, -2774, 1616, -1274, 251] / 720;
+    % Constants that can  be found on the Internet or in Mister Tatjewski
+    % book on page 177, notice how beta(3) = 1616 instead of 2616
+    % I have found on the internet different value for this parameter and
+    % got better results with it so I decided to stick with it
+    implicitCoefficients = [475, 1427, -798, 482, -173, 27] / 1440;
+    % Constants that can  be found on the Internet or in Mister Tatjewski
+    % book on page 178
+    % build output based on preceding values
+    stepCount = ceil((interval(2) - interval(1)) / stepSize);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{adamsPcLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function x = adamsPcLoop(x, derrivatives, explicitCoefficients, implicitCoefficients, stepCount, functions, stepSize)
+    for step = 6: (stepCount + 1)
+        [x, derrivatives] = PECE(x, derrivatives, explicitCoefficients, implicitCoefficients, step, functions, stepSize);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{PECE}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, derrivatives] = PECE(x, derrivatives, explicitCoefficients, implicitCoefficients, step, functions, stepSize)
+    % P
+    predictionOfX = adamsPredict(x, step, stepSize, explicitCoefficients, derrivatives);
+
+    % E
+    derrivativePrediction = zeros(size(functions, 1), 1);
+    derrivativePrediction = adamsEvaluate(functions, predictionOfX, derrivativePrediction);
+
+    % C
+    x = adamsCorrect(step, functions, stepSize, implicitCoefficients, derrivatives, derrivativePrediction, x);
+
+    % E
+    derrivatives = adamsEvaluateTwo(functions, step, x, derrivatives);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{adamsPredict}
+\begin{simplechar}
+\begin{lstlisting}
+function predictionOfX = adamsPredict(x, step, stepSize, explicitCoefficients, derrivatives)
+    % predict
+    predictionOfX = x(:, step - 1);
+    for equationNumber = 1 : 2
+        for previous = 1:5
+            predictionOfX(equationNumber) = predictionOfX(equationNumber) ...
+                + stepSize * explicitCoefficients(previous) * derrivatives(equationNumber, step - previous);
+        end
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{adamsEvaluate}
+\begin{simplechar}
+\begin{lstlisting}
+function derrivativePrediction = adamsEvaluate(functions, predictionOfX, derrivativePrediction)
+    for equationNumber = 1:size(functions, 1)
+        derrivativePrediction(equationNumber) = functions{equationNumber}(predictionOfX);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{adamsCorrect}
+\begin{simplechar}
+\begin{lstlisting}
+function x = adamsCorrect(step, functions, stepSize, implicitCoefficients, derrivatives, derrivativePrediction, x)
+    x(:, step) = x(:, step - 1);
+    for equationNumber = 1:size(functions, 1)
+        for previous = 1:5
+            x(equationNumber, step) = x(equationNumber, step) + stepSize * implicitCoefficients(previous + 1) * derrivatives(equationNumber, step - previous);
+        end
+        x(equationNumber, step) = x(equationNumber, step) + stepSize * implicitCoefficients(1) * derrivativePrediction(equationNumber);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{adamsEvaluateTwo}
+\begin{simplechar}
+\begin{lstlisting}
+function derrivatives = adamsEvaluateTwo(functions, step, x, derrivatives)
+    for equationNumber = 1:size(functions, 1)
+        derrivatives(equationNumber, step) = functions{equationNumber}(x(:, step));
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\section{QRDecomposition.m}
+\subsection{QRDecomposition}
+\begin{simplechar}
+\begin{lstlisting}
+function [Q, R, QTQInverse] = QRDecomposition(A)
+    [Q, R, QTQInverse, upperLoopLimit] = initialize(A);
+    [Q, R, QTQInverse] = GramSchmidtAlgorithm(A, Q, R, QTQInverse, upperLoopLimit);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{initialize}
+\begin{simplechar}
+\begin{lstlisting}
+function [Q, R, QTQInverse, upperLoopLimit] = initialize(Matrix)
+    Q = zeros(size(Matrix));
+    upperLoopLimit = size(Matrix, 2);
+    R = eye(upperLoopLimit);
+    QTQInverse = zeros(upperLoopLimit);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{GramSchmidtAlgorithm}
+\begin{simplechar}
+\begin{lstlisting}
+function [Q, R, QTQInverse] = GramSchmidtAlgorithm(A, Q, R, QTQInverse, upperLoopLimit)
+    for column = 1 : upperLoopLimit
+        [Q, R, QTQInverse, A] = GramSchmidtAlgorithmOuterLoop(upperLoopLimit, A, Q, R, QTQInverse, column);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{GramSchmidtAlgorithmOuterLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [Q, R, QTQInverse, A] = GramSchmidtAlgorithmOuterLoop(upperLoopLimit, A, Q, R, QTQInverse, column)
+
+    [columnDotProduct, QTQInverse, Q] = calculateColumnDotProduct(A, column, Q, QTQInverse);
+    [R, A] = orthogonalizeFurther(column, A, columnDotProduct, Q, R, upperLoopLimit);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateColumnDotProduct}
+\begin{simplechar}
+\begin{lstlisting}
+function [columnDotProduct, QTQInverse, Q] = calculateColumnDotProduct(A, column, Q, QTQInverse)
+    Q(:, column) = A(:, column);
+
+    columnDotProduct = dot(Q(:, column), Q(:, column));
+    QTQInverse(column, column) = 1 / columnDotProduct;
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{orthogonalizeFurther}
+\begin{simplechar}
+\begin{lstlisting}
+function [R, A] = orthogonalizeFurther(column, A, columnDotProduct, Q, R, upperLoopLimit)
+    for next = (column + 1): upperLoopLimit
+        R(column, next) = dot(Q(:, column), A(:, next)) / columnDotProduct;
+        A(:, next) = A(:, next) - R(column, next) * Q(:, column);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\section{RK4.m}
+\subsection{RK4}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, derivativesTable] = RK4(equations, initialValues, interval, stepSize, maxSteps)
+    x = initialValues;
+
+    derivativesTable = buildDerivatiesTable(x, equations);
+
+    % Calculate stepCount
+    stepCount = ceil((interval(2) - interval(1)) / stepSize);
+    if nargin == 5
+        stepCount = min(stepCount, maxSteps - 1);
+    end % IF we include max steps in our function input
+    % (nargin is number of arguments in input)
+    % then choose smaller number between maxSteps and stepCount and choose
+    % it for stepCount
+
+    [x, derivativesTable] = rk4Loop(x, stepCount, stepSize, equations, derivativesTable);
+
+
+    % append arguments to output
+    x = [interval(1):stepSize:(stepCount * stepSize); x];
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{buildDerivatiesTable}
+\begin{simplechar}
+\begin{lstlisting}
+function derivativesTable = buildDerivatiesTable(x, equations)
+    derivativesTable = zeros(size(x));
+    for eqnum = 1:size(equations, 1)
+        derivativesTable(eqnum, 1) = equations{eqnum}(x(:, 1));
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{rk4Loop}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, derivativesTable] = rk4Loop(x, stepCount, stepSize, equations, derivativesTable)
+    for step = 1 : stepCount
+        [x, derivativesTable] = rk4stepLoop(x, step, equations, stepSize, derivativesTable);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{rk4stepLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, derivativesTable] = rk4stepLoop(x, step, equations, stepSize, derivativesTable)
+    stepValue = x(:, step);
+    [x, derivativesTable] = equationsLoop(x, equations, stepValue, stepSize, step, derivativesTable);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{equationsLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, derivativesTable] = equationsLoop(x, equations, stepValue, stepSize, step, derivativesTable)
+    for equationNumber = 1 : 2
+        Phi = RK4Phi(equations{equationNumber}, stepValue, stepSize);
+        x(equationNumber, step + 1) = x(equationNumber, step) + stepSize * Phi;
+
+        derivativesTable(equationNumber, step + 1) = equations{equationNumber}(x(:, step + 1));
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\section{RK4Automatic.m}
+\subsection{RK4Automatic}
+\begin{simplechar}
+\begin{lstlisting}
+function [x, sizes, errors] = RK4Automatic(equations, initialValues, interval, initialStepSize, relativeEpsilon, absoluteEpsilon)
+    [functionArguments, x, sizes, errors, stepSize, step, flag] = Initialize(interval, initialValues, initialStepSize);
+    [functionArguments, x, sizes, errors] = RK4AutomaticLoop(functionArguments, x, sizes, errors, stepSize, step, equations, relativeEpsilon, absoluteEpsilon, interval, flag);
+    x = [functionArguments; x];
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{Initialize}
+\begin{simplechar}
+\begin{lstlisting}
+function [functionArguments, x, sizes, errors, stepSize, step, flag] = Initialize(interval, initialValues, initialStepSize)
+    functionArguments = interval(1);
+    x = initialValues;
+
+    sizes = double.empty();
+    errors = double.empty();
+
+    stepSize = initialStepSize;
+    step = 0;
+    flag = 1;
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{RK4AutomaticLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [functionArguments, x, sizes, errors] = RK4AutomaticLoop(functionArguments, x, sizes, errors, stepSize, step, equations, relativeEpsilon, absoluteEpsilon, interval, flag)
+   while flag
+       [functionArguments, x, sizes, errors, stepSize, step, interval, flag] = insideWhileLoop(functionArguments, x, sizes, errors, stepSize, step, equations, relativeEpsilon, absoluteEpsilon, interval, flag);
+   end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{insideWhileLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [functionArguments, x, sizes, errors, stepSize, step, interval, flag] = insideWhileLoop(functionArguments, x, sizes, errors, stepSize, step, equations, relativeEpsilon, absoluteEpsilon, interval, flag)
+    [step, stepValue, x, functionArguments, flag] = calculateXandFunctionArguments(step, x, equations, stepSize, functionArguments, interval);
+    if ~flag
+        return;
+    end
+    [stepSize, errors] = calculateStepAndErrors(equations, stepValue, stepSize, x, step, relativeEpsilon, absoluteEpsilon, errors);
+    sizes(step) = stepSize;
+
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateXandFunctionArguments}
+\begin{simplechar}
+\begin{lstlisting}
+function [step, stepValue, x, functionArguments, flag] = calculateXandFunctionArguments(step, x, equations, stepSize, functionArguments, interval)
+    [step, stepValue] = initializeSteps(step, x);
+    x = equationsLoop(x, equations, stepValue, stepSize, step);
+    [flag, functionArguments] = stopAlgorithm(functionArguments, stepSize, step, interval);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateStepAndErrors}
+\begin{simplechar}
+\begin{lstlisting}
+function [stepSize, errors] = calculateStepAndErrors(equations, stepValue, stepSize, x, step, relativeEpsilon, absoluteEpsilon, errors)
+    stepValue = calculateNextStep(equations, stepValue, stepSize);
+    [stepCorrectionFactor, errors] = calculateStepCorrection(stepValue, x, step, relativeEpsilon, absoluteEpsilon, errors);
+    stepSize = 0.9 * stepCorrectionFactor * stepSize;
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{initializeSteps}
+\begin{simplechar}
+\begin{lstlisting}
+function [step, stepValue] = initializeSteps(step, x)
+    step = step + 1;
+    stepValue = x(:, step);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{equationsLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function x = equationsLoop(x, equations, stepValue, stepSize, step)
+    for equationNumber = 1 : 2
+        Phi = RK4Phi(equations{equationNumber}, stepValue, stepSize);
+        x(equationNumber, step + 1) = x(equationNumber, step) + stepSize * Phi;
+    end
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{stopAlgorithm}
+\begin{simplechar}
+\begin{lstlisting}
+function [flag, functionArguments] = stopAlgorithm(functionArguments, stepSize, step, interval)
+    functionArguments(step + 1) = functionArguments(step) + stepSize;
+    if functionArguments(end) >= interval(2)
+        flag = 0;
+    else
+        flag = 1;
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateNextStep}
+\begin{simplechar}
+\begin{lstlisting}
+function stepValue  = calculateNextStep(equations, stepValue, stepSize)
+    for halfStep = 1 : 2
+        for equationsNumber = 1:size(equations, 1)
+            Phi = RK4Phi(equations{equationsNumber}, stepValue, stepSize / 2);
+            stepValue(equationsNumber) = stepValue(equationsNumber) + (stepSize / 2) * Phi;
+        end
+    end
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateStepCorrection}
+\begin{simplechar}
+\begin{lstlisting}
+function [stepCorrectionFactor, errors] = calculateStepCorrection(stepValue, x, step, relativeEpsilon, absoluteEpsilon, errors)
+    stepCorrectionFactor = Inf; % Initialize stepCorrectionFactor
+    [stepCorrectionFactor, errors] = calculateStepCorrectionLoop(stepValue, x, step, relativeEpsilon, absoluteEpsilon, errors, stepCorrectionFactor);
+    stepCorrectionFactor = stepCorrectionFactor ^ (1/5);
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{calculateStepCorrectionLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function [stepCorrectionFactor, errors] = calculateStepCorrectionLoop(stepValue, x, step, relativeEpsilon, absoluteEpsilon, errors, stepCorrectionFactor)
+    for equationsNumber = 1 : 2
+        approximationError = abs(stepValue(equationsNumber) - x(equationsNumber, step + 1)) / 15;
+        errors(step) = approximationError;
+
+        epsilon = abs(stepValue(equationsNumber)) * relativeEpsilon + absoluteEpsilon;
+        equationAlpha = epsilon / approximationError;
+
+        if equationAlpha < stepCorrectionFactor
+            stepCorrectionFactor = equationAlpha;
+        end
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\section{backSubstitution.m}
+\subsection{backSubstitution}
+\begin{simplechar}
+\begin{lstlisting}
+function solution = backSubstitution(Matrix)
+    Columns = size(Matrix, 1);
+    Matrix = backSubstitutionOuterLoop(Matrix, Columns);
+    % rightmost column of the Matrix is now our result
+    solution = Matrix(:, size(Matrix, 2));
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{backSubstitutionOuterLoop}
+\begin{simplechar}
+\begin{lstlisting}
+function Matrix = backSubstitutionOuterLoop(Matrix, Columns)
+    for k = Columns : -1 : 1
+        % Diagonal coefficients of matrix need to be equal to 1
+        Matrix(k, :) = Matrix(k, :) / Matrix(k, k);
+        Matrix = eliminateFactors(Matrix, k);
+    end
+end
+\end{lstlisting}
+\end{simplechar}
+
+\subsection{eliminateFactors}
+\begin{simplechar}
+\begin{lstlisting}
+function Matrix = eliminateFactors(Matrix, k)
+    for row = (k - 1) : -1 : 1
+        Matrix(row, :) = Matrix(row, :) - Matrix(k, :) * (Matrix(row, k) / Matrix(k, k));
+    end
+end
+
+\end{lstlisting}
+\end{simplechar}
+
+\section{RK4Phi.m}
+\subsection{RK4Phi}
+\begin{simplechar}
+\begin{lstlisting}
+function Phi = RK4Phi(algorithm, stepValue, stepSize)
+    k1 = algorithm(stepValue);
+    k2 = algorithm(stepValue + 0.5 * stepSize * k1);
+    k3 = algorithm(stepValue + 0.5 * stepSize * k2);
+    k4 = algorithm(stepValue + stepSize * k3);
+    Phi = (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+end
+% calculates the Phi used in RK4 algorithms
+
+\end{lstlisting}
+\end{simplechar}
+
+
 
 
 \begin{thebibliography}{9}

@@ -6,7 +6,6 @@ function task1(polynomialDegree)
         displayInfo(currentPolynomialDegree, error, conditionNumber);
         plotGraph(currentPolynomialDegree, dataPoints, LSPSolutions)
     end
-    
 end
 
 function displayInfo(currentPolynomialDegree, error, conditionNumber)
@@ -72,7 +71,6 @@ end
 function arrayOfValues = valueApproximationAtx(LSPSolutions, arrayOfArguments)
     arrayOfValues = zeros(1, size(arrayOfArguments, 2));
     arrayOfValues = calculateArrayofValues(arrayOfArguments, arrayOfValues, LSPSolutions);
-
 end
 
 function arrayOfValues = calculateArrayofValues(arrayOfArguments, arrayOfValues, LSPSolutions)

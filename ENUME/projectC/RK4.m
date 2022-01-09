@@ -36,7 +36,6 @@ end
 function [x, derivativesTable] = rk4stepLoop(x, step, equations, stepSize, derivativesTable)
     stepValue = x(:, step);
     [x, derivativesTable] = equationsLoop(x, equations, stepValue, stepSize, step, derivativesTable);
-
 end
 
 function [x, derivativesTable] = equationsLoop(x, equations, stepValue, stepSize, step, derivativesTable)
