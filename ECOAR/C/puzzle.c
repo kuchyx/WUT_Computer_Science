@@ -80,7 +80,8 @@ typedef struct
 
 typedef struct
 {
-	unsigned int imageWidth, imageHeight;  // same as in bmpHeaderInfo
+	unsigned int imageWidth;
+	unsigned int imageHeight;  // same as in bmpHeaderInfo
 	unsigned int bytesPerRow;
 	// Bytes per row, important in MIPS, important here
 	unsigned char* pImg;
@@ -88,18 +89,19 @@ typedef struct
 	bmpHeaderInfo *pHeaderInfo;  // pointer to info from header
 } imageInfo; // Stores info about image
 
-typedef struct
-{
-	int vertical;
-	int horizontal;
-} divisions;
+
+
+
+
+
 
 // If we want to write something to imageInfo struct first we need to empty it
 imageInfo* allocateSpaceForImageInfo()
 {
 // we allocate as much space as this struct needs
 	imageInfo* emptyImageInfo = malloc(sizeof(imageInfo));
-// Then in this if we basically set starting values for everything we care about
+// 		Then in this "if" we basically set starting values for
+//		everything we care about
 	if (emptyImageInfo != NULL)
 	{
 		emptyImageInfo->imageWidth = 0;
@@ -134,6 +136,7 @@ void* freeResources(FILE* pFile, imageInfo* toFree)
 	return freeImageInfo(toFree);
 }
 
+
 imageInfo* readBMP(const char* fileName)
 {
 	imageInfo* pInfo = 0;
@@ -165,10 +168,10 @@ imageInfo* readBMP(const char* fileName)
 		1 so if it returns any other then there was a mistake
 		NUMBER_OF_HEADERS = 1 */
 		pInfo->pHeaderInfo = malloc(sizeof(bmpHeaderInfo));
-		size_t returnedElements = fread((void*)pInfo->pHeaderInfo,
-										sizeof(bmpHeaderInfo),
-										NUMBER_OF_HEADERS,
-										bmpFile);
+		size_t returnedElements = fread(	(void*)pInfo->pHeaderInfo,
+																			sizeof(bmpHeaderInfo),
+																			NUMBER_OF_HEADERS,
+																			bmpFile										);
 
 	if	(pInfo->pHeaderInfo == NULL || returnedElements != NUMBER_OF_HEADERS)
 		{
@@ -224,6 +227,7 @@ imageInfo* readBMP(const char* fileName)
 int saveBMP(const imageInfo* pInfo, const char* fileName)
 {
 	FILE *bmpFile = fopen(fileName, WRITE_AND_BINARY_MODE);
+
 	// fopen returns NULL if something went bad
 	// WRITE_AND_BINARY_MODE = "wb"
 	// cannot open file for writing
@@ -249,54 +253,29 @@ int saveBMP(const imageInfo* pInfo, const char* fileName)
 	return 0;
 }
 
-
-
-void set_pixel(imageInfo* pImg, unsigned int x, unsigned int y,
-			   unsigned int color)
+void set_pixel(unsigned char * pPix, unsigned int color)
 {
 	/* 	pImg -> pImg returns the starting addres of pixels
 		then we calculate byte position of a pixel we want to change by:
 		bytesPerRow * y_coordinate + x * 3 (3 bytes for RGB)
 		BYTES_FOR_SINGLE_PIXEL = 3 */
-	unsigned char *pPix = pImg->pImg + pImg->bytesPerRow * y +
-									   x * BYTES_FOR_SINGLE_PIXEL;
 
 	// if x and y are inside the image then we can commence forward
-	if (x < pImg->imageWidth || y < pImg->imageHeight)
-	{
-		*pPix = (color >> 16) & 0xFF; // R color of the pixel
-		*(pPix + 1) = (color >> 8) & 0xFF; // G color of the pixel
-		*(pPix + 2) =  color & 0xFF; // B color of the pixel
-	}
+
+	*pPix = (color >> 16) & 0xFF; // R color of the pixel
+	*(pPix + 1) = (color >> 8) & 0xFF; // G color of the pixel
+	*(pPix + 2) =  color & 0xFF; // B color of the pixel
 }
 
-unsigned int getColor(imageInfo* pImg, unsigned int x, unsigned int y)
+unsigned int getColor(unsigned char * pPix)
 {
-	char R, G, B;
-	if (x < pImg->imageWidth || y < pImg->imageHeight)
-	{
-		unsigned char *pPix = pImg->pImg + pImg->bytesPerRow * y +
-										   x * BYTES_FOR_SINGLE_PIXEL;
-		R = *pPix;
-		G = *(pPix + 1);
-		B = *(pPix + 2);
-	}
+	char R, G, B; // change to unsigned char
+	R = *pPix;
+	G = *(pPix + 1);
+	B = *(pPix + 2);
 	unsigned int color = 0;
 	color = ( ((R & 0xFF) << 16) | (( G & 0xFF) << 8) | (B & 0xFF));
 	return color;
-}
-
-divisions userEnterDivisions()
-{
-	divisions userDivisions;
-
-	printf(ENTER_VERTICAL_DIVISON_MESSAGE);
-	scanf("%d", &userDivisions.vertical);
-
-	printf(ENTER_HORIZONTAL_DIVISON_MESSAGE);
-	scanf("%d", &userDivisions.horizontal);
-
-	return userDivisions;
 }
 
 int calculateStartingPixelX(int pieceNumber, int horizontalDivisons,
@@ -313,14 +292,18 @@ int calculateStartingPixelY(int pieceNumber, int horizontalDivisons,
 	return (((pieceNumber - 1) / horizontalDivisons) * pieceHeight);
 }
 
-extern void hello_world();
+ extern void inner_loops(imageInfo* pInfo, int firstPiece, int pieceToSwapWith,
+												int horizontalDivisions, int pieceWidth,
+												int pieceHeight, int pieceWidthBytes, int bieceHeightBytes,
+												unsigned int bytesPerRow,
+												unsigned char *firstPieceStartingByte,
+												unsigned char *secondPieceStartingByte); // Incomplete x86 solution
 
 int main(/*int argc, char* argv[]*/) // argc and argv[] are not used anywhere
 {
 
 	imageInfo* pInfo; // imageInfo holds all header data from image
 	unsigned int columnIndex = 0;
-
 	// bmp header and info header should be 54 bytes as per BMP documentation
 	// https://www.daubnet.com/en/file-format-bmp
 	if (sizeof(bmpHeaderInfo) != BMP_HEADER_SIZE)
@@ -328,71 +311,59 @@ int main(/*int argc, char* argv[]*/) // argc and argv[] are not used anywhere
 		printf(WRONG_BMP_HEADER_SIZE_MESSAGE);
 		return WRONG_BMP_HEADER_SIZE;
 	}
-
 	if ((pInfo = readBMP(SOURCE_IMAGE_NAME)) == NULL)
 	{
 		printf(ERROR_READING_SOURCE_FILE_MESSAGE);
 		return ERROR_READING_SOURCE_FILE;
 	}
 
-	divisions pictureDivision = userEnterDivisions();
-	int numberOfPieces = pictureDivision.vertical * pictureDivision.horizontal;
-	int pieceWidth = (pInfo -> imageWidth) / pictureDivision.horizontal;
-	int pieceHeight = (pInfo -> imageHeight) /  pictureDivision.vertical;
+	int verticalDivisions, horizontalDivisions;
+	printf(ENTER_VERTICAL_DIVISON_MESSAGE);
+	scanf("%d", &verticalDivisions);
+	printf(ENTER_HORIZONTAL_DIVISON_MESSAGE);
+	scanf("%d", &horizontalDivisions);
 
-
+	int numberOfPieces = verticalDivisions * horizontalDivisions;
+	int pieceWidth = (pInfo -> imageWidth) / horizontalDivisions;
+	int pieceHeight = (pInfo -> imageHeight) /  verticalDivisions;
+	int pieceWidthBytes = pieceWidth * 3;
+	int bieceHeightBytes = pieceHeight * (pInfo -> bytesPerRow);
 	srand(time(NULL));
-
 	int firstPiece;
 	for(firstPiece = 1; firstPiece <= numberOfPieces; firstPiece++)
 	{
 		int pieceToSwapWith = rand() % numberOfPieces;
-		int firstPieceStartingPixelX = calculateStartingPixelX(firstPiece,
-									   pictureDivision.horizontal,
-									   pieceWidth);
-		int firstPieceStartingPixelY = calculateStartingPixelY(firstPiece,
-									   pictureDivision.horizontal,
-									   pieceHeight);
-		int secondPieceStartingPixelX = calculateStartingPixelX(pieceToSwapWith,
-		                                pictureDivision.horizontal,
-										pieceWidth);
-		int secondPieceStartingPixelY = calculateStartingPixelY(pieceToSwapWith,
-										pictureDivision.horizontal,
-										pieceHeight);
+	//	hello_world(pInfo, firstPiece, pieceToSwapWith, horizontalDivisions,
+	//							pieceWidth, pieceHeight, pieceWidthBytes, bieceHeightBytes, pInfo -> bytesPerRow); // Incomplete x86 solution
 
-		int x = 0;
-		for(x = 0; x < pieceWidth; x++)
+
+
+		int firstPieceStartingX = calculateStartingPixelX(firstPiece, horizontalDivisions, pieceWidth);
+		int firstPieceStartingY = calculateStartingPixelY(firstPiece, horizontalDivisions, pieceHeight);
+		unsigned char *firstPieceStartingByte = firstPieceStartingX * 3 + firstPieceStartingY * pInfo -> bytesPerRow + pInfo -> pImg;
+
+		int secondPieceStartingX = calculateStartingPixelX(pieceToSwapWith, horizontalDivisions, pieceWidth);
+		int secondPieceStartingY = calculateStartingPixelY(pieceToSwapWith, horizontalDivisions, pieceHeight);
+		unsigned char *secondPieceStartingByte = secondPieceStartingX * 3 + secondPieceStartingY * pInfo -> bytesPerRow + pInfo -> pImg;
+
+		inner_loops(pInfo, firstPiece, pieceToSwapWith, horizontalDivisions,
+								pieceWidth, pieceHeight, pieceWidthBytes, bieceHeightBytes, pInfo -> bytesPerRow, firstPieceStartingByte, secondPieceStartingByte);
+		/* int x = 0;
+		for(x = 0; x < pieceWidth * 3; x += 3)
 		{
 			int y = 0;
-			for(y = 0; y < pieceHeight; y++)
+			for(y = 0; y < pieceHeight * pInfo -> bytesPerRow; y += pInfo -> bytesPerRow)
 			{
-				int firstPieceCurrentX = firstPieceStartingPixelX + x;
-				int firstPieceCurrentY = firstPieceStartingPixelY + y;
-				int secondPieceCurrentX = secondPieceStartingPixelX + x;
-				int secondPieceCurrentY = secondPieceStartingPixelY + y;
-				unsigned int firstPiecePixelColor = getColor(pInfo,
-													firstPieceCurrentX,
-													firstPieceCurrentY);
-
-				unsigned int secondPiecePixelColor = getColor(pInfo,
-													secondPieceCurrentX,
-													secondPieceCurrentY);
-				set_pixel(pInfo, secondPieceCurrentX,
-				          secondPieceCurrentY, firstPiecePixelColor);
-				set_pixel(pInfo, firstPieceCurrentX,
-				          firstPieceCurrentY, secondPiecePixelColor);
-									hello_world();
-
-
+				unsigned int colorOne = getColor(secondPieceStartingByte + x + y);
+				unsigned int colorTwo = getColor(firstPieceStartingByte + x + y);
+				set_pixel(firstPieceStartingByte + x + y, colorOne);
+				set_pixel(secondPieceStartingByte + x + y, colorTwo);
 			}
-		}
+		} */
 	}
 
-	printf("JD\n");
-
 	saveBMP(pInfo, DESTINATION_IMAGE_NAME);
-
 	freeResources(NULL, pInfo);
-
+		//							printf("Operation failed succesfully\n");
 	return 0;
 }
