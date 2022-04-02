@@ -67,6 +67,7 @@ public:
 
         inputPassword = new QLineEdit(centralwidget);
         inputPassword->setObjectName(QString::fromUtf8("inputPassword"));
+        inputPassword->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(7, QFormLayout::SpanningRole, inputPassword);
 
@@ -100,10 +101,15 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:72pt;\">Register</span></p></body></html>", nullptr));
+#if QT_CONFIG(tooltip)
+        inputId->setToolTip(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Input ID</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(tooltip)
+        inputMail->setToolTip(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Input Mail</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         label_3->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Password</span></p></body></html>", nullptr));
 #if QT_CONFIG(tooltip)
-        inputPassword->setToolTip(QCoreApplication::translate("MainWindow", "Dupa\n"
-"", nullptr));
+        inputPassword->setToolTip(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Input Password</span></p></body></html>", nullptr));
 #endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(whatsthis)
         inputPassword->setWhatsThis(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));

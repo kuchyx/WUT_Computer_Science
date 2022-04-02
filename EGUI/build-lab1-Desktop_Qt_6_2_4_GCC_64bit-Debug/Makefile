@@ -697,6 +697,16 @@ moc_mainwindow.cpp: ../lab1/mainwindow.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qnativeinterface.h \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qicon.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/QJsonObject \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsonobject.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsonvalue.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcborvalue.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qdatetime.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcalendar.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qlocale.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcborcommon.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qregularexpression.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/quuid.h \
 		moc_predefs.h \
 		../../QT/6.2.4/gcc_64/libexec/moc
 	/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/libexec/moc $(DEFINES) --include /home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/build-lab1-Desktop_Qt_6_2_4_GCC_64bit-Debug/moc_predefs.h -I/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/mkspecs/linux-g++ -I/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab1 -I/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/include -I/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/include/QtWidgets -I/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/include/QtGui -I/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/include/QtCore -I. -I/usr/include/c++/9 -I/usr/include/x86_64-linux-gnu/c++/9 -I/usr/include/c++/9/backward -I/usr/lib/gcc/x86_64-linux-gnu/9/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../lab1/mainwindow.h -o moc_mainwindow.cpp
@@ -852,6 +862,16 @@ main.o: ../lab1/main.cpp ../lab1/mainwindow.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qnativeinterface.h \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qicon.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/QJsonObject \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsonobject.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsonvalue.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcborvalue.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qdatetime.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcalendar.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qlocale.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcborcommon.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qregularexpression.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/quuid.h \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/QApplication \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/qapplication.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qcoreapplication.h \
@@ -871,7 +891,6 @@ main.o: ../lab1/main.cpp ../lab1/mainwindow.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qpromise.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qguiapplication.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qinputmethod.h \
-		../../QT/6.2.4/gcc_64/include/QtCore/qlocale.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qguiapplication_platform.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/QLocale \
 		../../QT/6.2.4/gcc_64/include/QtCore/QTranslator \
@@ -1008,10 +1027,18 @@ mainwindow.o: ../lab1/mainwindow.cpp ../lab1/mainwindow.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qnativeinterface.h \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qicon.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/QJsonObject \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsonobject.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsonvalue.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcborvalue.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qdatetime.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcalendar.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qlocale.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qcborcommon.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qregularexpression.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/quuid.h \
 		ui_mainwindow.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/QVariant \
-		../../QT/6.2.4/gcc_64/include/QtGui/QAction \
-		../../QT/6.2.4/gcc_64/include/QtGui/qaction.h \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/QApplication \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/qapplication.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qcoreapplication.h \
@@ -1031,15 +1058,45 @@ mainwindow.o: ../lab1/mainwindow.cpp ../lab1/mainwindow.h \
 		../../QT/6.2.4/gcc_64/include/QtCore/qpromise.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qguiapplication.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qinputmethod.h \
-		../../QT/6.2.4/gcc_64/include/QtCore/qlocale.h \
 		../../QT/6.2.4/gcc_64/include/QtGui/qguiapplication_platform.h \
-		../../QT/6.2.4/gcc_64/include/QtWidgets/QMenu \
-		../../QT/6.2.4/gcc_64/include/QtWidgets/qmenu.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QFormLayout \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qformlayout.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QLayout \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qlayout.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QLabel \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qlabel.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qframe.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qpicture.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qtextdocument.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QLineEdit \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qlineedit.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qtextcursor.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qtextformat.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qpen.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qtextoption.h \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/QMenuBar \
 		../../QT/6.2.4/gcc_64/include/QtWidgets/qmenubar.h \
-		../../QT/6.2.4/gcc_64/include/QtWidgets/QStatusBar \
-		../../QT/6.2.4/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../QT/6.2.4/gcc_64/include/QtWidgets/QWidget
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qmenu.h \
+		../../QT/6.2.4/gcc_64/include/QtGui/qaction.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QPushButton \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QWidget \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QFileDialog \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qfiledialog.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qdir.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qfile.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qfiledevice.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/qfileinfo.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qdialog.h \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/QMessageBox \
+		../../QT/6.2.4/gcc_64/include/QtWidgets/qmessagebox.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/QJsonDocument \
+		../../QT/6.2.4/gcc_64/include/QtCore/qjsondocument.h \
+		../../QT/6.2.4/gcc_64/include/QtCore/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../lab1/mainwindow.cpp
 
 qrc_qmake_qmake_qm_files.o: qrc_qmake_qmake_qm_files.cpp 
