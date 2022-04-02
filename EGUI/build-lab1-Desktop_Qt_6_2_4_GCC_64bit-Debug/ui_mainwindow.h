@@ -27,11 +27,13 @@ public:
     QWidget *centralwidget;
     QFormLayout *formLayout;
     QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
-    QPushButton *pushButton;
+    QLineEdit *inputId;
     QLineEdit *inputMail;
+    QLabel *label_3;
     QLineEdit *inputPassword;
+    QPushButton *pushButton;
+    QLabel *label_2;
+    QLabel *label_4;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -48,30 +50,40 @@ public:
 
         formLayout->setWidget(0, QFormLayout::SpanningRole, label);
 
-        label_2 = new QLabel(centralwidget);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
+        inputId = new QLineEdit(centralwidget);
+        inputId->setObjectName(QString::fromUtf8("inputId"));
 
-        formLayout->setWidget(1, QFormLayout::SpanningRole, label_2);
-
-        label_3 = new QLabel(centralwidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-
-        formLayout->setWidget(3, QFormLayout::SpanningRole, label_3);
-
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        formLayout->setWidget(5, QFormLayout::SpanningRole, pushButton);
+        formLayout->setWidget(3, QFormLayout::SpanningRole, inputId);
 
         inputMail = new QLineEdit(centralwidget);
         inputMail->setObjectName(QString::fromUtf8("inputMail"));
 
-        formLayout->setWidget(2, QFormLayout::SpanningRole, inputMail);
+        formLayout->setWidget(5, QFormLayout::SpanningRole, inputMail);
+
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        formLayout->setWidget(6, QFormLayout::SpanningRole, label_3);
 
         inputPassword = new QLineEdit(centralwidget);
         inputPassword->setObjectName(QString::fromUtf8("inputPassword"));
 
-        formLayout->setWidget(4, QFormLayout::SpanningRole, inputPassword);
+        formLayout->setWidget(7, QFormLayout::SpanningRole, inputPassword);
+
+        pushButton = new QPushButton(centralwidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+
+        formLayout->setWidget(8, QFormLayout::SpanningRole, pushButton);
+
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+
+        formLayout->setWidget(4, QFormLayout::SpanningRole, label_2);
+
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+
+        formLayout->setWidget(2, QFormLayout::SpanningRole, label_4);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -88,12 +100,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:72pt;\">Register</span></p></body></html>", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Mail</span></p></body></html>", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Password</span></p></body></html>", nullptr));
-#if QT_CONFIG(tooltip)
-        pushButton->setToolTip(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:72pt;\">Register</span></p><p><br/></p></body></html>", nullptr));
-#endif // QT_CONFIG(tooltip)
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Register", nullptr));
 #if QT_CONFIG(tooltip)
         inputPassword->setToolTip(QCoreApplication::translate("MainWindow", "Dupa\n"
 "", nullptr));
@@ -102,6 +109,12 @@ public:
         inputPassword->setWhatsThis(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
 #endif // QT_CONFIG(whatsthis)
         inputPassword->setText(QString());
+#if QT_CONFIG(tooltip)
+        pushButton->setToolTip(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" font-size:72pt;\">Register</span></p><p><br/></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton->setText(QCoreApplication::translate("MainWindow", "Register", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Mail</span></p></body></html>", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">ID</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };
