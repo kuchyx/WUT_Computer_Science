@@ -208,7 +208,7 @@ TARGET        = lab1
 first: all
 ####### Build rules
 
-lab1: ui_mainwindow.h $(OBJECTS)  
+lab1: ui_login.h ui_mainwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../lab1/lab1.pro ../../QT/6.2.4/gcc_64/mkspecs/linux-g++/qmake.conf ../../QT/6.2.4/gcc_64/mkspecs/features/spec_pre.prf \
@@ -519,7 +519,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents ../../QT/6.2.4/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../lab1/mainwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../lab1/main.cpp ../lab1/mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../lab1/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../lab1/login.ui ../lab1/mainwindow.ui $(DISTDIR)/
 	$(COPY_FILE) --parents ../lab1/lab1_pl_PL.ts $(DISTDIR)/
 
 
@@ -715,9 +715,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_login.h ui_mainwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_login.h ui_mainwindow.h
+ui_login.h: ../lab1/login.ui \
+		../../QT/6.2.4/gcc_64/libexec/uic
+	/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/libexec/uic ../lab1/login.ui -o ui_login.h
+
 ui_mainwindow.h: ../lab1/mainwindow.ui \
 		../../QT/6.2.4/gcc_64/libexec/uic
 	/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/QT/6.2.4/gcc_64/libexec/uic ../lab1/mainwindow.ui -o ui_mainwindow.h

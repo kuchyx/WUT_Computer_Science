@@ -34,6 +34,7 @@ public:
     QPushButton *pushButton;
     QLabel *label_2;
     QLabel *label_4;
+    QPushButton *loginButton;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -86,6 +87,11 @@ public:
 
         formLayout->setWidget(2, QFormLayout::SpanningRole, label_4);
 
+        loginButton = new QPushButton(centralwidget);
+        loginButton->setObjectName(QString::fromUtf8("loginButton"));
+
+        formLayout->setWidget(9, QFormLayout::SpanningRole, loginButton);
+
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -121,6 +127,7 @@ public:
         pushButton->setText(QCoreApplication::translate("MainWindow", "Register", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Mail</span></p></body></html>", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">ID</span></p></body></html>", nullptr));
+        loginButton->setText(QCoreApplication::translate("MainWindow", "Already Registered? Click here to Login!", nullptr));
     } // retranslateUi
 
 };

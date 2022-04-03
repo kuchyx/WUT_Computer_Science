@@ -1,7 +1,17 @@
 {
+    "": {
+        "id": "",
+        "mail": "",
+        "password": ""
+    },
     "1": {
         "id": "1",
         "mail": "1",
         "password": "SupertajnehasloxDDDDD"
+    },
+    "2": {
+        "id": "2",
+        "mail": "",
+        "password": ""
     }
 }
