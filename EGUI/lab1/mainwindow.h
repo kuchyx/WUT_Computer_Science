@@ -29,10 +29,16 @@ public:
 
 private slots:
 
-    void saveRegisteredUser(QJsonObject &json) const;
+    void saveRegisteredUser(QJsonObject &users) const;
 
     void on_pushButton_clicked();
-    void saveJsonFile(QJsonObject &json) const;
+    void saveJsonFile(QJsonObject &users) const;
+    QJsonObject readUserJsonFile();
+    void thisIdIsTaken() const;
+    void thisIdIsEmpty() const;
+
+    void on_loginButton_clicked();
+    void goToLogin();
 
 private:
     Ui::MainWindow *ui; // we point to ui class "mainwindow.ui"
