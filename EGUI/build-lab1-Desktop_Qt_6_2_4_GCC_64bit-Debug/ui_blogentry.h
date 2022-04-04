@@ -15,6 +15,7 @@
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
@@ -29,6 +30,7 @@ public:
     QLabel *ownerID;
     QLabel *dateTime;
     QTextEdit *textEdit;
+    QPushButton *saveEntry;
 
     void setupUi(QWidget *blogEntry)
     {
@@ -59,8 +61,14 @@ public:
 
         textEdit = new QTextEdit(blogEntry);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setReadOnly(false);
 
         formLayout->setWidget(4, QFormLayout::FieldRole, textEdit);
+
+        saveEntry = new QPushButton(blogEntry);
+        saveEntry->setObjectName(QString::fromUtf8("saveEntry"));
+
+        formLayout->setWidget(5, QFormLayout::FieldRole, saveEntry);
 
 
         retranslateUi(blogEntry);
@@ -75,6 +83,7 @@ public:
         lineEdit->setText(QCoreApplication::translate("blogEntry", "Title", nullptr));
         ownerID->setText(QCoreApplication::translate("blogEntry", "ownerID", nullptr));
         dateTime->setText(QCoreApplication::translate("blogEntry", "Date Time", nullptr));
+        saveEntry->setText(QCoreApplication::translate("blogEntry", "Save Entry", nullptr));
     } // retranslateUi
 
 };

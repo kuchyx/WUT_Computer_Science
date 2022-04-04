@@ -29,13 +29,14 @@ public:
 
 private slots:
 
-    void saveRegisteredUser(QJsonObject &users) const;
+    void saveRegisteredUser(QJsonObject &users, QJsonObject &blogs) const;
 
     void on_pushButton_clicked();
-    void saveJsonFile(QJsonObject &users) const;
-    QJsonObject readUserJsonFile();
+    void saveJsonFile(QJsonObject &users, const QString name) const;
+    QJsonObject readJsonFile(const QString title);
     void thisIdIsTaken() const;
     void thisIdIsEmpty() const;
+    void thisBlogIdIsTaken() const;
 
     void on_loginButton_clicked();
     void goToLogin();

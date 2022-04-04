@@ -34,9 +34,11 @@ void login::wrongPassword()
     wrongPassword.exec();
 }
 
-void login::loginSuccessful()
+void login::loginSuccessful(const QString &id)
 {
+    qDebug() << "login id: " << id;
     blogsView *b = new blogsView();
+    b -> setUserId(id);
     b -> show();
     hide();
 }
@@ -51,7 +53,7 @@ void login::loginUser(QJsonObject &users)
         QString enteredPassword = ui->inputPassword->text();
         if (user["password"] == enteredPassword)
         {
-            loginSuccessful();
+            loginSuccessful(id);
         }else wrongPassword();
     }
 }

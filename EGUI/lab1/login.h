@@ -18,7 +18,7 @@ public:
     void loginUser(QJsonObject &users);
     QJsonObject readUserJsonFile();
     void wrongPassword();
-    void loginSuccessful();
+    void loginSuccessful(const QString &id);
 
 
 private slots:

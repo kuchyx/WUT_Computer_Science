@@ -22,9 +22,9 @@ MainWindow::~MainWindow()
     delete ui; // in the destructor, we delete the ui
 }
 
-QJsonObject MainWindow::readUserJsonFile()
+QJsonObject MainWindow::readJsonFile(const QString title)
 {
-    QFile file("user.json");
+    QFile file(title);
     file.open( QIODevice::ReadOnly);
     QByteArray bytes = file.readAll();
     file.close();
@@ -32,12 +32,9 @@ QJsonObject MainWindow::readUserJsonFile()
     return document.object();
 }
 
-void MainWindow::saveJsonFile(QJsonObject &users) const
+void MainWindow::saveJsonFile(QJsonObject &users, const QString name) const
 {
-    qDebug() << QFile::exists(QStringLiteral(":/user.json"));
-    qDebug() << QFile::exists(QStringLiteral("./user.json"));
-    qDebug() << QFile::exists(QStringLiteral("user.json"));
-    QFile jsonFile(QStringLiteral("user.json"));
+    QFile jsonFile(name);
     QJsonDocument document;
     document.setObject( users );
     QByteArray bytes = document.toJson( QJsonDocument::Indented );
@@ -64,7 +61,14 @@ void MainWindow::thisIdIsTaken() const
     idTaken.exec();
 }
 
-void MainWindow::saveRegisteredUser(QJsonObject &users) const
+void MainWindow::thisBlogIdIsTaken() const
+{
+    QMessageBox idTaken;
+    idTaken.setText("THIS BLOG ID IS ALREADY TAKEN!");
+    idTaken.exec();
+}
+
+void MainWindow::saveRegisteredUser(QJsonObject &users, QJsonObject &blogs) const
 {
     QString id = ui->inputId->text();
     if(id == "")
@@ -81,21 +85,33 @@ void MainWindow::saveRegisteredUser(QJsonObject &users) const
         user["userId"] = id;
         user["email"] = mail;
         user["password"]=password;
+        users.insert(id, user);
         /*
         userId - unique user id - text obtained from the user during user registration
         email - e-mail address of the user
         password - password provided by the user
         */
-        users.insert(id, user);
-        saveJsonFile(users);
+        QJsonObject blog;
+        QString blogTitle = ui -> inputBlogTitle->text();
+        QString blogId = ui -> inputBlogID->text();
+        if(blogs.find(blogId) == blogs.end())
+        {
+            blog["ownerId"] = id;
+            blog["title"] = blogTitle;
+            blog["blogId"] = blogId;
+            blogs.insert(blogId, blog);
+            saveJsonFile(blogs, "blogs.json");
+            saveJsonFile(users, "user.json");
+        }else thisBlogIdIsTaken();
     }else thisIdIsTaken();
 }
 
 
 void MainWindow::on_pushButton_clicked()
 {
-    QJsonObject users = readUserJsonFile();
-    saveRegisteredUser(users);
+    QJsonObject blogs = readJsonFile("blogs.json");
+    QJsonObject users = readJsonFile("user.json");
+    saveRegisteredUser(users, blogs);
 }
 
 
