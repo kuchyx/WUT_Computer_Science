@@ -1,5 +1,6 @@
 #include "login.h"
 #include "ui_login.h"
+#include "blogsview.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <iostream>
@@ -33,6 +34,13 @@ void login::wrongPassword()
     wrongPassword.exec();
 }
 
+void login::loginSuccessful()
+{
+    blogsView *b = new blogsView();
+    b -> show();
+    hide();
+}
+
 
 void login::loginUser(QJsonObject &users)
 {
@@ -43,7 +51,7 @@ void login::loginUser(QJsonObject &users)
         QString enteredPassword = ui->inputPassword->text();
         if (user["password"] == enteredPassword)
         {
-            qDebug() << "Welcome";
+            loginSuccessful();
         }else wrongPassword();
     }
 }

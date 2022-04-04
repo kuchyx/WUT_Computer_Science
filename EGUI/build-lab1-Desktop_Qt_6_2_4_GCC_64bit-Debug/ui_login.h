@@ -67,6 +67,7 @@ public:
 
         inputPassword = new QLineEdit(centralwidget);
         inputPassword->setObjectName(QString::fromUtf8("inputPassword"));
+        inputPassword->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(inputPassword, 4, 0, 1, 1);
 

@@ -9,15 +9,21 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    blogentry.cpp \
+    blogsview.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp
 
 HEADERS += \
+    blogentry.h \
+    blogsview.h \
     login.h \
     mainwindow.h
 
 FORMS += \
+    blogentry.ui \
+    blogsview.ui \
     login.ui \
     mainwindow.ui
 
