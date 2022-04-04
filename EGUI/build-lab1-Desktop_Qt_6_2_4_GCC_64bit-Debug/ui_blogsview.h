@@ -12,10 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,6 +29,8 @@ public:
     QAction *actionDelete_blog_entry;
     QAction *actionEdit_blog_entry;
     QWidget *centralwidget;
+    QGridLayout *gridLayout;
+    QVBoxLayout *blogsLayout;
     QMenuBar *menubar;
     QMenu *menuManageBlogEntires;
     QStatusBar *statusbar;
@@ -44,6 +48,13 @@ public:
         actionEdit_blog_entry->setObjectName(QString::fromUtf8("actionEdit_blog_entry"));
         centralwidget = new QWidget(blogsView);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        gridLayout = new QGridLayout(centralwidget);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        blogsLayout = new QVBoxLayout();
+        blogsLayout->setObjectName(QString::fromUtf8("blogsLayout"));
+
+        gridLayout->addLayout(blogsLayout, 0, 0, 1, 1);
+
         blogsView->setCentralWidget(centralwidget);
         menubar = new QMenuBar(blogsView);
         menubar->setObjectName(QString::fromUtf8("menubar"));

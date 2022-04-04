@@ -18,8 +18,7 @@ blogsView::~blogsView()
 void blogsView::createNewBlogEntry()
 {
     blogEntry *e = new blogEntry();
-    e -> show();
-
+    ui -> blogsLayout -> addWidget(e);
 }
 
 void blogsView::on_actionCreate_new_Blog_entry_triggered()
