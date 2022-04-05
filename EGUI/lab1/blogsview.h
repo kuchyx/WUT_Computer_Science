@@ -17,6 +17,8 @@ public:
     void createNewBlogEntry();
     void setUserId(const QString &userId);
     QJsonObject readJsonFile(const QString title);
+    void saveJsonFile(QJsonObject &users, const QString name) const;
+    void setBlogId(const QString &blogId);
 
 private slots:
     void on_actionCreate_new_Blog_entry_triggered();
@@ -25,6 +27,7 @@ private slots:
 private:
     Ui::blogsView *ui;
     QString userId;
+    QString blogId;
 };
 
 #endif // BLOGSVIEW_H

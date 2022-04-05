@@ -34,33 +34,46 @@ void login::wrongPassword()
     wrongPassword.exec();
 }
 
-void login::loginSuccessful(const QString &id)
+void login::loginSuccessful(const QString &id, const QString &blogId)
 {
     qDebug() << "login id: " << id;
     blogsView *b = new blogsView();
     b -> setUserId(id);
+    b -> setBlogId(blogId);
     b -> show();
     hide();
 }
 
 
-void login::loginUser(QJsonObject &users)
+void login::loginUser(QJsonObject &users, QJsonObject &blogs)
 {
     QString id = ui->inputLoginID_2->text();
     if(users.find(id) != users.end())
     {
         QJsonValue user = users.take(id);
         QString enteredPassword = ui->inputPassword->text();
+        QString currentBlogId;
         if (user["password"] == enteredPassword)
         {
-            loginSuccessful(id);
+            QStringList keys = blogs.keys();
+            for(int i = 0; i <= keys.size(); i++)
+            {
+                QJsonObject currentBlog = blogs[keys.at(i)].toObject();
+                if(currentBlog["ownerId"] == id)
+                {
+                    currentBlogId = (currentBlog.take("blogId")).toString();
+                    break;
+                }
+            }
+            qDebug() << "Current blog id: " << currentBlogId;
+            loginSuccessful(id, "temp");
         }else wrongPassword();
     }
 }
 
-QJsonObject login::readUserJsonFile()
+QJsonObject login::readUserJsonFile(const QString &filename)
 {
-    QFile file("user.json");
+    QFile file(filename);
     file.open( QIODevice::ReadOnly);
     QByteArray bytes = file.readAll();
     file.close();
@@ -70,7 +83,8 @@ QJsonObject login::readUserJsonFile()
 
 void login::on_loginButton_clicked()
 {
-    QJsonObject users = readUserJsonFile();
-    loginUser(users);
+    QJsonObject users = readUserJsonFile("user.json");
+    QJsonObject blogs = readUserJsonFile("blogs.json");
+    loginUser(users, blogs);
 }
 
