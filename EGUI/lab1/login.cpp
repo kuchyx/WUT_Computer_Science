@@ -66,15 +66,15 @@ void login::loginUser(QJsonObject &users, QJsonObject &blogs)
                 }
             }
             qDebug() << "Current blog id: " << currentBlogId;
-            loginSuccessful(id, "temp");
+            loginSuccessful(id, currentBlogId);
         }else wrongPassword();
-    }
+    }else thisIDDoesNotExist();
 }
 
 QJsonObject login::readUserJsonFile(const QString &filename)
 {
     QFile file(filename);
-    file.open( QIODevice::ReadOnly);
+    file.open(QIODevice::ReadWrite);
     QByteArray bytes = file.readAll();
     file.close();
     QJsonDocument document = QJsonDocument::fromJson( bytes );

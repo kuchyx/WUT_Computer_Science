@@ -7,6 +7,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QTextStream>
+#include <QJsonArray>
 
 MainWindow::MainWindow(QWidget *parent) // class definition, constructor
     : QMainWindow(parent) // calls qmainwindow parent constructor we have,
@@ -24,8 +25,9 @@ MainWindow::~MainWindow()
 
 QJsonObject MainWindow::readJsonFile(const QString title)
 {
+
     QFile file(title);
-    file.open( QIODevice::ReadOnly);
+    file.open(QIODevice::ReadWrite);
     QByteArray bytes = file.readAll();
     file.close();
     QJsonDocument document = QJsonDocument::fromJson( bytes );
@@ -34,6 +36,7 @@ QJsonObject MainWindow::readJsonFile(const QString title)
 
 void MainWindow::saveJsonFile(QJsonObject &users, const QString name) const
 {
+
     QFile jsonFile(name);
     QJsonDocument document;
     document.setObject( users );
@@ -99,6 +102,8 @@ void MainWindow::saveRegisteredUser(QJsonObject &users, QJsonObject &blogs) cons
             blog["ownerId"] = id;
             blog["title"] = blogTitle;
             blog["blogId"] = blogId;
+            QJsonArray items;
+            blog["items"] = items;
             blogs.insert(blogId, blog);
             saveJsonFile(blogs, "blogs.json");
             saveJsonFile(users, "user.json");

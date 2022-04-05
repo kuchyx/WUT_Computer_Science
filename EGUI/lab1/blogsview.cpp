@@ -31,7 +31,7 @@ void blogsView::setBlogId(const QString &blogId)
 QJsonObject blogsView::readJsonFile(const QString title)
 {
     QFile file(title);
-    file.open( QIODevice::ReadOnly);
+    file.open(QIODevice::ReadWrite);
     QByteArray bytes = file.readAll();
     file.close();
     QJsonDocument document = QJsonDocument::fromJson( bytes );
@@ -61,6 +61,7 @@ void blogsView::createNewBlogEntry()
     qDebug() << "blogsView id: " << userId;
     blogEntry *e = new blogEntry();
     e -> setUserId(userId);
+    e -> setBlogId(blogId);
     ui -> blogsLayout -> addWidget(e);
 }
 

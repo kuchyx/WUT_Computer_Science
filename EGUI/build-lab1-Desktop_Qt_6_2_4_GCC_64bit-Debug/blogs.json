@@ -1,32 +1,19 @@
 {
-    "superId": {
-        "blogId": "superId",
-        "ownerId": "SupertajnehasloxDDDDD",
-        "title": "1"
-    },
-    "5": {
-        "blogId": "5",
-        "ownerId": "6",
-        "title": "6"
-    },
-    "6": {
-        "blogId": "6",
-        "ownerId": "7",
-        "title": "5"
-    },
-    "Title": {
-        "content": "",
-        "datetime": "13:25:59 Tue Apr 5 2022",
-        "title": "Title"
-    },
-    "blogtitle3": {
-        "content": "blogtitle3",
-        "datetime": "00:25:37 Tue Apr 5 2022",
-        "title": "blogtitle3"
-    },
-    "title": {
-        "content": "blogentry2",
-        "datetime": "00:24:53 Tue Apr 5 2022",
-        "title": "blogtitle2"
+    "": {
+        "blogId": "",
+        "items": [
+            {
+                "content": "",
+                "datetime": "01:05:33 Wed Apr 6 2022",
+                "title": "Title"
+            },
+            {
+                "content": "notempty",
+                "datetime": "01:05:44 Wed Apr 6 2022",
+                "title": "anotherTitle"
+            }
+        ],
+        "ownerId": "1",
+        "title": ""
     }
 }

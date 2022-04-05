@@ -4,6 +4,7 @@
 #include <QJsonObject>
 #include <QFile>
 #include <QJsonDocument>
+#include <QJsonArray>
 
 blogEntry::blogEntry(QWidget *parent) :
     QWidget(parent),
@@ -30,10 +31,16 @@ void blogEntry::setUserId(const QString &userId)
     ui -> ownerID -> setText("Owner ID: " + userId);
 }
 
+void blogEntry::setBlogId(const QString &blogId)
+{
+    this->blogId = blogId;
+}
+
+
 QJsonObject blogEntry::readJsonFile(const QString title)
 {
     QFile file(title);
-    file.open( QIODevice::ReadOnly);
+    file.open( QIODevice::ReadWrite);
     QByteArray bytes = file.readAll();
     file.close();
     QJsonDocument document = QJsonDocument::fromJson( bytes );
@@ -59,18 +66,18 @@ void blogEntry::saveEntry()
 
     ui -> textEdit -> setReadOnly(true);
     ui -> lineEdit -> setReadOnly(true);
-    QJsonObject blogEntry;
-    blogEntry["content"] = ui -> textEdit -> toPlainText();
+    QJsonObject blogsFile = readJsonFile("blogs.json");
+    QJsonObject blogEntryJson = blogsFile[blogId].toObject();
+    QJsonObject entry;
+    entry["title"] = ui -> lineEdit -> text();
     QString Time = QTime::currentTime().toString();
     QString Date = QDate::currentDate().toString();
-    blogEntry["datetime"] = Time + " " + Date;
-    blogEntry["title"] = ui -> lineEdit -> text();
-    QJsonObject blogsFile = readJsonFile("blogs.json");
-    QJsonObject blogEntryJson;
-    blogEntryJson["title"] = ui -> lineEdit -> text();
-    blogEntryJson["datetime"] = Time + " " + Date;
-    blogEntryJson["content"] = ui -> textEdit -> toPlainText();
-    blogsFile.insert(ui -> lineEdit -> text(), blogEntryJson);
+    entry["datetime"] = Time + " " + Date;
+    entry["content"] = ui -> textEdit -> toPlainText();
+    QJsonArray items = blogEntryJson["items"].toArray();
+    items.append(entry);
+    blogEntryJson.insert("items", items);
+    blogsFile.insert(blogId, blogEntryJson);
     saveJsonFile(blogsFile, "blogs.json");
 
 }

@@ -18,15 +18,18 @@ public:
     explicit blogEntry(QWidget *parent = nullptr);
     ~blogEntry();
     void setUserId(const QString &userId);
+    void setBlogId(const QString &blogId);
 
 private slots:
     void on_saveEntry_clicked();
     void saveEntry();
     QJsonObject readJsonFile(const QString title);
     void saveJsonFile(QJsonObject &users, const QString name) const;
+
 private:
     Ui::blogEntry *ui;
     QString userId;
+    QString blogId;
 };
 
 #endif // BLOGENTRY_H

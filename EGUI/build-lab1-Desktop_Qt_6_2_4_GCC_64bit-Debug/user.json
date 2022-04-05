@@ -1,37 +1,7 @@
 {
-    "": {
-        "id": "",
-        "mail": "",
-        "password": ""
-    },
     "1": {
-        "id": "1",
-        "mail": "1",
-        "password": "SupertajnehasloxDDDDD"
-    },
-    "2": {
-        "id": "2",
-        "mail": "",
-        "password": ""
-    },
-    "5": {
-        "email": "5",
+        "email": "",
         "password": "",
-        "userId": "5"
-    },
-    "6": {
-        "email": "5",
-        "password": "",
-        "userId": "6"
-    },
-    "7": {
-        "email": "5",
-        "password": "5",
-        "userId": "7"
-    },
-    "SupertajnehasloxDDDDD": {
-        "email": "1",
-        "password": "1",
-        "userId": "SupertajnehasloxDDDDD"
+        "userId": "1"
     }
 }
