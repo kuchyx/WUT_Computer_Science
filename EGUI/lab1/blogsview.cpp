@@ -23,6 +23,11 @@ void blogsView::setUserId(const QString &userId)
     this->userId = userId;
 }
 
+void blogsView::setBlogId(const QString &blogId)
+{
+    this->blogId = blogId;
+}
+
 QJsonObject blogsView::readJsonFile(const QString title)
 {
     QFile file(title);
@@ -31,6 +36,19 @@ QJsonObject blogsView::readJsonFile(const QString title)
     file.close();
     QJsonDocument document = QJsonDocument::fromJson( bytes );
     return document.object();
+}
+
+void blogsView::saveJsonFile(QJsonObject &users, const QString name) const
+{
+    QFile jsonFile(name);
+    QJsonDocument document;
+    document.setObject( users );
+    QByteArray bytes = document.toJson( QJsonDocument::Indented );
+    jsonFile.open( QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate );
+    QTextStream iStream( &jsonFile );
+    // iStream.setCodec( "utf-8" );
+    iStream << bytes;
+    jsonFile.close();
 }
 
 void blogsView::createNewBlogEntry()
