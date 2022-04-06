@@ -29,11 +29,16 @@ private slots:
     void removeEntry();
     void on_pushButton_clicked();
 
+    void on_editEntryButton_clicked();
+    void editEntry();
+    void saveEditedEntry();
+
 private:
     Ui::blogEntry *ui;
     QString userId;
     QString blogId;
-
+    QString dateTime;
+    bool editMode;
 };
 
 #endif // BLOGENTRY_H
