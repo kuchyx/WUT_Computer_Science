@@ -19,17 +19,21 @@ public:
     ~blogEntry();
     void setUserId(const QString &userId);
     void setBlogId(const QString &blogId);
+    void setUpBlogEntryFromJson(const QJsonObject entry);
 
 private slots:
     void on_saveEntry_clicked();
     void saveEntry();
     QJsonObject readJsonFile(const QString title);
     void saveJsonFile(QJsonObject &users, const QString name) const;
+    void removeEntry();
+    void on_pushButton_clicked();
 
 private:
     Ui::blogEntry *ui;
     QString userId;
     QString blogId;
+
 };
 
 #endif // BLOGENTRY_H

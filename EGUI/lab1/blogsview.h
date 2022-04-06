@@ -22,6 +22,7 @@ public:
 
 private slots:
     void on_actionCreate_new_Blog_entry_triggered();
+    void displayBlogEntries();
 
 
 private:

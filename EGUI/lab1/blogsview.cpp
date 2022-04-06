@@ -2,15 +2,18 @@
 #include "ui_blogsview.h"
 #include "blogentry.h"
 #include "ui_blogentry.h"
+#include <algorithm>
 #include <QJsonObject>
 #include <QFile>
 #include <QJsonDocument>
+#include <QJsonArray>
 
 blogsView::blogsView(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::blogsView)
 {
     ui->setupUi(this);
+    displayBlogEntries();
 }
 
 blogsView::~blogsView()
@@ -63,6 +66,23 @@ void blogsView::createNewBlogEntry()
     e -> setUserId(userId);
     e -> setBlogId(blogId);
     ui -> blogsLayout -> addWidget(e);
+}
+
+void blogsView::displayBlogEntries()
+{
+    QJsonObject blogsFile = readJsonFile("blogs.json");
+    QJsonObject userBlog = blogsFile[blogId].toObject();
+    QJsonArray blogEntries = userBlog["items"].toArray();
+    for(int i = 0; i < blogEntries.size(); i++)
+    {
+        QJsonObject entry = (blogEntries.at(i)).toObject();
+        blogEntry *e = new blogEntry();
+        e -> setUserId(userId);
+        e -> setUpBlogEntryFromJson(entry);
+        ui -> blogsLayout -> addWidget(e);
+    }
+
+
 }
 
 void blogsView::on_actionCreate_new_Blog_entry_triggered()

@@ -11,12 +11,17 @@ blogEntry::blogEntry(QWidget *parent) :
     ui(new Ui::blogEntry)
 {
     ui->setupUi(this);
-    QString Time = QTime::currentTime().toString();
-    QString Date = QDate::currentDate().toString();
-    ui -> dateTime -> setText(Date + " " + Time);
 
-    qDebug() << "blogEntry id: " << userId;
-    qDebug() << Time;
+}
+
+void blogEntry::setUpBlogEntryFromJson(const QJsonObject entry)
+{
+    ui -> lineEdit-> setText(entry["title"].toString());
+    ui -> textEdit -> setText(entry["content"].toString());
+    ui -> dateTime -> setText(entry["datetime"].toString());
+    ui -> ownerID -> setText("Owner ID: " + userId);
+    ui -> textEdit -> setReadOnly(true);
+    ui -> lineEdit -> setReadOnly(true);
 }
 
 blogEntry::~blogEntry()
@@ -72,7 +77,9 @@ void blogEntry::saveEntry()
     entry["title"] = ui -> lineEdit -> text();
     QString Time = QTime::currentTime().toString();
     QString Date = QDate::currentDate().toString();
+
     entry["datetime"] = Time + " " + Date;
+    ui -> dateTime -> setText( Time + " " + Date);
     entry["content"] = ui -> textEdit -> toPlainText();
     QJsonArray items = blogEntryJson["items"].toArray();
     items.append(entry);
@@ -82,8 +89,36 @@ void blogEntry::saveEntry()
 
 }
 
+void blogEntry::removeEntry()
+{
+    QJsonObject blogsFile = readJsonFile("blogs.json");
+    QJsonObject blogEntryJson = blogsFile[blogId].toObject();
+    QJsonArray items = blogEntryJson["items"].toArray();
+    for(int i = 0; i < items.size(); i++)
+    {
+        QJsonObject currentItem = items[i].toObject();
+        qDebug() << currentItem["datetime"].toString();
+        qDebug() << ui -> dateTime -> text();
+        if(currentItem["datetime"].toString() == ui -> dateTime -> text())
+        {
+            items.removeAt(i);
+            break;
+        }
+    }
+    blogEntryJson.insert("items", items);
+    blogsFile.insert(blogId, blogEntryJson);
+    saveJsonFile(blogsFile, "blogs.json");
+    this -> ~blogEntry();
+}
+
 void blogEntry::on_saveEntry_clicked()
 {
     saveEntry();
+}
+
+
+void blogEntry::on_pushButton_clicked()
+{
+    removeEntry();
 }
 
