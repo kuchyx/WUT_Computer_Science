@@ -43,8 +43,5 @@ private:
     void saveFiles(QJsonObject &users, QJsonObject &blogs);
     QJsonObject insertBlogObject(QJsonObject &blogs, const QString &blogId, const QString &ownerId);
     Ui::MainWindow *ui; // we point to ui class "mainwindow.ui"
-    QString currentFile = ""; // current file we work with
-
-
 };
 #endif // MAINWINDOW_H

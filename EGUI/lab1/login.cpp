@@ -1,6 +1,8 @@
 #include "login.h"
 #include "ui_login.h"
 #include "blogsview.h"
+#include "mainwindow.h"
+#include "universalFunctions.h"
 #include <QFileDialog>
 #include <QMessageBox>
 #include <iostream>
@@ -13,11 +15,34 @@ login::login(QWidget *parent) :
     ui(new Ui::login)
 {
     ui->setupUi(this);
+    defineConnections();
 }
 
 login::~login()
 {
     delete ui;
+}
+
+void login::defineConnections() const
+{
+    connect(ui -> loginButton, &QPushButton::clicked, this, &login::loginUser);
+    connect(ui -> registerButton, &QPushButton::clicked, this, &login::goRegister);
+    connect(ui -> actionExit, &QAction::triggered, this, &login::exit);
+    connect(ui -> actionLogin, &QAction::triggered, this, &login::loginUser);
+    connect(ui -> actionRegister, &QAction::triggered, this, &login::goRegister);
+}
+
+void login::exit() const
+{
+    QApplication::quit();
+}
+
+
+void login::goRegister()
+{
+    MainWindow *r = new MainWindow();
+    r -> show();
+    hide();
 }
 
 void login::thisIDDoesNotExist()
@@ -45,8 +70,10 @@ void login::loginSuccessful(const QString &id, const QString &blogId)
 }
 
 
-void login::loginUser(QJsonObject &users, QJsonObject &blogs)
+void login::loginUser()
 {
+    QJsonObject users = readJsonFile("user.json");
+    QJsonObject blogs = readJsonFile("blogs.json");
     QString id = ui->inputLoginID_2->text();
     if(users.find(id) != users.end())
     {
@@ -70,21 +97,3 @@ void login::loginUser(QJsonObject &users, QJsonObject &blogs)
         }else wrongPassword();
     }else thisIDDoesNotExist();
 }
-
-QJsonObject login::readUserJsonFile(const QString &filename)
-{
-    QFile file(filename);
-    file.open(QIODevice::ReadWrite);
-    QByteArray bytes = file.readAll();
-    file.close();
-    QJsonDocument document = QJsonDocument::fromJson( bytes );
-    return document.object();
-}
-
-void login::on_loginButton_clicked()
-{
-    QJsonObject users = readUserJsonFile("user.json");
-    QJsonObject blogs = readUserJsonFile("blogs.json");
-    loginUser(users, blogs);
-}
-

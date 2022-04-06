@@ -90,7 +90,7 @@ void blogsView::on_actionCreate_new_Blog_entry_triggered()
     createNewBlogEntry();
 }
 
-void blogsView::exit()
+ void blogsView::exit()
 {
     QApplication::quit();
 }

@@ -15,16 +15,17 @@ public:
     explicit login(QWidget *parent = nullptr);
     ~login();
     void thisIDDoesNotExist();
-    void loginUser(QJsonObject &users, QJsonObject &blogs);
-    QJsonObject readUserJsonFile(const QString &filename);
+    void loginUser();
     void wrongPassword();
     void loginSuccessful(const QString &id, const QString &blogId);
 
 
 private slots:
-    void on_loginButton_clicked();
 
 private:
+    void defineConnections() const;
+    void goRegister();
+    void exit() const;
     Ui::login *ui;
 };
 

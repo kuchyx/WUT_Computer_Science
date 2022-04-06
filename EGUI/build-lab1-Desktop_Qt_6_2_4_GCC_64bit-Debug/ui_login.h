@@ -33,6 +33,7 @@ public:
     QLabel *label_3;
     QLineEdit *inputPassword;
     QPushButton *loginButton;
+    QPushButton *registerButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -76,6 +77,11 @@ public:
 
         formLayout->setWidget(5, QFormLayout::SpanningRole, loginButton);
 
+        registerButton = new QPushButton(centralwidget);
+        registerButton->setObjectName(QString::fromUtf8("registerButton"));
+
+        formLayout->setWidget(6, QFormLayout::SpanningRole, registerButton);
+
         login->setCentralWidget(centralwidget);
         menubar = new QMenuBar(login);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -97,6 +103,7 @@ public:
         label_2->setText(QCoreApplication::translate("login", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">ID</span></p></body></html>", nullptr));
         label_3->setText(QCoreApplication::translate("login", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Password</span></p></body></html>", nullptr));
         loginButton->setText(QCoreApplication::translate("login", "Login", nullptr));
+        registerButton->setText(QCoreApplication::translate("login", "Register", nullptr));
     } // retranslateUi
 
 };
