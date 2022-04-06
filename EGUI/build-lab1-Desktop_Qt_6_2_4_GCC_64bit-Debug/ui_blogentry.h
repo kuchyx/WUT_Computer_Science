@@ -30,6 +30,7 @@ public:
     QTextEdit *textEdit;
     QPushButton *saveEntry;
     QPushButton *pushButton;
+    QPushButton *editEntryButton;
 
     void setupUi(QWidget *blogEntry)
     {
@@ -61,6 +62,7 @@ public:
 
         saveEntry = new QPushButton(blogEntry);
         saveEntry->setObjectName(QString::fromUtf8("saveEntry"));
+        saveEntry->setFlat(false);
 
         formLayout->setWidget(4, QFormLayout::FieldRole, saveEntry);
 
@@ -68,6 +70,11 @@ public:
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
 
         formLayout->setWidget(5, QFormLayout::FieldRole, pushButton);
+
+        editEntryButton = new QPushButton(blogEntry);
+        editEntryButton->setObjectName(QString::fromUtf8("editEntryButton"));
+
+        formLayout->setWidget(6, QFormLayout::FieldRole, editEntryButton);
 
 
         retranslateUi(blogEntry);
@@ -83,6 +90,7 @@ public:
         dateTime->setText(QCoreApplication::translate("blogEntry", "Date Time", nullptr));
         saveEntry->setText(QCoreApplication::translate("blogEntry", "Save Entry", nullptr));
         pushButton->setText(QCoreApplication::translate("blogEntry", "Remove Entry", nullptr));
+        editEntryButton->setText(QCoreApplication::translate("blogEntry", "Edit Entry", nullptr));
     } // retranslateUi
 
 };
