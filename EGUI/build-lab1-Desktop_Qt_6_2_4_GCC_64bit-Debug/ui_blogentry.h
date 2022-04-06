@@ -36,7 +36,9 @@ public:
     {
         if (blogEntry->objectName().isEmpty())
             blogEntry->setObjectName(QString::fromUtf8("blogEntry"));
-        blogEntry->resize(400, 300);
+        blogEntry->resize(250, 250);
+        blogEntry->setMinimumSize(QSize(0, 250));
+        blogEntry->setMaximumSize(QSize(16777215, 250));
         formLayout = new QFormLayout(blogEntry);
         formLayout->setObjectName(QString::fromUtf8("formLayout"));
         lineEdit = new QLineEdit(blogEntry);

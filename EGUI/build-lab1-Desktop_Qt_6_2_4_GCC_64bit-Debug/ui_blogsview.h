@@ -16,6 +16,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -29,6 +30,9 @@ public:
     QAction *actionExit;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QGridLayout *gridLayout_2;
     QVBoxLayout *blogsLayout;
     QStatusBar *statusbar;
     QMenuBar *menubar;
@@ -48,10 +52,22 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        scrollArea = new QScrollArea(centralwidget);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 780, 539));
+        gridLayout_2 = new QGridLayout(scrollAreaWidgetContents);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         blogsLayout = new QVBoxLayout();
         blogsLayout->setObjectName(QString::fromUtf8("blogsLayout"));
 
-        gridLayout->addLayout(blogsLayout, 0, 0, 1, 1);
+        gridLayout_2->addLayout(blogsLayout, 0, 0, 1, 1);
+
+        scrollArea->setWidget(scrollAreaWidgetContents);
+
+        gridLayout->addWidget(scrollArea, 0, 0, 1, 1);
 
         blogsView->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(blogsView);

@@ -56,10 +56,7 @@ void blogsView::displayBlogEntriesLoop(const QJsonArray &blogEntries)
     for(int i = 0; i < blogEntries.size(); i++)
     {
         QJsonObject entry = (blogEntries.at(i)).toObject();
-        blogEntry *e = new blogEntry();
-        e -> setUserId(userId);
-        e -> setUpBlogEntryFromJson(entry);
-        ui -> blogsLayout -> addWidget(e);
+        createNewBlogEntry();
     }
 }
 
@@ -70,15 +67,7 @@ void blogsView::displayBlogEntries()
     qDebug() << blogId;
     qDebug() << userBlog["blogId"].toString();
     QJsonArray blogEntries = userBlog["items"].toArray();
-    qDebug() << blogEntries.size();
-    for(int i = 0; i < blogEntries.size(); i++)
-    {
-        QJsonObject entry = (blogEntries.at(i)).toObject();
-        blogEntry *e = new blogEntry();
-        e -> setUserId(userId);
-        e -> setUpBlogEntryFromJson(entry);
-        ui -> blogsLayout -> addWidget(e);
-    }
+    displayBlogEntriesLoop(blogEntries);
 
 }
 
