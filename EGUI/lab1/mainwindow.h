@@ -5,6 +5,7 @@
 // We can add more functionality using #include <Q...>
 #include <QJsonObject>
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; } // we are saying that we want to use standard ui namespace
 // tied to our UI file "mainwindow.ui"
@@ -24,24 +25,18 @@ public:
     MainWindow(QWidget *parent = nullptr); // constructor, we pass nullptr so no parents
     // (top-level widget)
     ~MainWindow(); // destructor, free resources
-    void newDocument();
-    void open();
 
 private slots:
 
-    void saveRegisteredUser(QJsonObject &users, QJsonObject &blogs) const;
-
-    void on_pushButton_clicked();
-    void saveJsonFile(QJsonObject &users, const QString name) const;
-    QJsonObject readJsonFile(const QString title);
-    void thisIdIsTaken() const;
-    void thisIdIsEmpty() const;
-    void thisBlogIdIsTaken() const;
-
-    void on_loginButton_clicked();
-    void goToLogin();
 
 private:
+    void newDocument();
+    void open();
+    void saveRegisteredUser() const;
+    void goToLogin();
+    void defineConnections() const;
+    void test();
+    void exit();
     Ui::MainWindow *ui; // we point to ui class "mainwindow.ui"
     QString currentFile = ""; // current file we work with
 };

@@ -10,11 +10,13 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -24,6 +26,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionExit;
+    QAction *actionLogin;
     QWidget *centralwidget;
     QFormLayout *formLayout;
     QLabel *label;
@@ -40,12 +44,17 @@ public:
     QLineEdit *inputBlogID;
     QLabel *label_6;
     QMenuBar *menubar;
+    QMenu *menuApp;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
+        actionExit = new QAction(MainWindow);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        actionLogin = new QAction(MainWindow);
+        actionLogin->setObjectName(QString::fromUtf8("actionLogin"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         formLayout = new QFormLayout(centralwidget);
@@ -120,7 +129,13 @@ public:
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 19));
+        menuApp = new QMenu(menubar);
+        menuApp->setObjectName(QString::fromUtf8("menuApp"));
         MainWindow->setMenuBar(menubar);
+
+        menubar->addAction(menuApp->menuAction());
+        menuApp->addAction(actionExit);
+        menuApp->addAction(actionLogin);
 
         retranslateUi(MainWindow);
 
@@ -130,6 +145,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        actionExit->setText(QCoreApplication::translate("MainWindow", "Exit", nullptr));
+        actionLogin->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Register</span></p></body></html>", nullptr));
 #if QT_CONFIG(tooltip)
         inputId->setToolTip(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:48pt;\">Input ID</span></p></body></html>", nullptr));
@@ -154,6 +171,7 @@ public:
         loginButton->setText(QCoreApplication::translate("MainWindow", "Already Registered? Click here to Login!", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">Blog Title</span></p></body></html>", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:28pt;\">Blog ID</span></p></body></html>", nullptr));
+        menuApp->setTitle(QCoreApplication::translate("MainWindow", "App", nullptr));
     } // retranslateUi
 
 };

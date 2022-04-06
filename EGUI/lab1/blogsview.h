@@ -25,6 +25,9 @@ private slots:
     void displayBlogEntries();
 
 
+    void on_actionExit_triggered();
+        void exit();
+
 private:
     Ui::blogsView *ui;
     QString userId;

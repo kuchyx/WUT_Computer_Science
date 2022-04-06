@@ -13,13 +13,15 @@ SOURCES += \
     blogsview.cpp \
     login.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    universalFunctions.cpp
 
 HEADERS += \
     blogentry.h \
     blogsview.h \
     login.h \
-    mainwindow.h
+    mainwindow.h \
+    universalFunctions.h
 
 FORMS += \
     blogentry.ui \

@@ -1,9 +1,14 @@
-#include "mainwindow.h" // header file included, header files for the Notepad widget
 
+#include "mainwindow.h" // header file included, header files for the Notepad widget
+#include "universalFunctions.h"
 #include <QApplication> // handle widgets, events, mouse movement, feel of window,
 // header files for QApplication
 #include <QLocale>
 #include <QTranslator>
+#include <QFile>
+#include <QJsonDocument>
+
+
 
 // main function that is the entry point for all C and C++ based applications:
 int main(int argc, char *argv[]) // all exectution begins here

@@ -33,6 +33,7 @@ private slots:
     void editEntry();
     void saveEditedEntry();
 
+
 private:
     Ui::blogEntry *ui;
     QString userId;

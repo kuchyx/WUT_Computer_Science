@@ -20,6 +20,7 @@
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="statusbar"/>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
@@ -34,25 +35,24 @@
      <string>Blogs</string>
     </property>
     <addaction name="actionCreate_new_Blog_entry"/>
-    <addaction name="actionDelete_blog_entry"/>
-    <addaction name="actionEdit_blog_entry"/>
+   </widget>
+   <widget class="QMenu" name="menuExit">
+    <property name="title">
+     <string>App</string>
+    </property>
+    <addaction name="actionExit"/>
    </widget>
    <addaction name="menuManageBlogEntires"/>
+   <addaction name="menuExit"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCreate_new_Blog_entry">
    <property name="text">
     <string>Create blog entry</string>
    </property>
   </action>
-  <action name="actionDelete_blog_entry">
+  <action name="actionExit">
    <property name="text">
-    <string>Delete blog entry</string>
-   </property>
-  </action>
-  <action name="actionEdit_blog_entry">
-   <property name="text">
-    <string>Edit blog entry</string>
+    <string>Exit</string>
    </property>
   </action>
  </widget>

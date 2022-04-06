@@ -26,14 +26,14 @@ class Ui_blogsView
 {
 public:
     QAction *actionCreate_new_Blog_entry;
-    QAction *actionDelete_blog_entry;
-    QAction *actionEdit_blog_entry;
+    QAction *actionExit;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QVBoxLayout *blogsLayout;
+    QStatusBar *statusbar;
     QMenuBar *menubar;
     QMenu *menuManageBlogEntires;
-    QStatusBar *statusbar;
+    QMenu *menuExit;
 
     void setupUi(QMainWindow *blogsView)
     {
@@ -42,10 +42,8 @@ public:
         blogsView->resize(800, 600);
         actionCreate_new_Blog_entry = new QAction(blogsView);
         actionCreate_new_Blog_entry->setObjectName(QString::fromUtf8("actionCreate_new_Blog_entry"));
-        actionDelete_blog_entry = new QAction(blogsView);
-        actionDelete_blog_entry->setObjectName(QString::fromUtf8("actionDelete_blog_entry"));
-        actionEdit_blog_entry = new QAction(blogsView);
-        actionEdit_blog_entry->setObjectName(QString::fromUtf8("actionEdit_blog_entry"));
+        actionExit = new QAction(blogsView);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
         centralwidget = new QWidget(blogsView);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         gridLayout = new QGridLayout(centralwidget);
@@ -56,20 +54,22 @@ public:
         gridLayout->addLayout(blogsLayout, 0, 0, 1, 1);
 
         blogsView->setCentralWidget(centralwidget);
+        statusbar = new QStatusBar(blogsView);
+        statusbar->setObjectName(QString::fromUtf8("statusbar"));
+        blogsView->setStatusBar(statusbar);
         menubar = new QMenuBar(blogsView);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 19));
         menuManageBlogEntires = new QMenu(menubar);
         menuManageBlogEntires->setObjectName(QString::fromUtf8("menuManageBlogEntires"));
+        menuExit = new QMenu(menubar);
+        menuExit->setObjectName(QString::fromUtf8("menuExit"));
         blogsView->setMenuBar(menubar);
-        statusbar = new QStatusBar(blogsView);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
-        blogsView->setStatusBar(statusbar);
 
         menubar->addAction(menuManageBlogEntires->menuAction());
+        menubar->addAction(menuExit->menuAction());
         menuManageBlogEntires->addAction(actionCreate_new_Blog_entry);
-        menuManageBlogEntires->addAction(actionDelete_blog_entry);
-        menuManageBlogEntires->addAction(actionEdit_blog_entry);
+        menuExit->addAction(actionExit);
 
         retranslateUi(blogsView);
 
@@ -80,9 +80,9 @@ public:
     {
         blogsView->setWindowTitle(QCoreApplication::translate("blogsView", "MainWindow", nullptr));
         actionCreate_new_Blog_entry->setText(QCoreApplication::translate("blogsView", "Create blog entry", nullptr));
-        actionDelete_blog_entry->setText(QCoreApplication::translate("blogsView", "Delete blog entry", nullptr));
-        actionEdit_blog_entry->setText(QCoreApplication::translate("blogsView", "Edit blog entry", nullptr));
+        actionExit->setText(QCoreApplication::translate("blogsView", "Exit", nullptr));
         menuManageBlogEntires->setTitle(QCoreApplication::translate("blogsView", "Blogs", nullptr));
+        menuExit->setTitle(QCoreApplication::translate("blogsView", "App", nullptr));
     } // retranslateUi
 
 };
