@@ -10,11 +10,13 @@
 #define UI_LOGIN_H
 
 #include <QtCore/QVariant>
+#include <QtGui/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
@@ -25,6 +27,9 @@ QT_BEGIN_NAMESPACE
 class Ui_login
 {
 public:
+    QAction *actionExit;
+    QAction *actionLogin;
+    QAction *actionRegister;
     QWidget *centralwidget;
     QFormLayout *formLayout;
     QLabel *label;
@@ -35,6 +40,7 @@ public:
     QPushButton *loginButton;
     QPushButton *registerButton;
     QMenuBar *menubar;
+    QMenu *menuApp;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *login)
@@ -42,6 +48,12 @@ public:
         if (login->objectName().isEmpty())
             login->setObjectName(QString::fromUtf8("login"));
         login->resize(800, 600);
+        actionExit = new QAction(login);
+        actionExit->setObjectName(QString::fromUtf8("actionExit"));
+        actionLogin = new QAction(login);
+        actionLogin->setObjectName(QString::fromUtf8("actionLogin"));
+        actionRegister = new QAction(login);
+        actionRegister->setObjectName(QString::fromUtf8("actionRegister"));
         centralwidget = new QWidget(login);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         formLayout = new QFormLayout(centralwidget);
@@ -86,10 +98,17 @@ public:
         menubar = new QMenuBar(login);
         menubar->setObjectName(QString::fromUtf8("menubar"));
         menubar->setGeometry(QRect(0, 0, 800, 19));
+        menuApp = new QMenu(menubar);
+        menuApp->setObjectName(QString::fromUtf8("menuApp"));
         login->setMenuBar(menubar);
         statusbar = new QStatusBar(login);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         login->setStatusBar(statusbar);
+
+        menubar->addAction(menuApp->menuAction());
+        menuApp->addAction(actionExit);
+        menuApp->addAction(actionLogin);
+        menuApp->addAction(actionRegister);
 
         retranslateUi(login);
 
@@ -99,11 +118,15 @@ public:
     void retranslateUi(QMainWindow *login)
     {
         login->setWindowTitle(QCoreApplication::translate("login", "MainWindow", nullptr));
+        actionExit->setText(QCoreApplication::translate("login", "Exit", nullptr));
+        actionLogin->setText(QCoreApplication::translate("login", "Login", nullptr));
+        actionRegister->setText(QCoreApplication::translate("login", "Register", nullptr));
         label->setText(QCoreApplication::translate("login", "<html><head/><body><p align=\"center\"><span style=\" font-size:72pt;\">Login</span></p></body></html>", nullptr));
         label_2->setText(QCoreApplication::translate("login", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">ID</span></p></body></html>", nullptr));
         label_3->setText(QCoreApplication::translate("login", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt;\">Password</span></p></body></html>", nullptr));
         loginButton->setText(QCoreApplication::translate("login", "Login", nullptr));
         registerButton->setText(QCoreApplication::translate("login", "Register", nullptr));
+        menuApp->setTitle(QCoreApplication::translate("login", "App", nullptr));
     } // retranslateUi
 
 };

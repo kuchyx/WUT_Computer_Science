@@ -100,11 +100,11 @@ void MainWindow::saveRegisteredUser()
 
     QString id = ui->inputId->text();
     if (stringEmpty(id, "THIS USER ID IS EMPTY!")) return;
-    if (idExists(id, users, "THIS USER ID IS ALREADY TAKEN!")) return;
+    if (idExists(id, users, "THIS USER ID IS ALREADY TAKEN!", true)) return;
 
     QString blogId = ui -> inputBlogID->text();
     if (stringEmpty(blogId, "THIS BLOG ID IS EMPTY!")) return;
-    if (idExists(blogId, blogs, "THIS BLOG ID IS ALREADY TAKEN!")) return;
+    if (idExists(blogId, blogs, "THIS BLOG ID IS ALREADY TAKEN!", true)) return;
 
     registerUser(users, blogs, id, blogId);
 }

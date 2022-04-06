@@ -19,22 +19,34 @@ public:
     ~blogEntry();
     void setUserId(const QString &userId);
     void setBlogId(const QString &blogId);
-    void setUpBlogEntryFromJson(const QJsonObject entry);
+    void setUpBlogEntryFromJson(const QJsonObject &entry);
+
 
 private slots:
-    void on_saveEntry_clicked();
-    void saveEntry();
-    QJsonObject readJsonFile(const QString title);
-    void saveJsonFile(QJsonObject &users, const QString name) const;
-    void removeEntry();
-    void on_pushButton_clicked();
-
-    void on_editEntryButton_clicked();
-    void editEntry();
-    void saveEditedEntry();
-
 
 private:
+    void removeEntry();
+    void enableEdition();
+    void disableEdition();
+    void saveEntryMethod();
+    void enableEditing();
+    void editEntry();
+    void saveEditedEntry();
+    void defineConnections() const;
+    void editEntryClicked();
+    void saveEntry(QJsonObject &blogEntryJson, QJsonObject &blogsFile);
+    void saveItemToBlogEntryToBlogsFile(QJsonArray &items, QJsonObject &blogEntryJson, QJsonObject &blogsFile);
+    void fillEntry(const QJsonObject &entry);
+
+    int findEntry(const QJsonArray &items);
+
+    QJsonArray removeEntryFromArray(const QJsonObject &blogEntryJson);
+    QJsonArray addEdit(const QJsonObject &blogEntryJson);
+    QJsonArray getItemsList();
+
+    QJsonObject setDateTime(QJsonObject &entry);
+    QJsonObject setEntry();
+
     Ui::blogEntry *ui;
     QString userId;
     QString blogId;

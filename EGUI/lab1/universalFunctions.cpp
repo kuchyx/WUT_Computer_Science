@@ -52,15 +52,25 @@ bool stringEmpty(const QString &string, const QString &messageBoxMessage)
     return false;
 }
 
-bool idExists(const QString &id, const QJsonObject &json, const QString &message)
+bool idExists(const QString &id, const QJsonObject &json, const QString &message, const bool &whenMessage)
 {
-    qDebug() << id;
     if (json.find(id) != json.end())
     {
-        outputMessageBox(message);
+        if (whenMessage) outputMessageBox(message);
         return true;
     }
+    if (!whenMessage) outputMessageBox(message);
     return false;
+}
+
+bool sameString(const QString &stringToCompare, const QString &jsonId, const QJsonObject &json, const QString &message)
+{
+    if(json[jsonId].toString() != stringToCompare)
+    {
+        outputMessageBox(message);
+        return false;
+    }
+    return true;
 }
 
 #endif

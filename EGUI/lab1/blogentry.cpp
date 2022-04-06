@@ -1,5 +1,6 @@
 #include "blogentry.h"
 #include "ui_blogentry.h"
+#include "universalFunctions.h"
 #include <QDateTime>
 #include <QJsonObject>
 #include <QFile>
@@ -13,21 +14,44 @@ blogEntry::blogEntry(QWidget *parent) :
     editMode = false;
     ui->setupUi(this);
     ui -> editEntryButton -> setDisabled(true);
-
+    defineConnections();
 }
 
-void blogEntry::setUpBlogEntryFromJson(const QJsonObject entry)
+
+void blogEntry::disableEdition()
 {
-    dateTime = entry["datetime"].toString();
-    ui -> lineEdit-> setText(entry["title"].toString());
+    ui -> textEdit -> setReadOnly(true);
+    ui -> lineEdit -> setReadOnly(true);
+}
+
+void blogEntry::enableEdition()
+{
+    ui -> textEdit -> setReadOnly(false);
+    ui -> lineEdit -> setReadOnly(false);
+}
+
+
+void blogEntry::defineConnections() const
+{
+    connect(ui -> pushButton, &QPushButton::clicked, this, &blogEntry::removeEntry);
+    connect(ui -> editEntryButton, &QPushButton::clicked, this, &blogEntry::editEntryClicked);
+    connect(ui -> saveEntry, &QPushButton::clicked, this, &blogEntry::saveEntryMethod);
+}
+
+void blogEntry::fillEntry(const QJsonObject &entry)
+{
+    ui -> lineEdit -> setText(entry["title"].toString());
     ui -> textEdit -> setText(entry["content"].toString());
     ui -> dateTime -> setText(entry["datetime"].toString());
     ui -> ownerID -> setText("Owner ID: " + userId);
-    ui -> textEdit -> setReadOnly(true);
-    ui -> lineEdit -> setReadOnly(true);
-    ui -> saveEntry -> setDisabled(true);
-    ui -> editEntryButton -> setDisabled(false);
+}
 
+void blogEntry::setUpBlogEntryFromJson(const QJsonObject &entry)
+{
+    dateTime = entry["datetime"].toString();
+    fillEntry(entry);
+    disableEdition();
+    enableEditing();
 }
 
 blogEntry::~blogEntry()
@@ -47,113 +71,98 @@ void blogEntry::setBlogId(const QString &blogId)
     this->blogId = blogId;
 }
 
-
-QJsonObject blogEntry::readJsonFile(const QString title)
+QJsonObject blogEntry::setDateTime(QJsonObject &entry)
 {
-    QFile file(title);
-    file.open( QIODevice::ReadWrite);
-    QByteArray bytes = file.readAll();
-    file.close();
-    QJsonDocument document = QJsonDocument::fromJson( bytes );
-    return document.object();
-}
-
-void blogEntry::saveJsonFile(QJsonObject &users, const QString name) const
-{
-    QFile jsonFile(name);
-    QJsonDocument document;
-    document.setObject( users );
-    QByteArray bytes = document.toJson( QJsonDocument::Indented );
-    jsonFile.open( QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate );
-    QTextStream iStream( &jsonFile );
-    // iStream.setCodec( "utf-8" );
-    iStream << bytes;
-    jsonFile.close();
-}
-
-
-void blogEntry::saveEntry()
-{
-
-    ui -> textEdit -> setReadOnly(true);
-    ui -> lineEdit -> setReadOnly(true);
-    QJsonObject blogsFile = readJsonFile("blogs.json");
-    QJsonObject blogEntryJson = blogsFile[blogId].toObject();
-    QJsonObject entry;
-    entry["title"] = ui -> lineEdit -> text();
     QString Time = QTime::currentTime().toString();
     QString Date = QDate::currentDate().toString();
     entry["datetime"] = Time + " " + Date;
     dateTime = Time + " " + Date;
     ui -> dateTime -> setText( Time + " " + Date);
-    entry["content"] = ui -> textEdit -> toPlainText();
-    QJsonArray items = blogEntryJson["items"].toArray();
-    items.append(entry);
-    blogEntryJson.insert("items", items);
-    blogsFile.insert(blogId, blogEntryJson);
-    saveJsonFile(blogsFile, "blogs.json");
+    return entry;
+}
+
+void blogEntry::enableEditing()
+{
     ui -> saveEntry -> setDisabled(true);
     ui -> editEntryButton -> setDisabled(false);
+}
 
+QJsonObject blogEntry::setEntry()
+{
+    QJsonObject entry;
+    entry["title"] = ui -> lineEdit -> text();
+
+    entry = setDateTime(entry);
+
+    entry["content"] = ui -> textEdit -> toPlainText();
+    return entry;
+}
+
+void blogEntry::saveEntryMethod()
+{
+    disableEdition();
+
+    QJsonObject blogsFile = readJsonFile("blogs.json");
+    QJsonObject blogEntryJson = blogsFile[blogId].toObject();
+    QJsonObject entry = setEntry();
+
+    QJsonArray items = blogEntryJson["items"].toArray();
+    items.append(entry);
+    saveItemToBlogEntryToBlogsFile(items, blogEntryJson, blogsFile);
+    enableEditing();
+}
+
+int blogEntry::findEntry(const QJsonArray &items)
+{
+    int i = 0;
+    for(i = 0; i < items.size(); i++)
+    {
+        QJsonObject currentItem = items[i].toObject();
+        if(currentItem["datetime"].toString() == dateTime)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+QJsonArray blogEntry::removeEntryFromArray(const QJsonObject &blogEntryJson)
+{
+
+    QJsonArray items = blogEntryJson["items"].toArray();
+    int entryI = findEntry(items);
+    if(entryI == -1)
+    {
+        return items;
+    }
+    items.removeAt(entryI);
+    return items;
 }
 
 void blogEntry::removeEntry()
 {
     QJsonObject blogsFile = readJsonFile("blogs.json");
     QJsonObject blogEntryJson = blogsFile[blogId].toObject();
-    QJsonArray items = blogEntryJson["items"].toArray();
-    for(int i = 0; i < items.size(); i++)
-    {
-        QJsonObject currentItem = items[i].toObject();
-        qDebug() << currentItem["datetime"].toString();
-        qDebug() << ui -> dateTime -> text();
-        if(currentItem["datetime"].toString() == dateTime)
-        {
-            items.removeAt(i);
-            break;
-        }
-    }
-    blogEntryJson.insert("items", items);
-    blogsFile.insert(blogId, blogEntryJson);
-    saveJsonFile(blogsFile, "blogs.json");
+    QJsonArray items = removeEntryFromArray(blogEntryJson);
+    saveItemToBlogEntryToBlogsFile(items, blogEntryJson, blogsFile);
     this -> ~blogEntry();
 }
 
 void blogEntry::editEntry()
 {
     editMode = true;
-    ui -> textEdit -> setReadOnly(false);
-    ui -> lineEdit -> setReadOnly(false);
+    enableEdition();
     ui -> saveEntry -> setDisabled(true);
     ui -> editEntryButton -> setText("Save edit");
 }
 
-void blogEntry::on_saveEntry_clicked()
+QJsonArray blogEntry::addEdit(const QJsonObject &blogEntryJson)
 {
-    saveEntry();
-}
-
-
-void blogEntry::on_pushButton_clicked()
-{
-    removeEntry();
-}
-
-void blogEntry::saveEditedEntry()
-{
-    ui -> textEdit -> setReadOnly(true);
-    ui -> lineEdit -> setReadOnly(true);
-    editMode = false;
-    ui -> editEntryButton -> setText("Edit Entry");
-    QJsonObject blogsFile = readJsonFile("blogs.json");
-    QJsonObject blogEntryJson = blogsFile[blogId].toObject();
     QJsonArray items = blogEntryJson["items"].toArray();
 
     for(int i = 0; i < items.size(); i++)
     {
         QJsonObject currentItem = items[i].toObject();
-        qDebug() << currentItem["datetime"].toString();
-        qDebug() << ui -> dateTime -> text();
         if(currentItem["datetime"].toString() == dateTime)
         {
             currentItem["title"] = ui -> lineEdit -> text();
@@ -163,13 +172,34 @@ void blogEntry::saveEditedEntry()
             break;
         }
     }
+    return items;
+}
 
+void blogEntry::saveItemToBlogEntryToBlogsFile(QJsonArray &items, QJsonObject &blogEntryJson, QJsonObject &blogsFile)
+{
     blogEntryJson.insert("items", items);
     blogsFile.insert(blogId, blogEntryJson);
     saveJsonFile(blogsFile, "blogs.json");
 }
 
-void blogEntry::on_editEntryButton_clicked()
+void blogEntry::saveEntry(QJsonObject &blogEntryJson, QJsonObject &blogsFile)
+{
+    QJsonArray items = addEdit(blogEntryJson);
+    saveItemToBlogEntryToBlogsFile(items, blogEntryJson, blogsFile);
+}
+
+void blogEntry::saveEditedEntry()
+{
+    disableEdition();
+    editMode = false;
+    ui -> editEntryButton -> setText("Edit Entry");
+    QJsonObject blogsFile = readJsonFile("blogs.json");
+    QJsonObject blogEntryJson = blogsFile[blogId].toObject();
+    saveEntry(blogEntryJson, blogsFile);
+
+}
+
+void blogEntry::editEntryClicked()
 {
     if(!editMode) editEntry();
     else saveEditedEntry();

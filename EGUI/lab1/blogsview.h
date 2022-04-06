@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+
 namespace Ui {
 class blogsView;
 }
@@ -14,21 +15,17 @@ class blogsView : public QMainWindow
 public:
     explicit blogsView(QWidget *parent = nullptr);
     ~blogsView();
-    void createNewBlogEntry();
     void setUserId(const QString &userId);
-    QJsonObject readJsonFile(const QString title);
-    void saveJsonFile(QJsonObject &users, const QString name) const;
     void setBlogId(const QString &blogId);
 
 private slots:
-    void on_actionCreate_new_Blog_entry_triggered();
     void displayBlogEntries();
-
-
-    void on_actionExit_triggered();
-        void exit();
+    void exit();
 
 private:
+    void defineConnections() const;
+    void displayBlogEntriesLoop(const QJsonArray &blogEntries);
+    void createNewBlogEntry();
     Ui::blogsView *ui;
     QString userId;
     QString blogId;

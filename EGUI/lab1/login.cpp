@@ -45,23 +45,9 @@ void login::goRegister()
     hide();
 }
 
-void login::thisIDDoesNotExist()
-{
-    QMessageBox idNotExisting;
-    idNotExisting.setText("THIS ID DOES NOT EXIST!");
-    idNotExisting.exec();
-}
-
-void login::wrongPassword()
-{
-    QMessageBox wrongPassword;
-    wrongPassword.setText("WRONG PASSWORD!");
-    wrongPassword.exec();
-}
-
 void login::loginSuccessful(const QString &id, const QString &blogId)
 {
-    qDebug() << "login id: " << id;
+    qDebug() << "blog id: " << blogId;
     blogsView *b = new blogsView();
     b -> setUserId(id);
     b -> setBlogId(blogId);
@@ -69,31 +55,37 @@ void login::loginSuccessful(const QString &id, const QString &blogId)
     hide();
 }
 
+QString login::findCurrentBlogId(const QJsonObject &blogs, const QString &id)
+{
+    QString currentBlogId = "";
+    QStringList keys = blogs.keys();
+    for(int i = 0; i < keys.size(); i++)
+    {
+        QJsonObject currentBlog = blogs[keys.at(i)].toObject();
+        if(currentBlog["ownerId"] == id)
+        {
+            currentBlogId = (currentBlog.take("blogId")).toString();
+            return currentBlogId;
+            break;
+        }
+    }
+    return "";
+}
+
 
 void login::loginUser()
 {
     QJsonObject users = readJsonFile("user.json");
     QJsonObject blogs = readJsonFile("blogs.json");
+
     QString id = ui->inputLoginID_2->text();
-    if(users.find(id) != users.end())
-    {
-        QJsonValue user = users.take(id);
-        QString enteredPassword = ui->inputPassword->text();
-        QString currentBlogId;
-        if (user["password"] == enteredPassword)
-        {
-            QStringList keys = blogs.keys();
-            for(int i = 0; i <= keys.size(); i++)
-            {
-                QJsonObject currentBlog = blogs[keys.at(i)].toObject();
-                if(currentBlog["ownerId"] == id)
-                {
-                    currentBlogId = (currentBlog.take("blogId")).toString();
-                    break;
-                }
-            }
-            qDebug() << "Current blog id: " << currentBlogId;
-            loginSuccessful(id, currentBlogId);
-        }else wrongPassword();
-    }else thisIDDoesNotExist();
+    if (!idExists(id, users, "THIS USER ID DOES NOT EXIST!", false)) return;
+    QString enteredPassword = ui->inputPassword->text();
+    if (!sameString(enteredPassword, "password", users, "WRONG PASSWORD!")) return;
+
+
+    QString currentBlogId = findCurrentBlogId(blogs, id);
+    if (stringEmpty(currentBlogId, "COULD NOT FOUND BLOG ID FOR THIS LOGIN \n SOMETHING WENT TERRIBLY WRONG WITH JSON FILE!")) return;
+
+    loginSuccessful(id, currentBlogId);
 }
