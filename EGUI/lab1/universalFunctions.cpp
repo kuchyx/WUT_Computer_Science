@@ -10,7 +10,7 @@
 QJsonObject readJsonFile(const QString title)
 {
     QFile file(title);
-    file.open(QIODevice::ReadWrite);
+    file.open(QIODevice::ReadWrite); // If the file does not exist we create it
     QByteArray bytes = file.readAll();
     file.close();
     QJsonDocument document = QJsonDocument::fromJson( bytes );
@@ -42,5 +42,25 @@ void exit()
     QApplication::quit();
 }
 
+bool stringEmpty(const QString &string, const QString &messageBoxMessage)
+{
+    if(string == "")
+    {
+        outputMessageBox(messageBoxMessage);
+        return true;
+    }
+    return false;
+}
+
+bool idExists(const QString &id, const QJsonObject &json, const QString &message)
+{
+    qDebug() << id;
+    if (json.find(id) != json.end())
+    {
+        outputMessageBox(message);
+        return true;
+    }
+    return false;
+}
 
 #endif

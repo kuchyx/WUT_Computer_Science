@@ -28,7 +28,7 @@ void MainWindow::defineConnections() const
     connect(ui -> actionLogin, &QAction::triggered, this, &MainWindow::goToLogin);
 }
 
-void MainWindow::exit()
+void MainWindow::exit() const
 {
     QApplication::quit();
 }
@@ -38,46 +38,75 @@ MainWindow::~MainWindow()
     delete ui; // in the destructor, we delete the ui
 }
 
-void MainWindow::saveRegisteredUser() const
+QJsonObject MainWindow::createUserObject(const QString &mail, const QString &password, const QString &userId) const
+{
+    QJsonObject user;
+    user["userId"] = userId;
+    // userId - unique user id - text obtained from the user during user registration
+    user["email"] = mail;
+    // email - e-mail address of the user
+    user["password"] = password;
+    // password - password provided by the user
+    return user;
+}
+
+QJsonObject MainWindow::insertUserObject(QJsonObject &users, const QString &id)
+{
+    QString mail = ui->inputMail->text();
+    QString password = ui->inputPassword->text();
+    QJsonObject user = createUserObject(mail, password, id);
+    users.insert(id, user);
+    return users;
+}
+
+QJsonObject MainWindow::createBlogObject(const QString &id, const QString &ownerId) const
+{
+    QJsonObject blog;
+    blog["blogId"] = id;
+    QString title = ui -> inputBlogTitle -> text();
+    blog["title"] = title;
+    blog["ownerId"] = ownerId;
+    QJsonArray items;
+    blog["items"] = items;
+    return blog;
+}
+
+
+QJsonObject MainWindow::insertBlogObject(QJsonObject &blogs, const QString &blogId, const QString &ownerId)
+{
+    QJsonObject blog = createBlogObject(blogId, ownerId);
+    blogs.insert(blogId, blog);
+    return blogs;
+}
+
+
+void MainWindow::saveFiles(QJsonObject &users, QJsonObject &blogs)
+{
+    saveJsonFile(blogs, "blogs.json");
+    saveJsonFile(users, "user.json");
+}
+
+void MainWindow::registerUser(QJsonObject &users, QJsonObject &blogs, const QString &id, const QString &blogId)
+{
+    users = insertUserObject(users, id);
+    blogs = insertBlogObject(blogs, blogId, id);
+    saveFiles(users, blogs);
+}
+
+void MainWindow::saveRegisteredUser()
 {
     QJsonObject blogs = readJsonFile("blogs.json");
     QJsonObject users = readJsonFile("user.json");
+
     QString id = ui->inputId->text();
-    if(id == "")
-    {
-        outputMessageBox("THIS ID IS EMPTY!");
-        return;
-    }
-    if(users.find(id) == users.end())
-    {
-        QString mail = ui->inputMail->text();
-        QString password = ui->inputPassword->text();
-        qDebug() << mail << " " << password;
-        QJsonObject user;
-        user["userId"] = id;
-        user["email"] = mail;
-        user["password"]=password;
-        users.insert(id, user);
-        /*
-        userId - unique user id - text obtained from the user during user registration
-        email - e-mail address of the user
-        password - password provided by the user
-        */
-        QJsonObject blog;
-        QString blogTitle = ui -> inputBlogTitle->text();
-        QString blogId = ui -> inputBlogID->text();
-        if(blogs.find(blogId) == blogs.end())
-        {
-            blog["ownerId"] = id;
-            blog["title"] = blogTitle;
-            blog["blogId"] = blogId;
-            QJsonArray items;
-            blog["items"] = items;
-            blogs.insert(blogId, blog);
-            saveJsonFile(blogs, "blogs.json");
-            saveJsonFile(users, "user.json");
-        }else outputMessageBox("THIS BLOG ID IS ALREADY TAKEN!");
-    }else outputMessageBox("THIS ID IS ALREADY TAKEN!");
+    if (stringEmpty(id, "THIS USER ID IS EMPTY!")) return;
+    if (idExists(id, users, "THIS USER ID IS ALREADY TAKEN!")) return;
+
+    QString blogId = ui -> inputBlogID->text();
+    if (stringEmpty(blogId, "THIS BLOG ID IS EMPTY!")) return;
+    if (idExists(blogId, blogs, "THIS BLOG ID IS ALREADY TAKEN!")) return;
+
+    registerUser(users, blogs, id, blogId);
 }
 
 void MainWindow::goToLogin()
@@ -87,9 +116,6 @@ void MainWindow::goToLogin()
     hide();
 }
 
-void MainWindow::test()
-{
-    qDebug() << "pls work";
-}
+
 
 

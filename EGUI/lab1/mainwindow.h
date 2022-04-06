@@ -30,14 +30,21 @@ private slots:
 
 
 private:
-    void newDocument();
-    void open();
-    void saveRegisteredUser() const;
+    void newDocument() const;
+    void open() const;
+    void saveRegisteredUser();
     void goToLogin();
     void defineConnections() const;
-    void test();
-    void exit();
+    void registerUser(QJsonObject &users, QJsonObject &blogs, const QString &blogId, const QString &id);
+    QJsonObject createUserObject(const QString &mail, const QString &password, const QString &userId) const;
+    QJsonObject createBlogObject(const QString &id, const QString &ownerId) const;
+    void exit() const;
+    QJsonObject insertUserObject(QJsonObject &users, const QString &id);
+    void saveFiles(QJsonObject &users, QJsonObject &blogs);
+    QJsonObject insertBlogObject(QJsonObject &blogs, const QString &blogId, const QString &ownerId);
     Ui::MainWindow *ui; // we point to ui class "mainwindow.ui"
     QString currentFile = ""; // current file we work with
+
+
 };
 #endif // MAINWINDOW_H
