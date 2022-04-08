@@ -3,7 +3,6 @@
 # simple version
 
 # the name of the script without a path
-name=`basename $0`
 
 help()
 {
@@ -26,6 +25,15 @@ uppercase()
                 error_msg "missing filename for -u"
                 exit 1
         fi
+	if test -f "$1"
+        then
+                if test -d "$1"
+                then
+                        error_msg "$1 is neither a file nor folder"
+                        exit 3
+                fi
+        fi
+
 	mv "$1" $(echo "$1" | sed -r -e 's/.*/\U&/');
 
 		
@@ -62,8 +70,15 @@ sneed()
 		error_msg "missing sed filename"
 		exit 2
 	fi
-	echo "$1"
-	echo $1
+    	if test -f "$2"
+        then
+                if test -d "$2"
+                then
+                        error_msg "$2 is neither a file nor folder"
+                        exit 3
+                fi
+        fi
+
 	mv "$2" $(echo "$2" | sed $1)
 }
 
@@ -80,24 +95,30 @@ recursionSneed()
 		error_msg "missing sed filename"
 		exit 2
 	fi
-	
-	if test -d "$2"
-        then
-        sneed "$1" "$2"
-        cd "$2"
-        for file in *
+
+	if test -f "$2"
+	then
+		if test -d "$2"
+		then
+			error_msg "$2 is neither a file or folder"
+			exit 3
+		fi
+	fi
+	filename="$2"
+	sneed "$1" "$filename" 
+	filename="$(echo "$filename" | sed $1)"
+	echo $filename
+        for item in "$filename"/*
         do
-                recursionSneed "$1" "$file"
+                if test -d "$item"
+                then
+                        recursionSneed "$1" "$item"
+                fi
+                if test -f "$item"
+                then
+                        sneed "$1" "$item" 
+                fi
         done
-        fi
-
-        if test -f "$2"
-        then
-        sneed "$1" "$2"
-        fi
-
-
-
 }
 
 recursionLowercase()
@@ -120,7 +141,7 @@ recursionLowercase()
 recursionUppercase()
 {
 	uppercase "$1"
-        set "$(echo "$1" | sed -r -e 's/.*/\L&/')"
+        set "$(echo "$1" | sed -r -e 's/.*/\U&/')"
         for item in "$1"/*
         do
                 if test -d "$item"
@@ -158,7 +179,6 @@ error_msg()
         echo "$name: error: $1" 1>&2 
 }
 
-# function for servicing -w option
 
 
 # if no arguments given
@@ -169,17 +189,13 @@ fi
 
 
 # do with command line arguments
-while test "x$1" != "x"
-do
-        case "$1" in
-                -h|--help) help;;
-                -l|--lowercase) lowercase "$2";;
-		-r|--recursion) recursion "$2" "$3" ;;
-		-u|--upercase) uppercase "$2";;
-		*) sneed "$1" "$2" ;;
-        esac
-        shift
-done
+case "$1" in
+	-h|--help) help;;
+	-l|--lowercase) lowercase "$2";;
+	-r|--recursion) recursion "$2" "$3" ;;
+	-u|--upercase) uppercase "$2";;
+	*) sneed "$1" "$2" ;;
+esac
 
 
 
