@@ -62,7 +62,7 @@ echo "Lowercasing folder recursively"
 echo "Main folder name: LOWERFOLDERMAIN"
 echo "folder contains: folder named LOWERFOLDERSUB , file named LOWERFILESUB"
 echo "subfolder LOWERFOLDERSUB contains file named LOWERFILESUBSUB"
-bash ./modify.sh -r -l LOWERFOLDERMAIN
+bash ./modify.sh -r -l SEDLOWERCASEFOLDERMAIN
 echo "using sed pattern for Lowercasing folder recursively"
 echo "Main folder name: SEDLOWERFOLDERMAIN"
 echo "folder contains: folder named SEDLOWERFOLDERSUB , file named SEDLOWERFILESUB"
