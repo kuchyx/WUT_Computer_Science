@@ -4,6 +4,8 @@
 
 # the name of the script without a path
 
+name=`basename $0`
+
 help()
 {
 	echo "-l <dir/file names...> -> lowerize file/folder name"
@@ -19,6 +21,12 @@ help()
 
 uppercase()
 {
+	if test "$1" = $name
+	then
+		error_msg "you cannot modify name of this script!"
+		exit 3
+	fi
+
 
         if test -z "$1"
         then
@@ -42,6 +50,11 @@ uppercase()
 
 lowercase()
 {
+	if test "$1" = $name
+        then
+                error_msg "you cannot modify name of this script!"
+                exit 3
+        fi
 	if test -z "$1"
 	then
 		error_msg "missing filename for -l"
@@ -60,6 +73,11 @@ lowercase()
 
 sneed()
 {
+	if test "$2" = $name
+        then
+                error_msg "you cannot modify name of this script!"
+                exit 3
+        fi
 	if test -z "$1"
 	then
 		error_msg "missing sed pattern"
