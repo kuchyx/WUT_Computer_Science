@@ -10,6 +10,7 @@
 \date{\today}
 \maketitle
 \section{Introduction}
+\subsection{Page replacament algorithms}
 \paragraph{First in First out}
 We use FIFO (First in First out) page replacement algorithm for those laboratories as indicated
 by the PageFault.java file line 18
@@ -35,7 +36,20 @@ public class PageFault {
 All pages are stored in memory in a queue. Oldest page (First that came in) is
 in front of this queue. \\ When we need to replace the page we remove the page that
 is first in queue (so the one that came in as a first one, first in, first out)
+\\
+It is easy to explain and implement but in practical application it performs
+poorly. It is still used but usually we use modified version of it.
 \cite{Page Replacement Algorithms}
+\paragraph{Optimal Page Replacement}
+We replace pages which in the future will not be used for the longest time.
+This is purely theoretical algorithm. It is perfect but not doable in practice
+since operating systems can not know future requests. \\
+It is used as a benchmark against which we compare other algorithms. 
+\cite{Page Replacament Algorithms}
+\paragraph{Least Recently Used}
+We replace page which was not used for the longest time. 
+\cite{Page Replacamanet Algorithms}
+\cite{pageWiki}
 \paragraph{Mapping}
 
 
@@ -44,5 +58,8 @@ is first in queue (so the one that came in as a first one, first in, first out)
 \bibitem{Page Replacement Algorithms}
 \href{https://www.geeksforgeeks.org/page-replacement-algorithms-in-operating-systems/}{[Geeks
 for Geeks page replacament algorithms]}
+\bibitem{pageWiki}
+\href{https://en.wikipedia.org/wiki/Page_replacement_algorithm}{Wikipedia Page
+replacament algorithm}
 \end{thebibliography}
 \end{document}
