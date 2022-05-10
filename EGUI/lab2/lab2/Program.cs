@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<lab2UserContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("lab2UserContext") ?? throw new InvalidOperationException("Connection string 'lab2UserContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
