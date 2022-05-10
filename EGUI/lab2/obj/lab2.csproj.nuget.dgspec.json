@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj": {}
+    "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj": {}
   },
   "projects": {
-    "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj": {
+    "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
+        "projectUniqueName": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
         "projectName": "lab2",
-        "projectPath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
+        "projectPath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
         "packagesPath": "/home/kuchy/.nuget/packages/",
-        "outputPath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/obj/",
+        "outputPath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kuchy/.nuget/NuGet/NuGet.Config"
@@ -39,6 +39,8 @@
           "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.4, )"
             }
@@ -53,12 +55,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.2, 6.0.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -67,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
         }
       }
     }

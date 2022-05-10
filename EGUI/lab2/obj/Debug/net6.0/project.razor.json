@@ -1,5 +1,5 @@
 {
-  "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
+  "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "6.0",
@@ -16298,48 +16298,48 @@
   "RootNamespace": "lab2",
   "Documents": [
     {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Shared/_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Home/Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Home/Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Login/Index.cshtml",
-      "TargetPath": "Views\\Login\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Shared/_Layout.cshtml",
-      "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Shared/Error.cshtml",
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/_ViewStart.cshtml",
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Register/Index.cshtml",
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Register/Index.cshtml",
       "TargetPath": "Views\\Register\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/Views/Home/Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Shared/_Layout.cshtml",
+      "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Login/Index.cshtml",
+      "TargetPath": "Views\\Login\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Home/Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/Views/Shared/_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     }
   ],

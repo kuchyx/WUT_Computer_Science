@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/ePGp+EEsfPLENqR4q0LM9ZG5TVjLixrDiXlXsOOa2+GMz/FowhGs5/Xf7x0o+iEcPdDPimuuwzEbgwrbhA9uw==",
+  "dgSpecHash": "YdHaC9bRkRXiMRkAXcCM+jmtTnKBS1dvXDGVSybm/MqlOKmxAEPZ4/wc4PTjSXaZyPcMPO9a+00moMuI+YSCgg==",
   "success": true,
-  "projectFilePath": "/home/kuchy/Zlew/niepraca/Studia/nieprogramy/nieNotatki/Projekty/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
+  "projectFilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2.csproj",
   "expectedPackageFiles": [
     "/home/kuchy/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/kuchy/.nuget/packages/microsoft.entityframeworkcore/6.0.4/microsoft.entityframeworkcore.6.0.4.nupkg.sha512",
@@ -21,8 +21,7 @@
     "/home/kuchy/.nuget/packages/microsoft.extensions.primitives/6.0.0/microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "/home/kuchy/.nuget/packages/system.collections.immutable/6.0.0/system.collections.immutable.6.0.0.nupkg.sha512",
     "/home/kuchy/.nuget/packages/system.diagnostics.diagnosticsource/6.0.0/system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "/home/kuchy/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "/home/kuchy/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.2/microsoft.aspnetcore.app.ref.6.0.2.nupkg.sha512"
+    "/home/kuchy/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
   ],
   "logs": []
 }
