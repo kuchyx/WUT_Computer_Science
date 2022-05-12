@@ -23,33 +23,34 @@ It should:
 \subsection{Diagram itself}
 \subsection{Diagram description}
 \subsubsection{How to make the project}
+\newpage
 \subsubsection{Microcontroller}
-I decided to use ATmega328P, 8-bit avr microcontroller.
-\paragraph{Relatively small} Up to 9.25 mm $\times$ 9.25 mm dimensions, 
+I decided to use STM32L082CZ from STM32L0 line
+\paragraph{Relatively small} Up to 10 mm $\times$ 10 mm dimensions, 
 compared to apple watch display of 34 mm by 40 mm for smaller version. 
 \cite{datasheet}
-286th page
+111th page
 \paragraph{Square} It is shaped in a square which also simplifies portability
-\cite{datasheet} 286th page
-\paragraph{Popular} A lot of documentation, usecases, guides
-\paragraph{5 software selectable power saving modes} Our device should use
-energy-saving power modes and 5 is a plentiful choice \cite{datasheet} 7th
-page
-\\
-Quick research suggests that this microcontroller can use as low as 0.36 mA
-\cite{powerSavingModes}
-\paragraph{Ease of use} In-system programming feature \cite{datasheet} (1 page)
-and programming environments which allow for easy development of code.
-\cite{avrgcc} 
+\cite{datasheet} 111th page
+\paragraph{Power saving} STM32L0 line was designed specifically for low power
+consumption with power consumption as low as 0.29 $\mi$ A in Standby mode
+\cite{datasheet} 1st page
+\paragraph{Consumer devices} This microcontroller comes from STM32LOx2 line
+prepared to be used in consumer devices \cite{consumerDevice}
+\paragraph{Ease of use} USB compatible microcontroller and dedicaded debug port
+allows for swift code creation.
+\cite{datasheet} 1st page 
 \subsubsection{All other components}
 \section{Draft of the microcontroller firmware}
 \subsection{Block diagram}
 \subsection{Description of the algorithm}
 \begin{thebibliography}{9}
-	\bibitem{datasheet} \href{https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf}{ATmega
-	328P datasheet}
-	\bibitem{powerSavingModes} \href{https://electronics.stackexchange.com/questions/49182/how-can-i-get-my-atmega328-to-run-for-a-year-on-batteries}{Electrical Engineering exchange,
-	atmega328 one year on batteries}
-	\bibitem{avrgcc} \href{https://gcc.gnu.org/wiki/avr-gcc}{avr gcc}
+	\bibitem{datasheet} 
+	\href{https://www.st.com/resource/en/datasheet/stm32l082cz.pdf}{STM32LO82CZ
+	datasheet}
+	\bibitem{consumerDevice}
+	\href{https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html}{Consumer
+	Device STM32LOx2 Line}
 \end{thebibliography}
 \end{document}
+
