@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Analysis of the project}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{Discussion of project requirements}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{Discussion of solution}{section.1}% 3
+\BOOKMARK [1][-]{section.2}{Detailed circuit diagram}{}% 4
+\BOOKMARK [1][-]{section.3}{Diagram}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{Diagram itself}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.2}{Diagram description}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.2.1}{How to make the project}{subsection.3.2}% 8
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Microcontroller}{subsection.3.2}% 9
+\BOOKMARK [3][-]{subsubsection.3.2.3}{All other components}{subsection.3.2}% 10
+\BOOKMARK [1][-]{section.4}{Draft of the microcontroller firmware}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Block diagram}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.2}{Description of the algorithm}{section.4}% 13
