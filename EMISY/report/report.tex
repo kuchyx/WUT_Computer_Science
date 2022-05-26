@@ -33,7 +33,7 @@ compared to apple watch display of 34 mm by 40 mm for smaller version.
 \paragraph{Square} It is shaped in a square which also simplifies portability
 \cite{datasheet} 111th page
 \paragraph{Power saving} STM32L0 line was designed specifically for low power
-consumption with power consumption as low as 0.29 $\mi$ A in Standby mode
+consumption with power consumption as low as 0.29 $\mu$ A in Standby mode
 \cite{datasheet} 1st page
 \paragraph{Consumer devices} This microcontroller comes from STM32LOx2 line
 prepared to be used in consumer devices \cite{consumerDevice}
@@ -41,6 +41,20 @@ prepared to be used in consumer devices \cite{consumerDevice}
 allows for swift code creation.
 \cite{datasheet} 1st page 
 \subsubsection{All other components}
+\paragraph{Oled display} For OLED display I decided to go with
+NHD-2.7-12864WDY3. It was an OLED display found on \href{www.mouser.pl}{mouser}
+webpage with lowest operating supply current of 180 uA, supply voltage
+compatible wit microcontroller (3.3 V) and datasheet not in japanese.
+\cite{OLED}
+\paragraph{Digital compass} For the compass I used HMC5883L with compatible
+voltage, low power consumption of 100 $\mu$ A, compatiblity with battery powered
+applications according to datasheet and small size 
+\paragraph{Battery} For the battery I choose LTC-7PMP with capacity of 1500 mA,
+output voltage of 3.5 V and small size (according to datasheet it is a perfect
+match for space saving requirements) \cite{Battery}
+\paragraph{Power supply} For power supply I choose LTC3525-3.3 with high 95 \%
+efficiency, desirable output voltage of 3.3 V, low profile and tiny package, it
+is also available in kicad by default \cite{Power supply}
 \section{Draft of the microcontroller firmware}
 \subsection{Block diagram}
 \subsection{Description of the algorithm}
@@ -51,6 +65,17 @@ allows for swift code creation.
 	\bibitem{consumerDevice}
 	\href{https://www.st.com/en/microcontrollers-microprocessors/stm32l0-series.html}{Consumer
 	Device STM32LOx2 Line}
+	\bibitem{OLED}
+	\href{https://www.mouser.pl/datasheet/2/291/NHD_2_7_12864WDY3-1116258.pdf}{OLED
+	datasheet}
+	\bibitem{Magnetometer}
+	\href{https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf}{Magnetometer
+	datasheet}
+	\bibitem{Battery}
+	\href{https://www.mouser.pl/datasheet/2/118/ltc7p-932904.pdf}{Battery}
+	\bibitem{Power supply}
+	\href{https://www.analog.com/media/en/technical-documentation/data-sheets/3525fc.pdf}{Voltage
+	regulator} 
 \end{thebibliography}
 \end{document}
 
