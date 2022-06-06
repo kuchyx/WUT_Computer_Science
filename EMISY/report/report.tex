@@ -49,12 +49,13 @@ compatible wit microcontroller (3.3 V) and datasheet not in japanese.
 \paragraph{Digital compass} For the compass I used HMC5883L with compatible
 voltage, low power consumption of 100 $\mu$ A, compatiblity with battery powered
 applications according to datasheet and small size 
-\paragraph{Battery} For the battery I choose LTC-7PMP with capacity of 1500 mA,
-output voltage of 3.5 V and small size (according to datasheet it is a perfect
-match for space saving requirements) \cite{Battery}
-\paragraph{Power supply} For power supply I choose LTC3525-3.3 with high 95 \%
+\paragraph{Battery} For the battery I choose 2x LR44R series battery, with output
+voltage of 1.5 V compatible with voltage regulator (3 V in series), compatible
+battery chemistry of Alkaline, 150 mAh capacity for single battery and compact
+coin cell shape. \cite{Battery}
+\paragraph{Voltage Regulator} For voltage regulator I choose LTC3525-3.3 with high 95 \%
 efficiency, desirable output voltage of 3.3 V, low profile and tiny package, it
-is also available in kicad by default \cite{Power supply}
+is also available in kicad by default \cite{Voltage Regulator}
 \section{Draft of the microcontroller firmware}
 \subsection{Block diagram}
 \subsection{Description of the algorithm}
@@ -72,8 +73,8 @@ is also available in kicad by default \cite{Power supply}
 	\href{https://cdn-shop.adafruit.com/datasheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf}{Magnetometer
 	datasheet}
 	\bibitem{Battery}
-	\href{https://www.mouser.pl/datasheet/2/118/ltc7p-932904.pdf}{Battery}
-	\bibitem{Power supply}
+	\href{https://www.murata.com/products/productdata/8809693839390/LR44R-DATASHEET.pdf?1604287808000}{Battery}
+	\bibitem{Voltage Regulator}
 	\href{https://www.analog.com/media/en/technical-documentation/data-sheets/3525fc.pdf}{Voltage
 	regulator} 
 \end{thebibliography}
