@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "StssT/2eZLkZSn43umSvmeLqenA26xinbyjBVo37pXT5odwyaKlONMyTwzs+CIv5osa4zCXrkySnq/7gxXyTGQ==",
+=======
+  "dgSpecHash": "eyEvKzMudpqP82Z+w6bg2nOaLduaGey2m4CAR19Eah9o8DIOSuc+ucHN9H/hvyyzQRWe2p/O2oPHE4qMnzW5+Q==",
+>>>>>>> 2e2c6d050a14788bde6baaa8e0f26cbba66781fb
   "success": true,
   "projectFilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
   "expectedPackageFiles": [
