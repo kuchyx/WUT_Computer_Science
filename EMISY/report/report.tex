@@ -18,12 +18,27 @@ It should:
 	\item Communicate using graphical OLED display and two buttons keyboard
 \end{itemize}
 \subsection{Discussion of solution}
+In my solution I focused on picking components based on firstly low power
+consumption, then size, then simplicity, whenever I could I tried to do
+everything as proposed in the component data sheet. \\
+For the schematic itself I needed power saving microcontroller, oled display,
+battery, voltage regulator that works well with batteries and digital compass.
 \section{Detailed circuit diagram}
-\section{Diagram}
 \subsection{Diagram itself}
+(Diagram is in pdf format so feel free to zoom in if something is not clearly
+visible) 
+\includepdf[pages=-]{schematicpdf.pdf}
 \subsection{Diagram description}
-\subsubsection{How to make the project}
+Voltage regulator schematic is done one to one on how it was done in voltage
+regulator schematic in case of two battery cells \\ 
+Digital compass also was connected exactly as specified in datasheet \\
+For OLED I based on the pin descriptions from datasheet and on common patterns
+of connecting peripherals \\
+Microcontroller itself was pretty straightforward with classic VDD, VSS and
+Reset pin conections \\
+For buttons I used pull up resistors 
 \newpage
+\subsection{Components}
 \subsubsection{Microcontroller}
 I decided to use STM32L082CZ from STM32L0 line
 \paragraph{Relatively small} Up to 10 mm $\times$ 10 mm dimensions, 
