@@ -1,6 +1,14 @@
 \documentclass{article}
 \usepackage{hyperref}
 \usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage{float}
+\usetikzlibrary{shapes.geometric, arrows, positioning}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
+\tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
+\tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
 \title{EMISY Project 21 Portable Compass}
 \author{Krzysztof Rudnicki, 307585}
 \date{\today}
@@ -73,6 +81,59 @@ efficiency, desirable output voltage of 3.3 V, low profile and tiny package, it
 is also available in kicad by default \cite{Voltage Regulator}
 \section{Draft of the microcontroller firmware}
 \subsection{Block diagram}
+\begin{figure}[H]
+	\caption{Start algorithm}
+	\centering
+\begin{tikzpicture}[node distance=2cm]
+        \node (start) [startstop] {Initialize};  
+   	\node (wait) [process, below of = start] {Wait for all components to start};
+	\node (main) [process, below of = wait] {Begin Microprocessor system work};
+        \node (end) [process, below of = main] {Turn off everything};            
+        \node (return) [startstop, below of = end] {Return};
+	\draw [arrow] (start) -- (wait); 
+	\draw [arrow] (wait) -- (main);
+	\draw [arrow] (main) -- node[anchor=east] {Request shutdown} (end);
+	\draw [arrow] (end) -- (return);
+\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Main loop}
+	\centering
+	\begin{tikzpicture}[node distance=2cm]
+		\node (beginMain) [startstop] {Begin Microprocessor system
+			work};
+		\node (setButtonClicked) [process, below of = beginMain]
+			{buttonClicked = 0};
+	\node (buttonInterrupts) [process, below of = setButtonClicked] {Button Interrupts};
+	\node (infiniteLoop) [process, below of = buttonInterrupts] {Infinite
+		loop};
+	\node (whichButton) [decision, below = 1 cm of infiniteLoop] {buttonClicked?};
+	\node(idle) [process, below = 1 cm of whichButton] {Stop mode without RTC};
+	\node(freeze) [process, below of = idle] {Wait for interrupt};
+	\node (infiniteLoop2) [process, below of = freeze] {Infinite loop};
+	\node (endCompass) [process, below of = infiniteLoop2] {Request shutdown};
+	\node(updateCompass) [process, left = 1 cm of idle] {Do a single
+		measurement};
+	\node(resetButton) [process, below of = updateCompass] {buttonClicked =
+		0};
+
+	\end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Single measurement algorithm}
+	\centering
+	\begin{tikzpicture}[node distance = 2cm]
+	\node (start) [startstop] {Do a single measurement};
+		\node (askFor) [process, below of = start] {Take measurement
+			from magnetometer};
+		\node (process) [process, below of = askFor] {Output measurment
+			to display};
+		\node (end) [startstop, below of = process] {Finish
+			measurement};
+	\end{tikzpicture}
+\end{figure}
 \subsection{Description of the algorithm}
 \begin{thebibliography}{9}
 	\bibitem{datasheet} 
