@@ -3,12 +3,51 @@
 \usepackage{pdfpages}
 \usepackage{tikz}
 \usepackage{float}
-\usetikzlibrary{shapes.geometric, arrows, positioning}
+\usetikzlibrary{matrix, shapes, chains, shapes.geometric, arrows, positioning}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=3cm, minimum height=1cm,text centered, draw=black, fill=red!30]
 \tikzstyle{io} = [trapezium, trapezium left angle=70, trapezium right angle=110, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=blue!30]
 \tikzstyle{process} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=orange!30]
 \tikzstyle{decision} = [diamond, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=green!30]
 \tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzset{
+    desicion/.style={
+        diamond,
+        draw,
+        text width=3em,
+        text badly centered,
+        inner sep=0pt
+    },
+    block/.style={
+        rectangle,
+        draw,
+        text width=10em,
+        text centered,
+        rounded corners
+    },
+    cloud/.style={
+        draw,
+        ellipse,
+        minimum height=2em
+    },
+    descr/.style={
+        fill=white,
+        inner sep=2.5pt
+    },
+    connector/.style={
+     -latex,
+     font=\scriptsize
+    },
+    rectangle connector/.style={
+        connector,
+        to path={(\tikztostart) -- ++(#1,0pt) \tikztonodes |- (\tikztotarget) },
+        pos=0.5
+    },
+    rectangle connector/.default=-2cm,
+    straight connector/.style={
+        connector,
+        to path=--(\tikztotarget) \tikztonodes
+    }
+}
 \title{EMISY Project 21 Portable Compass}
 \author{Krzysztof Rudnicki, 307585}
 \date{\today}
@@ -117,7 +156,18 @@ is also available in kicad by default \cite{Voltage Regulator}
 		measurement};
 	\node(resetButton) [process, below of = updateCompass] {buttonClicked =
 		0};
-
+	\draw [arrow] (beginMain) -- (setButtonClicked);
+	\draw [arrow] (setButtonClicked) -- (buttonInterrupts);
+	\draw [arrow] (buttonInterrupts) -- (infiniteLoop);
+	\draw [arrow] (infiniteLoop) -- (whichButton);
+	\draw [arrow] (whichButton) -- node [anchor=east] {0} (idle);
+	\draw [arrow] (whichButton) -- node [anchor=north] {1} (updateCompass);
+	\draw [arrow] (updateCompass) -- (resetButton);
+	\draw [arrow] (resetButton) -- (infiniteLoop2);
+	\draw [arrow] (idle) -- (freeze);
+	\draw [arrow] (freeze) -- (infiniteLoop2);
+	\draw [rectangle connector=-8cm] (infiniteLoop2) to node[descr] {}  (infiniteLoop);
+	\draw [rectangle connector=3cm] (whichButton) to node[descr] {2} (endCompass);
 	\end{tikzpicture}
 \end{figure}
 
@@ -132,9 +182,31 @@ is also available in kicad by default \cite{Voltage Regulator}
 			to display};
 		\node (end) [startstop, below of = process] {Finish
 			measurement};
+	\draw [arrow] (start) -- (askFor);
+	\draw [arrow] (askFor) -- (process);
+	\draw [arrow] (process) -- (end);
 	\end{tikzpicture}
 \end{figure}
 \subsection{Description of the algorithm}
+There are 3 main diagrams, start algorithm at the very beginning of the
+microcontroller, then main loop containing most of the code and another one for
+single measurement from magnetometer.
+\begin{enumerate}
+	\item Start algorithm - we initialize all of the components to be ready
+		for the microcontroller to fork, we wait for the components to
+		start and go into the main loop, once we get the shutdown
+		interrupt we turn off all components and exit from the firmware.
+	\item Main loop - Once all the components are initialized we start the
+		main loop, we set the variable which tells us which button was
+		clicked to default value of 0, we set up button interrupts to
+		get information what button we clicked and we enter the infinite
+		loop. In infinite loop depending on button clicked we either do
+		a single measurement, shutdown the whole microprocessor or enter
+		stop mode without RTC (lowest power consumption while still
+		working with interrupts)
+	\item Single measurement consists of taking data from magnetometer and
+		outputing it on the display
+\end{enumerate}
 \begin{thebibliography}{9}
 	\bibitem{datasheet} 
 	\href{https://www.st.com/resource/en/datasheet/stm32l082cz.pdf}{STM32LO82CZ
