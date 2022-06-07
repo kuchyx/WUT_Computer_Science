@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1632gBteYOY/wuKfaB4Ze7rFUdvN/1i4RIiSUg56/e/EDauVmdxXWnHWizQYK4cFCwsNnU/EL37tlxJobl42WQ==",
+  "dgSpecHash": "StssT/2eZLkZSn43umSvmeLqenA26xinbyjBVo37pXT5odwyaKlONMyTwzs+CIv5osa4zCXrkySnq/7gxXyTGQ==",
   "success": true,
-  "projectFilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
+  "projectFilePath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
   "expectedPackageFiles": [
     "/home/kuchy/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/kuchy/.nuget/packages/messagepack/2.1.152/messagepack.2.1.152.nupkg.sha512",

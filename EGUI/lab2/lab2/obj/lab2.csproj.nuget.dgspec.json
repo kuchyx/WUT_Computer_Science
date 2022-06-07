@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj": {}
+    "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj": {}
   },
   "projects": {
-    "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj": {
+    "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
+        "projectUniqueName": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
         "projectName": "lab2",
-        "projectPath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
+        "projectPath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/lab2.csproj",
         "packagesPath": "/home/kuchy/.nuget/packages/",
-        "outputPath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/EGUI/egui_lab1_krzysztof_rudnicki/lab2/lab2/obj/",
+        "outputPath": "/home/kuchy/Zlew/Studia/NieNotatki/Projekty/nie_inzynierka/Programowanie/egui_lab1_krzysztof_rudnicki/lab2/lab2/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/kuchy/.nuget/NuGet/NuGet.Config"
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.300/RuntimeIdentifierGraph.json"
         }
       }
     }
