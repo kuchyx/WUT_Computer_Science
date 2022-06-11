@@ -1,170 +1,207 @@
 {
   "posts": [
     {
-      "title": "JSON SERVER",
-      "author": "foo",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 1
     },
     {
-      "title": "REACT",
-      "author": "facebook",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 2
     },
     {
-      "title": "BOOTSTRAP",
-      "author": "css master",
+      "mail": "test@test",
+      "login": "test@test",
+      "blogTitle": "test@test",
+      "password": "test@test",
       "id": 3
     },
     {
-      "title": "MEDIUM",
-      "author": "medium",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 4
     },
     {
-      "title": "test",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 5
     },
     {
-      "title": "test",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 6
     },
     {
-      "title": "test",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 7
     },
     {
-      "title": "test",
+      "mail": "test@test",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 8
     },
     {
-      "title": "test",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 9
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 10
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 11
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 12
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 13
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 14
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 15
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 16
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 17
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 18
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 19
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 20
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 21
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 22
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 23
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 24
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 25
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 26
     },
     {
-      "title": "",
-      "author": "",
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 27
     },
     {
+      "mail": "",
+      "login": "",
+      "blogTitle": "",
+      "password": "",
       "id": 28
     },
     {
+      "mail": "",
+      "login": "test@test",
+      "blogTitle": "",
+      "password": "",
       "id": 29
-    },
-    {
-      "id": 30
-    },
-    {
-      "id": 31
-    },
-    {
-      "id": 32
-    },
-    {
-      "id": 33
-    },
-    {
-      "id": 34
-    },
-    {
-      "title": "test",
-      "author": "test",
-      "id": 35
-    },
-    {
-      "title": "test",
-      "author": "test",
-      "id": 36
-    },
-    {
-      "title": "test@test",
-      "author": "test",
-      "id": 37
     }
   ]
 }
