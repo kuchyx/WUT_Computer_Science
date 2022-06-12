@@ -1,1 +1,1 @@
-Use run.sh script to install dependencies, run frontend and backend server using one script or use npm i and then npm start
+Use run.sh script to install dependencies and run frontend and backend server using one script <br/> or use npm i and then npm start
