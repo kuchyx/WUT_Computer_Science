@@ -74,11 +74,11 @@ export default class Login extends React.Component {
     {
       alert("This login: \"" + this.state.login + "\" does not exist!");
       return;
-    }
-    if(allData[0].password !== this.state.password)
+    }    if(allData[0].password !== this.state.password)
     {
       alert("Wrong password!");
       return;
     }
+    return this.state.login;
   }
 }

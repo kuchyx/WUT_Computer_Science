@@ -7,10 +7,20 @@ import {
     Outlet,
 } from "react-router-dom";
 import React from 'react';
+import loginContext from './context.context';
 
-export default function App() {
+export default class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            login: "",
+          };
+      }
+
+    render() {
     return (
         <div>
+
     <Navbar bg="light" expand="lg">
     <Container>
         <Navbar.Brand href="/">Lab 3</Navbar.Brand>
@@ -27,8 +37,11 @@ export default function App() {
 
     </Navbar>
     <Outlet />
+
     </div>
 
     );
-  }
+    }
+}
+
   
