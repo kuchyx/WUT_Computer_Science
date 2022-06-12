@@ -14,15 +14,20 @@ export default class Register extends React.Component {
       login: "",
       blogTitle: "",
       password: "",
+      blogData: {
+        "title": "",
+        "listOfItems":
+        [
+        ],
+        "dateTime": "",
+        },
+  
       };
   }
       
   render() {
     return (
         <div>
-        <div>
-        { this.state.mail }
-        </div>
       <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
@@ -94,28 +99,59 @@ export default class Register extends React.Component {
       password: val
     });
   }
-
+  
   async registerUser() {
-    const fetchAddress = "http://localhost:8000/posts/?login=" + this.state.login;
+    const fetchAddress = "http://localhost:8000/users/?login=" + this.state.login;
     // console.log(this.state.inputValue);
     const response = await fetch(fetchAddress, 
     { 
       method: "GET",
     });
     const allData = await response.json();
-    console.log(allData.length);
+    console.log(allData);
     if(allData.length !== 0)
     {
       alert("This login: \"" + this.state.login + "\" is already taken!");
       return;
-    } 
-    await fetch("http://localhost:8000/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(this.state)
-      }).then(data => console.log(data));
+    }
+    if(this.state.password === undefined || this.state.password === "")
+    {
+      alert("Password cannot be empty! ");
+      return;
+    }
+    const currentDate = new Date();
+    const dateTime = currentDate.getDate() + "/"
+    + (currentDate.getMonth()+1)  + "/" 
+    + currentDate.getFullYear() + " @ "  
+    + currentDate.getHours() + ":"  
+    + currentDate.getMinutes() + ":" 
+    + currentDate.getSeconds();
+    const blogData = {
+      "title": this.state.blogTitle,
+      "listOfItems":
+      [
+      ],
+      "dateTime": dateTime,
+      };
+    this.state.blogData = blogData;
+      
+    await fetch("http://localhost:8000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(this.state),
+      redirect: 'manual',
+    }).then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
 
-    };
+      
+  }
+
+  
 }
